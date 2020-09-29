@@ -1,11 +1,11 @@
 {
   "name": "dice",
   "version": "1.0.0",
-  "description": "Dice game",
+  "description": "Dice game main api",
   "main": "main.js",
   "repository": "https://github.com/Bartosz95/dice-game.git",
   "scripts": {
-    "run": "node main.js"
+    "start": "node main.js"
   },
   "dependencies": {
     "express": "^4.17.1",

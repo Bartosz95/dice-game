@@ -1,12 +1,14 @@
 const Dice = require('./Dice');
 
-class Mug {
+module.exports =  class Mug {
 
     constructor(dices) {
         this.dices = dices;
+        this.countOfDice = dices.length;
     }
 
-    rollTheDices(...numberOnTopSide) {
+    rollTheDices(numberOnTopSide) {
+        console.log(numberOnTopSide);
         if(numberOnTopSide.length == 0) 
             this.dices.forEach((item) => {
                 item.roll()
@@ -22,5 +24,3 @@ class Mug {
         }
     }
 }
-
-module.exports = Mug;
