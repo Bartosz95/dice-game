@@ -1,6 +1,6 @@
 require
 
-class Dice {
+module.exports = class Dice {
     constructor(countOfDiceSides) {
         this.countOfDiceSides = countOfDiceSides;
         this.roll();
@@ -10,5 +10,3 @@ class Dice {
         this.number = Math.floor(Math.random() * this.countOfDiceSides) + 1
     }
 }
-
-module.exports = Dice;
