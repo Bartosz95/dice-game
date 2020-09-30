@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Dice game main api",
   "main": "main.js",
-  "repository": "",
+  "repository": "git@github.com:Bartosz95/dice-game-api.git",
   "scripts": {
     "start": "node main.js"
   },
