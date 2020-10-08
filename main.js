@@ -31,5 +31,5 @@ app.post(URL, (req, res, next) => {
 });
 
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}${URL}`);
+app.listen(PORT);
+console.log(`Running on http://localhost:${PORT}${URL}`);
