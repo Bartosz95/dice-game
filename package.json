@@ -10,9 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "dotenv": "^14.3.2",
-    "express": "^4.17.2",
-    "winston": "^3.2.1"
+    "dotenv": "^14.3.x",
+    "express": "^4.17.x",
+    "winston": "^3.5.x"
   },
   "author": "Bartosz Lenartowicz",
   "license": "ISC",

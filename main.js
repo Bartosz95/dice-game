@@ -1,16 +1,13 @@
-// const logger = require('./logger');
 import 'dotenv/config';
+import logger from './logger';
+
 import express  from 'express'
 import bodyParser from 'body-parser'
 import Game from './game_modules/Game'
 
-
-
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 const URL = process.env.URL;
-
-console.log(Game)
 
 const game = new Game(5,6);
 const app = express();
@@ -34,4 +31,4 @@ app.post(URL, (req, res, next) => {
     res.send(game);
 });
 
-app.listen(PORT, HOST, () => console.log(`Running on http://${HOST}:${PORT}${URL}`));
+app.listen(PORT, HOST, () => logger.info(`Running on http://${HOST}:${PORT}${URL}`));
