@@ -1,3 +1,4 @@
+import logger from "../logger";
 export default class Mug {
 
     constructor(dices) {
@@ -6,7 +7,7 @@ export default class Mug {
     }
 
     rollTheDices(numberOnTopSide) {
-        console.log(numberOnTopSide);
+        logger.info(numberOnTopSide);
         if(numberOnTopSide.length == 0) 
             this.dices.forEach((item) => {
                 item.roll()
