@@ -1,6 +1,4 @@
-require
-
-module.exports = class Dice {
+export default class Dice {
     constructor(countOfDiceSides) {
         this.countOfDiceSides = countOfDiceSides;
         this.roll();

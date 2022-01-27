@@ -1,8 +1,7 @@
-const Mug = require('./Mug');
-const Dice = require('./Dice');
+import Mug from './Mug';
+import Dice from './Dice';
 
-
- module.exports = class Game {
+export  default class Game {
     constructor(countOfDices, countOfDiceSides) {
         
         const dices = []

@@ -1,15 +1,19 @@
 // const logger = require('./logger');
-const express = require('express');
-const bodyParser = require('body-parser');
-const Game = require('./game_modules/Game.js')
+import 'dotenv/config';
+import express  from 'express'
+import bodyParser from 'body-parser'
+import Game from './game_modules/Game'
 
+
+
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
+const URL = process.env.URL;
+
+console.log(Game)
 
 const game = new Game(5,6);
-
 const app = express();
-const PORT = 3000;
-const HOST = '0.0.0.0';
-const URL = '/api/v1/game';
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -30,6 +34,4 @@ app.post(URL, (req, res, next) => {
     res.send(game);
 });
 
-
-app.listen(PORT);
-console.log(`Running on http://localhost:${PORT}${URL}`);
+app.listen(PORT, HOST, () => console.log(`Running on http://${HOST}:${PORT}${URL}`));

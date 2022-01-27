@@ -1,6 +1,4 @@
-const Dice = require('./Dice');
-
-module.exports =  class Mug {
+export default class Mug {
 
     constructor(dices) {
         this.dices = dices;
