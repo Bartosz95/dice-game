@@ -1,3 +1,4 @@
+"use strict";
 import 'dotenv/config';
 import logger from './logger';
 
