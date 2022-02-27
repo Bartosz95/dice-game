@@ -1,35 +1,25 @@
 "use strict";
 import 'dotenv/config';
-import logger from './logger';
-
 import express  from 'express'
-import bodyParser from 'body-parser'
-import Game from './game_modules/Game'
 
-const PORT = process.env.PORT;
-const HOST = process.env.HOST;
-const URL = process.env.URL;
+import logger from './libs/logger';
+import game from './routers/game';
 
-const game = new Game(5,6);
+const HOST = process.env.APP_HOST;
+const PORT = process.env.APP_PORT;
+const URL = process.env.APP_URL;
+
+
 const app = express();
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
 
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.get(URL, (req, res, next) => {
-    res.send(game);
-});
-
-// curl -d '{"numbersToChange":[1,2]}' -H "Content-Type: application/json" http://localhost:3000/api/v1/game
-app.post(URL, (req, res, next) => {
-    const numbersToChange = req.body.numbersToChange;
-    game.mug.rollTheDices(numbersToChange);
-    res.send(game);
-});
+app.use(URL, game);
 
 app.listen(PORT, HOST, () => logger.info(`Running on http://${HOST}:${PORT}${URL}`));
