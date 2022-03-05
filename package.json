@@ -12,9 +12,9 @@
   "dependencies": {
     "@babel/core": "^7.16.12",
     "@babel/node": "^7.16.8",
-    
     "dotenv": "^14.3.x",
     "express": "^4.17.x",
+    "mongoose": "^6.2.4",
     "winston": "^3.5.x"
   },
   "author": "Bartosz Lenartowicz",
