@@ -1,7 +1,7 @@
 import Mug from './Mug';
 import Dice from './Dice';
 
-export  default class Game {
+export default class Game {
     constructor(countOfDices, countOfDiceSides) {
         
         const dices = []

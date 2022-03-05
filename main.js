@@ -9,7 +9,6 @@ const HOST = process.env.APP_HOST;
 const PORT = process.env.APP_PORT;
 const URL = process.env.APP_URL;
 
-
 const app = express();
 
 app.use((req, res, next) => {
