@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/core": "^7.16.12",
     "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
     "dotenv": "^14.3.x",
     "express": "^4.17.x",
     "mongoose": "^6.2.4",
@@ -20,7 +21,6 @@
   "author": "Bartosz Lenartowicz",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
     "nodemon": "^2.0.15"
   }
 }

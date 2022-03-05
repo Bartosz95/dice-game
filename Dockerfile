@@ -1,8 +1,8 @@
-FROM node:14-alpine
+FROM node:17-alpine
 RUN mkdir -p /opt/dice-game/dice-game-api
 WORKDIR /opt/dice-game/dice-game-api
 COPY . .
-RUN yarn install
+RUN yarn install --production
 # Add env if needed ENV APP_HOST='localhost'
 # APP_PORT='3000'
 # APP_HOST='0.0.0.0'
