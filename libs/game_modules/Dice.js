@@ -1,4 +1,7 @@
 export default class Dice {
+
+    countOfDiceSides
+
     constructor(countOfDiceSides) {
         this.countOfDiceSides = countOfDiceSides;
         this.roll();

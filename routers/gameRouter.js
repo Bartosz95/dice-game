@@ -1,13 +1,14 @@
 import { Router } from 'express'
-import { mongoose } from 'mongoose';
 
+import logger from '../libs/logger';
 import Game from '../libs/game_modules/Game'
 import { gameModel } from '../libs/db'
-import logger from '../libs/logger';
+
 
 
 const game = new Game(5,6);
 const instance = new gameModel({game: game})
+
 instance.save((err) => {
     if(err) {
         logger.error(err)

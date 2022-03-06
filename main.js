@@ -3,7 +3,7 @@ import 'dotenv/config';
 import express  from 'express'
 
 import logger from './libs/logger';
-import game from './routers/game';
+import game from './routers/gameRouter';
 
 const HOST = process.env.APP_HOST;
 const PORT = process.env.APP_PORT;

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 import logger from './logger';
-import gameSchema from './db_schemas/Game'
+import { gameSchema } from './db_schemas/GameSchema'
 
 const HOST = process.env.DB_HOST;
 const PORT = process.env.DB_PORT;
