@@ -10,8 +10,8 @@ const logger = createLogger({
 
 if (process.env.NODE_ENV !== 'production') {
   logger.add(new transports.Console())
-  logger.add(new transports.File({ filename: 'logs/out.log'}))
-  logger.add(new transports.File({ filename: 'logs/error.log', level: 'error'}))
+  logger.add(new transports.File({ filename: `${__dirname}/logs/out.log`}))
+  logger.add(new transports.File({ filename: `${__dirname}/logs/error.log`, level: 'error'}))
 } else {
   logger.add(new transports.Console())
   logger.add(new transports.File({ filename: '/var/log/dice-game-api/out.log'}))

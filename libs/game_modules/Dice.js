@@ -1,13 +1,11 @@
 export default class Dice {
 
-    countOfDiceSides
-
-    constructor(countOfDiceSides) {
-        this.countOfDiceSides = countOfDiceSides;
+    constructor(numberOfSides) {
+        this.numberOfSides = numberOfSides;
         this.roll();
     }
 
     roll() {
-        this.number = Math.floor(Math.random() * this.countOfDiceSides) + 1
+        this.number = Math.floor(Math.random() * this.numberOfSides) + 1
     }
 }
