@@ -1,7 +1,5 @@
-import { mongoose } from 'mongoose'
+import { mongoose } from '../db'
 
-const Schema = mongoose.Schema;
-
-exports.gameSchema = new Schema({
+export default mongoose.model("game", new mongoose.Schema({
     game: {}
-});
+}));

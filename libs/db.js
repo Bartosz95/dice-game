@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
 import logger from './logger';
-import { gameSchema } from './db_schemas/GameSchema'
 
 const HOST = process.env.DB_HOST;
 const PORT = process.env.DB_PORT;
@@ -22,4 +21,5 @@ const connection = mongoose.connection;
 
 connection.once("open", () => logger.info("Database connection established successfully"));
 
-exports.gameModel = mongoose.model("game", gameSchema);
+exports.mongoose = mongoose
+exports.mongoUrl = DB_URL

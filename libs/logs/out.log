@@ -1741,3 +1741,845 @@
   level: 'info',
   timestamp: '2022-03-07T20:12:27.748Z'
 }
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:18:55.924Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:18:56.030Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:19:05.098Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:19:23.009Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:20:09.198Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:20:09.227Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:20:18.078Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:20:18.129Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:20:42.556Z'
+}
+{
+  message: 'Request GET / not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:20:43.977Z'
+}
+{
+  message: 'Request GET /favicon.ico not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:20:44.046Z'
+}
+{
+  message: 'Request GET /favicon.ico not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:21:12.483Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:22:32.495Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:22:32.533Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:22:39.472Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:22:39.543Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:04.717Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:04.771Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:30.809Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:30.869Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:35.678Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:35.758Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:39.311Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:23:39.378Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:25:13.493Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:25:13.566Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:27:51.970Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:27:52.102Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:27:58.086Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:27:58.130Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:04.160Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:04.221Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:07.079Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:07.115Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:28:11.375Z'
+}
+{
+  message: 'Request GET / not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:12.919Z'
+}
+{
+  message: 'Request GET /favicon.ico not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:13.064Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:19.403Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:19.447Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:28.861Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:28.910Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:28:38.903Z'
+}
+{
+  message: undefined,
+  level: 'info',
+  timestamp: '2022-03-07T20:28:39.333Z'
+}
+{
+  message: 'Request GET / not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:40.119Z'
+}
+{
+  message: 'Request GET /favicon.ico not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:28:40.213Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:01.930Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:01.992Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:33.144Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:33.213Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:40.413Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:40.515Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:29:42.196Z'
+}
+{
+  message: undefined,
+  level: 'info',
+  timestamp: '2022-03-07T20:29:42.780Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:29:43.505Z'
+}
+{
+  message: 'Request GET / not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:43.507Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:29:43.516Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:29:43.590Z'
+}
+{
+  message: 'Request GET /favicon.ico not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:29:43.592Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:29:43.609Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:06.635Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:06.723Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:09.848Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:09.888Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:27.246Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:27.326Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:55.852Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:34:55.898Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:35:19.835Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:35:19.883Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:37:39.560Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:37:39.622Z'
+}
+{
+  message: "User doesn't logged. Redirect to /login",
+  level: 'info',
+  timestamp: '2022-03-07T20:37:43.656Z'
+}
+{
+  message: undefined,
+  level: 'info',
+  timestamp: '2022-03-07T20:37:44.314Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:37:45.076Z'
+}
+{
+  message: 'Request GET / not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:37:45.079Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:37:45.095Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:37:45.165Z'
+}
+{
+  message: 'Request GET /favicon.ico not found. Redirect to /api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:37:45.169Z'
+}
+{
+  message: {
+    displayName: 'bartek.lenart95@gmail.com',
+    id: 'auth0|6224b5c30eac08007061fa31',
+    user_id: 'auth0|6224b5c30eac08007061fa31',
+    provider: 'auth0',
+    name: {},
+    emails: [ { value: 'bartek.lenart95@gmail.com' } ],
+    picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+    nickname: 'bartek.lenart95',
+    _json: {
+      sub: 'auth0|6224b5c30eac08007061fa31',
+      nickname: 'bartek.lenart95',
+      name: 'bartek.lenart95@gmail.com',
+      picture: 'https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png',
+      updated_at: '2022-03-07T20:04:52.386Z',
+      email: 'bartek.lenart95@gmail.com',
+      email_verified: true
+    },
+    _raw: '{"sub":"auth0|6224b5c30eac08007061fa31","nickname":"bartek.lenart95","name":"bartek.lenart95@gmail.com","picture":"https://s.gravatar.com/avatar/26b5b90364db2e73517c7be180f83ad5?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fba.png","updated_at":"2022-03-07T20:04:52.386Z","email":"bartek.lenart95@gmail.com","email_verified":true}'
+  },
+  level: 'info',
+  timestamp: '2022-03-07T20:37:45.190Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:38:09.445Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:38:09.486Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:39:40.498Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:39:40.572Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:39:55.809Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:39:55.853Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:40:12.771Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:40:12.812Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:40:18.981Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:40:19.016Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:46:31.740Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:46:31.776Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T20:47:52.469Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T20:47:52.508Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:03:11.174Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:03:11.204Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:06.811Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:06.860Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:15.814Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:15.881Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:33.497Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:33.552Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:47.209Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:04:47.254Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:05:40.200Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:05:40.249Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:02.961Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:03.008Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:20.481Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:20.534Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:38.848Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:38.876Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:54.472Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:06:54.511Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:07:05.491Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:07:05.530Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:08:02.103Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:08:02.159Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:08:50.664Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:08:50.708Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:11:57.796Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:11:57.841Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:13:49.723Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:13:49.774Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:14:06.101Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:14:06.167Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:17:27.212Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:17:27.261Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:17:55.806Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:17:55.910Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:17:59.059Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:18:20.558Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:18:20.611Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:18:38.528Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:18:38.567Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:20:03.359Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:20:03.411Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1/game',
+  level: 'info',
+  timestamp: '2022-03-07T21:20:24.472Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-07T21:20:24.541Z'
+}

@@ -11,13 +11,13 @@ import { passport, session } from './libs/auth'
 const HOST = process.env.APP_HOST;
 const PORT = process.env.APP_PORT;
 const URL = process.env.APP_URL;
+const NODE_ENV = process.env.NODE_ENV
 
 const AUTH_URL = '/'
 
-// if (app.get("env") === "production") {
-//   // Serve secure cookies, requires HTTPS
-//   session.cookie.secure = true;
-// }
+if (NODE_ENV === "production") {
+  session.cookie.secure = true;
+}
 
 const app = express();
 app.use(expressSession(session));
@@ -27,11 +27,11 @@ app.use(passport.session());
 app.use(AUTH_URL, authRouter);
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
-  console.log(req.isAuthenticated())
   if (!req.isAuthenticated()) {
     logger.info(`User doesn't logged. Redirect to ${AUTH_URL}login`)
     res.redirect(`${AUTH_URL}login`)
   } else {
+    logger.info(req.user)
     next();
   }
 });

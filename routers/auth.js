@@ -1,3 +1,5 @@
+import logger from "../libs/logger";
+
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -12,16 +14,13 @@ router.get(
     scope: "openid email profile"
   }),
   (req, res) => {
-    console.log("login")
     res.redirect("/");
   }
 );
 
 router.get("/callback", (req, res, next) => {
-  console.log("callback")
+  logger.info(req.user)
   passport.authenticate("auth0", (err, user, info) => {
-    console.log("user")
-    console.log(user)
     if (err) {
       return next(err);
     }
@@ -65,4 +64,4 @@ router.get("/logout", (req, res) => {
   res.redirect(logoutURL);
 });
 
-module.exports = router;
+export default router

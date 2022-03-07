@@ -1,5 +1,8 @@
 const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
+import MongoStore from 'connect-mongo'
+import { mongoUrl } from './db'
+
 
 const PORT = process.env.APP_PORT;
 const AUTH_HOST = process.env.AUTH_HOST
@@ -8,14 +11,14 @@ const CLIENT_SECRET = process.env.AUTH_CLIENT_SECRET
 const SESSION_SECRET = process.env.AUTH_SESSION_SECRET
 const CALLBACK_URL = `http://localhost:${PORT}/callback`
 
-
 const session = {
     secret: SESSION_SECRET,
     cookie: {
         secure: false
     },
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    //store: MongoStore.create({mongoUrl: mongoUrl})
 };
 
 const strategy = new Auth0Strategy(
