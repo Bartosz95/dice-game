@@ -6,16 +6,22 @@
   "repository": "git@github.com:Bartosz95/dice-game-api.git",
   "scripts": {
     "start": "npx babel-node main.js",
-    "start_dev": "nodemon --exec babel-node main.js",
+    "startdev": "nodemon --exec babel-node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
-    "dotenv": "^14.3.x",
-    "express": "^4.17.x",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.3",
+    "express-openid-connect": "^2.7.1",
+    "express-session": "^1.17.2",
     "mongoose": "^6.2.4",
+    "passport": "^0.5.2",
+    "passport-auth0": "^1.4.2",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
     "winston": "^3.5.x"
   },
   "author": "Bartosz Lenartowicz",

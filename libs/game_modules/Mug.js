@@ -3,7 +3,7 @@ export default class Mug {
 
     constructor(dices) {
         this.dices = dices;
-        this.numberOfDice = dices.length;
+        this.numberOfDices = dices.length;
     }
 
     rollTheDices(numberOnTopSide) {

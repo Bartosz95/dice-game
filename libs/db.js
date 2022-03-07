@@ -7,11 +7,16 @@ const HOST = process.env.DB_HOST;
 const PORT = process.env.DB_PORT;
 const USER = process.env.DB_USER;
 const PASSWORD = process.env.DB_PASSWORD;
+const NODE_ENV = process.env.NODE_ENV;
 
+let DB_URL = null
+if(NODE_ENV === 'development'){
+    DB_URL = `mongodb://${HOST}:${PORT}/`;
+}else {
+    DB_URL = `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/`;
+}
 
-const URI = `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/`;
-
-mongoose.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
 
