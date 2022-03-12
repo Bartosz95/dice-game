@@ -1,4 +1,5 @@
 import logger from "../logger";
+import Dice from "./Dice";
 export default class Mug {
 
     constructor(dices) {
@@ -6,19 +7,18 @@ export default class Mug {
         this.numberOfDices = dices.length;
     }
 
-    rollTheDices(numberOnTopSide) {
-        logger.info(numberOnTopSide);
-        if(numberOnTopSide.length == 0) 
-            this.dices.forEach((item) => {
-                item.roll()
-            });
+    rollTheDices(numbersOnTopSide) {
+        logger.info(numbersOnTopSide);
+        if(numbersOnTopSide.length == 0) 
+        this.dices = this.dices.map(dice => new Dice(dice.numberOfSides))
         else {
-            numberOnTopSide = numberOnTopSide.splice(0, this.dices.length);
-            this.dices.forEach((item) => {
-                if(numberOnTopSide.includes(item.number)){
-                    delete numberOnTopSide[numberOnTopSide.indexOf(item.number)];
-                    item.roll()
+            numbersOnTopSide = numbersOnTopSide.splice(0, this.dices.length);
+            this.dices = this.dices.map(dice => {
+                if(numbersOnTopSide.includes(dice.number)){
+                    delete numbersOnTopSide[numbersOnTopSide.indexOf(dice.number)];
+                    dice = new Dice(dice.numberOfSides);
                 }
+                return dice;
             });
         }
     }

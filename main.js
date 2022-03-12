@@ -11,15 +11,11 @@ const PORT = process.env.APP_PORT;
 const URL = process.env.APP_URL;
 const NODE_ENV = process.env.NODE_ENV
 
-const AUTH_URL = '/'
+const app = express();
 
 if (NODE_ENV === "production") {
   app.use(jwtCheck);
 }
-
-const app = express();
-
-
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
