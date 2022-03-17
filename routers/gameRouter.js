@@ -24,7 +24,7 @@ gameModel.find({}, (err, docs) => {
 /*
 First add token to token enviroment variable
 token=$(curl --request POST --url https://dev-8ti8osnq.us.auth0.com/oauth/token -H 'content-type: application/json' \
--d '{"client_id":"zMyBsd3sTTrd19xnWLIq3kdd5oqePtUH","client_secret":"h4U5_7zrv1DNu51tUgHHFXmBQtAIYPkyFDxYIfuZzdlD3hBV7n5-pujCwmobvJuC","audience":"https://dicegame/api","grant_type":"client_credentials"}' | jq '.access_token')
+-d '{"client_id":"5AXHpewP0yBnJAya4yb2BUGf2abJCbQ8","client_secret":"6r7KiwsTG5YjYLOy8UIUeTHcKT3Et36SK4Vq4vL7SKo2rzz__xp7xRT9yshJqKVf","audience":"https://dicegame/api","grant_type":"client_credentials"}' | jq '.access_token')
 
 echo $token
 */
@@ -32,9 +32,9 @@ echo $token
 const router = Router();
 
 // get all games
-// curl -H 'authorization: Bearer $token' http://localhost:3000/api/v1/game
-router.get('/game/', (req, res) => {
-    gameModel.find({}, (err, docs) => {
+// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"user_id":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
+router.get('/game', (req, res) => {
+    gameModel.find({'game.user_ids': { $in: [req.body.user_id]}} , (err, docs) => {
         if(err) {
           logger.error(err)
           res.send("Some problem occurence");
@@ -44,10 +44,10 @@ router.get('/game/', (req, res) => {
 });
 
 // get specific game
-// curl -H 'authorization: Bearer $token' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef
+// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"user_id":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.get('/game/:id', (req, res) => {
     const id = req.params.id;
-    gameModel.findOne({ _id: id}, (err, docs) => {
+    gameModel.findOne({ _id: id, 'game.user_ids': { $in: [req.body.user_id]}}, (err, docs) => {
         if(err) {
           logger.error(err)
           res.send("Some problem occurence");
@@ -57,11 +57,13 @@ router.get('/game/:id', (req, res) => {
 });
 
 // create a game
-// curl -d '{"numberOfDices":5, "numberOfDicesides": 6}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game 
-router.post('/game/', (req, res) => {
+// curl -d '{"numberOfDices":5, "numberOfDiceSides": 6}' -H "authorization: Bearer $token" -H "Content-Type: application/json" -d '{"user_id":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game 
+router.post('/game', (req, res) => {
     const numberOfDices = req.body.numberOfDices;
-    const numberOfDicesides = req.body.numberOfDicesides;
-    const instance = new gameModel({game: new Game(numberOfDices, numberOfDicesides)});
+    const numberOfDiceSides = req.body.numberOfDiceSides;
+    const user_ids = req.body.user_ids.includes(req.body.user_id) ? req.body.user_ids : req.body.user_ids.concat(req.body.user_id);
+
+    const instance = new gameModel({game: new Game(numberOfDices, numberOfDiceSides, user_ids)});
     instance.save((err) => {
             if(err) {
                 logger.error(err)
@@ -76,8 +78,7 @@ router.post('/game/', (req, res) => {
 // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.post('/game/:id', (req, res) => {
     const numbersToChange = req.body.numbersToChange;
-
-    gameModel.findOne({ _id: req.params.id}, (err, docs) => {
+    gameModel.findOne({ _id: req.params.id, 'game.user_ids': { $in: [req.body.user_id]}}, (err, docs) => {
         if(err) {
           logger.error(err)
           res.send("Some problem occurence");
@@ -95,8 +96,5 @@ router.post('/game/:id', (req, res) => {
         })
     });
 });
-
-
-
 
 export default router;
