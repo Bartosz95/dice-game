@@ -32,9 +32,9 @@ echo $token
 const router = Router();
 
 // get all games
-// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"user_id":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
+// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
 router.get('/game', (req, res) => {
-    gameModel.find({'game.user_ids': { $in: [req.body.user_id]}} , (err, docs) => {
+    gameModel.find({'game.userIDs': { $in: [req.body.userID]}} , (err, docs) => {
         if(err) {
           logger.error(err)
           res.send("Some problem occurence");
@@ -44,10 +44,10 @@ router.get('/game', (req, res) => {
 });
 
 // get specific game
-// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"user_id":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
+// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.get('/game/:id', (req, res) => {
     const id = req.params.id;
-    gameModel.findOne({ _id: id, 'game.user_ids': { $in: [req.body.user_id]}}, (err, docs) => {
+    gameModel.findOne({ _id: id, 'game.userIDs': { $in: [req.body.userID]}}, (err, docs) => {
         if(err) {
           logger.error(err)
           res.send("Some problem occurence");
@@ -57,13 +57,13 @@ router.get('/game/:id', (req, res) => {
 });
 
 // create a game
-// curl -d '{"numberOfDices":5, "numberOfDiceSides": 6}' -H "authorization: Bearer $token" -H "Content-Type: application/json" -d '{"user_id":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game 
+// curl -d '{"numberOfDices":5, "numberOfDiceSides": 6, "userID":"6224b5c30eac08007061fa31", "userIDs":["1", "2"]}' -H "authorization: Bearer $token" -H "Content-Type: application/json" http://localhost:3000/api/v1/game 
 router.post('/game', (req, res) => {
     const numberOfDices = req.body.numberOfDices;
     const numberOfDiceSides = req.body.numberOfDiceSides;
-    const user_ids = req.body.user_ids.includes(req.body.user_id) ? req.body.user_ids : req.body.user_ids.concat(req.body.user_id);
+    const userIDs = req.body.userIDs.includes(req.body.userID) ? req.body.userIDs : req.body.userIDs.concat(req.body.userID);
 
-    const instance = new gameModel({game: new Game(numberOfDices, numberOfDiceSides, user_ids)});
+    const instance = new gameModel({game: new Game(numberOfDices, numberOfDiceSides, userIDs)});
     instance.save((err) => {
             if(err) {
                 logger.error(err)
@@ -78,7 +78,7 @@ router.post('/game', (req, res) => {
 // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.post('/game/:id', (req, res) => {
     const numbersToChange = req.body.numbersToChange;
-    gameModel.findOne({ _id: req.params.id, 'game.user_ids': { $in: [req.body.user_id]}}, (err, docs) => {
+    gameModel.findOne({ _id: req.params.id, 'game.userIDs': { $in: [req.body.userID]}}, (err, docs) => {
         if(err) {
           logger.error(err)
           res.send("Some problem occurence");

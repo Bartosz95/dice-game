@@ -3735,3 +3735,772 @@
   level: 'info',
   timestamp: '2022-03-17T20:05:21.611Z'
 }
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:16:35.620Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:16:35.656Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:16:42.477Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:16:42.523Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:19:22.810Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:19:22.849Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:03.965Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:03.998Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:08.912Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:08.964Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:19.092Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:19.162Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:24.642Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:24.686Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:32.445Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:23:32.475Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:11.009Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:11.053Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:17.244Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:17.290Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:24.772Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:24.817Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:33.028Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:33.104Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:41.145Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:41.197Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:49.745Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:26:49.788Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:01.390Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:01.456Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:06.909Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:06.953Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:14.282Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:14.325Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:18.569Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:18.608Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:27.377Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:27.440Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:35.178Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:35.258Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:39.976Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:40.083Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:48.299Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:48.361Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:53.348Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:27:53.392Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:28:16.976Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:28:17.048Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:28:35.672Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:28:35.735Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:28:54.084Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:28:54.132Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:16.528Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:16.578Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:27.473Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:27.526Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:33.262Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:33.307Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:51.350Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:29:51.405Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:09.564Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:09.611Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:13.831Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:13.892Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:18.108Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:18.165Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:21.335Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:21.389Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:25.948Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:25.997Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:30.516Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:30.551Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:34.577Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:34.639Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:40.086Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:40.156Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:43.993Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:44.032Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:47.469Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:47.545Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:50.596Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:30:50.630Z'
+}
+{
+  message: 'Created game 62339a9b1ea7e5fdcaa77aea',
+  level: 'info',
+  timestamp: '2022-03-17T20:31:23.237Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:32:00.282Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:32:00.328Z'
+}
+{
+  message: 'Created game 62339ac1e3f68eb86dabb477',
+  level: 'info',
+  timestamp: '2022-03-17T20:32:01.183Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:33:35.233Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:33:35.272Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:33:52.604Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:33:52.647Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:33:57.158Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:33:57.232Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:34:01.940Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:34:02.008Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:34:10.798Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:34:10.829Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:34:48.883Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:34:48.927Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:35:09.927Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:35:09.970Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:35:34.489Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:35:34.543Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:35:43.732Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:35:43.813Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:11.694Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:11.742Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:29.227Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:29.272Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:51.060Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:51.105Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:55.183Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:36:55.233Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:37:09.056Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:37:09.124Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:37:29.006Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:37:29.059Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:37:50.705Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:37:50.749Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:01.763Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:01.837Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:05.342Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:05.377Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:15.427Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:15.475Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:29.464Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:29.506Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:33.359Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:38:33.399Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:39:21.502Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:39:21.546Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:41:35.954Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:41:36.010Z'
+}
+{
+  message: 'Created game 62339d00db5afdfab412e548',
+  level: 'info',
+  timestamp: '2022-03-17T20:41:36.688Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:44:03.606Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:44:03.651Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:45:50.032Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:45:50.091Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:46:08.497Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:46:08.544Z'
+}
+{
+  ok: 0,
+  code: 2,
+  codeName: 'BadValue',
+  level: 'error',
+  timestamp: '2022-03-17T20:46:10.245Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:46:20.471Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:46:20.523Z'
+}
+{
+  ok: 0,
+  code: 2,
+  codeName: 'BadValue',
+  level: 'error',
+  timestamp: '2022-03-17T20:46:21.869Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:49:04.718Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:49:04.780Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:49:09.236Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:49:09.279Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:50:38.430Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:50:38.484Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:50:52.901Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:50:52.955Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-17T20:51:27.240Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-17T20:51:27.287Z'
+}

@@ -35,3 +35,17 @@
   level: 'error',
   timestamp: '2022-03-17T19:36:24.027Z'
 }
+{
+  ok: 0,
+  code: 2,
+  codeName: 'BadValue',
+  level: 'error',
+  timestamp: '2022-03-17T20:46:10.245Z'
+}
+{
+  ok: 0,
+  code: 2,
+  codeName: 'BadValue',
+  level: 'error',
+  timestamp: '2022-03-17T20:46:21.869Z'
+}
