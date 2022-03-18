@@ -3,11 +3,11 @@ import Dice from './Dice';
 
 export default class Game {
     constructor(numberOfDices, numberOfDiceSides, userIDs) {
-        this.turn = 0
-        this.current_turn = {
-            current_user: userIDs[Math.floor(Math.random() * userIDs.length)],
-            numberOfRoll: 0
-        }
+        this.isActive = true;
+        this.numberOfTurn = 0
+        this.currentUser = userIDs[Math.floor(Math.random() * userIDs.length)]
+        this.currentRoll = 0
+
         const dices = []
         for (let i = 0; i < numberOfDices; i++) {
             dices[i] = new Dice(numberOfDiceSides);

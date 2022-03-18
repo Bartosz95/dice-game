@@ -4504,3 +4504,5383 @@
   level: 'info',
   timestamp: '2022-03-17T20:51:27.287Z'
 }
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T16:57:41.022Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T16:57:41.086Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:01:52.005Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:01:52.053Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:01:59.674Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:01:59.745Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:02:14.992Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:02:15.047Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:02:19.232Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:02:19.278Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:07:56.345Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:07:56.405Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:08:06.522Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:08:06.660Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:08:10.089Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:08:10.149Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:08:13.178Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:08:13.262Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:24.388Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:24.419Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:28.169Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:28.225Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:46.543Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:46.593Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:58.120Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:09:58.223Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:10:13.673Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:10:13.746Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:12:44.436Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:12:44.482Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:13:08.144Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:13:08.195Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:13:22.329Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:13:22.394Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:14:55.988Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:14:56.028Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:15:10.754Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:15:10.828Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:15:23.887Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:15:23.918Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:15:49.353Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:15:49.445Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:28.413Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:28.448Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:34.227Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:34.279Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:37.639Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:37.676Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:54.111Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:16:54.171Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:17:05.608Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:17:05.655Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:17:09.160Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:17:09.230Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:17:15.344Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:17:15.419Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:18:15.292Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:18:15.339Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:04.413Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:04.471Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:12.280Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:12.325Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:32.118Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:32.200Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:39.598Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:39.653Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:51.185Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:51.243Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:55.458Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:19:55.525Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:20:04.443Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:20:04.484Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:21:47.332Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:21:47.390Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:21:56.441Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:21:56.499Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:24:55.417Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:24:55.488Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:07.411Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:07.481Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:18.277Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:18.307Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:21.500Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:21.570Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:33.077Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:25:33.148Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:26:03.968Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:26:04.016Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:26:57.166Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:26:57.218Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:27:00.893Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:27:00.932Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:30:30.339Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:30:30.389Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:31:22.720Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:31:22.772Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:31:27.976Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:31:28.020Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:31:52.257Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:31:52.299Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:27.323Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:27.364Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:39.238Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:39.280Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:43.313Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:43.358Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:56.764Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:36:56.820Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:37:02.923Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:37:02.975Z'
+}
+{
+  message: 'Created game 6234c35212fb6ef0e418ddb1',
+  level: 'info',
+  timestamp: '2022-03-18T17:37:22.256Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:08.410Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:08.464Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:12.684Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:12.713Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:33.717Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:33.783Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:36.896Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:36.925Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:45.056Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:45.112Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:48.319Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:48.359Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:51.408Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:42:51.453Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:46:18.256Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:46:18.298Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:46:52.894Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:46:52.934Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:47:34.094Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:47:34.134Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:47:47.842Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:47:47.882Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:48:07.562Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:48:07.645Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:48:52.651Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:48:52.696Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:23.603Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:23.626Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:27.674Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:27.742Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:33.122Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:33.159Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:36.613Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:36.658Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:43.152Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:49:43.188Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:54:18.555Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:54:18.605Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:54:54.020Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:54:54.064Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:55:05.874Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:55:05.919Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:55:09.411Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:55:09.445Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:55:41.521Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:55:41.577Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:56:50.497Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:56:50.629Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:56:56.626Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:56:56.665Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:57:35.644Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:57:35.683Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T17:57:38.579Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T17:57:38.628Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:01:02.763Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:01:02.801Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:01:12.643Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:01:12.690Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:01:53.703Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:01:53.757Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:02:43.885Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:02:43.930Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:13.981Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:14.021Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:31.700Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:31.807Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:38.143Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:38.186Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:45.192Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:45.262Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:56.622Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:03:56.670Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:04:28.812Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:04:28.860Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:04:40.148Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:04:40.183Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:04:52.723Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:04:52.765Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:00.561Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:00.661Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:05.235Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:05.294Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:14.331Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:14.368Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:19.320Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:19.365Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:28.638Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:28.681Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:47.700Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:47.742Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:52.349Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:05:52.415Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:11.894Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:11.968Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:15.318Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:15.359Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:19.057Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:19.095Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:23.659Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:23.695Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:30.522Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:06:30.570Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:08:35.943Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:08:36.013Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:08:50.161Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:08:50.212Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:32.219Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:32.264Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:43.412Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:43.464Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:49.964Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:50.002Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:57.136Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:10:57.176Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:02.391Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:02.431Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:05.922Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:05.957Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:10.930Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:11.007Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:14.764Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:14.814Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:18.977Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:19.026Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:29.571Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:11:29.607Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:12:15.957Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:12:16.000Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:12:41.918Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:12:41.963Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:12:45.424Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:12:45.496Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:13.181Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:13.220Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:24.824Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:24.876Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:34.097Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:34.147Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:38.399Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:38.459Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:43.749Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:43.899Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:54.841Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:13:54.920Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:08.237Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:08.323Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:13.197Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:13.258Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:35.790Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:35.862Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:50.405Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:14:50.452Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:15:11.629Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:15:11.677Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:15:14.788Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:15:14.853Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:15:53.243Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:15:53.284Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:16:08.372Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:16:08.419Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:35:13.416Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:35:13.482Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:36:09.069Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:36:09.119Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:36:43.893Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:36:43.936Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:36:54.136Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:36:54.196Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:06.298Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:06.342Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:19.147Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:19.224Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:33.311Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:33.378Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:39.434Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:37:39.516Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:08.698Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:08.757Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:11.962Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:12.002Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:42.192Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:42.234Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:50.281Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:50.347Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:55.233Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:38:55.270Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:39:05.818Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:39:05.866Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:35.188Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:35.228Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:42.408Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:42.455Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:48.629Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:48.711Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:51.511Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:51.553Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:58.738Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:41:58.851Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:42:13.411Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:42:13.485Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:42:44.276Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:42:44.330Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:44:21.441Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:44:21.486Z'
+}
+{
+  message: 'Created game 6234d306fb76c43101298ece',
+  level: 'info',
+  timestamp: '2022-03-18T18:44:22.683Z'
+}
+{
+  message: 'Created game 6234d30bfb76c43101298ed0',
+  level: 'info',
+  timestamp: '2022-03-18T18:44:27.879Z'
+}
+{
+  message: 'Created game 6234d311fb76c43101298ed2',
+  level: 'info',
+  timestamp: '2022-03-18T18:44:33.391Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:48:25.788Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:48:25.854Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:49:51.510Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:49:51.563Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:50:37.759Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:50:37.806Z'
+}
+{
+  message: 'Created game 6234d53fff50d89c7b6452fa',
+  level: 'info',
+  timestamp: '2022-03-18T18:53:51.205Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:56:29.142Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:56:29.212Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:04.044Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:04.088Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:11.839Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:11.888Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:26.932Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:26.983Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:53.851Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:53.939Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:56.600Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:57:56.640Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T18:58:22.918Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T18:58:22.963Z'
+}
+{
+  message: [ 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T18:58:24.074Z'
+}
+{
+  message: 'Updated game: 6234d53fff50d89c7b6452fa',
+  level: 'info',
+  timestamp: '2022-03-18T18:58:24.096Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:01:06.157Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:01:06.205Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:01:21.868Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:01:21.918Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:04:01.862Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:04:01.891Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:04:07.204Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:04:07.233Z'
+}
+{
+  message: 'Created game 6234d880b440f72267fdae88',
+  level: 'info',
+  timestamp: '2022-03-18T19:07:44.595Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:08:14.288Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:08:14.380Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:09:24.153Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:09:24.181Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:09:29.708Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:09:29.744Z'
+}
+{
+  message: 'Created game 6234d8ea8eadec84bf7ee49c',
+  level: 'info',
+  timestamp: '2022-03-18T19:09:30.675Z'
+}
+{
+  message: [ 5, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T19:10:15.470Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:13:50.373Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:13:50.443Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:13:57.769Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:13:57.803Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:16:28.057Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:16:28.125Z'
+}
+{
+  message: 'Updated game: 6234d8ea8eadec84bf7ee49c',
+  level: 'info',
+  timestamp: '2022-03-18T19:16:31.318Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:19.750Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:19.799Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:26.918Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:27.017Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:33.487Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:33.547Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:40.478Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:17:40.549Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:18:34.961Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:18:35.023Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:18:44.418Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:18:44.530Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:18:48.326Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:18:48.372Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:19:29.729Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:19:29.778Z'
+}
+{
+  message: 'Updated game: 6234d880b440f72267fdae88',
+  level: 'info',
+  timestamp: '2022-03-18T19:21:07.260Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:22:07.004Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:22:07.051Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:22:54.634Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:22:54.678Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:25:07.334Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:25:07.400Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:25:19.004Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:25:19.064Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:26:36.929Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:26:36.978Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:26:48.620Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:26:48.674Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:26:53.667Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:26:53.713Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:00.081Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:00.212Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:05.464Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:05.510Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:09.813Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:09.857Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:54.362Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:27:54.407Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:28:42.007Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:28:42.042Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:29:25.215Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:29:25.262Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:32:03.726Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:32:03.773Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:32:17.693Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:32:17.762Z'
+}
+{
+  message: 'Created game 6234de53880eaea9b794316f',
+  level: 'info',
+  timestamp: '2022-03-18T19:32:35.193Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:34:32.182Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:34:32.223Z'
+}
+{
+  message: 'Updated game: 6234de53880eaea9b794316f',
+  level: 'info',
+  timestamp: '2022-03-18T19:34:34.942Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:37:22.204Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:37:22.320Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:37:26.163Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:37:26.193Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:37:32.118Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:37:32.185Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:09.196Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:09.241Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:26.124Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:26.185Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:44.997Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:45.081Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:50.448Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:40:50.532Z'
+}
+{
+  message: 'Created game 6234e04cb302a979c26089ad',
+  level: 'info',
+  timestamp: '2022-03-18T19:41:00.102Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:41:21.951Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:41:21.998Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:41:31.644Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:41:31.700Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:42:15.235Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:42:15.272Z'
+}
+{
+  message: 'Created game 6234e0987507048d79c2f2b4',
+  level: 'info',
+  timestamp: '2022-03-18T19:42:16.643Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:42:40.334Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:42:40.374Z'
+}
+{
+  message: 'Created game 6234e0e82e2c9046bef3c59c',
+  level: 'info',
+  timestamp: '2022-03-18T19:43:36.757Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:46:42.451Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:46:42.510Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:46:58.428Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:46:58.474Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:47:28.465Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:47:28.516Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:47:35.868Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:47:35.912Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:49:03.594Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:49:03.645Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:50:27.718Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:50:27.753Z'
+}
+{
+  message: 'Created game 6234e28a9f03cc5882ea956f',
+  level: 'info',
+  timestamp: '2022-03-18T19:50:34.979Z'
+}
+{
+  message: 'Updated game: 6234e28a9f03cc5882ea956f',
+  level: 'info',
+  timestamp: '2022-03-18T19:51:38.137Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:52:29.884Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:52:29.928Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:52:58.044Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:52:58.087Z'
+}
+{
+  message: 'Updated game: 6234e28a9f03cc5882ea956f',
+  level: 'info',
+  timestamp: '2022-03-18T19:53:02.038Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:53:37.922Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:53:37.997Z'
+}
+{
+  message: 'Updated game: 6234e28a9f03cc5882ea956f',
+  level: 'info',
+  timestamp: '2022-03-18T19:53:42.927Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:55:29.379Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:55:29.463Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:56:00.516Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:56:00.572Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:56:35.444Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:56:35.492Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T19:59:04.896Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T19:59:04.940Z'
+}
+{
+  message: 'Created game 6234e48e664cadd712d540f7',
+  level: 'info',
+  timestamp: '2022-03-18T19:59:10.908Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:00:39.374Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:00:39.422Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:01:52.418Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:01:52.454Z'
+}
+{
+  message: 'Created game 6234e5380e768a1712431728',
+  level: 'info',
+  timestamp: '2022-03-18T20:02:00.679Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:02:09.587Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:02:09.643Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:02:19.102Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:02:19.153Z'
+}
+{
+  message: 'Created game 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:02:20.089Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:05:43.695Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:05:43.740Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:05:44.384Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:06:51.296Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:06:51.344Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:06:54.702Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:07:10.751Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:07:10.783Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:07:33.398Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:07:44.240Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:07:44.284Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:08:16.929Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:09:22.004Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:09:22.076Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:09:32.531Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:09:32.584Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:10:38.568Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:10:38.586Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:11:02.452Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:02.462Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:20.427Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:20.459Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:30.488Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:30.524Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:43.550Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:43.598Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:11:44.808Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:11:44.827Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:13:47.679Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:13:47.716Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:13:49.337Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:13:49.355Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:14:21.833Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:14:21.890Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:14:23.699Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:14:23.716Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:15:47.726Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:15:47.784Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:15:54.435Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:15:54.482Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:15:59.203Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:19:15.809Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:19:15.855Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:19:24.951Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:19:24.983Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:20:34.112Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:20:34.153Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:20:37.592Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:20:37.617Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:20:51.178Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:20:51.255Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:21:18.704Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:21:18.753Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:21:45.888Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:21:45.918Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:22:24.775Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:22:24.806Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:08.334Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:08.380Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:21.514Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:21.547Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:45.500Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:45.547Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:23:49.315Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:23:49.353Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:24:01.061Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:24:55.132Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:24:55.186Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:25:18.819Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:25:18.863Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:25:19.655Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:25:19.681Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:25:25.826Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:25:25.840Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:25:28.658Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:25:28.671Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:26:48.611Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:26:48.668Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:26:49.553Z'
+}
+{
+  message: 'Updated game: 6234e54c8b01b73aea3af67a',
+  level: 'info',
+  timestamp: '2022-03-18T20:26:49.579Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:27:01.291Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:27:01.357Z'
+}
+{
+  message: 'Created game 6234eb19d3691e95842ea0eb',
+  level: 'info',
+  timestamp: '2022-03-18T20:27:05.976Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:27:16.110Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:27:16.154Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:27:44.937Z'
+}
+{
+  message: 'Updated game: 6234eb19d3691e95842ea0eb',
+  level: 'info',
+  timestamp: '2022-03-18T20:27:44.956Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:28:05.248Z'
+}
+{
+  message: 'Updated game: 6234eb19d3691e95842ea0eb',
+  level: 'info',
+  timestamp: '2022-03-18T20:28:05.259Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:28:30.529Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:28:30.572Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:28:31.973Z'
+}
+{
+  message: 'Updated game: 6234eb19d3691e95842ea0eb',
+  level: 'info',
+  timestamp: '2022-03-18T20:28:31.993Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:29:09.774Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:29:09.823Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:29:25.891Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:29:25.938Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:29:26.978Z'
+}
+{
+  message: 'Updated game: 6234eb19d3691e95842ea0eb',
+  level: 'info',
+  timestamp: '2022-03-18T20:29:27.002Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:07.250Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:07.299Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:30:08.138Z'
+}
+{
+  message: 'Updated game: 6234eb19d3691e95842ea0eb',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:08.168Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:48.003Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:48.052Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:53.392Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:30:53.428Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:30:55.321Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:31:54.174Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:31:54.223Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:32:10.257Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:32:10.310Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:39:23.032Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:39:23.096Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:39:37.570Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:39:37.612Z'
+}
+{
+  message: 'Created game 6234ee142f0d97eebcf21bdd',
+  level: 'info',
+  timestamp: '2022-03-18T20:39:48.741Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:40:56.801Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:40:56.849Z'
+}
+{
+  message: 'Created game 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:40:57.938Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:41:21.632Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:41:59.792Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:41:59.837Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:42:34.075Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:42:34.195Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:42:51.681Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:42:51.736Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:44:34.964Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:44:35.010Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:44:56.677Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:44:56.706Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:00.983Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:01.061Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:27.519Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:27.554Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:37.319Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:37.389Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:47.507Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:45:47.583Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:46:08.557Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:46:08.685Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:47:00.574Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:47:00.610Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:47:39.873Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:48:50.147Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:48:50.191Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:48:51.631Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:48:51.662Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:04.770Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:04.780Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:20.128Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:20.193Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:20.329Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:20.346Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:23.706Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:23.716Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:25.913Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:25.925Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:27.745Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:27.757Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:30.136Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:30.146Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:30.991Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:31.000Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:49:31.921Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:49:31.927Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:50:46.331Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:50:46.365Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:15.741Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:15.782Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:51:21.965Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:21.982Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:51:24.721Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:24.734Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:51:25.496Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:25.505Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:51:26.967Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:26.977Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:51:27.671Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:27.681Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:51:28.518Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:51:28.526Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:11.253Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:11.302Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:19.316Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:19.367Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:52:20.485Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:20.506Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:34.824Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:34.878Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:52:36.039Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:52:36.054Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:53:13.202Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:53:13.256Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:53:18.138Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:53:18.160Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:53:31.241Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:53:31.314Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:54:13.709Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:54:13.758Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:54:16.677Z'
+}
+{
+  message: 'Updated game: 6234ee591a84c9d3769b7788',
+  level: 'info',
+  timestamp: '2022-03-18T20:54:16.696Z'
+}
+{
+  message: 'Created game 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T20:54:34.546Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:55:01.819Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T20:55:01.827Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:55:43.596Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:55:43.648Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:55:45.522Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T20:55:45.536Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:56:30.567Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T20:56:30.576Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:32.248Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:32.288Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:44.693Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:44.751Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:54.780Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:54.816Z'
+}
+{
+  message: 'Created game 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T20:57:55.937Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:58:13.282Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T20:58:13.298Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:58:24.675Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:58:24.712Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:58:27.369Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T20:58:27.382Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T20:58:29.219Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T20:58:29.228Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:59:30.345Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:59:30.395Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:59:36.279Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:59:36.359Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T20:59:41.991Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T20:59:42.048Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:12.176Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:12.216Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:17.903Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:17.935Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:00:20.442Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:20.463Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:00:22.289Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:22.299Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:00:23.050Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:00:23.059Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:02.285Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:02.346Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:05.870Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:05.912Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:30.521Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:30.563Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:35.491Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:35.542Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:01:46.735Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:46.752Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:01:51.980Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:01:51.987Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:08.841Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:08.851Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:10.487Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:10.495Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:13.817Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:13.825Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:14.756Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:14.764Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:15.590Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:15.597Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:16.449Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:16.456Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:17.039Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:17.050Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:17.743Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:17.750Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:18.510Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:18.518Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:19.353Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:19.360Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:22.880Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:22.887Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:23.927Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:23.934Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:24.562Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:24.576Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:02:25.456Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:02:25.464Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:12.774Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:12.908Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:27.705Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:27.748Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:31.994Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:32.051Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:37.009Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:37.087Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:44.658Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:44.698Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:46.191Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:46.210Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:49.098Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:49.106Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:50.079Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:50.089Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:52.622Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:52.630Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:53.484Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:53.491Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:54.227Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:54.237Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:55.088Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:55.094Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:55.790Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:55.798Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:56.471Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:56.478Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:57.401Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:57.407Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:58.199Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:58.205Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:58.951Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:03:58.959Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:03:59.999Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:00.007Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:00.648Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:00.656Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:01.278Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:01.287Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:02.683Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:02.690Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:03.255Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:03.264Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:03.855Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:03.861Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:27.762Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:27.818Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:40.530Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:40.574Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:47.166Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:47.206Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:51.116Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:51.133Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:52.421Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:52.432Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:53.233Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:53.240Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:54.225Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:54.235Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:55.059Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:55.071Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:55.709Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:55.715Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:56.518Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:56.525Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:57.103Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:57.111Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:57.794Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:57.800Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:58.535Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:58.542Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:59.109Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:59.115Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:04:59.679Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:04:59.686Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:05:00.261Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:00.268Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:05:00.792Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:00.798Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:05:01.272Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:01.278Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:05:01.894Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:01.902Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:05:02.568Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:02.574Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:05:03.265Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:03.271Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:20.770Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:05:20.806Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:06:41.961Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:06:42.000Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:00.932Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:00.978Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:16.085Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:16.147Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:07:18.254Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:18.272Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:07:20.336Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:20.346Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:07:21.425Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:21.434Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:07:23.465Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:23.475Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:07:24.257Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:24.266Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:07:24.880Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:24.887Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:38.747Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:38.811Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:59.089Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:07:59.134Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:08:06.545Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:06.562Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:08:07.978Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:07.992Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:08:09.259Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:09.267Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:08:12.297Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:12.305Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:08:13.248Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:13.258Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:08:14.186Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:14.194Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:26.064Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:08:26.148Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:03.820Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:03.926Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:07.953Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:08.004Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:09:08.894Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:08.909Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:09:13.043Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:13.052Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:09:16.975Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:16.983Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:09:18.264Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:18.274Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:39.046Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:39.079Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:09:44.277Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:09:44.295Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:15.321Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:15.390Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:28.659Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:28.714Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:29.973Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:29.992Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:31.320Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:31.328Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:32.914Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:32.922Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:34.178Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:34.185Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:35.509Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:35.515Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:37.280Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:37.288Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:10:38.560Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:10:38.569Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:01.206Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:01.271Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:02.330Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:02.348Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:05.142Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:05.153Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:05.969Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:05.976Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:06.656Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:06.665Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:07.731Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:07.740Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:08.318Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:08.327Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:09.311Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:09.318Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:13.907Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:13.913Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:16.142Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:16.149Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:17.775Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:17.782Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:18.640Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:18.647Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:11:19.490Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:11:19.496Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:08.286Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:08.337Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:09.745Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:09.763Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:10.719Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:10.729Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:11.496Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:11.505Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:12.415Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:12.423Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:13.116Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:13.122Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:14.081Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:14.088Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:15.037Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:15.045Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:18.754Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:18.760Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:12:19.720Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:19.740Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:44.312Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:12:44.361Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:13:22.398Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:13:22.495Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:13:35.046Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:13:35.093Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:13:53.779Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:13:53.799Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:14:24.238Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:14:24.268Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:38.377Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:38.452Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:47.752Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:47.766Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:49.314Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:49.323Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:50.420Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:50.427Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:51.333Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:51.341Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:52.560Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:52.568Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:53.247Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:53.255Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:54.185Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:54.192Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:54.733Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:54.738Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:15:55.222Z'
+}
+{
+  message: 'Updated game: 6234f253c0426f4588ac046e',
+  level: 'info',
+  timestamp: '2022-03-18T21:15:55.229Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:16:42.185Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:16:42.247Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:16:51.712Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:16:51.771Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:16:58.916Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:16:58.995Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:17:21.186Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:17:21.241Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:17:43.730Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:17:43.770Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:20:05.862Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:20:05.901Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:20:10.900Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:20:10.939Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:20:52.585Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:20:52.632Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:21:25.059Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:21:25.103Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:21:33.200Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:21:33.247Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:30.527Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:30.543Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:35.852Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:35.862Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:38.025Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:38.033Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:39.775Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:39.786Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:41.627Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:41.634Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:43.325Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:43.334Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:44.003Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:44.009Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:44.686Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:44.694Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:45.370Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:45.375Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:46.009Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:46.016Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:46.691Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:46.698Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:47.370Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:47.381Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:47.981Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:47.991Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:48.526Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:48.533Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:49.126Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:49.132Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:49.837Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:49.843Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:50.524Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:50.530Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:51.183Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:51.202Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:51.729Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:51.738Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:52.279Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:52.286Z'
+}
+{
+  message: [ 3, 6 ],
+  level: 'info',
+  timestamp: '2022-03-18T21:22:52.921Z'
+}
+{
+  message: 'Updated game: 6234f18a3e45a0980e4f4310',
+  level: 'info',
+  timestamp: '2022-03-18T21:22:52.929Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:23:11.885Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:23:11.973Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:23:15.708Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:23:15.750Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:23:53.580Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:23:53.633Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:24:32.189Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:24:32.237Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:24:43.946Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:24:44.030Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:25:15.257Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:25:15.304Z'
+}
+{
+  message: 'Running on http://localhost:3000/api/v1',
+  level: 'info',
+  timestamp: '2022-03-18T21:25:33.831Z'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2022-03-18T21:25:33.908Z'
+}

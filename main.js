@@ -14,7 +14,7 @@ const NODE_ENV = process.env.NODE_ENV
 const app = express();
 
 //if (NODE_ENV === "production") {
-  app.use(jwtCheck);
+  //app.use(jwtCheck);
 //}
 
 
@@ -29,9 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 app.use((req, res, next) => {
-  console.log(req.user)
   console.log(req.body)
-  
   next()
 })
 app.use(URL, game);
