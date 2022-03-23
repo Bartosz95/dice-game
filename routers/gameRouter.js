@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
 import logger from '../libs/logger';
-import { Game, rollTheDices} from '../libs/game_modules/Game'
+import { Game, rollTheDices, saveFigure} from '../libs/game_modules/Game'
 import gameModel from '../libs/db_schemas/GameSchema'
 //import Mug from '../libs/game_modules/Mug';
 
@@ -90,71 +90,108 @@ router.post('/user/:userID/game/:gameID', (req, res) => {
     
     const userIDstring = `game.users.${userID}`;
     gameModel.findOne({ _id: gameID, userIDstring : { $exists: true}}, (err, doc) => {
+
         if(err) {
           logger.error(err)
           res.send(errorMessage);
         }
+
         const isActive = doc.game.isActive;
-        const numberOfTurn = doc.game.numberOfTurn;
+        const numberOfRoll = doc.game.numberOfRoll;
         const currentUser = doc.game.currentUser;
-        const currentRoll = doc.game.currentRoll;
-        const mug = doc.game.users[userID].mug;
-        const table = doc.game.users[userID].table
-        //const replacement = {game: doc.game};
-        
+        const mug = doc.game.mug;
+        const game = doc.game;
+
         if(!isActive){
             res.send("Game is over")
             return
         }
-        if (currentUser !== userID) {
-            res.send("Is not user's turn")
+        if (userID !== currentUser) {
+            res.send(`This is turn of user: ${currentUser}`)
             return
         }
 
-        if(currentRoll === 0){
-            rollTheDices(mug, [0,1,2,3,4])
-        }
-        else if(chosenFigure){
-            if(table.hasOwnProperty(chosenFigure) && table[chosenFigure] === null) {
-                table[chosenFigure] = Object.values(mug)
+        if(numberOfRoll === 0) {
+            try {
+                rollTheDices(game, [0,1,2,3,4])
+            } catch (error) {
+                logger.error(error)
+                res.send("You cannot choose this dices")
+                return
+            }
+        } 
+        else if(chosenFigure) {
+            try {
+                saveFigure(game, chosenFigure)
+            } catch (error) {
+                logger.error(error)
+                res.send("You cannot choose this figure")
+                return
             }
         }
-        else if(numbersToChange) {
-            rollTheDices(mug, numbersToChange)
+        else if (numberOfRoll < 3) {
+            if (!numbersToChange){
+                res.send("You have to choose dice to rool on choose a figure")
+                return
+            } else {
+                try {
+                    rollTheDices(game, numbersToChange)
+                } catch (error) {
+                    logger.error(error)
+                    res.send("You cannot choose this dices")
+                    return
+                }
+            }
+        } 
+        else {
+            if(!chosenFigure) {
+                res.send("You have to choose a figure")
+                return
+            } else {
+                try {
+                    saveFigure(game, chosenFigure)
+                } catch (error) {
+                    logger.error(error)
+                    res.send("You cannot choose this figure")
+                    return
+                }   
+            }
         }
 
-        
-
-    //     if(currentRoll > 2) {
-    //         const userIndex = userIDs.indexOf(currentUser)
-    //         if(userIndex ===  userIDs.length -1 ) {
-    //             replacement.game.numberOfTurn = numberOfTurn + 1
-    //             if(numberOfTurn === 12) {
-    //                 logger.info(`Ended game: ${id}`)
-    //                 replacement.game.isActive = false
-    //             }
-    //         }
-    //         replacement.game.currentUser = userIDs[(userIndex + 1) % userIDs.length]
-            
-    //     }
-    //     replacement.game.currentRoll = (currentRoll + 1) % 4
-        
- 
-
-    //     gameModel.findByIdAndUpdate(id, replacement , (err, message) => {
-    //         if(err) {
-    //             logger.error(err);
-    //             res.send(errorMessage);
-    //             return
-    //         } else {
-    //             logger.info(`Updated game: ${id}`)
-    //             res.send(doc);
-    //         }
-    //     })
-    console.log(mug)
-    console.log(table)
-    res.send(doc)
+        gameModel.findByIdAndUpdate(gameID, {game: game} , (err, message) => {
+            if(err) {
+                logger.error(err);
+                res.send(errorMessage);
+                return
+            } else {
+                logger.info(`User ${userID} updates game: ${gameID}`)
+                res.send(doc);
+                return
+            }
+        })
     });
 });
+
+router.delete('/user/:userID/game', (req, res) => {
+    const userID = req.params.userID;
+
+    const userIDstring = `game.users.${userID}`;
+    gameModel.deleteMany({userIDstring : { $exists: true}}, (error) => {
+        logger.error(error); 
+    })
+    res.send(`Delete all games for user ${userID}`);
+});
+
+router.delete('/user/:userID/game/:gameID', (req, res) => {
+    const userID = req.params.userID;
+    const gameID = req.params.gameID;
+
+    const userIDstring = `game.users.${userID}`;
+    const numberOfGames = gameModel.deleteOne({ _id: gameID, userIDstring : { $exists: true}}, (error) => {
+        logger.error(error); 
+    })
+    res.send(`Delete ${numberOfGames} games`);
+});
+
 
 export default router;
