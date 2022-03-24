@@ -1,11 +1,9 @@
 import { Router } from 'express'
 
 import logger from '../libs/logger';
-import { Game, rollTheDices, saveFigure} from '../libs/game_modules/Game'
+import { Game, makeMove } from '../libs/game_modules/Game'
 import gameModel from '../libs/db_schemas/GameSchema'
 //import Mug from '../libs/game_modules/Mug';
-
-const errorMessage = "Some problem occurence"
 
 // create a game if it not exist
 //gameModel.deleteMany({__v: 0}, function (err) {})
@@ -17,6 +15,8 @@ gameModel.find((err, docs) => {
 
     console.log(docs.length);
 })
+
+const errorMessage = "Some problem occurence";
 
 /*
 First add token to token enviroment variable
@@ -89,88 +89,39 @@ router.post('/user/:userID/game/:gameID', (req, res) => {
     const chosenFigure = req.body.chosenFigure;
     
     const userIDstring = `game.users.${userID}`;
-    gameModel.findOne({ _id: gameID, userIDstring : { $exists: true}}, (err, doc) => {
+    
+    gameModel.findOne({ _id: gameID, userIDstring : { $exists: true}}, (error, doc) => {
 
-        if(err) {
-          logger.error(err)
+        if(error) {
+          logger.error(error)
           res.send(errorMessage);
         }
 
-        const isActive = doc.game.isActive;
-        const numberOfRoll = doc.game.numberOfRoll;
-        const currentUser = doc.game.currentUser;
-        const mug = doc.game.mug;
         const game = doc.game;
 
-        if(!isActive){
-            res.send("Game is over")
-            return
-        }
-        if (userID !== currentUser) {
-            res.send(`This is turn of user: ${currentUser}`)
-            return
-        }
+        makeMove(game, userID, numbersToChange, chosenFigure, (gameErrorMessage, game) => {
 
-        if(numberOfRoll === 0) {
-            try {
-                rollTheDices(game, [0,1,2,3,4])
-            } catch (error) {
-                logger.error(error)
-                res.send("You cannot choose this dices")
-                return
-            }
-        } 
-        else if(chosenFigure) {
-            try {
-                saveFigure(game, chosenFigure)
-            } catch (error) {
-                logger.error(error)
-                res.send("You cannot choose this figure")
-                return
-            }
-        }
-        else if (numberOfRoll < 3) {
-            if (!numbersToChange){
-                res.send("You have to choose dice to rool on choose a figure")
-                return
-            } else {
-                try {
-                    rollTheDices(game, numbersToChange)
-                } catch (error) {
-                    logger.error(error)
-                    res.send("You cannot choose this dices")
-                    return
-                }
-            }
-        } 
-        else {
-            if(!chosenFigure) {
-                res.send("You have to choose a figure")
-                return
-            } else {
-                try {
-                    saveFigure(game, chosenFigure)
-                } catch (error) {
-                    logger.error(error)
-                    res.send("You cannot choose this figure")
-                    return
-                }   
-            }
-        }
-
-        gameModel.findByIdAndUpdate(gameID, {game: game} , (err, message) => {
-            if(err) {
-                logger.error(err);
-                res.send(errorMessage);
-                return
-            } else {
-                logger.info(`User ${userID} updates game: ${gameID}`)
-                res.send(doc);
-                return
+            if(gameErrorMessage || game === null ) {
+                console.log("if")
+                logger.error(`Player ${userID} in game ${gameID} has error message: ${gameErrorMessage}`)
+                res.send(gameErrorMessage)
+            } 
+            else {
+                console.log("else")
+                gameModel.findByIdAndUpdate(gameID, {game: game} , (error, message) => {
+                    if(error) {
+                        logger.error(error);
+                        res.send(errorMessage);
+                    } 
+                    else {
+                        logger.info(`Player ${userID} make a move in game: ${gameID}`)
+                        res.send(doc);
+                    }
+                })
             }
         })
-    });
-});
+    })
+})
 
 router.delete('/user/:userID/game', (req, res) => {
     const userID = req.params.userID;
