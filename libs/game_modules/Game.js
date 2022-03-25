@@ -24,56 +24,78 @@ export class Game {
 }
 
 export const rollTheDices = (game, dicesIndex, callback) => {
-    console.log("rollTheDices")
+
     const mug = game.mug;
+    console.log(dicesIndex)
 
     for (let i = 0; i < dicesIndex.length; i++) {
-        mug[dicesIndex[i]] = Math.floor(Math.random() * 6) + 1 
+        console.log(mug[dicesIndex[i]])
+        mug[dicesIndex[i]] = Math.floor(Math.random() * 6) + 1
+        console.log(mug[dicesIndex[i]])
     }
     game.numberOfRoll += 1
 
     callback(null, game)
 }
 
-export const countFigure = (game, chosenFigure, callback) => {
+export const countFigure = (game, chosenFigure) => {
 
     const userID = game.currentUser;
     const mug = Object.values(game.mug);
     const table = game.users[userID].table;
 
-    const figureNumber = parseInt(chosenFigure)
+    const counter = [null,0,0,0,0,0,0]
+    mug.forEach(dice => {
+        counter[dice] +=1;
+    })
 
-    if(figureNumber !== NaN) {
-        table[chosenFigure] = mug.filter(number => number === figureNumber).length * figureNumber;
-    } else {
-        switch(chosenFigure) {
-            case "bonus":
-                
-                break;
-            case "3x":
-                
-                break;
-            case "4x":
-                
-                break;
-            case "full":
-                
-                break;
-            case "small strit":
-                
-                break;
-            case "big strit":
-                
-                break;
-            case "general":
-                
-                break;
-            case "chance": 
-                table[chosenFigure] = mug.reduce((sum, number) => sum + number, 0)
-                break;
-        }
+    console.log(counter)
+    console.log(mug)
+    console.log(table)
+
+
+
+    switch(chosenFigure) {
+        case "1":
+            table[chosenFigure] = counter[chosenFigure] * chosenFigure;
+            break;
+        case "2":
+            table[chosenFigure] = counter[chosenFigure] * chosenFigure;
+            break;
+        case "3":
+            table[chosenFigure] = counter[chosenFigure] * chosenFigure;
+            break;
+        case "4":
+            table[chosenFigure] = counter[chosenFigure] * chosenFigure;
+            break;
+        case "5":
+            table[chosenFigure] = counter[chosenFigure] * chosenFigure;
+            break;
+        case "6":
+            table[chosenFigure] = counter[chosenFigure] * chosenFigure;
+            break;
+        case "3x":
+            table[chosenFigure] = counter.includes(3) ? mug.reduce((sum, dice) => sum + dice, 0) : 0;
+            break;
+        case "4x":
+            table[chosenFigure] = counter.includes(4) ? mug.reduce((sum, dice) => sum + dice, 0) : 0;
+            break;
+        case "full":
+            table[chosenFigure] = ( counter.includes(3) && counter.includes(2) ) ? 25 : 0;
+            break;
+        case "small strit":
+            table[chosenFigure] = ( counter[1] && counter[2] && counter[3] && counter[4] && counter[5] ) ? 30 : 0;
+            break;
+        case "big strit":
+            table[chosenFigure] = ( counter[2] && counter[3] && counter[4] && counter[5] && counter[6] ) ? 40 : 0;
+            break;
+        case "general":
+            table[chosenFigure] = counter.includes(5) ? 50 : 0;
+            break;
+        case "chance": 
+            table[chosenFigure] = mug.reduce((sum, dice) => sum + dice, 0);
+            break;
     }
-    callback(null, game)
 }
 
 export const saveFigure = (game, chosenFigure, callback) => {
@@ -92,7 +114,7 @@ export const saveFigure = (game, chosenFigure, callback) => {
     } else if (table[chosenFigure] !== null) {
         callback("Figure already chosen", null)
     } else {
-        countFigure(game, chosenFigure, callback)
+        countFigure(game, chosenFigure)
         game.numberOfRoll = 0
         const nextUserIndex = (userIDs.indexOf(userID) + 1) % userIDs.length
         game.currentUser = userIDs[nextUserIndex]
@@ -103,6 +125,8 @@ export const saveFigure = (game, chosenFigure, callback) => {
         if(numberOfTurn > 13) {
             game.isActive = false
         }
+
+        callback(null, game)
     }
 }
 
