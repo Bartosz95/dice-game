@@ -24,7 +24,7 @@ export class Game {
 }
 
 export const rollTheDices = (game, dicesIndex, callback) => {
-
+    console.log("rollTheDices")
     const mug = game.mug;
 
     for (let i = 0; i < dicesIndex.length; i++) {
@@ -32,7 +32,48 @@ export const rollTheDices = (game, dicesIndex, callback) => {
     }
     game.numberOfRoll += 1
 
-    callback(game)
+    callback(null, game)
+}
+
+export const countFigure = (game, chosenFigure, callback) => {
+
+    const userID = game.currentUser;
+    const mug = Object.values(game.mug);
+    const table = game.users[userID].table;
+
+    const figureNumber = parseInt(chosenFigure)
+
+    if(figureNumber !== NaN) {
+        table[chosenFigure] = mug.filter(number => number === figureNumber).length * figureNumber;
+    } else {
+        switch(chosenFigure) {
+            case "bonus":
+                
+                break;
+            case "3x":
+                
+                break;
+            case "4x":
+                
+                break;
+            case "full":
+                
+                break;
+            case "small strit":
+                
+                break;
+            case "big strit":
+                
+                break;
+            case "general":
+                
+                break;
+            case "chance": 
+                table[chosenFigure] = mug.reduce((sum, number) => sum + number, 0)
+                break;
+        }
+    }
+    callback(null, game)
 }
 
 export const saveFigure = (game, chosenFigure, callback) => {
@@ -43,29 +84,33 @@ export const saveFigure = (game, chosenFigure, callback) => {
     const table = game.users[userID].table;
     const indexOfFirstPlayer = game.indexOfFirstPlayer;
 
-    if(!table.hasOwnProperty(chosenFigure) || table[chosenFigure] !== null) {
-        callback("You cannot choose this figure", null)
+    if(!table.hasOwnProperty(chosenFigure) || 
+        chosenFigure === "bonus" ||
+        chosenFigure === "sum" ||
+        chosenFigure === "total" ) {
+        callback(`You cannot choose figure: ${chosenFigure}`, null)
+    } else if (table[chosenFigure] !== null) {
+        callback("Figure already chosen", null)
+    } else {
+        countFigure(game, chosenFigure, callback)
+        game.numberOfRoll = 0
+        const nextUserIndex = (userIDs.indexOf(userID) + 1) % userIDs.length
+        game.currentUser = userIDs[nextUserIndex]
+        if(nextUserIndex === indexOfFirstPlayer) {
+            game.numberOfTurn += 1
+        }
+        
+        if(numberOfTurn > 13) {
+            game.isActive = false
+        }
     }
-
-    game.users[userID].table[chosenFigure] = Object.values(game.mug)
-    game.numberOfRoll = 0
-    const nextUserIndex = (userIDs.indexOf(userID) + 1) % userIDs.length
-    game.currentUser = userIDs[nextUserIndex]
-    if(nextUserIndex === indexOfFirstPlayer) {
-        game.numberOfTurn += 1
-    }
-    
-    if(numberOfTurn > 13) {
-        game.isActive = false
-    }
-    callback(null, game)
 }
 
 export const makeMove = (game, userID, numbersToChange, chosenFigure, callback) => {
 
     const isActive = game.isActive;
     const currentUser = game.currentUser;
-    const numberOfRoll = numberOfRoll;
+    const numberOfRoll = game.numberOfRoll;
 
     if(!isActive){
         callback("Game is over", null)

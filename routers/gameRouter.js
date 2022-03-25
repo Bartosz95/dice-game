@@ -98,27 +98,28 @@ router.post('/user/:userID/game/:gameID', (req, res) => {
         }
 
         const game = doc.game;
+        
 
         makeMove(game, userID, numbersToChange, chosenFigure, (gameErrorMessage, game) => {
-
-            if(gameErrorMessage || game === null ) {
+            let mess
+            if(gameErrorMessage || (game === 'null') ) {
                 console.log("if")
                 logger.error(`Player ${userID} in game ${gameID} has error message: ${gameErrorMessage}`)
-                res.send(gameErrorMessage)
-            } 
-            else {
+                mess = gameErrorMessage + '\n'
+            } else {
                 console.log("else")
                 gameModel.findByIdAndUpdate(gameID, {game: game} , (error, message) => {
                     if(error) {
                         logger.error(error);
-                        res.send(errorMessage);
+                         mess = errorMessage;
                     } 
                     else {
                         logger.info(`Player ${userID} make a move in game: ${gameID}`)
-                        res.send(doc);
+                        mess = doc;
                     }
                 })
             }
+            res.send(mess)
         })
     })
 })
