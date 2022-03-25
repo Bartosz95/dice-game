@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx babel-node main.js",
     "startdev": "nodemon --exec babel-node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require @babel/register -inline-diffs"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",
@@ -30,6 +30,7 @@
   "author": "Bartosz Lenartowicz",
   "license": "ISC",
   "devDependencies": {
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.15"
   }
 }

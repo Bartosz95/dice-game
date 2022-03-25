@@ -49,12 +49,6 @@ export const countFigure = (game, chosenFigure) => {
         counter[dice] +=1;
     })
 
-    console.log(counter)
-    console.log(mug)
-    console.log(table)
-
-
-
     switch(chosenFigure) {
         case "1":
             table[chosenFigure] = counter[chosenFigure] * chosenFigure;
@@ -75,10 +69,10 @@ export const countFigure = (game, chosenFigure) => {
             table[chosenFigure] = counter[chosenFigure] * chosenFigure;
             break;
         case "3x":
-            table[chosenFigure] = counter.includes(3) ? mug.reduce((sum, dice) => sum + dice, 0) : 0;
+            table[chosenFigure] = counter.map(number => number >= 3).includes(true) ? mug.reduce((sum, dice) => sum + dice, 0) : 0;
             break;
         case "4x":
-            table[chosenFigure] = counter.includes(4) ? mug.reduce((sum, dice) => sum + dice, 0) : 0;
+            table[chosenFigure] = counter.map(number => number >= 4).includes(true) ? mug.reduce((sum, dice) => sum + dice, 0) : 0;
             break;
         case "full":
             table[chosenFigure] = ( counter.includes(3) && counter.includes(2) ) ? 25 : 0;

@@ -1,8 +1,8 @@
 import { Router } from 'express'
 
 import logger from '../libs/logger';
-import { Game, makeMove } from '../libs/game_modules/Game'
-import gameModel from '../libs/db_schemas/GameSchema'
+import { Game, makeMove } from '../libs/Game'
+import gameModel from '../libs/GameSchema'
 //import Mug from '../libs/game_modules/Mug';
 
 // create a game if it not exist
