@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx babel-node main.js",
     "startdev": "nodemon --exec babel-node main.js",
-    "test": "mocha --require @babel/register -inline-diffs"
+    "test": "mocha --require @babel/register ./test/*"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",

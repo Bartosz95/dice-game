@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { Game, countFigure} from '../libs/Game'
+import { Game, countFigure } from '../../libs/Game'
 
 describe('Game', function () {
 
@@ -238,7 +238,7 @@ describe('Game', function () {
     it('check counting "big strit" ', function () {
       const figure = "big strit"
       const result = 40
-      const mug = { "0": 1, "1": 5, "2": 4, "3": 2, "4": 3 }
+      const mug = { "0": 6, "1": 5, "2": 4, "3": 2, "4": 3 }
 
       game.mug = mug
       deepCopieGame.mug = mug
@@ -265,7 +265,7 @@ describe('Game', function () {
 
     it('check counting "general" ', function () {
       const figure = "general"
-      const result = 0
+      const result = 50
       const mug = { "0": 4, "1": 4, "2": 4, "3": 4, "4": 4 }
 
       game.mug = mug

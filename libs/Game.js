@@ -24,14 +24,14 @@ export class Game {
 }
 
 export const rollTheDices = (game, dicesIndex, callback) => {
-
+    
+    if(dicesIndex.filter(index => (index > 4) || (index < 0) || (Math.floor(index) != index) ).length > 0) {
+        return callback("Dices indexes are { 0, 1, 2, 3, 4 }", null)
+    }
     const mug = game.mug;
-    console.log(dicesIndex)
 
     for (let i = 0; i < dicesIndex.length; i++) {
-        console.log(mug[dicesIndex[i]])
         mug[dicesIndex[i]] = Math.floor(Math.random() * 6) + 1
-        console.log(mug[dicesIndex[i]])
     }
     game.numberOfRoll += 1
 
@@ -104,24 +104,25 @@ export const saveFigure = (game, chosenFigure, callback) => {
         chosenFigure === "bonus" ||
         chosenFigure === "sum" ||
         chosenFigure === "total" ) {
-        callback(`You cannot choose figure: ${chosenFigure}`, null)
+        return callback(`You cannot choose figure: ${chosenFigure}`, null)
     } else if (table[chosenFigure] !== null) {
-        callback("Figure already chosen", null)
-    } else {
-        countFigure(game, chosenFigure)
-        game.numberOfRoll = 0
-        const nextUserIndex = (userIDs.indexOf(userID) + 1) % userIDs.length
-        game.currentUser = userIDs[nextUserIndex]
-        if(nextUserIndex === indexOfFirstPlayer) {
-            game.numberOfTurn += 1
-        }
-        
-        if(numberOfTurn > 13) {
-            game.isActive = false
-        }
-
-        callback(null, game)
+        return callback("Figure already chosen", null)
     }
+
+    countFigure(game, chosenFigure)
+    game.numberOfRoll = 0
+    const nextUserIndex = (userIDs.indexOf(userID) + 1) % userIDs.length
+    game.currentUser = userIDs[nextUserIndex]
+    if(nextUserIndex === indexOfFirstPlayer) {
+        game.numberOfTurn += 1
+    }
+    
+    if(numberOfTurn > 13) {
+        game.isActive = false
+    }
+
+    callback(null, game)
+
 }
 
 export const makeMove = (game, userID, numbersToChange, chosenFigure, callback) => {
@@ -131,10 +132,10 @@ export const makeMove = (game, userID, numbersToChange, chosenFigure, callback) 
     const numberOfRoll = game.numberOfRoll;
 
     if(!isActive){
-        callback("Game is over", null)
+        return callback("Game is over", null)
     }
     if (userID !== currentUser) {
-        callback(`This is turn of user: ${currentUser}`, null)
+        return callback(`This is turn of user: ${currentUser}`, null)
     }
 
     if(numberOfRoll === 0) {
@@ -145,16 +146,14 @@ export const makeMove = (game, userID, numbersToChange, chosenFigure, callback) 
     }
     else if (numberOfRoll < 3) {
         if (!numbersToChange){
-            callback("You have to choose dice to rool on choose a figure", null)
-        } else {
-            rollTheDices(game, numbersToChange, callback)
+            return callback("You have to choose dice to rool on choose a figure", null)
         }
+        rollTheDices(game, numbersToChange, callback)
     } 
     else {
         if(!chosenFigure) {
-            callback("You have to choose a figure", null)
-        } else {
-            saveFigure(game, chosenFigure, callback)
+            return callback("You have to choose a figure", null)
         }
+        saveFigure(game, chosenFigure, callback)
     }
 }

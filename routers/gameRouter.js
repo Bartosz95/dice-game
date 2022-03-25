@@ -110,10 +110,8 @@ router.post('/user/:userID/game/:gameID', (req, res) => {
                         logger.error(error);
                         res.send(errorMessage);
                     } 
-                    else {
-                        logger.info(`Player ${userID} make a move in game: ${gameID}`)
-                        res.send(doc);
-                    }
+                    logger.info(`Player ${userID} make a move in game: ${gameID}`)
+                    res.send(doc);
                 })
             }
             console.log(doc.game)
