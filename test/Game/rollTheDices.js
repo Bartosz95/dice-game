@@ -38,6 +38,12 @@ describe('Game', function () {
             })
         })
 
+        it('check if numberOfRoll is updated after roll ', function () {
+            rollTheDices(game, [0,1,2,3,4], (errorMessage, game) => {
+                assert.equal(game.numberOfRoll, 1)
+            })
+        })
+
 
         it('check is mug return null for game for wrong indexes', function () {
             rollTheDices(game, [0,1,2,3,4,5,6], (errorMessage, game) => {

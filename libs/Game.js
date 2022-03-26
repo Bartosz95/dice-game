@@ -132,7 +132,7 @@ export const makeMove = (game, userID, numbersToChange, chosenFigure, callback) 
     const numberOfRoll = game.numberOfRoll;
 
     if(!isActive){
-        return callback("Game is over", null)
+        return callback('Game is over', null)
     }
     if (userID !== currentUser) {
         return callback(`This is turn of user: ${currentUser}`, null)
