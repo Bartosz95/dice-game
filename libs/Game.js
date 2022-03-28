@@ -152,27 +152,32 @@ const move = (playerID, isActive, currentPlayer, numberOfRoll, dicesToChange, ch
 }
 
 export async function makeMove(game, userID, dicesToChange, chosenFigure) {
-
+    
     const isActive = game.isActive;
-    const numberOfRoll = game.numberOfRoll;
-    const numberOfTurn = game.numberOfTurn;
     const currentPlayer = game.currentPlayer;
+    const numberOfRoll = game.numberOfRoll;
     const mug = game.mug
-    const playerIDs = game.playerIDs
-    const indexOfFirstPlayer = game.indexOfFirstPlayer
-    const currentPlayerTable = game.players[userID].table
 
     const whatToDo = await move(userID, isActive, currentPlayer, numberOfRoll, dicesToChange, chosenFigure)
     switch(whatToDo) {
+
         case 'rollDices':
             game.mug = await rollTheDices(mug, dicesToChange)
             game.numberOfRoll += 1
             break;
+
         case 'rollAllDices':
             game.mug = await rollTheDices(mug, [0,1,2,3,4])
             game.numberOfRoll += 1
             break;
+
         case 'saveFigure':
+            
+            const numberOfTurn = game.numberOfTurn;
+            const playerIDs = game.playerIDs
+            const indexOfFirstPlayer = game.indexOfFirstPlayer
+            const currentPlayerTable = game.players[userID].table
+
             const result = await countResult(mug, chosenFigure);
             game.players[userID].table = await saveFigure(currentPlayerTable, chosenFigure, result);
             game.numberOfRoll = 0
@@ -182,3 +187,4 @@ export async function makeMove(game, userID, dicesToChange, chosenFigure) {
             break;
     }
 }
+
