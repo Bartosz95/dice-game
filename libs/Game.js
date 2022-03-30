@@ -182,7 +182,7 @@ export function makeMove(game, userID, dicesToChange, chosenFigure) {
                     game.players[userID].table = await saveFigure(currentPlayerTable, chosenFigure, result);
                     game.numberOfRoll = 0
                     game.currentPlayer = getNextPlayer(playerIDs, currentPlayer);
-                    game.numberOfTurn += getTurn(playerIDs, currentPlayer, indexOfFirstPlayer)
+                    game.numberOfTurn += getTurn(playerIDs, game.currentPlayer, indexOfFirstPlayer)
                     game.isActive = isGameEnd(numberOfTurn)
                     break;
                 default:

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx babel-node main.js",
     "startdev": "nodemon --exec babel-node main.js",
-    "test": "mocha --require @babel/register ./test/*",
+    "test": "mocha --require @babel/register ./test/Game/makeMove.js",
     "t": "nodemon --exec babel-node test.js"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
   "author": "Bartosz Lenartowicz",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15"
   }
