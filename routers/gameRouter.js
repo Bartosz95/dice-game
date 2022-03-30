@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import logger from '../libs/logger';
 import { Game, makeMove } from '../libs/Game'
-import { getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGames } from '../libs/GameSchema'
+import { getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGames } from '../libs/dbGameWrapper'
 
 /*
 First add token to token enviroment variable
@@ -11,92 +11,100 @@ token=$(curl --request POST --url https://dev-8ti8osnq.us.auth0.com/oauth/token 
 echo $token
 */
 
+const errorMessage = 'Something went wrong'
+
 const router = Router();
 
 // get all games
 // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
-router.get('/user/:userID/game', (req, res) => {
+router.get('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID;
-    getAllGames(userID, (errorMessage, games) => {
-        if(errorMessage) {
-            res.send(errorMessage);
-        }
-        res.send(games);
-    })
+    try {
+        const games = await getAllGames(userID)
+        res.send(games)
+    } catch(err) {
+        logger.error(err)
+        res.send(errorMessage)
+    }
 });
 
 // get specific game
 // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
-router.get('/user/:userID/game/:gameID', (req, res) => {
+router.get('/user/:userID/game/:gameID', async (req, res) => {
     const userID = req.params.userID;
     const gameID = req.params.gameID;
-    getParticularGame(userID, gameID, (errorMessage, game) => {
-        if(errorMessage) {
-            return res.send(errorMessage);
-        }
-        res.send(game);
-    })
+    try {
+        const game = await getParticularGame(userID, gameID)
+        res.send(game)
+    } catch (err) {
+        logger.debug(err)
+        return res.send(errorMessage);
+    }
 });
 
 // create a game
 // curl --url http://localhost:3000/api/v1/user/1/game/623a2a1bab1114ac2afabd9c -d '{"numberOfDices":5, "numberOfDiceSides": 6, "userIDs":["1", "2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
-router.post('/user/:userID/game', (req, res) => {
+router.post('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID; 
     let userIDs = req.body.userIDs;
     userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
-    const game = new Game(userIDs)
-    createGame(game, (errorMessage, game) => {
-        if(errorMessage) {
-            return res.send(errorMessage);
-        }
-        res.send(game);
-    })
+    
+    try {
+        const game = new Game(userIDs)
+        const dbGame = await createGame(game)
+        logger.info(`Player ${userID} created game: ${dbGame._id}`)
+        res.send(dbGame)
+    } catch (err) {
+        logger.error(err)
+        res.send(errorMessage)
+    }
 });
 
 
 // roll the dices
 // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
-router.post('/user/:userID/game/:gameID', (req, res) => {
+router.post('/user/:userID/game/:gameID', async (req, res) => {
     const userID = req.params.userID;
     const gameID = req.params.gameID;
     const numbersToChange = req.body.numbersToChange;
     const chosenFigure = req.body.chosenFigure;
-    getParticularGame(userID, gameID, (errorMessage, doc) => {
-        if(errorMessage) {
-            logger.error(errorMessage)
-            res.send(errorMessage);
-        }
-        const game = doc.game;
-        makeMove(game, userID, numbersToChange, chosenFigure, (errorMessage, game) => {
-            if(errorMessage || (game === 'null') ) {
-                logger.error(`Player ${userID} in game ${gameID} has error message: ${errorMessage}`)
-                res.send(errorMessage)
-            }
-            updateGame(gameID, game, (errorMessage) => {
-                if(errorMessage) {
-                    logger.error(errorMessage);
-                } else {
-                    logger.info(`Player ${userID} make a move in game: ${gameID}`)
-                }
-                res.send(errorMessage || doc);
-            })
-        })
-    })
+    
+    try {
+        const dbGame = await getParticularGame(userID, gameID)
+        const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
+        await updateGame(gameID, game)
+        logger.info(`Player ${userID} in game ${dbGame._id}`)
+        res.send(game)
+    } catch (err) {
+        console.log(err)
+        logger.error(err)
+        res.send(err.tip);
+    }
 })
 
-router.delete('/user/:userID/game', (req, res) => {
+router.delete('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID;
-    deleteAllGames(userID, (errorMessage) => {
-        res.send(errorMessage || `Delete all games for user ${userID}`)
-    })
+    try {
+        deleteAllGames(userID)
+        logger.info(`Player ${userID} deleted all games`)
+        res.send(`Delated all games`)
+    } catch (err) {
+        logger.error(err)
+        res.send(errorMessage);
+    }
 });
 
-router.delete('/user/:userID/game/:gameID', (req, res) => {
+router.delete('/user/:userID/game/:gameID', async (req, res) => {
     const userID = req.params.userID;
     const gameID = req.params.gameID;
-    deleteParticularGames(userID, gameID, (errorMessage) => {
-        res.send(errorMessage || `Delete ${gameID} games`);
-    })
+    try {
+        await deleteParticularGames(userID, gameID)
+        logger.info(`Player ${gameID} deleted game: ${gameID}`);
+        res.send(`Deleted game: ${gameID}`);
+    } catch (err) {
+        logger.error(err)
+        res.send(errorMessage);
+    }
 });
 
 

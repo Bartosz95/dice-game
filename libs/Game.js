@@ -27,7 +27,7 @@ const rollTheDices = (mug, dicesIndex) => {
     return new Promise( (resolve, reject) => {
 
         if(dicesIndex.filter(index => (index > 4) || (index < 0) || (Math.floor(index) != index) ).length > 0) {
-            return reject("Dices indexes are { 0, 1, 2, 3, 4 }")
+            return reject({tip: 'Dices indexes are { 0, 1, 2, 3, 4 }'})
         }
         for (let i = 0; i < dicesIndex.length; i++) {
             mug[dicesIndex[i]] = Math.floor(Math.random() * 6) + 1
@@ -42,9 +42,9 @@ const saveFigure = (table, chosenFigure, result) => {
             chosenFigure === "bonus" ||
             chosenFigure === "sum" ||
             chosenFigure === "total" ) {
-            reject(`You cannot choose figure: ${chosenFigure}`)
+            reject({tip: `You cannot choose figure: ${chosenFigure}`})
         } else if (table[chosenFigure] !== null) {
-            reject("Figure already chosen")
+            reject({tip: 'Figure already chosen'})
         }
         table[chosenFigure] = result
         resolve(table)
@@ -101,7 +101,7 @@ const countResult = (mug, chosenFigure) => {
                 resolve(countMug.reduce((sum, dice) => sum + dice, 0));
                 break;
             default:
-                reject("Figure does not exist")
+                reject({tip: 'Figure does not exist'})
         }
         
     })
@@ -124,67 +124,74 @@ const move = (playerID, isActive, currentPlayer, numberOfRoll, dicesToChange, ch
     return new Promise((resolve, reject) => {
 
         if(!isActive){
-            reject('Game is over')
+            reject({tip: 'Game is over'})
         }
         if (playerID !== currentPlayer) {
-            reject(`This is turn of user: ${currentPlayer}`)
+            reject({tip: `This is turn of user: ${currentPlayer}`})
         }
         if(numberOfRoll === 0) {
-            resolve("rollAllDices")
+            resolve('rollAllDices')
         } 
         else if(chosenFigure) {
-            console.log("here")
-            resolve("saveFigure")
+            resolve('saveFigure')
         }
         else if (numberOfRoll < 3) {
             if (!dicesToChange){
-                reject("You have to choose dice to rool on choose a figure")
+                reject({tip: 'You have to choose dice to rool on choose a figure'})
             }
-            resolve("rollDices")
+            resolve('rollDices')
         } 
         else {
             if(!chosenFigure) {
-                reject("You have to choose a figure")
+                reject({tip: 'You have to choose a figure'})
             }
-            resolve("saveFigure")
+            resolve('saveFigure')
         }
     })
 }
 
-export async function makeMove(game, userID, dicesToChange, chosenFigure) {
+export function makeMove(game, userID, dicesToChange, chosenFigure) {
+    return new Promise(async (resolve, reject) => {
+
+        const isActive = game.isActive;
+        const currentPlayer = game.currentPlayer;
+        const numberOfRoll = game.numberOfRoll;
+        const mug = game.mug
+
+        try {
+            const whatToDo = await move(userID, isActive, currentPlayer, numberOfRoll, dicesToChange, chosenFigure)
+            switch(whatToDo) {
+                case 'rollDices':
+                    game.mug = await rollTheDices(mug, dicesToChange)
+                    game.numberOfRoll += 1
+                    break;
     
-    const isActive = game.isActive;
-    const currentPlayer = game.currentPlayer;
-    const numberOfRoll = game.numberOfRoll;
-    const mug = game.mug
-
-    const whatToDo = await move(userID, isActive, currentPlayer, numberOfRoll, dicesToChange, chosenFigure)
-    switch(whatToDo) {
-
-        case 'rollDices':
-            game.mug = await rollTheDices(mug, dicesToChange)
-            game.numberOfRoll += 1
-            break;
-
-        case 'rollAllDices':
-            game.mug = await rollTheDices(mug, [0,1,2,3,4])
-            game.numberOfRoll += 1
-            break;
-
-        case 'saveFigure':
-            
-            const numberOfTurn = game.numberOfTurn;
-            const playerIDs = game.playerIDs
-            const indexOfFirstPlayer = game.indexOfFirstPlayer
-            const currentPlayerTable = game.players[userID].table
-
-            const result = await countResult(mug, chosenFigure);
-            game.players[userID].table = await saveFigure(currentPlayerTable, chosenFigure, result);
-            game.numberOfRoll = 0
-            game.currentPlayer = getNextPlayer(playerIDs, currentPlayer);
-            game.numberOfTurn += getTurn(playerIDs, currentPlayer, indexOfFirstPlayer)
-            game.isActive = isGameEnd(numberOfTurn)
-            break;
-    }
+                case 'rollAllDices':
+                    game.mug = await rollTheDices(mug, [0,1,2,3,4])
+                    game.numberOfRoll += 1
+                    break;
+    
+                case 'saveFigure':
+                    
+                    const numberOfTurn = game.numberOfTurn;
+                    const playerIDs = game.playerIDs
+                    const indexOfFirstPlayer = game.indexOfFirstPlayer
+                    const currentPlayerTable = game.players[userID].table
+    
+                    const result = await countResult(mug, chosenFigure);
+                    game.players[userID].table = await saveFigure(currentPlayerTable, chosenFigure, result);
+                    game.numberOfRoll = 0
+                    game.currentPlayer = getNextPlayer(playerIDs, currentPlayer);
+                    game.numberOfTurn += getTurn(playerIDs, currentPlayer, indexOfFirstPlayer)
+                    game.isActive = isGameEnd(numberOfTurn)
+                    break;
+                default:
+                    reject({tip: 'Something went wrong'})
+            }
+            resolve(game)
+        } catch(err) {
+            reject(err)
+        }
+    })
 }
 
