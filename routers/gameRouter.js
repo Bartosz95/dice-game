@@ -76,7 +76,6 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
         logger.info(`Player ${userID} in game ${dbGame._id}`)
         res.send(game)
     } catch (err) {
-        console.log(err)
         logger.error(err)
         res.send(err.tip);
     }

@@ -101,7 +101,7 @@ const countResult = (mug, chosenFigure) => {
                 resolve(countMug.reduce((sum, dice) => sum + dice, 0));
                 break;
             default:
-                reject({tip: 'Figure does not exist'})
+                reject({tip: `You cannot choose figure: ${chosenFigure}`})
         }
         
     })

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npx babel-node main.js",
     "startdev": "nodemon --exec babel-node main.js",
-    "test": "mocha --require @babel/register ./test/Game/rollTheDices.js",
+    "test": "mocha --require @babel/register ./test/*",
     "t": "nodemon --exec babel-node test.js"
   },
   "dependencies": {

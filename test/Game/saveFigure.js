@@ -1,48 +1,54 @@
 import assert from 'assert'
-import { Game, saveFigure } from '../../libs/Game'
+import { Game, makeMove } from '../../libs/Game'
 
-describe('Game', function () {
+describe('Game',async function () {
 
     let game
-    let currentUser
+    let currentPlayer
     let deepCopieGame
+    let numbersToChange = undefined
   
     beforeEach(function () {
       game = new Game(["abc","def"])
-      currentUser = game.currentUser;
+      game.numberOfRoll = 1
       deepCopieGame = JSON.parse(JSON.stringify(game))
+      currentPlayer = deepCopieGame.currentPlayer;
     })
   
     describe('#saveFigure()', function () {
 
-        it('get error if figure is wrong', function () {
-            
-            const chosenFigure = "sum"
-            const numberOfRoll = 1
+        it('get error if figure is wrong',async function () {
 
-            saveFigure(game, chosenFigure, (errorMessage, game) => {
-                assert.equal(game, null)
-                assert.equal(errorMessage, `You cannot choose figure: ${chosenFigure}`)
-            })
-            assert.equal(game.numberOfRoll, 0)
-            assert.equal(game.numberOfTurn, 0)
+            const chosenFigure = "sum"
+
+            try {
+                game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+                assert.fail()
+            } catch (err) {
+                assert.equal(err.tip, `You cannot choose figure: ${chosenFigure}`)
+                assert.equal(game.numberOfRoll, 1)
+                assert.equal(game.numberOfTurn, 0)
+            }
         })
 
-        it('get error if figure is already chosen', function () {
+        it('get error if figure is already chosen',async function () {
             
             const chosenFigure = "small strit"
             const currentResult = 0
 
-            game.users[currentUser].table[chosenFigure] = currentResult
-            saveFigure(game, chosenFigure, (errorMessage, game) => {
-                assert.equal(game, null)
-                assert.equal(errorMessage, "Figure already chosen")
-            })
-            assert.equal(game.numberOfRoll, 0)
-            assert.equal(game.numberOfTurn, 0)
+            game.players[currentPlayer].table[chosenFigure] = currentResult
+            try {
+                await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+                assert.fail()
+            } catch (err) {
+                assert.equal(err.tip, "Figure already chosen")
+                assert.equal(game.numberOfRoll, 1)
+                assert.equal(game.numberOfTurn, 0)
+            }
+
         })
 
-        it('table is correct after save', function () {
+        it('table is correct after save',async function () {
             
             const chosenFigure = "1"
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
@@ -50,32 +56,34 @@ describe('Game', function () {
             
             game.mug = mug
             deepCopieGame.mug = mug
-            deepCopieGame.users[currentUser].table[chosenFigure] = result
-            saveFigure(game, chosenFigure, (errorMessage, game) => {
-                assert.deepEqual(game.users[currentUser], deepCopieGame.users[currentUser])
-            })
+            deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.deepEqual(game.players[currentPlayer], deepCopieGame.players[currentPlayer])
         })
 
-        it('check if numberOfRoll is 0', function () {
+        it('check if numberOfRoll is 0',async function () {
             
             const chosenFigure = "1"
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
             
             game.mug = mug
-            saveFigure(game, chosenFigure, (errorMessage, game) => {
-                assert.equal(game.numberOfRoll, 0)
-            })
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.numberOfRoll, 0)
         })
 
-        it('check if user is changed', function () {
+        it('check if user is changed', async function () {
             
             const chosenFigure = "1"
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
             
             game.mug = mug
-            saveFigure(game, chosenFigure, (errorMessage, game) => {
-                assert.notEqual(game.currentUser, deepCopieGame.currentUser)
-            })
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.notEqual(game.currentPlayer, deepCopieGame.currentPlayer)
         })
     })
 })  
