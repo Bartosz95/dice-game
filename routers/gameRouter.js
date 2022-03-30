@@ -84,7 +84,7 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
 router.delete('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID;
     try {
-        deleteAllGames(userID)
+        await deleteAllGames(userID)
         logger.info(`Player ${userID} deleted all games`)
         res.send(`Delated all games`)
     } catch (err) {
