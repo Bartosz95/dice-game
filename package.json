@@ -5,8 +5,8 @@
   "main": "main.js",
   "repository": "git@github.com:Bartosz95/dice-game-api.git",
   "scripts": {
-    "start": "npx babel-node main.js",
-    "startdev": "nodemon --exec babel-node main.js",
+    "start-prod": "npx babel-node main.js",
+    "start": "nodemon --exec babel-node main.js",
     "test": "mocha --require @babel/register ./test/*",
     "t": "nodemon --exec babel-node test.js"
   },

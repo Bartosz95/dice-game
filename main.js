@@ -32,7 +32,7 @@ app.use(URL, game);
 
 app.use((req, res) => {
   logger.info(`Request ${req.method} ${req.path} not found. Redirect to ${URL}`)
-  res.redirect(URL)
+  res.redirect(307, `${URL}/`)
 })
 
 app.listen(PORT, HOST, () => logger.info(`Running on http://${HOST}:${PORT}${URL}`));

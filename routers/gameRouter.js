@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import logger from '../libs/logger';
 import { Game, makeMove } from '../libs/Game'
-import { getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGames } from '../libs/dbGameWrapper'
+import { gameModel, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGames } from '../libs/dbGameWrapper'
 
 /*
 First add token to token enviroment variable
@@ -14,6 +14,19 @@ echo $token
 const errorMessage = 'Something went wrong'
 
 const router = Router();
+
+// Remove endpoint after finish developing
+router.get('/', async (req, res) => {
+    try {
+        const games = await gameModel.find({})
+        const playerID = games[0].game.currentPlayer
+        const gameID = games[0]._id
+        res.redirect(307, `./user/${playerID}/game/${gameID}`)
+    } catch(err) {
+        logger.error(err)
+        res.send(errorMessage)
+    }
+})
 
 // get all games
 // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
