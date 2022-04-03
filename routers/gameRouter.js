@@ -11,7 +11,7 @@ token=$(curl --request POST --url https://dev-8ti8osnq.us.auth0.com/oauth/token 
 echo $token
 */
 
-const errorMessage = 'Something went wrong'
+const errorMessage = { 'error': 'Something went wrong'}
 
 const router = Router();
 
@@ -90,7 +90,7 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
         res.send(game)
     } catch (err) {
         logger.error(err)
-        res.send(err.tip);
+        res.send(err);
     }
 })
 

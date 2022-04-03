@@ -117,7 +117,7 @@ const getTurn = (playerIDs, currentPlayer, indexOfFirstPlayer) => {
 }
 
 const isGameEnd = (numberOfTurn) => {
-    return numberOfTurn > 13
+    return numberOfTurn < 13
 }
 
 const move = (playerID, isActive, currentPlayer, numberOfRoll, dicesToChange, chosenFigure) => {
@@ -173,7 +173,6 @@ export function makeMove(game, userID, dicesToChange, chosenFigure) {
     
                 case 'saveFigure':
                     
-                    const numberOfTurn = game.numberOfTurn;
                     const playerIDs = game.playerIDs
                     const indexOfFirstPlayer = game.indexOfFirstPlayer
                     const currentPlayerTable = game.players[userID].table
@@ -183,7 +182,7 @@ export function makeMove(game, userID, dicesToChange, chosenFigure) {
                     game.numberOfRoll = 0
                     game.currentPlayer = getNextPlayer(playerIDs, currentPlayer);
                     game.numberOfTurn += getTurn(playerIDs, game.currentPlayer, indexOfFirstPlayer)
-                    game.isActive = isGameEnd(numberOfTurn)
+                    game.isActive = isGameEnd(game.numberOfTurn)
                     break;
                 default:
                     reject({tip: 'Something went wrong'})

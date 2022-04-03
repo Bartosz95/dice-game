@@ -30,6 +30,24 @@ describe('Game', function () {
             }
         })
 
+        it('after last move game.isActive is false', async function () {
+            const numbersToChange = undefined;
+            const chosenFigure = "1";
+            const numberOfRoll = 1;
+            const numberOfTurn = 12;
+            const indexOfFirstPlayer = game.indexOfFirstPlayer == 0 ? 1 : 0;
+            const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 };
+
+            
+            game.numberOfRoll = numberOfRoll;
+            game.numberOfTurn = numberOfTurn;
+            game.indexOfFirstPlayer = indexOfFirstPlayer;
+            game.mug = mug;
+            
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+            assert.equal(game.isActive, false)
+        })
+
         it('get error if user is not active', async function () {
 
             const numbersToChange = [0,1]
@@ -119,6 +137,7 @@ describe('Game', function () {
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
             const numberOfRoll = 1
             const indexOfFirstPlayer = game.indexOfFirstPlayer == 0 ? 1 : 0
+
             game.mug = mug
             game.numberOfRoll = numberOfRoll
             game.indexOfFirstPlayer = indexOfFirstPlayer
