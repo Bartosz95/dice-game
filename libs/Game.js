@@ -120,9 +120,29 @@ const isGameEnd = (numberOfTurn) => {
     return numberOfTurn < 13
 }
 
-const move = (playerID, isActive, currentPlayer, numberOfRoll, dicesToChange, chosenFigure) => {
-    return new Promise((resolve, reject) => {
+const saveFigureandUpdateGame = async (game, chosenFigure) => {
+    const result = await countResult(game.mug, chosenFigure);
+    game.players[game.currentPlayer].table = await saveFigure(game.players[game.currentPlayer].table, chosenFigure, result);
+    game.numberOfRoll = 0
+    game.currentPlayer = getNextPlayer(game.playerIDs, game.currentPlayer);
+    game.numberOfTurn += getTurn(game.playerIDs, game.currentPlayer, game.indexOfFirstPlayer)
+    game.isActive = isGameEnd(game.numberOfTurn)
+    return game
+}
 
+const rollTheDicesAndUpdateGame = async (game, dicesToChange) => {
+    game.mug = await rollTheDices(game.mug, dicesToChange)
+    game.numberOfRoll += 1
+    return game;
+}
+
+export function makeMove(game, playerID, dicesToChange, chosenFigure) {
+    return new Promise(async (resolve, reject) => {
+        try {
+        const isActive = game.isActive;
+        const currentPlayer = game.currentPlayer;
+        const numberOfRoll = game.numberOfRoll;
+        
         if(!isActive){
             reject({tip: 'Game is over'})
         }
@@ -130,67 +150,28 @@ const move = (playerID, isActive, currentPlayer, numberOfRoll, dicesToChange, ch
             reject({tip: `This is turn of user: ${currentPlayer}`})
         }
         if(numberOfRoll === 0) {
-            resolve('rollAllDices')
+            resolve(rollTheDicesAndUpdateGame(game, [0,1,2,3,4]))
         } 
         else if(chosenFigure) {
-            resolve('saveFigure')
+            resolve(saveFigureandUpdateGame(game, chosenFigure))
         }
         else if (numberOfRoll < 3) {
             if (!dicesToChange){
                 reject({tip: 'You have to choose dice to rool on choose a figure'})
             }
-            resolve('rollDices')
+            resolve(rollTheDicesAndUpdateGame(game, dicesToChange))
         } 
         else {
             if(!chosenFigure) {
                 reject({tip: 'You have to choose a figure'})
             }
-            resolve('saveFigure')
+            resolve(saveFigureandUpdateGame(game, chosenFigure))
         }
-    })
-}
-
-export function makeMove(game, userID, dicesToChange, chosenFigure) {
-    return new Promise(async (resolve, reject) => {
-
-        const isActive = game.isActive;
-        const currentPlayer = game.currentPlayer;
-        const numberOfRoll = game.numberOfRoll;
-        const mug = game.mug
-
-        try {
-            const whatToDo = await move(userID, isActive, currentPlayer, numberOfRoll, dicesToChange, chosenFigure)
-            switch(whatToDo) {
-                case 'rollDices':
-                    game.mug = await rollTheDices(mug, dicesToChange)
-                    game.numberOfRoll += 1
-                    break;
-    
-                case 'rollAllDices':
-                    game.mug = await rollTheDices(mug, [0,1,2,3,4])
-                    game.numberOfRoll += 1
-                    break;
-    
-                case 'saveFigure':
-                    
-                    const playerIDs = game.playerIDs
-                    const indexOfFirstPlayer = game.indexOfFirstPlayer
-                    const currentPlayerTable = game.players[userID].table
-    
-                    const result = await countResult(mug, chosenFigure);
-                    game.players[userID].table = await saveFigure(currentPlayerTable, chosenFigure, result);
-                    game.numberOfRoll = 0
-                    game.currentPlayer = getNextPlayer(playerIDs, currentPlayer);
-                    game.numberOfTurn += getTurn(playerIDs, game.currentPlayer, indexOfFirstPlayer)
-                    game.isActive = isGameEnd(game.numberOfTurn)
-                    break;
-                default:
-                    reject({tip: 'Something went wrong'})
-            }
-            resolve(game)
-        } catch(err) {
-            reject(err)
-        }
+    } catch (error) {
+        console.log(error)
+        reject({tip: 'Something went wrong'})
+    }
+        
     })
 }
 
