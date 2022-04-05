@@ -1,3 +1,5 @@
+import logger from "./logger";
+
 export class Game {
     constructor(playerIDs) {
         this.isActive = true;
@@ -27,7 +29,7 @@ const rollTheDices = (mug, dicesIndex) => {
     return new Promise( (resolve, reject) => {
 
         if(dicesIndex.filter(index => (index > 4) || (index < 0) || (Math.floor(index) != index) ).length > 0) {
-            return reject({tip: 'Dices indexes are { 0, 1, 2, 3, 4 }'})
+            return reject({level: "warning", message: 'Dices indexes are { 0, 1, 2, 3, 4 }'})
         }
         for (let i = 0; i < dicesIndex.length; i++) {
             mug[dicesIndex[i]] = Math.floor(Math.random() * 6) + 1
@@ -42,9 +44,9 @@ const saveFigure = (table, chosenFigure, result) => {
             chosenFigure === "bonus" ||
             chosenFigure === "sum" ||
             chosenFigure === "total" ) {
-            reject({tip: `You cannot choose figure: ${chosenFigure}`})
+            reject({level: "warning", message: `You cannot choose figure: ${chosenFigure}`})
         } else if (table[chosenFigure] !== null) {
-            reject({tip: 'Figure already chosen'})
+            reject({level: "warning", message: 'Figure already chosen'})
         }
         table[chosenFigure] = result
         resolve(table)
@@ -101,7 +103,7 @@ const countResult = (mug, chosenFigure) => {
                 resolve(countMug.reduce((sum, dice) => sum + dice, 0));
                 break;
             default:
-                reject({tip: `You cannot choose figure: ${chosenFigure}`})
+                reject({level: "warning", message: `You cannot choose figure: ${chosenFigure}`})
         }
         
     })
@@ -144,32 +146,32 @@ export function makeMove(game, playerID, dicesToChange, chosenFigure) {
         const numberOfRoll = game.numberOfRoll;
         
         if(!isActive){
-            reject({tip: 'Game is over'})
+            return reject({level: "warning", message: 'Game is over'})
         }
         if (playerID !== currentPlayer) {
-            reject({tip: `This is turn of user: ${currentPlayer}`})
+            return reject({level: "warning", message: `This is turn of user: ${currentPlayer}`})
         }
         if(numberOfRoll === 0) {
-            resolve(rollTheDicesAndUpdateGame(game, [0,1,2,3,4]))
+            return resolve(rollTheDicesAndUpdateGame(game, [0,1,2,3,4]))
         } 
         else if(chosenFigure) {
-            resolve(saveFigureandUpdateGame(game, chosenFigure))
+            return resolve(saveFigureandUpdateGame(game, chosenFigure))
         }
         else if (numberOfRoll < 3) {
             if (!dicesToChange){
-                reject({tip: 'You have to choose dice to rool on choose a figure'})
+                return reject({level: "warning", message: 'You have to choose dice to rool on choose a figure'})
             }
-            resolve(rollTheDicesAndUpdateGame(game, dicesToChange))
+            return resolve(rollTheDicesAndUpdateGame(game, dicesToChange))
         } 
         else {
             if(!chosenFigure) {
-                reject({tip: 'You have to choose a figure'})
-            }
-            resolve(saveFigureandUpdateGame(game, chosenFigure))
+                return reject({level: "warning", message: 'You have to choose a figure'})
+            } 
+            return resolve(saveFigureandUpdateGame(game, chosenFigure))
+            
         }
-    } catch (error) {
-        console.log(error)
-        reject({tip: 'Something went wrong'})
+    } catch (err) {
+        return reject({level: "error", message: err.message})
     }
         
     })

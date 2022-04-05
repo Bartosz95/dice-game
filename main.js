@@ -5,7 +5,11 @@ import express  from 'express'
 import logger from './libs/logger';
 import db from './libs/dbGameWrapper'
 
+<<<<<<< HEAD
 import gameRouter from './routers/gameRouter';
+=======
+import createGameRouter from './routers/gameRouter';
+>>>>>>> 08cce62 (Import db to router as param)
 import jwtCheck from './libs/jwtCheck'
 
 const HOST = process.env.APP_HOST;
@@ -29,8 +33,12 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
+<<<<<<< HEAD
 const game = gameRouter(db)
 app.use(URL, game);
+=======
+app.use(URL, createGameRouter(db));
+>>>>>>> 08cce62 (Import db to router as param)
 
 app.use((req, res) => {
   logger.info(`Request ${req.method} ${req.path} not found. Redirect to ${URL}`)
