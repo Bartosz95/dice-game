@@ -1,11 +1,15 @@
-import { mongoose } from './dbConnection'
+import { Game } from '../../libs/Game'
 
-const gameModel = mongoose.model("game", new mongoose.Schema({
-    game: {}
-}));
+const gameModel = {
+    game: null,
+    _id: null
+}
 
 exports.find = (params) => {
-    return gameModel.find(params)
+    return new Promise((resolve, reject) => {
+
+    });
+    gameModel.find(params)
 }
 
 exports.getAllGames = (userID) => {
@@ -13,7 +17,7 @@ exports.getAllGames = (userID) => {
     return gameModel.find({userIDstring : { $exists: true}}) 
 }
 
-exports.getParticularGame = async (userID, gameID) => {
+exports.getParticularGame = (userID, gameID) => {
     const userIDstring = `game.playerIDs.${userID}`;
     return gameModel.findOne({ _id: gameID, userIDstring : { $exists: true}})
 }

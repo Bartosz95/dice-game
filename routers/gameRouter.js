@@ -69,18 +69,12 @@ export default function (db) {
         
         try {
             const game = new Game(userIDs)
-<<<<<<< HEAD
-            const dbgame = await db.createGame(game)
-            logger.info(`Player ${userID} created game: ${dbGame._id}`)
-            res.send(dbGame)
-=======
             const dbGame = await db.createGame(game)
             logger.info(`Player ${userID} created game: ${dbGame._id}`)
             res.send({
                 id: dbGame._id,
                 playerIDs: dbGame.game.playerIDs
             })
->>>>>>> 08cce62 (Import db to router as param)
         } catch (err) {
             logger.error(err.message)
             res.send(errorMessage)
@@ -97,27 +91,17 @@ export default function (db) {
         const { numbersToChange, chosenFigure } = req.body;
         
         try {
-<<<<<<< HEAD
-            const dbgame = await db.getParticularGame(userID, gameID)
-            const game = await db.makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
-=======
             const dbGame = await db.getParticularGame(userID, gameID)
             const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
->>>>>>> 08cce62 (Import db to router as param)
             await db.updateGame(gameID, game)
             logger.info(`Player ${userID} in game ${dbGame._id}`)
             res.send(game)
         } catch (err) {
-<<<<<<< HEAD
-            logger.error(err)
-            res.send(err);
-=======
             if(err.level === 'warning'){
                 return res.send(err);
             }
            logger.error(err.message)
            res.send(errorMessage)
->>>>>>> 08cce62 (Import db to router as param)
         }
     })
 
