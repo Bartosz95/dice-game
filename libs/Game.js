@@ -15,9 +15,9 @@ export class Game {
         playerIDs.forEach(id => {
             this.players[id] = {
                 table : { "1": null, "2": null, "3": null, "4": null, "5": null, "6": null, 
-                        "bonus": null, "3x": null, "4x": null, "full": null, 
+                        "to_bonus": null,"bonus": null, "3x": null, "4x": null, "full": null, 
                         "small strit": null, "big strit": null, "general": null, "chance": null, 
-                        "sum": null, "total": null
+                         "total": null
                 },
                 
             }
@@ -42,7 +42,7 @@ const saveFigure = (table, chosenFigure, result) => {
     return new Promise((resolve, reject) => {
         if(!table.hasOwnProperty(chosenFigure) || 
             chosenFigure === "bonus" ||
-            chosenFigure === "sum" ||
+            chosenFigure === "to_bonus" ||
             chosenFigure === "total" ) {
             reject({level: "warning", message: `You cannot choose figure: ${chosenFigure}`})
         } else if (table[chosenFigure] !== null) {
@@ -82,10 +82,10 @@ const countResult = (mug, chosenFigure) => {
                 resolve(counter[chosenFigure] * chosenFigure);
                 break;
             case "3x":
-                resolve(counter.map(number => number >= 3).includes(true) ? countMug.reduce((sum, dice) => sum + dice, 0) : 0);
+                resolve(counter.map(number => number >= 3).includes(true) ? countMug.reduce((to_bonus, dice) => to_bonus + dice, 0) : 0);
                 break;
             case "4x":
-                resolve(counter.map(number => number >= 4).includes(true) ? countMug.reduce((sum, dice) => sum + dice, 0) : 0);
+                resolve(counter.map(number => number >= 4).includes(true) ? countMug.reduce((to_bonus, dice) => to_bonus + dice, 0) : 0);
                 break;
             case "full":
                 resolve((counter.includes(3) && counter.includes(2) ) ? 25 : 0);
@@ -100,7 +100,7 @@ const countResult = (mug, chosenFigure) => {
                 resolve(counter.includes(5) ? 50 : 0);
                 break;
             case "chance": 
-                resolve(countMug.reduce((sum, dice) => sum + dice, 0));
+                resolve(countMug.reduce((to_bonus, dice) => to_bonus + dice, 0));
                 break;
             default:
                 reject({level: "warning", message: `You cannot choose figure: ${chosenFigure}`})

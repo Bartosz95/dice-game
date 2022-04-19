@@ -31,7 +31,7 @@ export default function (db) {
     })
 
     // get all games
-    // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
+    // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/user/1/game
     router.get('/user/:userID/game', async (req, res) => {
         const userID = req.params.userID;
         try {
@@ -43,10 +43,8 @@ export default function (db) {
         }
     });
 
-    // get specific game
-    // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
-// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
-    // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
+    // get particulary game
+    // curl -H 'authorization: Bearer $token' http://localhost:3000/api/v1/user/1/game/622cd907f6026dbf7cad27ef 
     router.get('/user/:userID/game/:gameID', async (req, res) => {
         const { userID, gameID } = req.params;
         try {
@@ -59,9 +57,7 @@ export default function (db) {
     });
 
     // create a game
-    // curl --url http://localhost:3000/api/v1/user/1/game/623a2a1bab1114ac2afabd9c -d '{"numberOfDices":5, "numberOfDiceSides": 6, "userIDs":["1", "2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
-// curl --url http://localhost:3000/api/v1/user/1/game/623a2a1bab1114ac2afabd9c -d '{"numberOfDices":5, "numberOfDiceSides": 6, "userIDs":["1", "2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
-    // curl --url http://localhost:3000/api/v1/user/1/game/623a2a1bab1114ac2afabd9c -d '{"numberOfDices":5, "numberOfDiceSides": 6, "userIDs":["1", "2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
+    // curl --url http://localhost:3000/api/v1/user/1/game -d '{"userIDs":["1","2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
     router.post('/user/:userID/game', async (req, res) => {
         const userID = req.params.userID; 
         let userIDs = req.body.userIDs;
@@ -82,10 +78,10 @@ export default function (db) {
     });
 
 
-    // roll the dices
-    // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
-// curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
-    // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
+    // roll dices
+    // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/user/1/game/622cd907f6026dbf7cad27ef
+    // choose figure
+    // curl -d '{"chosenFigure":"strit"}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/user/1/game/622cd907f6026dbf7cad27ef 
     router.post('/user/:userID/game/:gameID', async (req, res) => {
         const { userID, gameID } = req.params;
         const { numbersToChange, chosenFigure } = req.body;
@@ -105,6 +101,8 @@ export default function (db) {
         }
     })
 
+    // delete all game for user
+    // curl -X DELETE  http://localhost:3000/api/v1/user/1/game
     router.delete('/user/:userID/game', async (req, res) => {
         const userID = req.params.userID;
         try {
@@ -117,6 +115,7 @@ export default function (db) {
         }
     });
 
+    // delete particulary game for user
     router.delete('/user/:userID/game/:gameID', async (req, res) => {
         const { userID, gameID } = req.params;
         try {

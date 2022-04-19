@@ -19,7 +19,7 @@ describe('Game',async function () {
 
         it('get error if figure is wrong',async function () {
 
-            const chosenFigure = "sum"
+            const chosenFigure = "to_bonus"
 
             try {
                 game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
