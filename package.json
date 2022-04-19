@@ -7,7 +7,7 @@
   "scripts": {
     "start-prod": "npx babel-node main.js",
     "start": "nodemon --exec babel-node main.js",
-    "test": "mocha --require @babel/register ./test/gameRouter_test.js"
+    "test": "mocha --require @babel/register ./test/Game/"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",

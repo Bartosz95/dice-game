@@ -15,7 +15,7 @@ export class Game {
         playerIDs.forEach(id => {
             this.players[id] = {
                 table : { "1": null, "2": null, "3": null, "4": null, "5": null, "6": null, 
-                        "to_bonus": null,"bonus": null, "3x": null, "4x": null, "full": null, 
+                        "to bonus": null,"bonus": null, "3x": null, "4x": null, "full": null, 
                         "small strit": null, "big strit": null, "general": null, "chance": null, 
                          "total": null
                 },
@@ -38,17 +38,24 @@ const rollTheDices = (mug, dicesIndex) => {
     })
 }
 
+const sumUpToBonus = (table) => {
+    const sum = table['1'] + table['2'] + table['3'] + table['4'] + table['5'] + table['6'] - 63
+    return sum < 0 ? sum : 0
+}
+
 const saveFigure = (table, chosenFigure, result) => {
     return new Promise((resolve, reject) => {
         if(!table.hasOwnProperty(chosenFigure) || 
             chosenFigure === "bonus" ||
-            chosenFigure === "to_bonus" ||
+            chosenFigure === "to bonus" ||
             chosenFigure === "total" ) {
             reject({level: "warning", message: `You cannot choose figure: ${chosenFigure}`})
         } else if (table[chosenFigure] !== null) {
             reject({level: "warning", message: 'Figure already chosen'})
         }
         table[chosenFigure] = result
+        table["to bonus"] = sumUpToBonus(table)
+        if(table["to bonus"] >= 0) { table["bonus"] = 35 }
         resolve(table)
         
     })
@@ -82,10 +89,10 @@ const countResult = (mug, chosenFigure) => {
                 resolve(counter[chosenFigure] * chosenFigure);
                 break;
             case "3x":
-                resolve(counter.map(number => number >= 3).includes(true) ? countMug.reduce((to_bonus, dice) => to_bonus + dice, 0) : 0);
+                resolve(counter.map(number => number >= 3).includes(true) ? countMug.reduce((sum, dice_result) => sum + dice_result, 0) : 0);
                 break;
             case "4x":
-                resolve(counter.map(number => number >= 4).includes(true) ? countMug.reduce((to_bonus, dice) => to_bonus + dice, 0) : 0);
+                resolve(counter.map(number => number >= 4).includes(true) ? countMug.reduce((sum, dice_result) => sum + dice_result, 0) : 0);
                 break;
             case "full":
                 resolve((counter.includes(3) && counter.includes(2) ) ? 25 : 0);
@@ -100,7 +107,7 @@ const countResult = (mug, chosenFigure) => {
                 resolve(counter.includes(5) ? 50 : 0);
                 break;
             case "chance": 
-                resolve(countMug.reduce((to_bonus, dice) => to_bonus + dice, 0));
+                resolve(countMug.reduce((sum, dice_result) => sum + dice_result, 0));
                 break;
             default:
                 reject({level: "warning", message: `You cannot choose figure: ${chosenFigure}`})
@@ -118,8 +125,15 @@ const getTurn = (playerIDs, currentPlayer, indexOfFirstPlayer) => {
     return playerIDs.indexOf(currentPlayer) === indexOfFirstPlayer ? 1 : 0
 }
 
-const isGameEnd = (numberOfTurn) => {
+const isActive = (numberOfTurn) => {
     return numberOfTurn < 13
+}
+
+const sumUpGame = (players) => {
+    for(let player of Object.values(players)) {
+        player.table["total"] = Object.values(player.table).reduce((sum, dice_result) => sum + dice_result, 0) - player.table["to bonus"]
+    }
+    return players
 }
 
 const saveFigureandUpdateGame = async (game, chosenFigure) => {
@@ -128,7 +142,10 @@ const saveFigureandUpdateGame = async (game, chosenFigure) => {
     game.numberOfRoll = 0
     game.currentPlayer = getNextPlayer(game.playerIDs, game.currentPlayer);
     game.numberOfTurn += getTurn(game.playerIDs, game.currentPlayer, game.indexOfFirstPlayer)
-    game.isActive = isGameEnd(game.numberOfTurn)
+    game.isActive = isActive(game.numberOfTurn)
+    if(!game.isActive) {
+        game.players = sumUpGame(game.players)
+    }
     return game
 }
 

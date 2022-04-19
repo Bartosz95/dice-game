@@ -19,7 +19,7 @@ describe('Game',async function () {
 
         it('get error if figure is wrong',async function () {
 
-            const chosenFigure = "to_bonus"
+            const chosenFigure = "to bonus"
 
             try {
                 game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
@@ -57,6 +57,7 @@ describe('Game',async function () {
             game.mug = mug
             deepCopieGame.mug = mug
             deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+            deepCopieGame.players[currentPlayer].table['to bonus'] = -60
 
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -84,6 +85,146 @@ describe('Game',async function () {
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
             assert.notEqual(game.currentPlayer, deepCopieGame.currentPlayer)
+        })
+
+        it('check if to bonus is counted properly', async function () {
+            
+            const chosenFigure = "5"
+            const mug = { "0": 5, "1": 5, "2": 1, "3": 3, "4": 1 }
+            
+            game.mug = mug
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['to bonus'], -53)
+        })
+
+        it('check if to bonus is counted properly', async function () {
+            
+            const chosenFigure = "5"
+            const mug = { "0": 5, "1": 5, "2": 1, "3": 5, "4": 1 }
+            
+            game.mug = mug
+            game.players[currentPlayer].table['1'] = 3
+            game.players[currentPlayer].table['2'] = 6
+            game.players[currentPlayer].table['3'] = 9
+            game.players[currentPlayer].table['4'] = 12
+            game.players[currentPlayer].table['6'] = 18
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['to bonus'], 0)
+            assert.equal(game.players[currentPlayer].table['bonus'], 35)
+        })
+
+        it('check if to bonus is counted properly', async function () {
+            
+            const chosenFigure = "5"
+            const mug = { "0": 5, "1": 5, "2": 5, "3": 5, "4": 1 }
+            
+            game.mug = mug
+            game.players[currentPlayer].table['1'] = 6
+            game.players[currentPlayer].table['2'] = 2
+            game.players[currentPlayer].table['3'] = 6
+            game.players[currentPlayer].table['4'] = 18
+            game.players[currentPlayer].table['6'] = 21
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['to bonus'], 0)
+            assert.equal(game.players[currentPlayer].table['bonus'], 35)
+        })
+
+        it('check if to bonus is counted properly', async function () {
+            
+            const chosenFigure = "5"
+            const mug = { "0": 1, "1": 1, "2": 5, "3": 5, "4": 1 }
+            
+            game.mug = mug
+            game.players[currentPlayer].table['1'] = 2
+            game.players[currentPlayer].table['2'] = 2
+            game.players[currentPlayer].table['3'] = 3
+            game.players[currentPlayer].table['4'] = 4
+            game.players[currentPlayer].table['6'] = 6
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['to bonus'], -36)
+            assert.equal(game.players[currentPlayer].table['bonus'], null)
+        })
+
+        it('check if total is counted properly', async function () {
+            
+            const chosenFigure = "5"
+ 
+            game.numberOfTurn = 12
+            game.indexOfFirstPlayer = game.indexOfFirstPlayer === 0 ? 1 : 0
+            game.mug = { "0": 1, "1": 1, "2": 5, "3": 5, "4": 5 }
+            game.players[currentPlayer].table['1'] = 3
+            game.players[currentPlayer].table['2'] = 6
+            game.players[currentPlayer].table['3'] = 9
+            game.players[currentPlayer].table['4'] = 12
+            game.players[currentPlayer].table['6'] = 18
+            game.players[currentPlayer].table['3x'] = 18
+            game.players[currentPlayer].table['4x'] =20
+            game.players[currentPlayer].table['full'] = 25
+            game.players[currentPlayer].table['small strit'] = 30
+            game.players[currentPlayer].table['big strit'] = 40
+            game.players[currentPlayer].table['general'] = 50
+            game.players[currentPlayer].table['chance'] = 36
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['total'], 317)
+        })
+        it('check if total is counted properly with bonus', async function () {
+            
+            const chosenFigure = "5"
+ 
+            game.numberOfTurn = 12
+            game.indexOfFirstPlayer = game.indexOfFirstPlayer === 0 ? 1 : 0
+            game.mug = { "0": 1, "1": 1, "2": 5, "3": 5, "4": 5 }
+            game.players[currentPlayer].table['1'] = 3
+            game.players[currentPlayer].table['2'] = 6
+            game.players[currentPlayer].table['3'] = 9
+            game.players[currentPlayer].table['4'] = 12
+            game.players[currentPlayer].table['6'] = 18
+            game.players[currentPlayer].table['3x'] = 18
+            game.players[currentPlayer].table['4x'] = 20
+            game.players[currentPlayer].table['full'] = 25
+            game.players[currentPlayer].table['small strit'] = 30
+            game.players[currentPlayer].table['big strit'] = 40
+            game.players[currentPlayer].table['general'] = 50
+            game.players[currentPlayer].table['chance'] = 36
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['total'], 317)
+        })
+
+        it('check if total is counted properly without bonus', async function () {
+            
+            const chosenFigure = "5"
+ 
+            game.numberOfTurn = 12
+            game.indexOfFirstPlayer = game.indexOfFirstPlayer === 0 ? 1 : 0
+            game.mug = { "0": 1, "1": 1, "2": 5, "3": 5, "4": 5 }
+            game.players[currentPlayer].table['1'] = 3
+            game.players[currentPlayer].table['2'] = 0
+            game.players[currentPlayer].table['3'] = 3
+            game.players[currentPlayer].table['4'] = 8
+            game.players[currentPlayer].table['6'] = 12
+            game.players[currentPlayer].table['3x'] = 18
+            game.players[currentPlayer].table['4x'] = 12
+            game.players[currentPlayer].table['full'] = 25
+            game.players[currentPlayer].table['small strit'] = 30
+            game.players[currentPlayer].table['big strit'] = 40
+            game.players[currentPlayer].table['general'] = 0
+            game.players[currentPlayer].table['chance'] = 21
+
+            game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
+            assert.equal(game.players[currentPlayer].table['total'], 187)
         })
     })
 })  

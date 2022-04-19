@@ -25,8 +25,11 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -60
+
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
       assert.deepEqual(game.players, deepCopieGame.players)
     });
 
@@ -38,7 +41,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -53
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -54,7 +58,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -60
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -70,7 +75,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -51
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -85,7 +91,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -53
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -100,7 +107,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -45
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -115,7 +123,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -130,7 +139,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -144,8 +154,9 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
-
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
+      
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
       assert.deepEqual(game.players, deepCopieGame.players)
@@ -158,7 +169,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -172,7 +184,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -186,7 +199,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -200,7 +214,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -214,7 +229,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -228,7 +244,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63   
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -242,7 +259,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -256,7 +274,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -270,7 +289,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63 
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -284,7 +304,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63  
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
@@ -298,7 +319,8 @@ describe('Game', function () {
 
       game.mug = mug
       deepCopieGame.mug = mug
-      deepCopieGame.players[currentPlayer].table[chosenFigure] = result    
+      deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+      deepCopieGame.players[currentPlayer].table['to bonus'] = -63 
 
       game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 

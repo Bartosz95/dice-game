@@ -9,8 +9,8 @@ describe('Game', function () {
   
     beforeEach(function () {
       game = new Game(["abc","def"])
-      currentPlayer = game.currentPlayer;
       deepCopieGame = JSON.parse(JSON.stringify(game))
+      currentPlayer = deepCopieGame.currentPlayer;
     })
   
     describe('#makeMove()', function () {
@@ -38,13 +38,13 @@ describe('Game', function () {
             const indexOfFirstPlayer = game.indexOfFirstPlayer == 0 ? 1 : 0;
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 };
 
-            
             game.numberOfRoll = numberOfRoll;
             game.numberOfTurn = numberOfTurn;
             game.indexOfFirstPlayer = indexOfFirstPlayer;
             game.mug = mug;
-            
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
             assert.equal(game.isActive, false)
         })
 
@@ -126,7 +126,10 @@ describe('Game', function () {
             game.mug = mug
             game.numberOfRoll = numberOfRoll
             deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+            deepCopieGame.players[currentPlayer].table['to bonus'] = -60
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
             assert.deepEqual(game.players[currentPlayer].table, deepCopieGame.players[currentPlayer].table)
         })
 
@@ -141,7 +144,9 @@ describe('Game', function () {
             game.mug = mug
             game.numberOfRoll = numberOfRoll
             game.indexOfFirstPlayer = indexOfFirstPlayer
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
             assert.equal(game.numberOfTurn, 1)
         })
 
@@ -156,7 +161,9 @@ describe('Game', function () {
             game.mug = mug
             game.numberOfRoll = numberOfRoll
             game.indexOfFirstPlayer = indexOfFirstPlayer
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
             assert.notEqual(game.currentPlayer, deepCopieGame.currentPlayer)
         })
 
@@ -171,7 +178,9 @@ describe('Game', function () {
             game.mug = mug
             game.numberOfRoll = numberOfRoll
             game.indexOfFirstPlayer = indexOfFirstPlayer
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
             assert.equal(game.numberOfRoll, 0)
         })
 
@@ -196,7 +205,9 @@ describe('Game', function () {
             const numberOfRoll = 2
 
             game.numberOfRoll = numberOfRoll
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
+
             assert.ok(game.mug['0'])
             assert.equal(game.mug['1'], null)
             assert.ok(game.mug['2'])
@@ -230,6 +241,8 @@ describe('Game', function () {
             game.mug = mug
             game.numberOfRoll = numberOfRoll
             deepCopieGame.players[currentPlayer].table[chosenFigure] = result
+            deepCopieGame.players[currentPlayer].table['to bonus'] = -63
+
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
             assert.deepEqual(game.players[currentPlayer].table, deepCopieGame.players[currentPlayer].table)
         })
