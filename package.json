@@ -7,13 +7,12 @@
   "scripts": {
     "start-prod": "npx babel-node main.js",
     "start": "nodemon --exec babel-node main.js",
-    "test": "mocha --require @babel/register ./test/Game/"
+    "test": "jest"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
-    "chai": "^4.3.6",
     "connect-mongo": "^4.6.0",
     "dotenv": "^14.3.2",
     "express": "^4.17.3",
@@ -33,7 +32,6 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.17.0",
     "jest": "^27.5.1",
-    "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   }

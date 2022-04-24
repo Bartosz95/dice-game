@@ -15,7 +15,7 @@ describe('Game', function () {
   
     describe('#makeMove()', function () {
 
-        it('get error if game is ended', async function () {
+        test('get error if game is ended', async function () {
 
             const numbersToChange = [0,1]
             const chosenFigure = undefined
@@ -30,7 +30,7 @@ describe('Game', function () {
             }
         })
 
-        it('after last move game.isActive is false', async function () {
+        test('after last move game.isActive is false', async function () {
             const numbersToChange = undefined;
             const chosenFigure = "1";
             const numberOfRoll = 1;
@@ -45,10 +45,10 @@ describe('Game', function () {
 
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
 
-            assert.equal(game.isActive, false)
+            expect(game.isActive).toBeFalsy()
         })
 
-        it('get error if user is not active', async function () {
+        test('get error if user is not active', async function () {
 
             const numbersToChange = [0,1]
             const chosenFigure = undefined
@@ -62,7 +62,7 @@ describe('Game', function () {
             
         })
 
-        it('mug has the  all after roll first one in turn', async function () {
+        test('mug has the  all after roll first one in turn', async function () {
             const numbersToChange = undefined
             const chosenFigure = undefined
             
@@ -74,14 +74,14 @@ describe('Game', function () {
             assert.ok(game.mug['4'])
         })
 
-        it('mug has 5 dices after roll', async function () {
+        test('mug has 5 dices after roll', async function () {
             const numbersToChange = undefined
             const chosenFigure = undefined
             game = await makeMove(game, currentPlayer, numbersToChange, chosenFigure)
             assert.equal(Object.keys(game.mug).length, 5)
         })
 
-        it('update numberOfRoll', async function () {
+        test('update numberOfRoll', async function () {
             const numbersToChange = undefined
             const chosenFigure = undefined
 
@@ -89,7 +89,7 @@ describe('Game', function () {
             assert.equal(game.numberOfRoll, 1)
         })
 
-        it('numberOfRoll is 0 after choice figure', async function () {
+        test('numberOfRoll is 0 after choice figure', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "1"
@@ -102,7 +102,7 @@ describe('Game', function () {
             assert.equal(game.numberOfRoll, 0)
         })
 
-        it('user is change after choice figure', async function () {
+        test('user is change after choice figure', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "1"
@@ -115,7 +115,7 @@ describe('Game', function () {
             assert.notEqual(game.currentPlayer, deepCopieGame.currentPlayer)
         })
 
-        it('figure is saved after choice figure', async function () {
+        test('figure is saved after choice figure', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "1"
@@ -133,7 +133,7 @@ describe('Game', function () {
             assert.deepEqual(game.players[currentPlayer].table, deepCopieGame.players[currentPlayer].table)
         })
 
-        it('numberOfTurn is updated after choice figure for last player', async function () {
+        test('numberOfTurn is updated after choice figure for last player', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "1"
@@ -150,7 +150,7 @@ describe('Game', function () {
             assert.equal(game.numberOfTurn, 1)
         })
 
-        it('user is change after choice figure for last player', async function () {
+        test('user is change after choice figure for last player', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "1"
@@ -167,7 +167,7 @@ describe('Game', function () {
             assert.notEqual(game.currentPlayer, deepCopieGame.currentPlayer)
         })
 
-        it('numberOfRoll is 0 after choice figure for last player', async function () {
+        test('numberOfRoll is 0 after choice figure for last player', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "1"
@@ -184,7 +184,7 @@ describe('Game', function () {
             assert.equal(game.numberOfRoll, 0)
         })
 
-        it('get error if numbersToChange and chosenFigure is undefined and numberOfRoll < 3', async function () {
+        test('get error if numbersToChange and chosenFigure is undefined and numberOfRoll < 3', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = undefined
@@ -198,7 +198,7 @@ describe('Game', function () {
             }
         })
 
-        it('rollTheDices if numberOfRoll < 3', async function () {
+        test('rollTheDices if numberOfRoll < 3', async function () {
             
             const numbersToChange = [0,2,3]
             const chosenFigure = undefined
@@ -216,7 +216,7 @@ describe('Game', function () {
             assert.equal(game.numberOfRoll, 3)
         })
 
-        it('get error if numberOfRoll is 3 and chosenFigure is undefined', async function () {
+        test('get error if numberOfRoll is 3 and chosenFigure is undefined', async function () {
             
             const numbersToChange = [0, 1]
             const chosenFigure = undefined
@@ -230,7 +230,7 @@ describe('Game', function () {
             }
         })
 
-        it('saveFigure if numberOfRoll is 3', async function () {
+        test('saveFigure if numberOfRoll is 3', async function () {
             
             const numbersToChange = undefined
             const chosenFigure = "3x"

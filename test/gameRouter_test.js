@@ -1,5 +1,6 @@
 import request from "supertest"
-import createGameRouter from '../../routers/gameRouter';
+import createGameRouter from '../routers/gameRouter';
+
 
 
 

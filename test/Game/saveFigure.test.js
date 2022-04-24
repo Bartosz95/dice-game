@@ -1,7 +1,7 @@
 import { assert } from 'chai'
 import { Game, makeMove } from '../../libs/Game'
 
-describe('Game',async function () {
+describe('Game', function () {
 
     let game
     let currentPlayer
@@ -17,7 +17,7 @@ describe('Game',async function () {
   
     describe('#saveFigure()', function () {
 
-        it('get error if figure is wrong',async function () {
+        test('get error if figure is wrong',async function () {
 
             const chosenFigure = "to bonus"
 
@@ -31,7 +31,7 @@ describe('Game',async function () {
             }
         })
 
-        it('get error if figure is already chosen',async function () {
+        test('get error if figure is already chosen',async function () {
             
             const chosenFigure = "small strit"
             const currentResult = 0
@@ -48,7 +48,7 @@ describe('Game',async function () {
 
         })
 
-        it('table is correct after save',async function () {
+        test('table is correct after save',async function () {
             
             const chosenFigure = "1"
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
@@ -64,7 +64,7 @@ describe('Game',async function () {
             assert.deepEqual(game.players[currentPlayer], deepCopieGame.players[currentPlayer])
         })
 
-        it('check if numberOfRoll is 0',async function () {
+        test('check if numberOfRoll is 0',async function () {
             
             const chosenFigure = "1"
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
@@ -75,7 +75,7 @@ describe('Game',async function () {
             assert.equal(game.numberOfRoll, 0)
         })
 
-        it('check if user is changed', async function () {
+        test('check if user is changed', async function () {
             
             const chosenFigure = "1"
             const mug = { "0": 1, "1": 2, "2": 1, "3": 3, "4": 1 }
@@ -87,7 +87,7 @@ describe('Game',async function () {
             assert.notEqual(game.currentPlayer, deepCopieGame.currentPlayer)
         })
 
-        it('check if to bonus is counted properly', async function () {
+        test('check if to bonus is counted properly', async function () {
             
             const chosenFigure = "5"
             const mug = { "0": 5, "1": 5, "2": 1, "3": 3, "4": 1 }
@@ -99,7 +99,7 @@ describe('Game',async function () {
             assert.equal(game.players[currentPlayer].table['to bonus'], -53)
         })
 
-        it('check if to bonus is counted properly', async function () {
+        test('check if to bonus is counted properly', async function () {
             
             const chosenFigure = "5"
             const mug = { "0": 5, "1": 5, "2": 1, "3": 5, "4": 1 }
@@ -117,7 +117,7 @@ describe('Game',async function () {
             assert.equal(game.players[currentPlayer].table['bonus'], 35)
         })
 
-        it('check if to bonus is counted properly', async function () {
+        test('check if to bonus is counted properly', async function () {
             
             const chosenFigure = "5"
             const mug = { "0": 5, "1": 5, "2": 5, "3": 5, "4": 1 }
@@ -135,7 +135,7 @@ describe('Game',async function () {
             assert.equal(game.players[currentPlayer].table['bonus'], 35)
         })
 
-        it('check if to bonus is counted properly', async function () {
+        test('check if to bonus is counted properly', async function () {
             
             const chosenFigure = "5"
             const mug = { "0": 1, "1": 1, "2": 5, "3": 5, "4": 1 }
@@ -153,7 +153,7 @@ describe('Game',async function () {
             assert.equal(game.players[currentPlayer].table['bonus'], null)
         })
 
-        it('check if total is counted properly', async function () {
+        test('check if total is counted properly', async function () {
             
             const chosenFigure = "5"
  
@@ -177,7 +177,7 @@ describe('Game',async function () {
 
             assert.equal(game.players[currentPlayer].table['total'], 317)
         })
-        it('check if total is counted properly with bonus', async function () {
+        test('check if total is counted properly with bonus', async function () {
             
             const chosenFigure = "5"
  
@@ -202,7 +202,7 @@ describe('Game',async function () {
             assert.equal(game.players[currentPlayer].table['total'], 317)
         })
 
-        it('check if total is counted properly without bonus', async function () {
+        test('check if total is counted properly without bonus', async function () {
             
             const chosenFigure = "5"
  
