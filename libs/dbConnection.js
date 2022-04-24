@@ -8,7 +8,8 @@ const USER = process.env.DB_USER;
 const PASSWORD = process.env.DB_PASSWORD;
 const NODE_ENV = process.env.NODE_ENV;
 
-const DB_URL = NODE_ENV === 'development' ?  `mongodb://${HOST}:${PORT}/` : `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/`
+const DB_URL =  NODE_ENV === 'development' ? `mongodb://${HOST}:${PORT}/dev` : 
+                NODE_ENV === 'test' ? `mongodb://${HOST}:${PORT}/test` : `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/game`
 
 async function connectToMongo() {
     try {
@@ -16,6 +17,7 @@ async function connectToMongo() {
         mongoose.connection.once('open', () => logger.info("Database connection established successfully"));
         mongoose.connection.on('error', error => logger.error(error));
     } catch (error) {
+        console.log(error)
         logger.error(error);
     }
 }

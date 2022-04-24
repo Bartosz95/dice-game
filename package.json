@@ -7,7 +7,7 @@
   "scripts": {
     "start-prod": "npx babel-node main.js",
     "start": "nodemon --exec babel-node main.js",
-    "test": "jest"
+    "test": "jest --setupFiles dotenv/config"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",
@@ -25,12 +25,14 @@
     "passport-auth0": "^1.4.2",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
-    "winston": "^3.5.x"
+    "winston": "^3.5.x",
+    "yarn": "^1.22.18"
   },
   "author": "Bartosz Lenartowicz",
   "license": "ISC",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.17.0",
+    "@shelf/jest-mongodb": "^2.2.1",
     "assert": "^2.0.0",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
