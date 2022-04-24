@@ -69,14 +69,16 @@ router.post('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID; 
     let userIDs = req.body.userIDs;
     userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
+    console.log(userIDs)
     
     try {
         const game = new Game(userIDs)
         const dbGame = await createGame(game)
         logger.info(`Player ${userID} created game: ${dbGame._id}`)
-        res.send({
-            id: dbGame._id,
-            playerIDs: dbGame.game.playerIDs
+        res.status(201).send({
+            _id: dbGame._id,
+            playerIDs: dbGame.game.playerIDs,
+            currentPlayer: dbGame.game.currentPlayer
         })
     } catch (err) {
         logger.error(err.message)

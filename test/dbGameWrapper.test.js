@@ -108,6 +108,8 @@ describe('dbGameWrapper', function () {
         test("check if particular games for particular player is deleted", async () => {
             await createGame(new Game(["def","jkl"]))
             const games = await getAllGames(currentPlayer)
+
+            await expect(getParticularGame(currentPlayer, gameID)).resolves.not.toBeNull()
             
             await deleteParticularGame(currentPlayer, gameID)
 
