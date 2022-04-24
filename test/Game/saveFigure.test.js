@@ -1,4 +1,4 @@
-import { assert } from 'chai'
+import { strict as assert } from 'assert';
 import { Game, makeMove } from '../../libs/Game'
 
 describe('Game', function () {
