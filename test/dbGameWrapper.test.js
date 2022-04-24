@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import { getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
 import { Game, makeMove } from '../libs/Game'
 

@@ -9,6 +9,12 @@
     "start": "nodemon --exec babel-node main.js",
     "test": "jest --setupFiles dotenv/config"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.16.12",
     "@babel/node": "^7.16.8",

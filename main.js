@@ -33,3 +33,5 @@ app.use((req, res) => {
 })
 
 app.listen(PORT, HOST, () => logger.info(`Running on http://${HOST}:${PORT}${URL}`));
+
+export default app

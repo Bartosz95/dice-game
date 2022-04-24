@@ -34,8 +34,16 @@ router.get('/', async (req, res) => {
 router.get('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID;
     try {
-        const games = await getAllGames(userID)
-        res.send(games)
+        const db_games = await getAllGames(userID)
+        if(db_games.length === 0) 
+            res.send("User does not have any games")
+        
+        res.status(200).send(
+            db_games.map(db_game => { return {
+            _id: db_game._id,
+            isActive: db_game.game.isActive,
+            playerIDs: db_game.game.playerIDs
+        }}))
     } catch(err) {
         logger.error(err.message)
         res.send(errorMessage)
