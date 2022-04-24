@@ -1,4 +1,4 @@
-import assert from 'assert'
+import { assert } from 'chai'
 import { Game, makeMove } from '../../libs/Game'
 
 describe('Game', async function () {

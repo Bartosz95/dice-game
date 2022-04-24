@@ -4,34 +4,34 @@ const gameModel = mongoose.model("game", new mongoose.Schema({
     game: {}
 }));
 
-exports.find = (params) => {
+export const find = (params) => {
     return gameModel.find(params)
 }
 
-exports.getAllGames = (userID) => {
+export const getAllGames = (userID) => {
     const userIDstring = `game.playerIDs.${userID}`;
     return gameModel.find({userIDstring : { $exists: true}}) 
 }
 
-exports.getParticularGame = async (userID, gameID) => {
+export const getParticularGame = async (userID, gameID) => {
     const userIDstring = `game.playerIDs.${userID}`;
     return gameModel.findOne({ _id: gameID, userIDstring : { $exists: true}})
 }
 
-exports.createGame = (game) => {
+export const createGame = (game) => {
     return gameModel.create({game})
 }
 
-exports.updateGame = (gameID, game) => {
+export const updateGame = (gameID, game) => {
     return gameModel.findByIdAndUpdate(gameID, {game: game})
 }
 
-exports.deleteAllGames = (userID) => {
+export const deleteAllGames = (userID) => {
     const userIDstring = `game.playerIDs.${userID}`;
     return gameModel.deleteMany({userIDstring : { $exists: true}})
 }
 
-exports.deleteParticularGames = (userID, gameID) => {
+export const deleteParticularGames = (userID, gameID) => {
     const userIDstring = `game.playerIDs.${userID}`;
     return gameModel.deleteOne({ _id: gameID, userIDstring : { $exists: true}})
 }
