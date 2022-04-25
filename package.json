@@ -7,13 +7,7 @@
   "scripts": {
     "start-prod": "npx babel-node main.js",
     "start": "nodemon --exec babel-node main.js",
-    "test": "jest --setupFiles dotenv/config"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
+    "test": "jest --setupFiles dotenv/config --coverage"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",

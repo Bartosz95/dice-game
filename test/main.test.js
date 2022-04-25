@@ -1,7 +1,7 @@
 import request from "supertest"
 
-import { getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
-import { Game, makeMove } from '../libs/Game'
+import { getAllGames, getParticularGame, createGame, deleteAllGames} from '../libs/dbGameWrapper'
+import { Game } from '../libs/Game'
 import app from '../main.js'
 
 describe('E2E', () => {
@@ -37,16 +37,26 @@ describe('E2E', () => {
         expect(res.body).toHaveProperty('playerIDs')
         expect(res.body.playerIDs).toEqual([currentPlayer, "xyz"])
     })
-    
-    test('get all games for user: get /user/:userID/game', async () => {
-        currentPlayer = 'abc'
-        const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game`)
-        expect(res.status).toEqual(200)
-        res.body.forEach(game => {
-            expect(game).toHaveProperty('_id')
-            expect(game.isActive).toBeTruthy()
-            //expect(game.playerIDs).toEqual(expect.arrayContaining([currentPlayer])); // todo 
+
+    describe("get all games for user: get /user/:userID/game", () => {
+        test('games are return correctly', async () => {
+            currentPlayer = 'abc'
+            const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game`)
+            expect(res.status).toEqual(200)
+            console.log(res.body)
         })
+
+        // test('return error', async () => {
+        //     const wrongPlayer = "000"
+        //     const res = await request(app).get(`${APP_URL}/user/${wrongPlayer}/game`)
+        //     expect(res.status).toEqual(200)
+        //     res.body.forEach(game => {
+        //         expect(game).toHaveProperty('_id')
+        //         expect(game.isActive).toBeTruthy()
+        //         //expect(game.playerIDs).toEqual(expect.arrayContaining([currentPlayer])); // todo 
+        //     })
+        // })
+
     })
 
     test('get particular game for user: get /user/:userID/game/:gameID', async () => {
@@ -66,12 +76,32 @@ describe('E2E', () => {
 
             expect(res.status).toEqual(200)
             expect(res.body).toEqual(db_game.game)
+            expect(res.body.numberOfRoll).toEqual(1)
+            expect(res.body).toEqual(db_game.game)
             expect(res.body.mug['0']).not.toBeNull()
             expect(res.body.mug['1']).not.toBeNull()
             expect(res.body.mug['2']).not.toBeNull()
             expect(res.body.mug['3']).not.toBeNull()
             expect(res.body.mug['4']).not.toBeNull()
             expect(res.body.mug).not.toHaveProperty('5')
+        })
+
+        test('roll dices by wrong player', async () => {
+            const wrongCurrentPlayer = currentPlayer === "abc" ? "def" : "abc"
+
+            const res = await request(app).post(`${APP_URL}/user/${wrongCurrentPlayer}/game/${gameID}`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
+
+            expect(res.status).toEqual(200)
+            expect(res.body).toHaveProperty("level", 'warning')
+            expect(res.body).toHaveProperty("message", `This is turn of user: ${currentPlayer}`)
+            await expect(getParticularGame(currentPlayer, gameID)).resolves.toHaveProperty('game', db_game.game)
+        })
+
+        test('roll dices for not exist game', async () => {
+
+            const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game/123`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
+            expect(res.status).toEqual(200)
+            expect(res.body).toHaveProperty("error", 'Something went wrong')
         })
     
         test('save figure', async () => {
@@ -82,8 +112,33 @@ describe('E2E', () => {
             const db_game = await getParticularGame(currentPlayer, gameID)
             
             expect(res.status).toEqual(200)
+            expect(res.body.numberOfRoll).toEqual(0)
             expect(res.body).toEqual(db_game.game)
             expect(res.body.players[currentPlayer].table[chosenFigure]).not.toBeNull()
         })
+    })
+
+    test('delete all game for user: delete /user/:userID/game', async () => {
+
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(3)
+
+        const res = await request(app).delete(`${APP_URL}/user/${currentPlayer}/game`)
+        
+        expect(res.status).toEqual(200)
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(0)
+        // await expect(getAllGames('ghi')).resolves.toHaveLength(1) todo gemes where player is not participate should be not deleted
+        
+    })
+
+    test('delete particular game for user: delete /user/:userID/game/:gameID', async () => {
+
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(3)
+        await expect(getParticularGame(currentPlayer, gameID)).resolves.toBeTruthy()
+
+        const res = await request(app).delete(`${APP_URL}/user/${currentPlayer}/game/${gameID}`)
+        
+        expect(res.status).toEqual(200)
+        await expect(getParticularGame(currentPlayer, gameID)).resolves.toBeNull()
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(2)
     })
 })

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import logger from '../libs/logger';
 import { Game, makeMove } from '../libs/Game'
-import { find, gameModel, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGames } from '../libs/dbGameWrapper'
+import { find, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
 
 
 /*
@@ -94,7 +94,6 @@ router.post('/user/:userID/game', async (req, res) => {
 router.post('/user/:userID/game/:gameID', async (req, res) => {
     const { userID, gameID } = req.params;
     const { numbersToChange, chosenFigure } = req.body;
-    
     try {
         const dbGame = await getParticularGame(userID, gameID)
         const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
@@ -128,7 +127,7 @@ router.delete('/user/:userID/game', async (req, res) => {
 router.delete('/user/:userID/game/:gameID', async (req, res) => {
     const { userID, gameID } = req.params;
     try {
-        await deleteParticularGames(userID, gameID)
+        await deleteParticularGame(userID, gameID)
         logger.info(`Player ${gameID} deleted game: ${gameID}`);
         res.send(`Deleted game: ${gameID}`);
     } catch (err) {
