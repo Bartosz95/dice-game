@@ -47,18 +47,17 @@ describe('dbGameWrapper', function () {
     })
 
     describe('getAllGames', function () {
-        // todo fcn return all games for all users but should return games only for particular player
 
-        // test("Check if return array", async () => {
-        //     return await expect(getAllGames(currentPlayer)).resolves.toHaveLength(2)
-        // })
+        test("Check if return array", async () => {
+            return await expect(getAllGames(currentPlayer)).resolves.toHaveLength(2)
+        })
 
-        // test("Check if all games in array belong to user", async () => {
-        //     const db_games = await getAllGames(currentPlayer)
-        //     db_games.forEach(db_game => {
-        //         expect(db_game.game.playerIDs).toEqual(expect.arrayContaining([currentPlayer]))
-        //     })
-        // })
+        test("Check if all games in array belong to user", async () => {
+            const db_games = await getAllGames(currentPlayer)
+            db_games.forEach(db_game => {
+                expect(db_game.game.playerIDs).toEqual(expect.arrayContaining([currentPlayer]))
+            })
+        })
     })
 
     describe('updateGame', function () {
@@ -67,8 +66,7 @@ describe('dbGameWrapper', function () {
             const dicesToChange = ["0", "1", "2"]
             const chosenFigure = undefined
             game = await makeMove(game, currentPlayer, dicesToChange, chosenFigure)
-            const updatedGame = await updateGame(gameID, game)
-            //await expect(updatedGame).resolves.toHaveProperty("game", game) // todo fcn return not updated game
+            await expect(updateGame(gameID, game)).resolves.toHaveProperty("game", game)
             await expect(getParticularGame(currentPlayer, gameID)).resolves.toHaveProperty("game", game)
         })
 
@@ -100,7 +98,7 @@ describe('dbGameWrapper', function () {
             await createGame(new Game(["abc","def"]))
             await createGame(new Game(["abc","jkl"]))
             await deleteAllGames("abc")
-            //return await expect(getAllGames("ghi")).resolves.toHaveLength(1) // todo fcn delete all games for all users
+            await expect(getAllGames("ghi")).resolves.toHaveLength(1)
         })
     })
 

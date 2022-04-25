@@ -39,32 +39,18 @@ describe('E2E', () => {
     })
 
     describe("get all games for user: get /user/:userID/game", () => {
+
         test('games are return correctly', async () => {
             currentPlayer = 'abc'
             const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game`)
             expect(res.status).toEqual(200)
-            console.log(res.body)
         })
-
-        // test('return error', async () => {
-        //     const wrongPlayer = "000"
-        //     const res = await request(app).get(`${APP_URL}/user/${wrongPlayer}/game`)
-        //     expect(res.status).toEqual(200)
-        //     res.body.forEach(game => {
-        //         expect(game).toHaveProperty('_id')
-        //         expect(game.isActive).toBeTruthy()
-        //         //expect(game.playerIDs).toEqual(expect.arrayContaining([currentPlayer])); // todo 
-        //     })
-        // })
-
     })
 
     test('get particular game for user: get /user/:userID/game/:gameID', async () => {
         const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game/${gameID}`)
         expect(res.status).toEqual(200)
-        
         expect(res.body).toHaveProperty('_id')
-        expect(res.body).toHaveProperty('game')
         expect(res.body).toHaveProperty('game', game)
     })
 
@@ -120,25 +106,27 @@ describe('E2E', () => {
 
     test('delete all game for user: delete /user/:userID/game', async () => {
 
-        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(3)
+        console.log(currentPlayer)
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(2)
 
         const res = await request(app).delete(`${APP_URL}/user/${currentPlayer}/game`)
         
         expect(res.status).toEqual(200)
         await expect(getAllGames(currentPlayer)).resolves.toHaveLength(0)
-        // await expect(getAllGames('ghi')).resolves.toHaveLength(1) todo gemes where player is not participate should be not deleted
+        await expect(getAllGames('ghi')).resolves.toHaveLength(1)
         
     })
 
     test('delete particular game for user: delete /user/:userID/game/:gameID', async () => {
 
-        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(3)
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(2)
         await expect(getParticularGame(currentPlayer, gameID)).resolves.toBeTruthy()
 
         const res = await request(app).delete(`${APP_URL}/user/${currentPlayer}/game/${gameID}`)
         
         expect(res.status).toEqual(200)
         await expect(getParticularGame(currentPlayer, gameID)).resolves.toBeNull()
-        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(2)
+        await expect(getAllGames(currentPlayer)).resolves.toHaveLength(1)
+        await expect(getAllGames("ghi")).resolves.toHaveLength(2)
     })
 })

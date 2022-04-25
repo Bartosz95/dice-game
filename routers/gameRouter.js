@@ -69,7 +69,6 @@ router.post('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID; 
     let userIDs = req.body.userIDs;
     userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
-    console.log(userIDs)
     
     try {
         const game = new Game(userIDs)

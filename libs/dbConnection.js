@@ -17,7 +17,6 @@ async function connectToMongo() {
         mongoose.connection.once('open', () => logger.info("Database connection established successfully"));
         mongoose.connection.on('error', error => logger.error(error));
     } catch (error) {
-        console.log(error)
         logger.error(error);
     }
 }

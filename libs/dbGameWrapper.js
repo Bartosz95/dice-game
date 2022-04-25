@@ -9,13 +9,11 @@ export const find = (params) => {
 }
 
 export const getAllGames = (userID) => {
-    const userIDstring = `game.players.${userID}`;
-    return gameModel.find({userIDstring : { $exists: true}})
+    return gameModel.find({'game.playerIDs': [userID] });
 }
 
 export const getParticularGame = async (userID, gameID) => {
-    const userIDstring = `game.playerIDs`;
-    return gameModel.findOne({ _id: gameID, userIDstring : { $exists: true}})
+    return gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
 }
 
 export const createGame = (game) => {
@@ -23,15 +21,13 @@ export const createGame = (game) => {
 }
 
 export const updateGame = (gameID, game) => {
-    return gameModel.findByIdAndUpdate(gameID, {game: game})
+    return gameModel.findByIdAndUpdate(gameID, {game: game}, {new: true})
 }
 
 export const deleteAllGames = (userID) => {
-    const userIDstring = `game.playerIDs.${userID}`;
-    return gameModel.deleteMany({userIDstring : { $exists: true}})
+    return gameModel.deleteMany({'game.playerIDs': [userID]})
 }
 
 export const deleteParticularGame = (userID, gameID) => {
-    const userIDstring = `game.playerIDs.${userID}`;
-    return gameModel.deleteOne({ _id: gameID, userIDstring : { $exists: true}})
+    return gameModel.deleteOne({ _id: gameID, 'game.playerIDs': [userID]})
 }
