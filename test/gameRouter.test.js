@@ -97,6 +97,12 @@ describe('E2E', () => {
                 expect(res.body).toHaveProperty('_id')
                 expect(res.body).toHaveProperty('game', game)
             })
+
+            test('get error becouse of wron gameID', async () => {
+                const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game/123`)
+                expect(res.status).toEqual(200)
+                expect(res.body).toHaveProperty("message", 'Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer')
+            })
         })
 
         describe('post: play the game', () => {
@@ -128,10 +134,9 @@ describe('E2E', () => {
             })
 
             test('roll dices for not exist game', async () => {
-
-                const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game/123`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
+                const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game/622cd907f6026dbf7cad27ef`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
                 expect(res.status).toEqual(200)
-                expect(res.body).toHaveProperty("error", 'Something went wrong')
+                //expect(res.body).toHaveProperty("message", '') // get error with wrong gameID
             })
         
             test('save figure', async () => {

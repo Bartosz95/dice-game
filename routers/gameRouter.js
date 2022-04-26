@@ -2,7 +2,7 @@ import { Router } from 'express'
 import logger from '../libs/logger';
 import { Game, makeMove } from '../libs/Game'
 import { find, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
-
+import mongoose from 'mongoose';
 
 /*
 First add token to token enviroment variable
@@ -38,6 +38,7 @@ router.param('gameID', function (req, res, next, gameID) {
     try {
         if(typeof gameID !== 'string') 
             throw new Error('gameID should be a string');
+        gameID = mongoose.Types.ObjectId(gameID)
 
     } catch (err) {
         logger.error(err)
@@ -164,17 +165,41 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
     const { userID, gameID } = req.params;
     const { numbersToChange, chosenFigure } = req.body;
     try {
+        if(userID === undefined) 
+            throw new Error('userID is undefined');
+        if(gameID === undefined)
+            throw new Error('gameID is undefined');
+        if(numbersToChange === undefined && chosenFigure === undefined)
+            throw new Error('Either numbersToChange or chosenFigure should be defined');
+        if(numbersToChange) {
+            if(!Array.isArray(numbersToChange))
+                throw new Error('numbersToChange should be a Array');
+            numbersToChange.forEach(numberToChange => {
+                if(typeof gameID !== 'string')
+                    throw new Error('All ID in numbersToChange should be a string')
+                if(!["0","1","2","3","4"].includes(numberToChange))
+                    throw new Error('Avaiable dices ID "0","1","2","3","4"')
+            })
+        }
+        
+
         const dbGame = await getParticularGame(userID, gameID)
         const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
         await updateGame(gameID, game)
         logger.info(`Player ${userID} in game ${dbGame._id}`)
         res.send(game)
     } catch (err) {
-        if(err.level === 'warning'){
-            return res.send(err);
-        }
         logger.error(err.message)
-        res.send(errorMessage)
+        res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'header': 'Content-Type: application/json',
+                'path': '/user/1/game/622cd907f6026dbf7cad27ef',
+                'body': { "numbersToChange": ["0", "1", "4"] },
+                'body alternative': { "chosenFigure": "small strit" }
+            }
+        })
     }
 })
 
