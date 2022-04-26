@@ -52,7 +52,26 @@ describe('E2E', () => {
                 expect(res.body).toHaveProperty('_id')
                 expect(res.body).toHaveProperty('currentPlayer')
                 expect(res.body).toHaveProperty('playerIDs')
-                expect(res.body.playerIDs).toEqual([currentPlayer, "xyz"])
+                expect(res.body.playerIDs).toEqual(expect.arrayContaining([currentPlayer, "xyz"]));
+            })
+
+            test('Add request owner to game', async () => {
+                const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game`).send({ "userIDs": [ "xyz"]}).set('Accept', 'application/json')
+                expect(res.status).toEqual(201)
+                expect(res.body).toHaveProperty('_id')
+                expect(res.body).toHaveProperty('currentPlayer')
+                expect(res.body).toHaveProperty('playerIDs')
+                expect(res.body.playerIDs).toEqual(expect.arrayContaining([currentPlayer, "xyz"]));
+            })
+
+            test('return error if userIDs is not a Array', async () => {
+                const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game`).send({ "userIDs": "xyz"}).set('Accept', 'application/json')
+                expect(res.body).toHaveProperty('message', 'userIDs should be a Array')
+            })
+
+            test('return error if any of userID in userIDs is not a string', async () => {
+                const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game`).send({ "userIDs": [ "xyz", 1] }).set('Accept', 'application/json')
+                expect(res.body).toHaveProperty('message', 'Every user in userIDs should be a string')
             })
         })
 

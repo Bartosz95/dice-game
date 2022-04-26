@@ -16,6 +16,42 @@ const errorMessage = { 'error': 'Something went wrong'}
 
 const router = Router();
 
+router.param('userID', function (req, res, next, userID) {
+    try {
+        if(typeof userID !== 'string') 
+            throw new Error('userID should be a string');
+
+    } catch (err) {
+        logger.error(err)
+        return res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'path': '/user/1/game',
+            }
+        })
+    }
+    next()
+})
+
+router.param('gameID', function (req, res, next, gameID) {
+    try {
+        if(typeof gameID !== 'string') 
+            throw new Error('gameID should be a string');
+
+    } catch (err) {
+        logger.error(err)
+        return res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'path': '/user/1/game/622cd907f6026dbf7cad27ef',
+            }
+        })
+    }
+    next()
+})
+
 // Remove endpoint after finish developing
 router.get('/', async (req, res) => {
     try {
@@ -27,18 +63,6 @@ router.get('/', async (req, res) => {
         logger.error(err.message)
         res.send(errorMessage)
     }
-})
-
-router.use('/user/:userID/*', (req, res, next) => {
-    if(typeof req.params.userID !== 'string') {
-        return res.send({
-            'warning': 'You shoud specify a userID in path',
-            'example': {
-                'path': '/user/1/game',
-            }
-        })
-    }
-    next()
 })
 
 // get all games
@@ -61,20 +85,6 @@ router.get('/user/:userID/game', async (req, res) => {
     }
 });
 
-const checkUserIDs = (userIDs) => {
-    let isWrong = false
-    if(!Array.isArray(userIDs)) {
-        return false
-    } else {
-        userIDs.forEach(userID => {
-            if(typeof userID !== 'string') {
-                isWrong = false
-            }
-        })
-    }
-    return isWrong
-}
-
 // create a game
 // curl --url http://localhost:3000/api/v1/user/1/game -d '{"userIDs":["1","2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
 router.post('/user/:userID/game', async (req, res) => {
@@ -82,29 +92,40 @@ router.post('/user/:userID/game', async (req, res) => {
     let userIDs = req.body.userIDs;
     
     try {
-        if(checkUserIDs(userIDs)){
-            return res.send({
-                'warning': 'You shoud specify a userID in path and userIDs in body',
-                'example': {
-                    'header': 'Content-Type: application/json',
-                    'path': '/user/1/game',
-                    'body': { 'userIDs': ["1","2"] }
-                }
-            })
-        }
-        userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
+        if (userID === undefined) 
+            throw new Error('userID is undefined');
+        if(userIDs === undefined)
+            throw new Error('userIDs is undefined');
+        if(!Array.isArray(userIDs))
+            throw new Error('userIDs should be a Array');
+        userIDs.forEach(userID => {
+            if(typeof userID !== 'string') 
+                throw new Error('Every user in userIDs should be a string')
+        })
 
+
+        userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
         const game = new Game(userIDs)
         const dbGame = await createGame(game)
         logger.info(`Player ${userID} created game: ${dbGame._id}`)
+        
         res.status(201).send({
             _id: dbGame._id,
             playerIDs: dbGame.game.playerIDs,
             currentPlayer: dbGame.game.currentPlayer
         })
+
     } catch (err) {
         logger.error(err.message)
-        res.send(errorMessage)
+        res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'header': 'Content-Type: application/json',
+                'path': '/user/1/game/622cd907f6026dbf7cad27ef',
+                'body': { 'userIDs': ["1","2"] }
+            }
+        })
     }
 });
 
