@@ -38,7 +38,8 @@ router.param('gameID', function (req, res, next, gameID) {
     try {
         if(typeof gameID !== 'string') 
             throw new Error('gameID should be a string');
-        gameID = mongoose.Types.ObjectId(gameID)
+        mongoose.Types.ObjectId(gameID)
+        console.log(gameID)
 
     } catch (err) {
         logger.error(err)
@@ -175,13 +176,10 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
             if(!Array.isArray(numbersToChange))
                 throw new Error('numbersToChange should be a Array');
             numbersToChange.forEach(numberToChange => {
-                if(typeof gameID !== 'string')
+                if(typeof numberToChange !== 'string')
                     throw new Error('All ID in numbersToChange should be a string')
-                if(!["0","1","2","3","4"].includes(numberToChange))
-                    throw new Error('Avaiable dices ID "0","1","2","3","4"')
             })
         }
-        
 
         const dbGame = await getParticularGame(userID, gameID)
         const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)

@@ -13,6 +13,8 @@ export const getAllGames = (userID) => {
 }
 
 export const getParticularGame = async (userID, gameID) => {
+    console.log(userID)
+    console.log(gameID)
     return gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
 }
 

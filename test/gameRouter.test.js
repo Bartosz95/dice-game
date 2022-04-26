@@ -133,10 +133,10 @@ describe('E2E', () => {
                 await expect(getParticularGame(currentPlayer, gameID)).resolves.toHaveProperty('game', db_game.game)
             })
 
-            test('roll dices for not exist game', async () => {
+            test('get error if game does not exist', async () => {
                 const res = await request(app).post(`${APP_URL}/user/${currentPlayer}/game/622cd907f6026dbf7cad27ef`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
                 expect(res.status).toEqual(200)
-                //expect(res.body).toHaveProperty("message", '') // get error with wrong gameID
+                // expect(res.body).toHaveProperty("message", '') // get errorif game doesn't exist
             })
         
             test('save figure', async () => {
