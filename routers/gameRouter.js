@@ -29,6 +29,18 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.use('/user/:userID/*', (req, res, next) => {
+    if(typeof req.params.userID !== 'string') {
+        return res.send({
+            'warning': 'You shoud specify a userID in path',
+            'example': {
+                'path': '/user/1/game',
+            }
+        })
+    }
+    next()
+})
+
 // get all games
 // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/user/1/game
 router.get('/user/:userID/game', async (req, res) => {
@@ -36,8 +48,7 @@ router.get('/user/:userID/game', async (req, res) => {
     try {
         const db_games = await getAllGames(userID)
         if(db_games.length === 0) 
-            res.send("User does not have any games")
-        
+            return res.send("User does not have any games")
         res.status(200).send(
             db_games.map(db_game => { return {
             _id: db_game._id,
@@ -47,6 +58,67 @@ router.get('/user/:userID/game', async (req, res) => {
     } catch(err) {
         logger.error(err.message)
         res.send(errorMessage)
+    }
+});
+
+const checkUserIDs = (userIDs) => {
+    let isWrong = false
+    if(!Array.isArray(userIDs)) {
+        return false
+    } else {
+        userIDs.forEach(userID => {
+            if(typeof userID !== 'string') {
+                isWrong = false
+            }
+        })
+    }
+    return isWrong
+}
+
+// create a game
+// curl --url http://localhost:3000/api/v1/user/1/game -d '{"userIDs":["1","2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
+router.post('/user/:userID/game', async (req, res) => {
+    const userID = req.params.userID;
+    let userIDs = req.body.userIDs;
+    
+    try {
+        if(checkUserIDs(userIDs)){
+            return res.send({
+                'warning': 'You shoud specify a userID in path and userIDs in body',
+                'example': {
+                    'header': 'Content-Type: application/json',
+                    'path': '/user/1/game',
+                    'body': { 'userIDs': ["1","2"] }
+                }
+            })
+        }
+        userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
+
+        const game = new Game(userIDs)
+        const dbGame = await createGame(game)
+        logger.info(`Player ${userID} created game: ${dbGame._id}`)
+        res.status(201).send({
+            _id: dbGame._id,
+            playerIDs: dbGame.game.playerIDs,
+            currentPlayer: dbGame.game.currentPlayer
+        })
+    } catch (err) {
+        logger.error(err.message)
+        res.send(errorMessage)
+    }
+});
+
+// delete all game for user
+// curl -X DELETE  http://localhost:3000/api/v1/user/1/game
+router.delete('/user/:userID/game', async (req, res) => {
+    const userID = req.params.userID;
+    try {
+        await deleteAllGames(userID)
+        logger.info(`Player ${userID} deleted all games`)
+        res.send(`Delated all games`)
+    } catch (err) {
+        logger.error(err.message)
+        res.send(errorMessage);
     }
 });
 
@@ -62,29 +134,6 @@ router.get('/user/:userID/game/:gameID', async (req, res) => {
         return res.send(errorMessage);
     }
 });
-
-// create a game
-// curl --url http://localhost:3000/api/v1/user/1/game -d '{"userIDs":["1","2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
-router.post('/user/:userID/game', async (req, res) => {
-    const userID = req.params.userID; 
-    let userIDs = req.body.userIDs;
-    userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
-    
-    try {
-        const game = new Game(userIDs)
-        const dbGame = await createGame(game)
-        logger.info(`Player ${userID} created game: ${dbGame._id}`)
-        res.status(201).send({
-            _id: dbGame._id,
-            playerIDs: dbGame.game.playerIDs,
-            currentPlayer: dbGame.game.currentPlayer
-        })
-    } catch (err) {
-        logger.error(err.message)
-        res.send(errorMessage)
-    }
-});
-
 
 // roll dices
 // curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/user/1/game/622cd907f6026dbf7cad27ef
@@ -108,19 +157,6 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
     }
 })
 
-// delete all game for user
-// curl -X DELETE  http://localhost:3000/api/v1/user/1/game
-router.delete('/user/:userID/game', async (req, res) => {
-    const userID = req.params.userID;
-    try {
-        await deleteAllGames(userID)
-        logger.info(`Player ${userID} deleted all games`)
-        res.send(`Delated all games`)
-    } catch (err) {
-        logger.error(err.message)
-        res.send(errorMessage);
-    }
-});
 
 // delete particulary game for user
 router.delete('/user/:userID/game/:gameID', async (req, res) => {
