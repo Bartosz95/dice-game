@@ -94,8 +94,6 @@ router.post('/user/:userID/game', async (req, res) => {
     let userIDs = req.body.userIDs;
     
     try {
-        if (userID === undefined) 
-            throw new Error('userID is undefined');
         if(userIDs === undefined)
             throw new Error('userIDs is undefined');
         if(!Array.isArray(userIDs))
@@ -166,12 +164,11 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
     const { userID, gameID } = req.params;
     const { numbersToChange, chosenFigure } = req.body;
     try {
-        if(userID === undefined) 
-            throw new Error('userID is undefined');
-        if(gameID === undefined)
-            throw new Error('gameID is undefined');
         if(numbersToChange === undefined && chosenFigure === undefined)
             throw new Error('Either numbersToChange or chosenFigure should be defined');
+        if(chosenFigure && (typeof chosenFigure !== 'string')) {
+            throw new Error('chosenFigure should be a string')
+        }
         if(numbersToChange) {
             if(!Array.isArray(numbersToChange))
                 throw new Error('numbersToChange should be a Array');
