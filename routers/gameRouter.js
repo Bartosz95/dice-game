@@ -1,8 +1,7 @@
 import { Router } from 'express'
 import logger from '../libs/logger';
 import { Game, makeMove } from '../libs/Game'
-import { find, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
-import mongoose from 'mongoose';
+import { validID, find, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
 
 /*
 First add token to token enviroment variable
@@ -38,8 +37,10 @@ router.param('gameID', function (req, res, next, gameID) {
     try {
         if(typeof gameID !== 'string') 
             throw new Error('gameID should be a string');
-        mongoose.Types.ObjectId(gameID)
-        console.log(gameID)
+        if(!validID(gameID)) {
+            console.log(gameID)
+            throw new Error('gameID cannot be valid');
+        }
 
     } catch (err) {
         logger.error(err)

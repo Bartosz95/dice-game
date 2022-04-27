@@ -15,7 +15,7 @@ describe('E2E', () => {
 
     beforeEach(async function () {
         await deleteAllGames("abc")
-        
+        await deleteAllGames("def")
         game = new Game(["abc","def"])
         deepCopieGame = JSON.parse(JSON.stringify(game))
         currentPlayer = deepCopieGame.currentPlayer;
@@ -102,7 +102,7 @@ describe('E2E', () => {
             test('get error becouse of wron gameID', async () => {
                 const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game/123`)
                 expect(res.status).toEqual(200)
-                expect(res.body).toHaveProperty("message", 'Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer')
+                expect(res.body).toHaveProperty("message", 'gameID cannot be valid')
             })
         })
 

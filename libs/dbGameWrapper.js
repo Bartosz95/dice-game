@@ -4,6 +4,10 @@ const gameModel = mongoose.model("game", new mongoose.Schema({
     game: {}
 }));
 
+export const validID = ID => {
+    return mongoose.isValidObjectId(ID)
+}
+
 export const find = (params) => {
     return gameModel.find(params)
 }
