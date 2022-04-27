@@ -25,18 +25,30 @@ describe('E2E', () => {
        
 
     describe("endpoint: /user/:userID/game", () => {
-
         describe("get: get all games for user", () => {
             test('games are return correctly', async () => {
-                currentPlayer = 'abc'
+                await createGame(new Game([currentPlayer,"ghi"]))
                 const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game`)
                 expect(res.status).toEqual(200)
+                expect(res.body).toHaveLength(2)
+                res.body.forEach(game => {
+                    expect(game).toHaveProperty('playerIDs')
+                    expect(game.playerIDs).toEqual(expect.arrayContaining([currentPlayer]));
+                })
+            })
+
+            test('user has not any game', async () => {
+                await deleteAllGames(currentPlayer)
+                const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game`)
+                expect(res.status).toEqual(200)
+                expect(res.body).toHaveProperty('message', "User does not have any games")
             })
 
             test('User not exist', async () => {
                 const userID = 'notExist'
                 const res = await request(app).get(`${APP_URL}/user/${userID}/game`)
                 expect(res.status).toEqual(200)
+                expect(res.body).toHaveProperty('message', "User does not have any games")
             })
         })
 
@@ -99,7 +111,13 @@ describe('E2E', () => {
                 expect(res.body).toHaveProperty('game', game)
             })
 
-            test('get error becouse of wron gameID', async () => {
+            test('get error becouse of wrong gameID', async () => {
+                const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game/622cd907f6026dbf7cad27ef`)
+                expect(res.status).toEqual(200)
+                expect(res.body).toHaveLength(0)
+            })
+
+            test('get error becouse of wrong gameID', async () => {
                 const res = await request(app).get(`${APP_URL}/user/${currentPlayer}/game/123`)
                 expect(res.status).toEqual(200)
                 expect(res.body).toHaveProperty("message", 'gameID cannot be valid')

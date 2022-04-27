@@ -11,14 +11,11 @@ token=$(curl --request POST --url https://dev-8ti8osnq.us.auth0.com/oauth/token 
 echo $token
 */
 
-const errorMessage = { 'error': 'Something went wrong'}
-
 const router = Router();
 
 router.param('userID', function (req, res, next, userID) {
     try {
-        if(typeof userID !== 'string') 
-            throw new Error('userID should be a string');
+        // todo add userID validation
 
     } catch (err) {
         logger.error(err)
@@ -35,10 +32,7 @@ router.param('userID', function (req, res, next, userID) {
 
 router.param('gameID', function (req, res, next, gameID) {
     try {
-        if(typeof gameID !== 'string') 
-            throw new Error('gameID should be a string');
         if(!validID(gameID)) {
-            console.log(gameID)
             throw new Error('gameID cannot be valid');
         }
 
@@ -64,7 +58,7 @@ router.get('/', async (req, res) => {
         res.redirect(307, `./user/${playerID}/game/${gameID}`)
     } catch(err) {
         logger.error(err.message)
-        res.send(errorMessage)
+        res.send(err.message)
     }
 })
 
@@ -74,17 +68,29 @@ router.get('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID;
     try {
         const db_games = await getAllGames(userID)
-        if(db_games.length === 0) 
-            return res.send("User does not have any games")
+        if(db_games.length == 0) 
+            return res.send({
+                'level': 'warning',
+                'message':"User does not have any games"
+            })
+            
         res.status(200).send(
             db_games.map(db_game => { return {
-            _id: db_game._id,
-            isActive: db_game.game.isActive,
-            playerIDs: db_game.game.playerIDs
-        }}))
+                _id: db_game._id,
+                isActive: db_game.game.isActive,
+                playerIDs: db_game.game.playerIDs
+            }})
+        )
     } catch(err) {
         logger.error(err.message)
-        res.send(errorMessage)
+        res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'method': 'GET',
+                'path': '/user/1/game'
+            }
+        })
     }
 });
 
@@ -93,7 +99,6 @@ router.get('/user/:userID/game', async (req, res) => {
 router.post('/user/:userID/game', async (req, res) => {
     const userID = req.params.userID;
     let userIDs = req.body.userIDs;
-    
     try {
         if(userIDs === undefined)
             throw new Error('userIDs is undefined');
@@ -104,12 +109,11 @@ router.post('/user/:userID/game', async (req, res) => {
                 throw new Error('Every user in userIDs should be a string')
         })
 
-
         userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
         const game = new Game(userIDs)
         const dbGame = await createGame(game)
         logger.info(`Player ${userID} created game: ${dbGame._id}`)
-        
+
         res.status(201).send({
             _id: dbGame._id,
             playerIDs: dbGame.game.playerIDs,
@@ -123,6 +127,7 @@ router.post('/user/:userID/game', async (req, res) => {
             'message': err.message,
             'example': {
                 'header': 'Content-Type: application/json',
+                'method': 'POST',
                 'path': '/user/1/game/622cd907f6026dbf7cad27ef',
                 'body': { 'userIDs': ["1","2"] }
             }
@@ -140,7 +145,14 @@ router.delete('/user/:userID/game', async (req, res) => {
         res.send(`Delated all games`)
     } catch (err) {
         logger.error(err.message)
-        res.send(errorMessage);
+        res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'method': 'DELETE',
+                'path': '/user/1/game'
+            }
+        });
     }
 });
 
@@ -153,7 +165,14 @@ router.get('/user/:userID/game/:gameID', async (req, res) => {
         res.send(game)
     } catch (err) {
         logger.debug(err.message)
-        return res.send(errorMessage);
+        return res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'method': 'GET',
+                'path': '/user/1/game/622cd907f6026dbf7cad27ef'
+            }
+        });
     }
 });
 
@@ -191,6 +210,7 @@ router.post('/user/:userID/game/:gameID', async (req, res) => {
             'message': err.message,
             'example': {
                 'header': 'Content-Type: application/json',
+                'method': 'POST',
                 'path': '/user/1/game/622cd907f6026dbf7cad27ef',
                 'body': { "numbersToChange": ["0", "1", "4"] },
                 'body alternative': { "chosenFigure": "small strit" }
@@ -209,7 +229,14 @@ router.delete('/user/:userID/game/:gameID', async (req, res) => {
         res.send(`Deleted game: ${gameID}`);
     } catch (err) {
         logger.error(err.message)
-        res.send(errorMessage);
+        res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'method': 'DELETE',
+                'path': '/user/1/game/622cd907f6026dbf7cad27ef'
+            }
+        });
     }
 });
 
