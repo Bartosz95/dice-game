@@ -1,11 +1,12 @@
 "use strict";
 import 'dotenv/config';
 import express  from 'express'
+const session = require('express-session');
+const Keycloak = require('keycloak-connect');
 import cors from 'cors'
 
 import logger from './libs/logger';
 import gameRouter from './routers/gameRouter';
-import jwtCheck from './libs/jwtCheck'
 
 const NODE_ENV = process.env.NODE_ENV;
 const HOST = process.env.APP_HOST;
@@ -31,25 +32,16 @@ if(CORS_ORIGIN === undefined) {
 
 
 const app = express();
+app.set( 'trust proxy', true );
 app.use(cors({
   origin: CORS_ORIGIN,
   optionsSuccessStatus: 200
 }))
-try {
-  if (NODE_ENV === "production") {
-    app.use(jwtCheck);
-  }
-} catch (err) {
-  app.use((req,res) =>{
-    res.send({'message': err.message})
-  }) 
-}
 
 
-app.use((req, res, next) => {
-    console.log(req.headers)
-    next();
-  });
+const memoryStore = new session.MemoryStore();
+const keycloak = new Keycloak({ store: memoryStore });
+app.use(keycloak.middleware());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
