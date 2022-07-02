@@ -1,5 +1,10 @@
+coverage
 .git
 .env
 node_modules
 npm-debug.log
 logs
+.dockerignore
+.gitignore
+Dockerfile
+keycloak.json
