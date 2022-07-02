@@ -227,7 +227,10 @@ router.delete('/user/:userID/game/:gameID', async (req, res) => {
     try {
         await deleteParticularGame(userID, gameID)
         logger.info(`Player ${gameID} deleted game: ${gameID}`);
-        res.send(`Deleted game: ${gameID}`);
+        res.status(202).send({
+            'level': 'info',
+            'message': `Deleted game: ${gameID}`
+        });
     } catch (err) {
         logger.error(err.message)
         res.send({

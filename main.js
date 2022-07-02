@@ -7,6 +7,7 @@ import cors from 'cors'
 
 import logger from './libs/logger';
 import gameRouter from './routers/gameRouter';
+import checkHeader from './libs/checkHeader';
 
 const NODE_ENV = process.env.NODE_ENV;
 const HOST = process.env.APP_HOST;
@@ -31,14 +32,11 @@ if(CORS_ORIGIN === undefined) {
 }
 
 
+
 const app = express();
 app.set( 'trust proxy', true );
-app.use(cors({
-  origin: CORS_ORIGIN,
-  optionsSuccessStatus: 200
-}))
-
-
+app.use(cors({}))
+app.use(checkHeader)
 const memoryStore = new session.MemoryStore();
 const keycloak = new Keycloak({ store: memoryStore });
 app.use(keycloak.middleware());
