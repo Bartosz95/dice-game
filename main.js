@@ -31,8 +31,6 @@ if(CORS_ORIGIN === undefined) {
   throw new Error('env CORS_ORIGIN is undefined');
 }
 
-
-
 const app = express();
 app.set( 'trust proxy', true );
 app.use(cors({}))
@@ -40,11 +38,10 @@ app.use(checkHeader)
 const memoryStore = new session.MemoryStore();
 const keycloak = new Keycloak({ store: memoryStore });
 app.use(keycloak.middleware());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use(URL, gameRouter);
+app.use(URL, keycloak.protect('user'), gameRouter);
 
 app.use((req, res) => {
   logger.info(`Request ${req.method} ${req.path} not found. Redirect to ${URL}`)
