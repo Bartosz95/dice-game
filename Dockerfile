@@ -4,4 +4,3 @@ WORKDIR /opt/dice-game/dice-game-api
 COPY . .
 RUN yarn install --production
 EXPOSE 3000
-CMD [ "npm", "start" ]

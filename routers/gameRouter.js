@@ -53,7 +53,6 @@ router.param('gameID', function (req, res, next, gameID) {
 router.get('/', async (req, res) => {
     try {
         const games = await find({})
-        console.log(games)
         const playerID = games[0].game.currentPlayer
         const gameID = games[0]._id
         res.redirect(307, `./user/${playerID}/game/${gameID}`)

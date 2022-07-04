@@ -2,7 +2,6 @@ import logger from "./logger";
   
 export default (req, res, next) => {
     try {
-        console.log(req.headers)
         if(!req.headers.authorization) {
             throw new Error("Request has to containt authorization header");
         }  

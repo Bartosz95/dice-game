@@ -27,9 +27,6 @@ if(PORT === undefined) {
 if(URL === undefined) {
   throw new Error('env APP_URL is undefined');
 }
-if(CORS_ORIGIN === undefined) {
-  throw new Error('env CORS_ORIGIN is undefined');
-}
 
 const app = express();
 app.set( 'trust proxy', true );
