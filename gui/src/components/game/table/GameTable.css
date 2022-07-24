@@ -1,0 +1,11 @@
+.my-row-style {
+    text-align: center;
+}
+
+.selected-cell {
+    opacity: 0.5
+}
+
+.can-be-select-cell:hover {
+    opacity: 0.5
+  }

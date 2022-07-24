@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: database
+  name: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - image: mongo
+        name: database
+        ports:
+        - containerPort: 27017
+        envFrom:
+        - secretRef:
+            name: secret-env
+        volumeMounts:
+        - name: data-dir
+          mountPath: /var/mongo/data
+      volumes:
+      - name: data-dir
+        persistentVolumeClaim:
+          claimName: database-pvc
+          

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    app: api
+    type: back-end
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template: 
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - image: bartosz95/dice-game-api
+        name: api
+        command:
+        - npm
+        args:
+        - run
+        - start-prod
+        envFrom:
+        - configMapRef:
+            name: api-env
+        - secretRef:
+            name: db-credencial
+        volumeMounts:
+        - name: keycloak-json
+          mountPath: /opt/dice-game/dice-game-api/keycloak.json
+          subPath: keycloak.json
+        ports:
+        - containerPort: 3000
+      volumes:
+      - name: keycloak-json
+        configMap:
+          name: keycloak-json

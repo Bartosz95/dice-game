@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gui
+  labels: 
+    app: gui
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gui
+  template: 
+    metadata:
+      name: gui
+      labels:
+        app: gui
+    spec:
+      containers:
+      - image:  bartosz95/dice-game-dashboard
+        name:  gui
+        command:
+        - npm
+        args:
+        - start
+        - --prefix /opt/dice-game/dice-game-gui
+        ports:
+        - containerPort: 4200

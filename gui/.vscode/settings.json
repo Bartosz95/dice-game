@@ -1,0 +1,6 @@
+{
+    "remote.autoForwardPorts": false,
+    "remote.SSH.defaultForwardedPorts": [
+    
+    ]
+}

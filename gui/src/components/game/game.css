@@ -1,0 +1,24 @@
+.dice-game-container {
+    width: 85%;
+    margin-top: 2%;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.turn {
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    padding-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.mug{
+    margin-top: 30%;
+}
+
+.buttons {
+    margin-top: 20%;
+}

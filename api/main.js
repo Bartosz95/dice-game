@@ -11,8 +11,8 @@ import checkHeader from './libs/checkHeader';
 
 const NODE_ENV = process.env.NODE_ENV;
 const HOST = process.env.APP_HOST;
-const PORT = process.env.APP_PORT;
-const URL = process.env.APP_URL;
+const PORT = 80//process.env.APP_PORT;
+const URL = ''//process.env.APP_URL;
 const CORS_ORIGIN = process.env.CORS_ORIGIN;
 
 if(NODE_ENV === undefined) {
