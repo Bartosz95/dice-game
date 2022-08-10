@@ -1,16 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minimal-ingress
+  name: keycloak
 spec:
+  tls:
+    - hosts:
+      - bolo.pl
   rules:
-  - host: "bartekapp.pl"
+  - host: bolo.pl
     http:
       paths:
-      - path: "/"
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: demo
+            name: keycloak
             port:
-              number: 80
+              number: 8080

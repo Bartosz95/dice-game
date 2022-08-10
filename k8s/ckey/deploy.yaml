@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  labels:
+    app: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:19.0.1
+        args: ["start-dev"]
+        envFrom:
+        - secretRef:
+            name: ckey-secret-env
+        - configMapRef:
+            name: ckey-env
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_USER
+              optional: false
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_PASSWORD
+              optional: false
+        - name: DB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-env
+              key: POSTGRES_DB
+              optional: false
+        ports:
+        - name: http
+          containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /realms/master
+            port: 8080

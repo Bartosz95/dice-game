@@ -9,4 +9,4 @@ spec:
   capacity:
     storage: 254Mi
   hostPath:
-    path: /dice-game/data/database
+    path: /dice-game/postgresql

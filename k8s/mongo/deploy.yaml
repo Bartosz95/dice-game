@@ -21,12 +21,12 @@ spec:
         - containerPort: 27017
         envFrom:
         - secretRef:
-            name: secret-env
+            name: mongo-secret-env
         volumeMounts:
         - name: data-dir
           mountPath: /var/mongo/data
       volumes:
       - name: data-dir
         persistentVolumeClaim:
-          claimName: database-pvc
+          claimName: mongo-pvc
           
