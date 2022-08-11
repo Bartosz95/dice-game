@@ -26,8 +26,19 @@ spec:
         envFrom:
         - configMapRef:
             name: api-env
-        - secretRef:
-            name: db-credencial
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret-env
+              key: MONGO_INITDB_ROOT_PASSWORD
+              optional: false
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret-env
+              key: MONGO_INITDB_ROOT_USERNAME
+              optional: false
         volumeMounts:
         - name: keycloak-json
           mountPath: /opt/dice-game/dice-game-api/keycloak.json

@@ -16,32 +16,8 @@ spec:
     spec:
       containers:
       - name: keycloak
-        image: quay.io/keycloak/keycloak:19.0.1
-        args: ["start-dev"]
-        envFrom:
-        - secretRef:
-            name: ckey-secret-env
-        - configMapRef:
-            name: ckey-env
-        env:
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret-env
-              key: POSTGRES_USER
-              optional: false
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret-env
-              key: POSTGRES_PASSWORD
-              optional: false
-        - name: DB_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              name: postgres-env
-              key: POSTGRES_DB
-              optional: false
+        image: bartosz95/ckey
+        args: ["start --import-realm --optimized"]
         ports:
         - name: http
           containerPort: 8080
@@ -49,3 +25,29 @@ spec:
           httpGet:
             path: /realms/master
             port: 8080
+        envFrom:
+        - secretRef:
+            name: ckey-secret-env
+        - configMapRef:
+            name: ckey-env
+        env:
+        - name: KC_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_USER
+              optional: false
+        - name: KC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_PASSWORD
+              optional: false
+        volumeMounts:
+        - name: conf
+          mountPath: "/opt/keycloak/data/import"
+          readOnly: true
+      volumes:
+      - name: conf
+        configMap:
+          name: bolo-realm
