@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  keycloak.json: |-
+    {
+      "realm": "bolo",
+      "auth-server-url": "https://bolo.pl/",
+      "ssl-required": "external",
+      "resource": "dice-game",
+      "public-client": true,
+      "confidential-port": 0
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: keycloak-json

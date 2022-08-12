@@ -5,7 +5,7 @@ metadata:
   labels: 
     app: gui
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: gui
@@ -16,12 +16,19 @@ spec:
         app: gui
     spec:
       containers:
-      - image:  bartosz95/dice-game-dashboard
+      - image:  bartosz95/dice-game-gui
         name:  gui
-        command:
-        - npm
-        args:
-        - start
-        - --prefix /opt/dice-game/dice-game-gui
         ports:
-        - containerPort: 4200
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: gui-env
+        volumeMounts:
+        - name: conf
+          mountPath: /usr/share/nginx/html/keycloak.json
+          subPath: keycloak.json
+          readOnly: true
+      volumes:
+      - name: conf
+        configMap:
+          name: keycloak-json
