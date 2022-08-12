@@ -5,9 +5,9 @@ metadata:
 spec:
   tls:
     - hosts:
-      - dice-game.com
+      - dice-game
   rules:
-  - host: dice-game.com
+  - host: dice-game
     http:
       paths:
       - path: /

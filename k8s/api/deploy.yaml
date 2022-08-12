@@ -40,12 +40,13 @@ spec:
               key: MONGO_INITDB_ROOT_USERNAME
               optional: false
         volumeMounts:
-        - name: keycloak-json
-          mountPath: /opt/dice-game/dice-game-api/keycloak.json
+        - name: conf
+          mountPath: /opt/dice-game-api/keycloak.json
           subPath: keycloak.json
+          readOnly: true
         ports:
         - containerPort: 3000
       volumes:
-      - name: keycloak-json
+      - name: conf
         configMap:
           name: keycloak-json

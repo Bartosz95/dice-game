@@ -5,9 +5,9 @@ metadata:
 spec:
   tls:
     - hosts:
-      - bolo.pl
+      - ckey
   rules:
-  - host: bolo.pl
+  - host: ckey
     http:
       paths:
       - path: /

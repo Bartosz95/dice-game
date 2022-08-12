@@ -10,26 +10,16 @@ import gameRouter from './routers/gameRouter';
 import checkHeader from './libs/checkHeader';
 
 const NODE_ENV = process.env.NODE_ENV;
-const HOST = process.env.APP_HOST;
-const PORT = 80//process.env.APP_PORT;
-const URL = ''//process.env.APP_URL;
-const CORS_ORIGIN = process.env.CORS_ORIGIN;
+const PORT = process.env.PORT || 80
+const PREFIX = process.env.PREFIX || '/'
+logger.info(`Endpoints avaiable on ${PREFIX}`)
 
 if(NODE_ENV === undefined) {
   throw new Error('env NODE_ENV is undefined');
 }
-if(HOST === undefined) {
-  throw new Error('env APP_HOST is undefined');
-}
-if(PORT === undefined) {
-  throw new Error('env APP_PORT is undefined');
-}
-if(URL === undefined) {
-  throw new Error('env APP_URL is undefined');
-}
 
 const app = express();
-app.set( 'trust proxy', true );
+app.set('trust proxy', true );
 app.use(cors({}))
 app.use(checkHeader)
 const memoryStore = new session.MemoryStore();
@@ -38,13 +28,13 @@ app.use(keycloak.middleware());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use(URL, keycloak.protect('user'), gameRouter);
+app.use(PREFIX, keycloak.protect('user'), gameRouter);
 
 app.use((req, res) => {
-  logger.info(`Request ${req.method} ${req.path} not found. Redirect to ${URL}`)
-  res.redirect(307, `${URL}/`)
+  logger.info(`Request ${req.method} ${req.path} not found. Redirect to ${PREFIX}`)
+  res.redirect(307, `${PREFIX}/`)
 })
 
-const service = app.listen(PORT, HOST, () => logger.info(`Running on http://${HOST}:${service.address().port}${URL}`));
+const service = app.listen(PORT, () => logger.info(`API listening on ${PORT}`));
 
 export default service

@@ -1,18 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minimal-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: api
 spec:
-  ingressClassName: nginx-example
+  tls:
+    - hosts:
+      - dice-game-api
   rules:
-  - http:
+  - host: dice-game-api
+    http:
       paths:
-      - path: /testpath
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: test
+            name: api
             port:
-              number: 80
+              number: 3000
