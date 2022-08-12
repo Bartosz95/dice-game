@@ -1,9 +1,8 @@
 {
-  "realm": "Bartosz",
-  "auth-server-url": "http://localhost:8080/",
+  "realm": "bolo",
+  "auth-server-url": "https://bolo.pl/",
   "ssl-required": "external",
   "resource": "dice-game",
   "public-client": true,
-  "confidential-port": 0,
-  "enable-cors": true
+  "confidential-port": 0
 }
