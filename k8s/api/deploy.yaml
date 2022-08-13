@@ -18,13 +18,11 @@ spec:
       containers:
       - image: bartosz95/dice-game-api
         name: api
-        command: ["/bin/sh"] 
-        args: ["-c", "while true; do echo hello; sleep 10;done"] 
-        # command:
-        # - npm
-        # args:
-        # - run
-        # - start-prod
+        command:
+        - npm
+        args:
+        - run
+        - start-prod
         envFrom:
         - configMapRef:
             name: api-env
@@ -40,6 +38,18 @@ spec:
             secretKeyRef:
               name: mongo-secret-env
               key: MONGO_INITDB_ROOT_USERNAME
+              optional: false
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-env
+              key: HOST
+              optional: false
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-env
+              key: PORT
               optional: false
         volumeMounts:
         - name: conf
