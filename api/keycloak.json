@@ -1,8 +1,0 @@
-{
-    "realm": "Bartosz",
-    "auth-server-url": "http://localhost:8080/",
-    "ssl-required": "external",
-    "resource": "dice-game",
-    "public-client": true,
-    "confidential-port": 0
-}

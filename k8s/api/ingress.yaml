@@ -1,19 +1,31 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: api
+  name: dice-game
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/enable-cors: "false"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
 spec:
   tls:
     - hosts:
-      - dice-game-api
+      - dice-game
   rules:
-  - host: dice-game-api
+  - host: dice-game
     http:
       paths:
-      - path: /
+      - path: /api
         pathType: Prefix
         backend:
           service:
             name: api
             port:
-              number: 3000
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gui
+            port:
+              number: 80

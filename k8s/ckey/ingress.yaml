@@ -1,19 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: keycloak
+  name: auth
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
     - hosts:
-      - ckey
+      - dice-game-auth
   rules:
-  - host: ckey
+  - host: dice-game-auth
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: keycloak
+            name: ckey
             port:
-              number: 8080
+              number: 80

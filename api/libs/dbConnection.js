@@ -24,9 +24,18 @@ if(PASSWORD === undefined && NODE_ENV === 'production') {
     throw new Error('env DB_PASSWORD is undefined');
 }
 
+let DB_URL = null;
 
-const DB_URL =  NODE_ENV === 'development' ? `mongodb://${HOST}:${PORT}/dev` : 
-                NODE_ENV === 'test' ? `mongodb://${HOST}:${PORT}/test` : `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/game`
+switch (NODE_ENV) {
+    case 'test':
+        DB_URL = `mongodb://${HOST}:${PORT}/test`
+        break;
+    case 'production':
+        DB_URL = `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/`
+        break;
+    default:
+        DB_URL = `mongodb://${HOST}:${PORT}/dev`
+}
 
 async function connectToMongo() {
     try {

@@ -2,11 +2,11 @@
   "name": "dice-game-api",
   "version": "1.0.0",
   "description": "Dice game main api",
-  "main": "main.js",
+  "main": "index.js",
   "repository": "git@github.com:Bartosz95/dice-game-api.git",
   "scripts": {
-    "start-prod": "npx babel-node main.js",
-    "start": "nodemon --exec babel-node main.js",
+    "start-prod": "npx babel-node index.js",
+    "start": "nodemon --exec babel-node index.js",
     "test": "jest --setupFiles dotenv/config --coverage"
   },
   "dependencies": {

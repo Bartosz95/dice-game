@@ -3,10 +3,12 @@ data:
   keycloak.json: |-
     {
       "realm": "bolo",
-      "auth-server-url": "https://ckey/",
+      "auth-server-url": "https://dice-game-auth/",
       "ssl-required": "external",
       "resource": "dice-game",
       "public-client": true,
+      "verify-token-audience": true,
+      "use-resource-role-mappings": true,
       "confidential-port": 0
     }
 kind: ConfigMap

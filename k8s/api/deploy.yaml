@@ -18,11 +18,13 @@ spec:
       containers:
       - image: bartosz95/dice-game-api
         name: api
-        command:
-        - npm
-        args:
-        - run
-        - start-prod
+        command: ["/bin/sh"] 
+        args: ["-c", "while true; do echo hello; sleep 10;done"] 
+        # command:
+        # - npm
+        # args:
+        # - run
+        # - start-prod
         envFrom:
         - configMapRef:
             name: api-env

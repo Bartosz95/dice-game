@@ -1,8 +1,8 @@
 "use strict";
 import 'dotenv/config';
 import express  from 'express'
-const session = require('express-session');
-const Keycloak = require('keycloak-connect');
+import session from 'express-session'
+import Keycloak from 'keycloak-connect'
 import cors from 'cors'
 
 import logger from './libs/logger';
@@ -20,7 +20,7 @@ if(NODE_ENV === undefined) {
 
 const app = express();
 app.set('trust proxy', true );
-app.use(cors({}))
+app.use(cors())
 app.use(checkHeader)
 const memoryStore = new session.MemoryStore();
 const keycloak = new Keycloak({ store: memoryStore });

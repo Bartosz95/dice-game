@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: keycloak
+  name: ckey
   labels:
-    app: keycloak
+    app: ckey
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: keycloak
+      app: ckey
   template:
     metadata:
       labels:
-        app: keycloak
+        app: ckey
     spec:
       containers:
-      - name: keycloak
+      - name: ckey
         image: bartosz95/ckey
         args: ["start --import-realm --optimized"]
         ports:
