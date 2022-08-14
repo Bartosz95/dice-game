@@ -3,7 +3,7 @@ data:
   keycloak.json: |-
     {
       "realm": "bolo",
-      "auth-server-url": "https://dice-game-auth/",
+      "auth-server-url": "https://dice-game/auth/",
       "ssl-required": "external",
       "resource": "dice-game",
       "public-client": true,

@@ -1,0 +1,21 @@
+wget https://github.com/vim/vim/archive/master.zip && \
+apt install unzip && \
+unzip master.zip && \
+cd vim-master && \
+cd src/ && \
+./configure && \
+make && \
+make install && \
+alias vi=vim && cd /opt/dice-game-api/
+
+
+ export TOKEN=$(curl -X POST -k 'https://dice-game-auth/realms/bolo/protocol/openid-connect/token' \
+ --header 'Content-Type: application/x-www-form-urlencoded' \
+ --data-urlencode 'grant_type=password' \
+ --data-urlencode 'client_id=dice-game' \
+ --data-urlencode 'username=tom' \
+ --data-urlencode 'password=password' | jq .access_token -r)
+
+
+curl -k -X POST https://dice-game/api/v1/user/d358dd7b-81b9-4e02-a8c8-b5c37bf2bbd6/game -d '{"userIDs":["6224b5c30eac08007061fa31"]}' -H 'Content-type: application/json;charset=UTF-8' -H "Authorization: Bearer $TOKEN"
+
