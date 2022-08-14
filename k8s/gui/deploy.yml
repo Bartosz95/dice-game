@@ -24,11 +24,17 @@ spec:
         - configMapRef:
             name: gui-env
         volumeMounts:
-        - name: conf
+        - name: keycloak-json
           mountPath: /usr/share/nginx/html/keycloak.json
           subPath: keycloak.json
           readOnly: true
+        - name: nginx-conf
+          mountPath: /etc/nginx/conf.d/
+          readOnly: true
       volumes:
-      - name: conf
+      - name: keycloak-json
         configMap:
           name: keycloak-json
+      - name: nginx-conf
+        configMap:
+          name: gui-nginx-conf
