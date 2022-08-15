@@ -1,6 +1,10 @@
 .vscode
 build
 node_modules
-.env
+public/config.json
 public/keycloak.json
-
+.dockerignore
+.env
+.gitingnore
+Dockerfile
+config.json

@@ -44,10 +44,10 @@ spec:
               key: POSTGRES_PASSWORD
               optional: false
         volumeMounts:
-        - name: conf
+        - name: bolo-realm-json
           mountPath: "/opt/keycloak/data/import"
           readOnly: true
       volumes:
-      - name: conf
+      - name: bolo-realm-json
         configMap:
-          name: bolo-realm
+          name: ckey-bolo-realm-json

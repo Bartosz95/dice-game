@@ -14,7 +14,7 @@ export default props => {
             }
         };
         const userInfo = await props.keycloak.loadUserInfo()
-        const response = await fetch(`${process.env.REACT_APP_DICE_GAME_API}/user/${userInfo.sub}/game/${props.game._id}`, requestOptions)
+        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game/${props.game._id}`, requestOptions)
         const body = await response.json();
       }
     } catch (err) {

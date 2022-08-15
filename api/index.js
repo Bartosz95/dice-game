@@ -12,6 +12,7 @@ import checkHeader from './libs/checkHeader';
 const NODE_ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 80
 const PREFIX = process.env.PREFIX || '/'
+
 logger.info(`Endpoints avaiable on ${PREFIX}`)
 
 if(NODE_ENV === undefined) {
@@ -28,7 +29,7 @@ app.use(keycloak.middleware());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use(PREFIX, keycloak.protect('user'), gameRouter);
+app.use('/', keycloak.protect('user'), gameRouter);
 
 app.use((req, res) => {
   logger.info(`Request ${req.method} ${req.path} not found. Redirect to ${PREFIX}`)

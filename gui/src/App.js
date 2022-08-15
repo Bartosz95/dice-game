@@ -14,7 +14,8 @@ import Game from './components/game/game';
 class App extends Component {
 
   state = { 
-    keycloak: keycloak
+    keycloak: keycloak,
+    config: {}
   };
 
   async initKeycloak() {
@@ -31,27 +32,44 @@ class App extends Component {
     }
   }
 
+  async initConfigData() {
+    try {
+      const data = await fetch('/config.json', {
+        headers: {
+          'Content-Type': 'application/json',
+        }})
+        console.log(data)
+        const config = await data.json()
+        console.log(config)
+        this.setState({ config: config })
+
+      } catch (err) {
+        console.log(err)
+      }
+  }
+
   componentDidMount() {
     this.initKeycloak()
+    this.initConfigData()
   }
 
   render() {
     return <div>
       <Row>
         <Col>
-          <Navbar keycloak={this.state.keycloak} />
+          <Navbar keycloak={this.state.keycloak} config={this.state.config} />
         </Col>
         <Col>
-          <UserBar keycloak={this.state.keycloak} />
+          <UserBar keycloak={this.state.keycloak} config={this.state.config} />
         </Col>
       </Row>
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={ <Home keycloak={this.state.keycloak}/> } />
-          <Route path="/games" element={ <Games keycloak={this.state.keycloak}/> } />
-          <Route path="/create" element={ <Create keycloak={this.state.keycloak}/> } />
-          <Route path="/:id" element={ <Game keycloak={this.state.keycloak}/> } />
+          <Route path="/" element={ <Home keycloak={this.state.keycloak} config={this.state.config} /> } />
+          <Route path="/games" element={ <Games keycloak={this.state.keycloak} config={this.state.config} /> } />
+          <Route path="/create" element={ <Create keycloak={this.state.keycloak} config={this.state.config} /> } />
+          <Route path="/:id" element={ <Game keycloak={this.state.keycloak} config={this.state.config} /> } />
         </Routes>
       </BrowserRouter>
     </div>

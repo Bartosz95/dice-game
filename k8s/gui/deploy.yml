@@ -28,13 +28,20 @@ spec:
           mountPath: /usr/share/nginx/html/keycloak.json
           subPath: keycloak.json
           readOnly: true
+        - name: config-json
+          mountPath: /usr/share/nginx/html/config.json
+          subPath: config.json
+          readOnly: true
         - name: nginx-conf
           mountPath: /etc/nginx/conf.d/
           readOnly: true
       volumes:
       - name: keycloak-json
         configMap:
-          name: keycloak-json
+          name: ckey-keycloak-json
+      - name: config-json
+        configMap:
+          name: gui-config-json
       - name: nginx-conf
         configMap:
           name: gui-nginx-conf

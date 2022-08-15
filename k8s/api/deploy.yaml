@@ -52,13 +52,13 @@ spec:
               key: PORT
               optional: false
         volumeMounts:
-        - name: conf
+        - name: keycloak-json
           mountPath: /opt/dice-game-api/keycloak.json
           subPath: keycloak.json
           readOnly: true
         ports:
         - containerPort: 3000
       volumes:
-      - name: conf
+      - name: keycloak-json
         configMap:
-          name: keycloak-json
+          name: ckey-keycloak-json

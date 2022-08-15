@@ -34,10 +34,8 @@ export default props => {
                     },
                 };
                 const userInfo = await props.keycloak.loadUserInfo()
-                console.log(userInfo)
-                const response = await fetch(`${process.env.REACT_APP_DICE_GAME_API}/user/${userInfo.sub}/game/${gameID}`, requestOptions)
+                const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game/${gameID}`, requestOptions)
                 let body = await response.json();
-                console.log(body)
                 const game = body.game
                 const players = []
                 for (const [playerID, value] of Object.entries(game.players)) {
@@ -98,7 +96,7 @@ export default props => {
                 body: JSON.stringify({ numbersToChange: dicesToChange })
             };
             // todo change playerID and gameID later 
-            const response = await fetch(`${process.env.REACT_APP_DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
+            const response = await fetch(`${props.config.DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
                 setAlertMessage(body)
@@ -126,7 +124,7 @@ export default props => {
                 body: JSON.stringify({ chosenFigure: chosenFigure })
             };
             // todo change playerID and gameID later 
-            const response = await fetch(`${process.env.REACT_APP_DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
+            const response = await fetch(`${props.config.DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
                 setAlertMessage(body)

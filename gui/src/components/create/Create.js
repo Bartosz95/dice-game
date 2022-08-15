@@ -3,7 +3,7 @@ import { Container, ListGroup, Button } from 'react-bootstrap';
 
 export default props => {
 
-  const [userId, setUserId] = useState({})
+  const [userId, setUserId] = useState('')
   const [users, setUsers] = useState([])
   const [selectedUsers, setSelectedUsers] = useState([])
 
@@ -31,7 +31,6 @@ export default props => {
     const index = selectedUsers.indexOf(user.id)
     index === -1 ? selectedUsers.push(user.id) : selectedUsers.splice(index, 1)
     setSelectedUsers(selectedUsers)
-    console.log(selectedUsers)
   }
 
   const createGame = async () => {
@@ -39,15 +38,15 @@ export default props => {
       if(props.keycloak.authenticated) {
         const userInfo = await props.keycloak.loadUserInfo()
         setUserId(userInfo.sub)
-        const requestOptions = {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.keycloak.token}`
-            },
-            body: JSON.stringify({ userIDs: selectedUsers })
-        };
-        const response = await fetch(`${process.env.REACT_APP_DICE_GAME_API}/user/${userId}/game`, requestOptions)
+        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${props.keycloak.token}`
+          },
+          body: JSON.stringify({ userIDs: selectedUsers }),
+          mode: 'no-cors'
+        })
         const body = await response.json();
         window.location.href = `/${body._id}`        
       }

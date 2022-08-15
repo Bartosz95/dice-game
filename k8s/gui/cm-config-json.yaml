@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  config.json: |-
+    {
+      "DICE_GAME_API": "/api/v1"
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: gui-config-json
