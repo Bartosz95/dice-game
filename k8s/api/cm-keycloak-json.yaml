@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  keycloak.json: |-
+    {
+        "clientId": "dice-game",
+        "bearerOnly": true,
+        "serverUrl": "https://dice-game/auth/",
+        "realm": "bolo",
+        "realmPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlXygcpeBRfkL35WErnT1lvnHQQLC64Z8dWGrZbRztPDFJJO3psqDwgIJypeCUFdpdIr+q63/ob0FqgfRiB1rrORkeIrL7lhTbvrTvTshcovY8F7o4IQBL27A+g+rTUaNfTefRNORbCi1Dn153nlb+kxI/xbadxUNoQaqoHUcEpFDvpm3Sct22OY0QWXoyLHVdZ5ERTgEuIYPC3mn6W7lYlhYxlpUooECyBkG0iX3GTgGxnIjcKJYXmj7B7CBOw5qxDtEhRr2b31ptzo+cGVP8hqrF0VwN3S7tQoi940VIzzuEENgtt13e/zJahWh916kNmzagKERmGnCe0NsLtDOGwIDAQAB"
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: api-keycloak-json

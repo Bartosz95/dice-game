@@ -14,4 +14,4 @@ data:
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: ckey-keycloak-json
+  name: gui-keycloak-json

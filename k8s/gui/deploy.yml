@@ -38,7 +38,7 @@ spec:
       volumes:
       - name: keycloak-json
         configMap:
-          name: ckey-keycloak-json
+          name: gui-keycloak-json
       - name: config-json
         configMap:
           name: gui-config-json
