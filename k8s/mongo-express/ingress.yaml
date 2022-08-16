@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-express
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /mongo/$2
+spec:
+  tls:
+    - hosts:
+      - dice-game
+  rules:
+  - host: dice-game
+    http:
+      paths:
+      - path: /mongo(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mongo-express
+            port:
+              number: 80
