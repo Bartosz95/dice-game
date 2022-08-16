@@ -38,9 +38,7 @@ class App extends Component {
         headers: {
           'Content-Type': 'application/json',
         }})
-        console.log(data)
         const config = await data.json()
-        console.log(config)
         this.setState({ config: config })
 
       } catch (err) {

@@ -38,15 +38,15 @@ export default props => {
       if(props.keycloak.authenticated) {
         const userInfo = await props.keycloak.loadUserInfo()
         setUserId(userInfo.sub)
-        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game`, {
+        const requestOptions = {
           method: 'POST',
           headers: { 
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${props.keycloak.token}`
           },
-          body: JSON.stringify({ userIDs: selectedUsers }),
-          mode: 'no-cors'
-        })
+          body: JSON.stringify({ userIDs: selectedUsers })
+        }
+        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game`, requestOptions)
         const body = await response.json();
         window.location.href = `/${body._id}`        
       }
