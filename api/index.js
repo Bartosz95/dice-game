@@ -4,6 +4,7 @@ import express  from 'express'
 import session from 'express-session'
 import Keycloak from 'keycloak-connect'
 import cors from 'cors'
+import jwt_decode from "jwt-decode";
 
 import logger from './libs/logger';
 import gameRouter from './routers/gameRouter';
@@ -29,6 +30,10 @@ const memoryStore = new session.MemoryStore();
 const keycloak = new Keycloak({ store: memoryStore });
 app.use(keycloak.middleware());
 
+app.use((req,res,next) => {
+    req.user = jwt_decode(req.kauth.grant.access_token.token)
+    next()
+})
 
 app.use('/', keycloak.protect('user'), gameRouter);
 
