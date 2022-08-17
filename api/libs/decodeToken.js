@@ -8,7 +8,13 @@ export default (req, res, next) => {
             throw new Error("Cannot decode token");
         }  
         req.user = jwt_decode(req.kauth.grant.access_token.token)
-        //const decodedBarer = Buffer.from(authHeader.at(1), 'base64').toString('utf8')
+
+        const {sid, preferred_username} = req.user
+        if(!sid)
+            throw new Error('sid in token is undefined');
+        if(!preferred_username) 
+            throw new Error('preferred_username in token is undefined')
+
         next()
 
     } catch(err) {

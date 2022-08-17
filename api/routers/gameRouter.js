@@ -81,23 +81,32 @@ router.get('/game', async (req, res) => {
 // create a game
 // curl --url http://localhost:3000/api/v1/game -d '{"userIDs":["1","2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
 router.post('/game', async (req, res) => {
-    let { userIDs } = req.body;
-    const userID = req.user.sid;
-
+    let { name, users } = req.body;
+    const currentUser = {
+        id: req.user.sid,
+        username: req.user.preferred_username
+    }
     try {
-        if(userIDs === undefined)
-            throw new Error('userIDs is undefined');
-        if(!Array.isArray(userIDs))
-            throw new Error('userIDs should be a Array');
-        userIDs.forEach(userID => {
-            if(typeof userID !== 'string') 
-                throw new Error('Every user in userIDs should be a string')
+        if(name === undefined)
+            throw new Error('name is undefined');
+        if(typeof name !== 'string') 
+            throw new Error('name should be a string')
+        if(users === undefined)
+            throw new Error('users is undefined');
+        if(!Array.isArray(users))
+            throw new Error('users should be a Array');
+        users.forEach(user => {
+            if(typeof user.id !== 'string') 
+                throw new Error('Every id in users array should be a string')
+            if(typeof user.id !== 'string') 
+                throw new Error('Every username in users array should be a string')
         })
-
-        userIDs = userIDs.includes(userID) ? userIDs : userIDs.concat(userID); // add user to game if is not added in list
-        const game = new Game(userIDs)
+        users = users.some(user => user.id === currentUser.id) ? users : users.concat(currentUser);
+        users = users.map(user => user.id) // todo add game name and username later and remove this line
+        
+        const game = new Game(users)
         const dbGame = await createGame(game)
-        logger.info(`Player ${userID} created game: ${dbGame._id}`)
+        logger.info(`Player ${currentUser.username} created game: ${dbGame._id}`)
 
         res.status(201).send({
             _id: dbGame._id,
