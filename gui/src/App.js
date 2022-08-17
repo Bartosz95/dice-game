@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
 import keycloak from './libs/keycloak';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import UserBar from './components/userBar/UserBar';
 import Navbar from './components/navbar/Navbar'
 import Home from './components/home/home';
 import Games from './components/games/games';
@@ -53,14 +51,7 @@ class App extends Component {
 
   render() {
     return <div>
-      <Row>
-        <Col>
-          <Navbar keycloak={this.state.keycloak} config={this.state.config} />
-        </Col>
-        <Col>
-          <UserBar keycloak={this.state.keycloak} config={this.state.config} />
-        </Col>
-      </Row>
+      <Navbar keycloak={this.state.keycloak} />
 
       <BrowserRouter>
         <Routes>

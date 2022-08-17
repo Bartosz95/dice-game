@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
-import './userBar.css'
+
 const UserBar = props => {
 
   const [username, setUsername] = useState("")

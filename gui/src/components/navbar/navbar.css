@@ -15,3 +15,8 @@ img {
     text-align: center;
     font-size: x-large;
 }
+
+.userBar {
+    margin-top: 5px;
+    margin-left: 65%;
+}
