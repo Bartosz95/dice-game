@@ -4,11 +4,12 @@ import express  from 'express'
 import session from 'express-session'
 import Keycloak from 'keycloak-connect'
 import cors from 'cors'
-import jwt_decode from "jwt-decode";
+
 
 import logger from './libs/logger';
 import gameRouter from './routers/gameRouter';
 import checkHeader from './libs/checkHeader';
+import decodeToken from './libs/decodeToken'
 
 const NODE_ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 80
@@ -26,14 +27,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(checkHeader)
+
 const memoryStore = new session.MemoryStore();
 const keycloak = new Keycloak({ store: memoryStore });
 app.use(keycloak.middleware());
 
-app.use((req,res,next) => {
-    req.user = jwt_decode(req.kauth.grant.access_token.token)
-    next()
-})
+app.use(decodeToken)
 
 app.use('/', keycloak.protect('user'), gameRouter);
 

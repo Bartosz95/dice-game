@@ -10,13 +10,12 @@ export default props => {
   const getGames = async () => {
     try {
       if(props.keycloak.authenticated && games.length === 0) {
-        const userInfo = await props.keycloak.loadUserInfo()
         const requestOptions = {
           headers: {
               'Authorization': `Bearer ${props.keycloak.token}`
           }
         };
-        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game`, requestOptions)
+        const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
         const body = await response.json()
         setGames(body)
       }

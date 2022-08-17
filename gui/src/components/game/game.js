@@ -26,15 +26,16 @@ export default props => {
     const getGame = async (force) => {   
         try {
             if(props.keycloak.authenticated && (force || currentPlayer === '')) {
+                const userInfo = await props.keycloak.loadUserInfo()
+
                 const gameID = window.location.pathname.split('/').at(-1)
+                setGameID(gameID)
                 const requestOptions = {
-                    method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${props.keycloak.token}`
-                    },
+                    }
                 };
-                const userInfo = await props.keycloak.loadUserInfo()
-                const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game/${gameID}`, requestOptions)
+                const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
                 let body = await response.json();
                 const game = body.game
                 const players = []
@@ -52,7 +53,6 @@ export default props => {
                         roll: false
                     })
                 }
-                setGameID(body._id)
                 setCurrentPlayer(game.currentPlayer)
                 setIndexOfFirstPlayer(game.indexOfFirstPlayer)
                 setIsActive(game.isActive)
@@ -96,7 +96,7 @@ export default props => {
                 body: JSON.stringify({ numbersToChange: dicesToChange })
             };
             // todo change playerID and gameID later 
-            const response = await fetch(`${props.config.DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
+            const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
                 setAlertMessage(body)

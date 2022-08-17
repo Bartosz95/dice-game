@@ -3,13 +3,15 @@ import { Container, ListGroup, Button } from 'react-bootstrap';
 
 export default props => {
 
-  const [userId, setUserId] = useState('')
+  const [currentUser, setCurrentUser] = useState({})
   const [users, setUsers] = useState([])
   const [selectedUsers, setSelectedUsers] = useState([])
 
   const getUsers = async () => {
     try {
       if(props.keycloak.authenticated && users.length === 0) {
+        const userInfo = await props.keycloak.loadUserInfo()
+        setCurrentUser(userInfo)
         const requestOptions = {
           method: 'GET',
           headers: {
@@ -18,7 +20,7 @@ export default props => {
         };
         const response = await fetch(`${props.keycloak.authServerUrl}/admin/realms/${props.keycloak.realm}/users`, requestOptions)
         const body = await response.json()
-        setUsers(body)
+        setUsers(body.filter(user => user.id !== userInfo.sub))
       }
     } catch(err) {
       console.log(err)
@@ -36,8 +38,7 @@ export default props => {
   const createGame = async () => {
     try {
       if(props.keycloak.authenticated) {
-        const userInfo = await props.keycloak.loadUserInfo()
-        setUserId(userInfo.sub)
+        selectedUsers.push(currentUser.sub)
         const requestOptions = {
           method: 'POST',
           headers: { 
@@ -46,7 +47,7 @@ export default props => {
           },
           body: JSON.stringify({ userIDs: selectedUsers })
         }
-        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game`, requestOptions)
+        const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
         const body = await response.json();
         window.location.href = `/${body._id}`        
       }
@@ -55,16 +56,13 @@ export default props => {
     }
   }
 
-  const playerlist = <ListGroup>{
-    users.map(user =>  <ListGroup.Item 
-      key={user.id} 
-      action
-      variant={selectedUsers.indexOf(user.id) === -1 ? "" : "success"}
-      disabled={user.id === userId}
-      onClick={() => {selectUser(user)}}>
+  const playerlist = users.map(user =>  <ListGroup.Item
+      key={user.id}
+      onClick={() => {selectUser(user)}}
+      className={selectedUsers.indexOf(user.id) === -1 ? "outline-success": "success"}
+      action>
         {user.username}
     </ListGroup.Item>) 
-    }</ListGroup>
 
 
   const createButton = <Button
@@ -75,7 +73,7 @@ export default props => {
 
   return <><Container>
     Selected users: {selectedUsers}
-      { playerlist } 
+    <ListGroup>{ playerlist } </ListGroup>
     </Container>
     {createButton}
   </>

@@ -13,8 +13,7 @@ export default props => {
                 'Authorization': `Bearer ${props.keycloak.token}`
             }
         };
-        const userInfo = await props.keycloak.loadUserInfo()
-        const response = await fetch(`${props.config.DICE_GAME_API}/user/${userInfo.sub}/game/${props.game._id}`, requestOptions)
+        const response = await fetch(`${props.config.DICE_GAME_API}/game/${props.game._id}`, requestOptions)
         const body = await response.json();
       }
     } catch (err) {
