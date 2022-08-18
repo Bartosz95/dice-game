@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
+import { NavDropdown, Dropdown, Nav } from 'react-bootstrap';
 
 const UserBar = props => {
 
   const [username, setUsername] = useState("")
 
-  const login = <Button variant="success" className="userBar" onClick={ () => props.keycloak.login() }>Login</Button>
+  const login = <Nav.Link  onClick={ () => props.keycloak.login() } variant="outline-secondary" className="userBarBtn">Login</Nav.Link >
 
-  const dropdown = <DropdownButton variant='secondary' title={username} className="userBar">
-    <Dropdown.Item onClick={ () => props.keycloak.logout() }>Logout</Dropdown.Item>
-    <Dropdown.Item onClick={ () => props.keycloak.accountManagement() }>Account</Dropdown.Item>
-  </DropdownButton > 
+  const dropdown = <NavDropdown title={username} variant='outline-secondary' className="userBarBtn" >
+    <Dropdown.Item onClick={ () => props.keycloak.logout() } className="navItem">Logout</Dropdown.Item>
+    <Dropdown.Item onClick={ () => props.keycloak.accountManagement() }className="navItem">Account</Dropdown.Item>
+  </NavDropdown > 
 
   const load = async () => {
     try {
@@ -25,6 +25,6 @@ const UserBar = props => {
 
   useEffect(() => { load() })
 
-  return props.keycloak.authenticated ? dropdown : login
+  return <div >{props.keycloak.authenticated ? dropdown : login}</div>
 }
 export default UserBar;

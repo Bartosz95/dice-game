@@ -17,6 +17,12 @@ img {
 }
 
 .userBar {
-    margin-top: 5px;
-    margin-left: 65%;
+    width: 150px;
+    height: 60px;
+    padding-right: 50px;
+}
+
+.userBarBtn {
+    font-size: large;
+    margin-top: 8px;
 }
