@@ -40,6 +40,7 @@ router.get('/game', async (req, res) => {
                 _id: db_game._id,
                 isActive: db_game.game.isActive,
                 playerIDs: db_game.game.playerIDs,
+                numberOfTurn: db_game.game.numberOfTurn,
                 isYourTurn: db_game.currentPlayer === userID
             }})
         )
