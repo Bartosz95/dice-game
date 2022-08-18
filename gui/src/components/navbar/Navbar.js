@@ -4,8 +4,8 @@ import './navbar.css'
 
 import UserBar from './userBar/UserBar';
 
-export default props => <Navbar>
-    <Nav className="nav bg-light navbar-collapse">     
+export default props => <Navbar className="nav bg-light">
+    <Nav className="navbar-collapse">     
 
         <Nav.Link href="/" className="logo"><img src="img/logo.png"/></Nav.Link>
         
@@ -16,7 +16,7 @@ export default props => <Navbar>
         {props.keycloak.authenticated ? <Nav.Link href="/create" className="link-secondary navLink">New Game</Nav.Link>: ''}
     
     </Nav>
-    <Nav className="nav justify-content-end bg-light userBar">
+    <Nav className="justify-content-end userBar">
 
         <UserBar className="" keycloak={props.keycloak}/>
     
