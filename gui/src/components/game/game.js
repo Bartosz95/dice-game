@@ -22,9 +22,11 @@ export default props => {
     const [ chosenFigure, setChosenFigure] = useState(null)
     const [ alertMessage, setAlertMessage] = useState(null)
     const [ level, setLevel] = useState('')
+    const [ renderGame, setRenderGame] = useState(false)
 
     const getGame = async (force) => {   
         try {
+            
             if(props.keycloak.authenticated && (force || currentPlayer === '')) {
                 const userInfo = await props.keycloak.loadUserInfo()
 
@@ -37,6 +39,16 @@ export default props => {
                 };
                 const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
                 let body = await response.json();
+                console.log(body)
+                if((body.level === 'warning') || (body.level === 'error')) {
+                    setRenderGame(false)
+                    return setAlertMessage(body)
+                } else if(!body._id) {
+                    throw new Error('Somting went wrong, try later.')
+                } else {
+                    setRenderGame(true)
+                }
+                
                 const game = body.game
                 const players = []
                 for (const [playerID, value] of Object.entries(game.players)) {
@@ -66,6 +78,8 @@ export default props => {
             }
         } catch (err) {
             console.log(err)
+            setRenderGame(false)
+            return setAlertMessage(err)
         }
     }
 
@@ -99,10 +113,10 @@ export default props => {
             const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
-                setAlertMessage(body)
-            } else {
-                getGame(true)
-            }
+                return setAlertMessage(body)
+            } 
+            getGame(true)
+        
         } catch (err) {
             setLevel('error')
             setAlertMessage(err.message)
@@ -127,10 +141,9 @@ export default props => {
             const response = await fetch(`${props.config.DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
-                setAlertMessage(body)
-            } else {
-                getGame(true)
+                return setAlertMessage(body)
             }
+            getGame(true)
         } catch (err) {
             setLevel('error')
             setAlertMessage(err.message)
@@ -148,7 +161,8 @@ export default props => {
 
     const rollTheDicesButton = <Button 
         onClick={rollTheDices.bind(this)} 
-        variant={(numberOfRoll === 0) || (dicesToChange.length !== 0) ?  "success" : "outline-secondary"} 
+        variant={(numberOfRoll === 0) || (dicesToChange.length !== 0) ?  "success" : "outline-secondary"}
+        className="rollTheDicesButton"
         disabled={(numberOfRoll === 3) || ((dicesToChange.length === 0) && numberOfRoll !== 0)}>
         {chosenFigure ? "You cannot roll dices if you choose a figure" : 
         (numberOfRoll === 3 ? "You don't have next roll" : 
@@ -159,7 +173,8 @@ export default props => {
 
     const chooseFigureButton = <Button 
         onClick={chooseFigure.bind(this)} 
-        variant={chosenFigure ? "success" : "outline-secondary"} 
+        variant={chosenFigure ? "success" : "outline-secondary"}
+        className="chooseFigureButton" 
         disabled={(numberOfRoll === 0) || !chosenFigure}>
             {numberOfRoll === 0 ? "You have to roll all dices" : 
             (chosenFigure ? "Save figure" : 
@@ -168,18 +183,11 @@ export default props => {
 
     const play = <div>
         <Row>
-            <Col><h1>Player: {currentPlayer}</h1></Col>
             <Col><Badge pill bg="secondary" className="turn">Turn: {numberOfTurn}</Badge></Col>
         </Row>
-        <Row className="dices">{dices}</Row>
-            <Row>
-            <Col>
-                {rollTheDicesButton}
-            </Col>
-            <Col>
-                {chooseFigureButton}
-            </Col>
-        </Row>
+        {rollTheDicesButton}{chooseFigureButton}
+        <Row className="dices">{numberOfRoll === 0 ? '' : dices}</Row>
+        
     </div>
 
     const winMessage = <WinMessage elems={players} />
@@ -193,15 +201,14 @@ export default props => {
         />
     </div>
 
+    const game = <Row>
+        <Col>{isActive ? play : winMessage}</Col>
+        <Col>{table}</Col>
+    </Row>
+
     return <Container fluid className="dice-game-container">
         {alert}
-        <Row>
-            <Col>
-                {isActive ? play : winMessage}
-            </Col>
-            <Col>
-                {table}
-            </Col>
-        </Row>
+        {renderGame ? game : '' }
+        
     </Container>
 }

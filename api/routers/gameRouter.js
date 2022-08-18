@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
 // get all games
 // curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
 router.get('/game', async (req, res) => {
-    const userID = req.user.sid;
+    const userID = req.user.sub;
 
     try {
         const db_games = await getAllGames(userID)
@@ -83,7 +83,7 @@ router.get('/game', async (req, res) => {
 router.post('/game', async (req, res) => {
     let { name, users } = req.body;
     const currentUser = {
-        id: req.user.sid,
+        id: req.user.sub,
         username: req.user.preferred_username
     }
     try {
@@ -132,7 +132,7 @@ router.post('/game', async (req, res) => {
 // delete all game for user
 // curl -X DELETE  http://localhost:3000/api/v1/game
 router.delete('/game', async (req, res) => {
-    const userID = req.user.sid;
+    const userID = req.user.sub;
     try {
         await deleteAllGames(userID)
         logger.info(`Player ${userID} deleted all games`)
@@ -154,7 +154,7 @@ router.delete('/game', async (req, res) => {
 // curl -H 'authorization: Bearer $token' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.get('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
-    const userID = req.user.sid;
+    const userID = req.user.sub;
     try {
         const game = await getParticularGame(userID, gameID)
         res.send(game)
@@ -177,7 +177,7 @@ router.get('/game/:gameID', async (req, res) => {
 // curl -d '{"chosenFigure":"strit"}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.post('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
-    const userID = req.user.sid;
+    const userID = req.user.sub;
     const { numbersToChange, chosenFigure } = req.body;
     try {
         if(numbersToChange === undefined && chosenFigure === undefined)
@@ -219,7 +219,7 @@ router.post('/game/:gameID', async (req, res) => {
 // delete particulary game for user
 router.delete('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
-    const userID = req.user.sid;
+    const userID = req.user.sub;
     try {
         await deleteParticularGame(userID, gameID)
         logger.info(`Player ${gameID} deleted game: ${gameID}`);

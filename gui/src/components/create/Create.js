@@ -83,10 +83,10 @@ export default props => {
         const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
         const body = await response.json();
         if((body.level === 'warning') || (body.level === 'error')) {
-          setAlertMessage(body)
-        } else {
-          window.location.href = `/${body._id}`
-        }  
+          return setAlertMessage(body)
+        } 
+        window.location.href = `/${body._id}`
+  
       }
     } catch (err) {
       console.log(err)

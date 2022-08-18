@@ -9,8 +9,8 @@ export default (req, res, next) => {
         }  
         req.user = jwt_decode(req.kauth.grant.access_token.token)
 
-        const {sid, preferred_username} = req.user
-        if(!sid)
+        const {sub, preferred_username} = req.user
+        if(!sub)
             throw new Error('sid in token is undefined');
         if(!preferred_username) 
             throw new Error('preferred_username in token is undefined')
