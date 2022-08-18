@@ -1,15 +1,7 @@
 import { Router } from 'express'
 import logger from '../libs/logger';
 import { Game, makeMove } from '../libs/Game'
-import { validID, find, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
-
-/*
-First add token to token enviroment variable
-token=$(curl --request POST --url https://dev-8ti8osnq.us.auth0.com/oauth/token -H 'content-type: application/json' \
--d '{"client_id":"5AXHpewP0yBnJAya4yb2BUGf2abJCbQ8","client_secret":"6r7KiwsTG5YjYLOy8UIUeTHcKT3Et36SK4Vq4vL7SKo2rzz__xp7xRT9yshJqKVf","audience":"https://dicegame/api","grant_type":"client_credentials"}' | jq '.access_token')
-
-echo $token
-*/
+import { validID, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
 
 const router = Router();
 
@@ -32,21 +24,6 @@ router.param('gameID', function (req, res, next, gameID) {
     next()
 })
 
-// Remove endpoint after finish developing
-router.get('/', async (req, res) => {
-    try {
-        const games = await find({})
-        const playerID = games[0].game.currentPlayer
-        const gameID = games[0]._id
-        res.redirect(307, `./user/${playerID}/game/${gameID}`)
-    } catch(err) {
-        logger.error(err.message)
-        res.send(err.message)
-    }
-})
-
-// get all games
-// curl -H 'authorization: Bearer $token' -H "Content-Type: application/json" -d '{"userID":"6224b5c30eac08007061fa31"}' http://localhost:3000/api/v1/game
 router.get('/game', async (req, res) => {
     const userID = req.user.sub;
 
@@ -62,7 +39,8 @@ router.get('/game', async (req, res) => {
             db_games.map(db_game => { return {
                 _id: db_game._id,
                 isActive: db_game.game.isActive,
-                playerIDs: db_game.game.playerIDs
+                playerIDs: db_game.game.playerIDs,
+                isYourTurn: db_game.currentPlayer === userID
             }})
         )
     } catch(err) {
@@ -78,8 +56,6 @@ router.get('/game', async (req, res) => {
     }
 });
 
-// create a game
-// curl --url http://localhost:3000/api/v1/game -d '{"userIDs":["1","2"]}' -H "Content-Type: application/json" -H "authorization: Bearer $token" 
 router.post('/game', async (req, res) => {
     let { name, users } = req.body;
     const currentUser = {
@@ -129,8 +105,6 @@ router.post('/game', async (req, res) => {
     }
 });
 
-// delete all game for user
-// curl -X DELETE  http://localhost:3000/api/v1/game
 router.delete('/game', async (req, res) => {
     const userID = req.user.sub;
     try {
@@ -150,13 +124,12 @@ router.delete('/game', async (req, res) => {
     }
 });
 
-// get particulary game
-// curl -H 'authorization: Bearer $token' http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
 router.get('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
     const userID = req.user.sub;
     try {
         const game = await getParticularGame(userID, gameID)
+        game.isYourTurn = game.currentPlayer === userID
         res.send(game)
     } catch (err) {
         logger.debug(err.message)
@@ -170,11 +143,7 @@ router.get('/game/:gameID', async (req, res) => {
         });
     }
 });
-
-// roll dices
-// curl -d '{"numbersToChange":[1,2]}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef
-// choose figure
-// curl -d '{"chosenFigure":"strit"}' -H 'authorization: Bearer $token' -H "Content-Type: application/json"  http://localhost:3000/api/v1/game/622cd907f6026dbf7cad27ef 
+ 
 router.post('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
     const userID = req.user.sub;
@@ -215,8 +184,6 @@ router.post('/game/:gameID', async (req, res) => {
     }
 })
 
-
-// delete particulary game for user
 router.delete('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
     const userID = req.user.sub;

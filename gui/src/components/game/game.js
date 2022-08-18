@@ -8,7 +8,8 @@ import AlertMessage from '../alerts/AlertMessage'
 import WinMessage from "./winMessage/WinMessage";
 
 export default props => {
-    
+
+    const [ currentUser, setCurrentUser] = useState({})
     const [ currentPlayer, setCurrentPlayer] = useState('')
     const [ indexOfFirstPlayer, setIndexOfFirstPlayer] = useState('')
     const [ isActive, setIsActive] = useState(true)
@@ -26,9 +27,9 @@ export default props => {
 
     const getGame = async (force) => {   
         try {
-            
             if(props.keycloak.authenticated && (force || currentPlayer === '')) {
                 const userInfo = await props.keycloak.loadUserInfo()
+                setCurrentUser(userInfo)
 
                 const gameID = window.location.pathname.split('/').at(-1)
                 setGameID(gameID)
@@ -194,8 +195,9 @@ export default props => {
 
     const table = <div>
         <GameTable 
-            players={players} 
-            currentPlayer={ numberOfRoll === 0 ? null : currentPlayer} 
+            players={players}
+            currentUser={currentUser}
+            currentPlayer={currentPlayer}
             chosenFigure={chosenFigure} 
             markFigureTochoose={markFigureTochoose.bind(this)}
         />

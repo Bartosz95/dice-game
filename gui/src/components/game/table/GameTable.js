@@ -3,10 +3,15 @@ import { Table } from 'react-bootstrap';
 import './GameTable.css'
 
 export default props => {
+
+    console.log(props)
     const head = []
     const body = []
     head.push(<th key='#'></th>)
-    const dummyfcn = () => {}
+
+    const isCurrentPlayer = (props) => {
+        
+    }
 
     const canBeSelected = (player, figure, props) => {
         return (player.id === props.currentPlayer) && (player.table[figure] === null) && (figure !== 'bonus') && (figure !== 'to bonus') && (figure !== 'total')
@@ -17,7 +22,11 @@ export default props => {
     }
 
     const getStyle = (player, figure, props) => {
+        console.log(props)
+        console.log(player)
+        console.log(figure)
         const cellStyle = ' table-success'
+        isCurrentPlayer()
         if (isFigureSelected(player, figure, props)){
             return cellStyle + ' selected-cell'
         } else if (canBeSelected(player, figure, props)) {
@@ -42,8 +51,8 @@ export default props => {
             for(const player of props.players) {
                 row.push(
                     <td key={`p${player.id}f${figure}`} 
-                    onClick={player.id === props.currentPlayer ? () => props.markFigureTochoose(figure) : dummyfcn}
-                    className={`my-row-style ${getStyle(player, figure, props)}`}
+                    onClick={(player.id === props.currentPlayer) ? () => props.markFigureTochoose(figure) : ()=>{}}
+                    className={`my-row-style ${getStyle(player, figure, props)} {}`}
                     >
                         {isFigureSelected(player, figure, props) ? selectedIcon : ''}
                         {player.table[figure]}
