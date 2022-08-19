@@ -25,7 +25,7 @@ export default props => {
         if((body.level === 'warning') || (body.level === 'error')) {
           return setAlertMessage(body)
         }
-        setGames([...body,...body,...body,...body,...body])
+        setGames(body)
       }
     } catch (err) {
       console.log(err)
