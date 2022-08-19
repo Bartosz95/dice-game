@@ -1,27 +1,26 @@
 import logger from "./logger";
 
 export class Game {
-    constructor(playerIDs) {
-        this.isActive = true;
-        this.numberOfRoll = 0;
-        this.numberOfTurn = 0;
-        this.playerIDs = playerIDs;
-        this.currentPlayer = playerIDs[Math.floor(Math.random() * this.playerIDs.length)];
-        this.indexOfFirstPlayer = playerIDs.indexOf(this.currentPlayer)
+    constructor(players, name) {
+        this.name = name
+        this.isActive = true
+        this.numberOfRoll = 0
+        this.numberOfTurn = 0
+        this.playerIDs = players.map(player => player.id)
+        this.currentPlayer = this.playerIDs[Math.floor(Math.random() * this.playerIDs.length)]
+        this.indexOfFirstPlayer = this.playerIDs.indexOf(this.currentPlayer)
 
         this.mug = { "0": null, "1": null, "2": null, "3": null, "4": null }
 
         this.players = {}
-        playerIDs.forEach(id => {
-            this.players[id] = {
-                table : { "1": null, "2": null, "3": null, "4": null, "5": null, "6": null, 
-                        "to bonus": null,"bonus": null, "3x": null, "4x": null, "full": null, 
-                        "small strit": null, "big strit": null, "general": null, "chance": null, 
-                         "total": null
+        players.forEach(player => {
+            this.players[player.id] = {
+                username: player.username,
+                table : { "1": null, "2": null, "3": null, "4": null, "5": null, "6": null,             "to bonus": null,"bonus": null, "3x": null, "4x": null, "full": null,             "small strit": null, "big strit": null, "general": null, "chance": null,              "total": null
                 },
                 
             }
-        });
+        })
     }
 }
 

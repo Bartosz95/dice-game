@@ -16,7 +16,8 @@ describe('E2E', () => {
     beforeEach(async function () {
         await deleteAllGames("abc")
         await deleteAllGames("def")
-        game = new Game(["abc","def"])
+        game = new Game(
+            [{ id:"abc", username: "anna" }, { id:"def", username: "jon" }], "Game 3")
         deepCopieGame = JSON.parse(JSON.stringify(game))
         currentPlayer = deepCopieGame.currentPlayer;
         db_game = await createGame(game)
@@ -85,8 +86,10 @@ describe('E2E', () => {
         describe("delete: delete all game for user", () => {
             beforeEach(async function () {
                 await deleteAllGames("ghi")
-                await createGame(new Game(["abc","ghi"]))
-                await createGame(new Game(["ghi","def"]))
+                await createGame(new Game(
+                    [{id:"abc", username: "anna"}, { id:"ghi", username: "mike" }], "Game 1"))
+                await createGame(new Game(
+            [{ id:"ghi", username: "mike" }, { id:"def", username: "jon" }], "Game 2"))
             })
 
             test('game are deleted correctly', async () => {
@@ -208,8 +211,10 @@ describe('E2E', () => {
         describe('delete: particular game', () => {
             beforeEach(async function () {
                 await deleteAllGames("ghi")
-                await createGame(new Game(["abc","ghi"]))
-                await createGame(new Game(["ghi","def"]))
+                await createGame(new Game(
+                    [{ id:"abc", username: "anna" }, { id:"ghi", username: "mike" }], "Game 1"))
+                await createGame(new Game(
+                    [{ id:"ghi", username: "mike" }, { id:"def", username: "jon" }], "Game 2"))
             })
 
             test('game are deleted correctly', async () => {

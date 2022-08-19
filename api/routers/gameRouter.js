@@ -79,9 +79,8 @@ router.post('/game', async (req, res) => {
                 throw new Error('Every username in users array should be a string')
         })
         users = users.some(user => user.id === currentUser.id) ? users : users.concat(currentUser);
-        users = users.map(user => user.id) // todo add game name and username later and remove this line
         
-        const game = new Game(users)
+        const game = new Game(users, name)
         const dbGame = await createGame(game)
         logger.info(`Player ${currentUser.username} created game: ${dbGame._id}`)
 

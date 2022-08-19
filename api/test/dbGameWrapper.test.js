@@ -14,10 +14,13 @@ describe('dbGameWrapper', function () {
         await deleteAllGames("def")
         await deleteAllGames("ghi")
         await deleteAllGames("jkl")
-        await createGame(new Game(["abc","ghi"]))
-        await createGame(new Game(["ghi","def"]))
+        await createGame(new Game(
+            [{ id:"abc", username: "anna" }, { id:"ghi", username: "mike" }], "Game 1"))
+        await createGame(new Game(
+            [{ id:"ghi", username: "mike" }, { id:"def", username: "jon" }], "Game 2"))
 
-        game = new Game(["abc","def"])
+        game = new Game(
+            [{ id:"abc", username: "anna" }, { id:"def", username: "jon" }], "Game 3")
         deepCopieGame = JSON.parse(JSON.stringify(game))
         currentPlayer = deepCopieGame.currentPlayer;
         db_game = await createGame(game)
@@ -80,8 +83,10 @@ describe('dbGameWrapper', function () {
         test("Check if only one game is updated", async () => {
             const dicesToChange = ["0", "1", "2"]
             const chosenFigure = undefined
-            const game2 = new Game(["def","ghi"])
-            const game3 = new Game(["abc","ghi"])
+            const game2 = new Game(
+                [{ id:"def", username: "jon" }, { id:"ghi", username: "mike" }], "Game 3")
+            const game3 = new Game(
+                [{id:"abc", username: "anna" }, { id:"ghi", username: "mike" }], "Game 1")
             const db_game2 = await createGame(game2)
             const db_game3 = await createGame(game3)
 
@@ -95,8 +100,10 @@ describe('dbGameWrapper', function () {
 
     describe('getAllGames', function () {
         test("check if all games for particular player are deleted", async () => {
-            await createGame(new Game(["abc","def"]))
-            await createGame(new Game(["abc","jkl"]))
+            await createGame(new Game(
+                [{ id:"abc", username: "anna" }, { id:"def", username: "jon" }], "Game 3"))
+            await createGame(new Game(
+                [{ id:"abc", username: "anna" }, { id:"jkl", username: "rod" }], "Game 4"))
             await deleteAllGames("abc")
             await expect(getAllGames("ghi")).resolves.toHaveLength(1)
         })
@@ -104,7 +111,8 @@ describe('dbGameWrapper', function () {
 
     describe('deleteParticularGame', function () {
         test("check if particular games for particular player is deleted", async () => {
-            await createGame(new Game(["def","jkl"]))
+            await createGame(new Game(
+                [{ id:"def", username: "jon" }, { id:"jkl", username: "rod" }], "Game 4"))
             const games = await getAllGames(currentPlayer)
 
             await expect(getParticularGame(currentPlayer, gameID)).resolves.not.toBeNull()

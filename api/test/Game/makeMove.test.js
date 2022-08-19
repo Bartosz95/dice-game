@@ -8,7 +8,8 @@ describe('Game', function () {
     let deepCopieGame
   
     beforeEach(function () {
-      game = new Game(["abc","def"])
+      game = new Game(
+            [{ id:"abc", username: "anna" }, { id:"def", username: "jon" }], "Game 3")
       deepCopieGame = JSON.parse(JSON.stringify(game))
       currentPlayer = deepCopieGame.currentPlayer;
     })
