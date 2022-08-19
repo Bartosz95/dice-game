@@ -29,10 +29,10 @@ export default props => {
         const response = await fetch(`${props.keycloak.authServerUrl}/admin/realms/${props.keycloak.realm}/users`, requestOptions)
         const body = await response.json()
         if((body.level === 'warning') || (body.level === 'error')) {
-          setAlertMessage(body)
-        } else {
-          setUsers(body.filter(user => user.id !== userInfo.sub))
-        }  
+          return setAlertMessage(body)
+        }
+        
+        setUsers(body.filter(user => user.id !== userInfo.sub))  
       }
     } catch(err) {
       console.log(err)

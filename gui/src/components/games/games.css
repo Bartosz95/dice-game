@@ -1,0 +1,43 @@
+.mainContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+}
+.createInfo {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #6c757d;
+    border-radius: 0.25rem;
+    padding: 50px;
+}
+
+.createBtn {
+    margin-left: 15%;
+    margin-top: 25px;
+    width: 70%;
+}
+
+.gameInfo {
+    width: 250px;
+    border: 1px solid #6c757d;
+    border-radius: 0.25rem;
+    margin: 20px;
+    padding: 20px;
+    float:left;
+}
+
+.list-group {
+    background-color: lightgray;
+}
+
+.playBtn {
+    margin: 10px;
+    width: 80px;
+}
+
+.deleteBtn {
+    margin: 10px;
+    width: 80px;
+}

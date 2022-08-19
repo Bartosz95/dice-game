@@ -38,10 +38,11 @@ router.get('/game', async (req, res) => {
         res.status(200).send(
             db_games.map(db_game => { return {
                 _id: db_game._id,
+                name: db_game.game.name,
                 isActive: db_game.game.isActive,
                 playerIDs: db_game.game.playerIDs,
                 numberOfTurn: db_game.game.numberOfTurn,
-                isYourTurn: db_game.currentPlayer === userID
+                isYourTurn: db_game.game.currentPlayer === userID
             }})
         )
     } catch(err) {

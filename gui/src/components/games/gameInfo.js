@@ -1,5 +1,7 @@
 import React from 'react';
-import { Accordion, Button } from 'react-bootstrap';
+import { ListGroup, Button, Form } from 'react-bootstrap';
+
+import './games.css'
 
 export default props => {
 
@@ -21,13 +23,20 @@ export default props => {
     }
   }
 
-  return <Accordion.Item eventKey={props.game._id}>
-    <Accordion.Header>Game {props.game._id}</Accordion.Header>
-    <Accordion.Body>
-      {props.game.isActive ? "Active" : "Disactive"}<br/>
-      Players: {props.game.playerIDs.join(', ')}<br/>
-      <Button variant="outline-success"  href={`/${props.game._id}`} >Play</Button>
-      <Button variant="outline-danger" onClick={deleteGame}>Delete</Button>{' '}
-    </Accordion.Body>
-  </Accordion.Item>
+  console.log(props)
+
+  const players = <ListGroup variant="flush">{props.game.playerIDs.map(player => <ListGroup.Item key={player}>player</ListGroup.Item>)}</ListGroup>
+
+  const playBtn = <Button variant="outline-success" className="playBtn" href={`/${props.game._id}`} disabled={props.game.isActive ? false : true}>Play</Button>
+
+  const deleteBtn = <Button variant="outline-danger" className="deleteBtn" onClick={deleteGame}>Delete</Button>
+
+  return <p key={props.game._id} className="gameInfo">
+    Game {props.game.name}<br/>
+    Players: 
+    {players}
+    {playBtn}
+    {deleteBtn}
+    
+  </p>
 }

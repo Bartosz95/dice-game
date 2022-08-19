@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Accordion, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
+
+import './games.css'
 
 import GameInfo from './gameInfo'
+import CreateInfo from './createInfo'
+import AlertMessage from '../alerts/AlertMessage'
 
 export default props => {
 
   const [games, setGames] = useState([])
+  const [alertMessage, setAlertMessage] = useState(null)
 
   const getGames = async () => {
     try {
@@ -17,19 +22,26 @@ export default props => {
         };
         const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
         const body = await response.json()
-        setGames(body)
+        if((body.level === 'warning') || (body.level === 'error')) {
+          return setAlertMessage(body)
+        }
+        setGames([...body,...body,...body,...body,...body])
       }
     } catch (err) {
       console.log(err)
+      setAlertMessage(err)
     }
     
   }
 
   useEffect(() => { getGames() })
 
-  return <Container>
-    <Accordion>
-      { games.length > 0 ? games.map(game => <GameInfo key={game._id} game={game} keycloak={props.keycloak} />) : <Button variant="outline-success" href='/create' >Create game</Button> }
-    </Accordion>
+  const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''  
+
+  const gamesDiv = games.map(game => <GameInfo key={game._id} game={game} keycloak={props.keycloak} />)
+
+  return <Container className="mainContainer">
+    {alert}
+    { games.length > 0 ? gamesDiv : <CreateInfo/> }
   </Container>
 }
