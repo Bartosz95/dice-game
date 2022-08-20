@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import './games.css'
 
-import GameInfo from './gameInfo'
-import CreateInfo from './createInfo'
+import GameInfo from './singleGameDiv'
+import CreateInfo from './createDiv'
 import AlertMessage from '../alerts/AlertMessage'
 
 export default props => {

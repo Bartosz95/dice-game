@@ -20,6 +20,7 @@ logger.info(`Endpoints avaiable on ${PREFIX}`)
 if(NODE_ENV === undefined) {
   throw new Error('env NODE_ENV is undefined');
 }
+logger.info(`App runung in ${NODE_ENV} mode.`)
 
 const app = express();
 app.set('trust proxy', true );

@@ -4,57 +4,80 @@ import './GameTable.css'
 
 export default props => {
 
-    console.log(props)
+    const players = props.players
+    const currentPlayer = props.currentPlayer
+    const chosenFigure = props.chosenFigure
     const head = []
     const body = []
-    head.push(<th key='#'></th>)
+    
 
-    const isCurrentPlayer = (props) => {
-        
+    const canBeSelected = (player, figure) => {
+        return (props.numberOfRoll !== 0) && 
+            (player.id === currentPlayer) && 
+            (player.table[figure] === null) &&
+            (figure !== 'bonus') && 
+            (figure !== 'to bonus') && 
+            (figure !== 'total')
     }
 
-    const canBeSelected = (player, figure, props) => {
-        return (player.id === props.currentPlayer) && (player.table[figure] === null) && (figure !== 'bonus') && (figure !== 'to bonus') && (figure !== 'total')
+    const isFigureSelected = (player, figure) => {
+        return (canBeSelected(player, figure) && (figure === chosenFigure)) 
     }
 
-    const isFigureSelected = (player, figure, props) => {
-        return (canBeSelected(player, figure, props) && (figure === props.chosenFigure)) 
-    }
-
-    const getStyle = (player, figure, props) => {
-        console.log(props)
-        console.log(player)
-        console.log(figure)
+    const getStyle = (player, figure) => {
         const cellStyle = ' table-success'
-        isCurrentPlayer()
-        if (isFigureSelected(player, figure, props)){
+        if (isFigureSelected(player, figure)){
             return cellStyle + ' selected-cell'
-        } else if (canBeSelected(player, figure, props)) {
+        } else if (canBeSelected(player, figure)) {
             return cellStyle + ' can-be-select-cell'
         } 
         return ''
        
     }
 
-    const selectedIcon = ' × ' 
-    if (props.players[0]) {
-        for(const player of props.players) {
+    const cellText = (player, figure) => {
+        if(canBeSelected(player, figure)){
+            if(isFigureSelected(player, figure)){
+                console.log(figure)
+                return figure
+            }
+            return <div className="can-be-select-text">{figure}</div> 
+
+        }
+        return  '' 
+    }
+
+    const cellClass = (player, figure) => {
+        if(canBeSelected(player, figure)){
+            if(isFigureSelected(player, figure)){
+                return 'select-cell-text'
+            }
+            return 'can-be-select-cell-text'
+        }
+        return ''
+    }
+
+
+    head.push(<th key='#'></th>)
+
+    if (players[0]) {
+        for(const player of players) {
             head.push(
-                <th key={player.id} className={`my-row-style ${player.id === props.currentPlayer ? 'table-success' : ''}`}>
-                    {player.id}
+                <th key={player.id} className={`my-row-style ${player.id === currentPlayer ? 'table-success' : ''}`}>
+                    {player.username}
                     </th>
                 )
         }
-        for (const figure of Object.keys(props.players[0].table)){
+        for (const figure of Object.keys(players[0].table)){
             const row = []
-            row.push(<td key={`f${figure}`}>{figure}</td>)
-            for(const player of props.players) {
+            row.push(<td key={`f${figure}`} className="figureNameRow">{figure}</td>)
+            for(const player of players) {
                 row.push(
                     <td key={`p${player.id}f${figure}`} 
-                    onClick={(player.id === props.currentPlayer) ? () => props.markFigureTochoose(figure) : ()=>{}}
-                    className={`my-row-style ${getStyle(player, figure, props)} {}`}
+                    onClick={canBeSelected(player, figure) ? () => props.markFigureTochoose(figure) : ()=>{}}
+                    className={`my-row-style ${getStyle(player, figure)} {}`}
                     >
-                        {isFigureSelected(player, figure, props) ? selectedIcon : ''}
+                        <div className={cellClass(player, figure)}> {cellText(player, figure)}</div> 
                         {player.table[figure]}
                     </td>
                 )
@@ -64,8 +87,8 @@ export default props => {
     }
 
     return <Table bordered >
-                <thead><tr>{head}</tr></thead>
-                <tbody>{body}</tbody>
-            </Table>
+        <thead><tr>{head}</tr></thead>
+        <tbody>{body}</tbody>
+    </Table>
 }
 

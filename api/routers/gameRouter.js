@@ -1,13 +1,16 @@
 import { Router } from 'express'
+import mongoose from 'mongoose'
+
 import logger from '../libs/logger';
-import { Game, makeMove } from '../libs/Game'
-import { validID, getAllGames, getParticularGame, createGame, updateGame, deleteAllGames, deleteParticularGame } from '../libs/dbGameWrapper'
+import { Game, makeMove } from '../services/Game'
+import '../libs/dbConnection'
+import gameModel from '../models/gameModel'
 
 const router = Router();
 
 router.param('gameID', function (req, res, next, gameID) {
     try {
-        if(!validID(gameID)) {
+        if(!mongoose.isValidObjectId(gameID)) {
             throw new Error('gameID cannot be valid');
         }
 
@@ -27,24 +30,34 @@ router.param('gameID', function (req, res, next, gameID) {
 router.get('/game', async (req, res) => {
     const userID = req.user.sub;
 
+    const match = {'game.playerIDs': [userID] }
+    if(req.query.isActive) {
+        Math.isActive = req.query.isActive === 'ture'
+    }
+    console.log(match)
+
     try {
-        const db_games = await getAllGames(userID)
-        if(db_games.length == 0) 
-            return res.send({
-                'level': 'warning',
-                'message':"User does not have any games"
-            })
-            
-        res.status(200).send(
-            db_games.map(db_game => { return {
-                _id: db_game._id,
-                name: db_game.game.name,
-                isActive: db_game.game.isActive,
-                playerIDs: db_game.game.playerIDs,
-                numberOfTurn: db_game.game.numberOfTurn,
-                isYourTurn: db_game.game.currentPlayer === userID
-            }})
-        )
+        const docs = await gameModel.find(match);
+
+        const games = docs.map(doc => { 
+            return {
+            _id: doc._id,
+            createdAt: doc.createdAt,
+            updatedAt: doc.updatedAt,
+            name: doc.game.name,
+            isActive: doc.game.isActive,
+            players: doc.game.playerIDs.map(_id => {
+                return {
+                    _id: _id,
+                    username: doc.game.players[_id].username
+                }
+            }),
+            numberOfTurn: doc.game.numberOfTurn,
+            isYourTurn: doc.game.currentPlayer === userID
+        }})
+        console.log('players',games[0].players)
+        res.send(games)
+        
     } catch(err) {
         logger.error(err.message)
         res.send({
@@ -82,7 +95,7 @@ router.post('/game', async (req, res) => {
         users = users.some(user => user.id === currentUser.id) ? users : users.concat(currentUser);
         
         const game = new Game(users, name)
-        const dbGame = await createGame(game)
+        const dbGame = await gameModel.create({game})
         logger.info(`Player ${currentUser.username} created game: ${dbGame._id}`)
 
         res.status(201).send({
@@ -109,7 +122,7 @@ router.post('/game', async (req, res) => {
 router.delete('/game', async (req, res) => {
     const userID = req.user.sub;
     try {
-        await deleteAllGames(userID)
+        await gameModel.deleteMany({'game.playerIDs': [userID]})
         logger.info(`Player ${userID} deleted all games`)
         res.send(`Delated all games`)
     } catch (err) {
@@ -129,7 +142,7 @@ router.get('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
     const userID = req.user.sub;
     try {
-        const game = await getParticularGame(userID, gameID)
+        const game = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
         game.isYourTurn = game.currentPlayer === userID
         res.send(game)
     } catch (err) {
@@ -164,9 +177,9 @@ router.post('/game/:gameID', async (req, res) => {
             })
         }
 
-        const dbGame = await getParticularGame(userID, gameID)
+        const dbGame = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
         const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
-        await updateGame(gameID, game)
+        await gameModel.findByIdAndUpdate(gameID, {game: game}, {new: true})
         logger.info(`Player ${userID} in game ${dbGame._id}`)
         res.send(game)
     } catch (err) {
@@ -189,7 +202,7 @@ router.delete('/game/:gameID', async (req, res) => {
     const { gameID } = req.params;
     const userID = req.user.sub;
     try {
-        await deleteParticularGame(userID, gameID)
+        await gameModel.deleteOne({ _id: gameID, 'game.playerIDs': [userID]})
         logger.info(`Player ${gameID} deleted game: ${gameID}`);
         res.status(202).send({
             'level': 'info',

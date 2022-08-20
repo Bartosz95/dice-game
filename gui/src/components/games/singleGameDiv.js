@@ -5,6 +5,8 @@ import './games.css'
 
 export default props => {
 
+  console.log(props)
+
   const deleteGame = async () => {
     try {
       if(props.keycloak.authenticated) {
@@ -23,20 +25,18 @@ export default props => {
     }
   }
 
-  console.log(props)
+  const gameName = <h1>{props.game.name}</h1>
 
-  const players = <ListGroup variant="flush">{props.game.playerIDs.map(player => <ListGroup.Item key={player}>player</ListGroup.Item>)}</ListGroup>
+  const players = <div>Players:<br/><ListGroup variant="flush">{props.game.players.map(player => <ListGroup.Item key={props.game._id+player._id}>{player.username}</ListGroup.Item>)}</ListGroup></div>
 
   const playBtn = <Button variant="outline-success" className="playBtn" href={`/${props.game._id}`} disabled={props.game.isActive ? false : true}>Play</Button>
 
   const deleteBtn = <Button variant="outline-danger" className="deleteBtn" onClick={deleteGame}>Delete</Button>
 
-  return <p key={props.game._id} className="gameInfo">
-    Game {props.game.name}<br/>
-    Players: 
+  return <div key={props.game._id} className="gameInfo">
+    {gameName}
     {players}
     {playBtn}
     {deleteBtn}
-    
-  </p>
+  </div>
 }

@@ -19,10 +19,10 @@ export default props => {
     const [ playerIDs, setPlayerIDs] = useState([])
     const [ players, setPlayers] = useState([])
     const [ gameID, setGameID] = useState(null)
+    const [ gameName, setGameName] = useState('')
     const [ dicesToChange, setDicesToChange] = useState([])
     const [ chosenFigure, setChosenFigure] = useState(null)
     const [ alertMessage, setAlertMessage] = useState(null)
-    const [ level, setLevel] = useState('')
     const [ renderGame, setRenderGame] = useState(false)
 
     const getGame = async (force) => {   
@@ -55,6 +55,7 @@ export default props => {
                 for (const [playerID, value] of Object.entries(game.players)) {
                     players.push({
                         id: playerID,
+                        username: value.username,
                         table: value.table,
                     })
                 }
@@ -66,6 +67,7 @@ export default props => {
                         roll: false
                     })
                 }
+                setGameName(game.name)
                 setCurrentPlayer(game.currentPlayer)
                 setIndexOfFirstPlayer(game.indexOfFirstPlayer)
                 setIsActive(game.isActive)
@@ -119,7 +121,7 @@ export default props => {
             getGame(true)
         
         } catch (err) {
-            setLevel('error')
+            console.log(err)
             setAlertMessage(err.message)
         }
     }
@@ -139,19 +141,32 @@ export default props => {
                 body: JSON.stringify({ chosenFigure: chosenFigure })
             };
             // todo change playerID and gameID later 
-            const response = await fetch(`${props.config.DICE_GAME_API}/user/${currentPlayer}/game/${gameID}`, requestOptions)
+            const response = await fetch(`${props.config.DICE_GAME_API}game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
                 return setAlertMessage(body)
             }
             getGame(true)
         } catch (err) {
-            setLevel('error')
+            console.log(err)
             setAlertMessage(err.message)
         }
     }
 
     const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
+
+    const gameNameDiv = <h1 className="gameName">{gameName}</h1>
+
+    const winMessage = <WinMessage elems={players} />
+
+    const table =<GameTable 
+            players={players}
+            numberOfRoll={numberOfRoll}
+            currentUser={currentUser}
+            currentPlayer={currentPlayer}
+            chosenFigure={chosenFigure} 
+            markFigureTochoose={markFigureTochoose.bind(this)}
+    />
 
     const dices = mug.map(dice => <Dice 
         key={dice.id} 
@@ -184,23 +199,12 @@ export default props => {
 
     const play = <div>
         <Row>
+            {gameNameDiv}
             <Col><Badge pill bg="secondary" className="turn">Turn: {numberOfTurn}</Badge></Col>
         </Row>
         {rollTheDicesButton}{chooseFigureButton}
         <Row className="dices">{numberOfRoll === 0 ? '' : dices}</Row>
         
-    </div>
-
-    const winMessage = <WinMessage elems={players} />
-
-    const table = <div>
-        <GameTable 
-            players={players}
-            currentUser={currentUser}
-            currentPlayer={currentPlayer}
-            chosenFigure={chosenFigure} 
-            markFigureTochoose={markFigureTochoose.bind(this)}
-        />
     </div>
 
     const game = <Row>

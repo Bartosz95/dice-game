@@ -3,9 +3,24 @@
 }
 
 .selected-cell {
-    opacity: 0.5
+    opacity: 0.5;
 }
 
 .can-be-select-cell:hover {
-    opacity: 0.5
-  }
+    opacity: 0.5;
+    
+}
+
+.can-be-select-cell-text{
+    color: #6c757d;
+}
+
+.select-cell-text{
+    color: #000000;
+    opacity: 1;
+}
+
+.figureNameRow {
+    width: 120px;
+    text-align: center;
+}

@@ -5,6 +5,11 @@
     
 }
 
+.gameName {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .turn {
     width: 130px;
     height: 40px;

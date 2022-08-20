@@ -34,7 +34,7 @@ switch (NODE_ENV) {
         DB_URL = `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/`
         break;
     default:
-        DB_URL = `mongodb://${HOST}:${PORT}/dev`
+        DB_URL = `mongodb+srv://${USER}:${PASSWORD}@${HOST}`
 }
 
 async function connectToMongo() {
@@ -48,5 +48,3 @@ async function connectToMongo() {
 }
 
 connectToMongo()
-exports.mongoose = mongoose
-exports.mongoUrl = DB_URL

@@ -81,6 +81,7 @@ export default props => {
           body: JSON.stringify(payload)
         }
         const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
+        
         const body = await response.json();
         if((body.level === 'warning') || (body.level === 'error')) {
           return setAlertMessage(body)

@@ -1,4 +1,4 @@
-import logger from "./logger";
+import logger from "../libs/logger";
 
 export class Game {
     constructor(players, name) {
