@@ -1,9 +1,6 @@
 import logger from "./logger";
   
 export default (req, res, next) => {
-    console.log(req.method)
-    console.log(req.path)
-    console.log(req.params)
     try {
         if(!req.headers.authorization) {
             throw new Error("Request has to containt authorization header");
@@ -12,7 +9,6 @@ export default (req, res, next) => {
         if(!Array.isArray(authHeader) || authHeader.length !== 2 || authHeader.at(0).toLowerCase() !== "bearer" ) {
             throw new Error("Authorization header has to be Bearer Token type")
         }
-        //const decodedBarer = Buffer.from(authHeader.at(1), 'base64').toString('utf8')
         next()
 
     } catch(err) {
@@ -22,7 +18,7 @@ export default (req, res, next) => {
             'message': err.message || "Authorization header is not correct",
             'example': {
               'method': 'GET',
-              'path': '/user/1/game',
+              'path': '/game',
               'header': {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5...'
               },

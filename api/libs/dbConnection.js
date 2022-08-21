@@ -28,7 +28,7 @@ let DB_URL = null;
 
 switch (NODE_ENV) {
     case 'test':
-        DB_URL = `mongodb://${HOST}:${PORT}/test`
+        DB_URL = `mongodb+srv://${USER}:${PASSWORD}@${HOST}`
         break;
     case 'production':
         DB_URL = `mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/`
