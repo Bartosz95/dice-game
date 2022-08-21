@@ -1,6 +1,6 @@
 logs
 node_modules
 npm-debug
-
+keycloak.json
 .env
 /coverage

@@ -25,9 +25,10 @@ export default props => {
     const [ alertMessage, setAlertMessage] = useState(null)
     const [ renderGame, setRenderGame] = useState(false)
 
-    const getGame = async (force) => {   
+    const getGame = async (force) => {
         try {
-            if(props.keycloak.authenticated && (force || currentPlayer === '')) {
+            if(props.keycloak.authenticated && (force || currentPlayer === '' || !isYourTurn)) {
+                
                 const userInfo = await props.keycloak.loadUserInfo()
                 setCurrentUser(userInfo)
 
@@ -40,7 +41,6 @@ export default props => {
                 };
                 const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
                 let body = await response.json();
-                
                 if((body.level === 'warning') || (body.level === 'error')) {
                     setRenderGame(false)
                     return setAlertMessage(body)
@@ -85,8 +85,12 @@ export default props => {
             return setAlertMessage(err)
         }
     }
-
-    useEffect(() => { getGame() })
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getGame()
+        }, 2000);
+        return () => clearInterval(interval);
+      },[props, currentPlayer, isYourTurn]);
 
     const markDiceToRoll = diceID => {
         if((numberOfRoll === 0) || (numberOfRoll === 3)) return;
