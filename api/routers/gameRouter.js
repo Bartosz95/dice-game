@@ -39,23 +39,19 @@ router.get('/game', async (req, res) => {
     try {
         const docs = await gameModel.find(match);
 
-        const games = docs.map(doc => { 
-            return {
+        const games = docs.map(doc => { return {
             _id: doc._id,
             createdAt: doc.createdAt,
             updatedAt: doc.updatedAt,
             name: doc.game.name,
             isActive: doc.game.isActive,
-            players: doc.game.playerIDs.map(_id => {
-                return {
-                    _id: _id,
-                    username: doc.game.players[_id].username
-                }
-            }),
+            players: doc.game.playerIDs.map(_id => { return {
+                _id: _id,
+                username: doc.game.players[_id].username
+            }}),
             numberOfTurn: doc.game.numberOfTurn,
             isYourTurn: doc.game.currentPlayer === userID
         }})
-        console.log('players',games[0].players)
         res.send(games)
         
     } catch(err) {
@@ -95,13 +91,13 @@ router.post('/game', async (req, res) => {
         users = users.some(user => user.id === currentUser.id) ? users : users.concat(currentUser);
         
         const game = new Game(users, name)
-        const dbGame = await gameModel.create({game})
-        logger.info(`Player ${currentUser.username} created game: ${dbGame._id}`)
+        const doc = await gameModel.create({game})
+        logger.info(`Player ${currentUser.username} created game: ${doc._id}`)
 
         res.status(201).send({
-            _id: dbGame._id,
-            playerIDs: dbGame.game.playerIDs,
-            currentPlayer: dbGame.game.currentPlayer
+            _id: doc._id,
+            playerIDs: doc.game.playerIDs,
+            currentPlayer: doc.game.currentPlayer
         })
 
     } catch (err) {
@@ -177,10 +173,10 @@ router.post('/game/:gameID', async (req, res) => {
             })
         }
 
-        const dbGame = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
-        const game = await makeMove(dbGame.game, userID, numbersToChange, chosenFigure)
+        const doc = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
+        const game = await makeMove(doc.game, userID, numbersToChange, chosenFigure)
         await gameModel.findByIdAndUpdate(gameID, {game: game}, {new: true})
-        logger.info(`Player ${userID} in game ${dbGame._id}`)
+        logger.info(`Player ${userID} in game ${doc._id}`)
         res.send(game)
     } catch (err) {
         logger.error(err.message)

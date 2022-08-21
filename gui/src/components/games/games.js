@@ -3,14 +3,15 @@ import { Container } from 'react-bootstrap';
 
 import './games.css'
 
-import GameInfo from './singleGameDiv'
-import CreateInfo from './createDiv'
+import SingleGameDiv from './singleGameDiv'
+import CreateDiv from './createDiv'
 import AlertMessage from '../alerts/AlertMessage'
 
 export default props => {
 
   const [games, setGames] = useState([])
   const [alertMessage, setAlertMessage] = useState(null)
+  const [renderContent, setRenderContent] = useState(false)
 
   const getGames = async () => {
     try {
@@ -23,9 +24,11 @@ export default props => {
         const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
         const body = await response.json()
         if((body.level === 'warning') || (body.level === 'error')) {
+          
           return setAlertMessage(body)
         }
         setGames(body)
+        setRenderContent(true)
       }
     } catch (err) {
       console.log(err)
@@ -34,14 +37,17 @@ export default props => {
     
   }
 
+  
   useEffect(() => { getGames() })
 
   const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''  
 
-  const gamesDiv = games.map(game => <GameInfo key={game._id} game={game} keycloak={props.keycloak} />)
+  const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} keycloak={props.keycloak} />)
+
+  const content = games.length > 0 ? gamesDiv : <CreateDiv/>
 
   return <Container className="mainContainer">
     {alert}
-    { games.length > 0 ? gamesDiv : <CreateInfo/> }
+    {renderContent ? content : '' }
   </Container>
 }

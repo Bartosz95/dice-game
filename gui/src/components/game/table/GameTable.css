@@ -16,8 +16,7 @@
 }
 
 .select-cell-text{
-    color: #000000;
-    opacity: 1;
+    color: black !important;
 }
 
 .figureNameRow {

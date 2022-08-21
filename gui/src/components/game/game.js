@@ -11,12 +11,12 @@ export default props => {
 
     const [ currentUser, setCurrentUser] = useState({})
     const [ currentPlayer, setCurrentPlayer] = useState('')
-    const [ indexOfFirstPlayer, setIndexOfFirstPlayer] = useState('')
+    const [ currentPlayerUsername, setCurrentPlayerUsername] = useState('')
+    const [ isYourTurn, setIsYourTurn ] = useState(false)
     const [ isActive, setIsActive] = useState(true)
     const [ mug, setMug] = useState([])
     const [ numberOfRoll, setNumberOfRoll] = useState(null)
     const [ numberOfTurn, setNumberOfTurn] = useState(null)
-    const [ playerIDs, setPlayerIDs] = useState([])
     const [ players, setPlayers] = useState([])
     const [ gameID, setGameID] = useState(null)
     const [ gameName, setGameName] = useState('')
@@ -69,11 +69,11 @@ export default props => {
                 }
                 setGameName(game.name)
                 setCurrentPlayer(game.currentPlayer)
-                setIndexOfFirstPlayer(game.indexOfFirstPlayer)
+                setCurrentPlayerUsername(game.players[game.currentPlayer].username)
+                setIsYourTurn(game.currentPlayer === userInfo.sub)
                 setIsActive(game.isActive)
                 setNumberOfRoll(game.numberOfRoll)
                 setNumberOfTurn(game.numberOfTurn)
-                setPlayerIDs(game.playerIDs)
                 setPlayers(players)
                 setMug(mug)
                 setDicesToChange([])
@@ -141,7 +141,7 @@ export default props => {
                 body: JSON.stringify({ chosenFigure: chosenFigure })
             };
             // todo change playerID and gameID later 
-            const response = await fetch(`${props.config.DICE_GAME_API}game/${gameID}`, requestOptions)
+            const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
             const body = await response.json();
             if((body.level === 'warning') || (body.level === 'error')) {
                 return setAlertMessage(body)
@@ -153,9 +153,55 @@ export default props => {
         }
     }
 
+    const rollTheDicesButtonText = () => {
+        if(!isYourTurn) {
+            return `This turn is for player ${currentPlayerUsername}`
+        } else if(chosenFigure) {
+            return "You cannot roll dices if you choose a figure"
+        } else if(numberOfRoll === 3) {
+            return "You don't have next roll" 
+        } else if(numberOfRoll === 0) {
+            return "Roll all dices" 
+        } else if (dicesToChange.length === 0 ) {
+            return "Choose dices to roll"
+        } else if (numberOfRoll === 1) {
+            return "Roll dices secound time"
+        } else if (numberOfRoll === 2){
+            return "Roll dices last time"
+        } else {
+            return ""
+        }
+    }
+
+    const isRollTheDicesBtnActive = () => {
+        if(!isYourTurn) {
+            return false
+        } else if(numberOfRoll === 3) {
+            return false
+        } else if ((dicesToChange.length === 0) && numberOfRoll !== 0) {
+            return false
+        } else return true
+    }
+
+    const chooseFigureButtonText = () => {
+        if(numberOfRoll === 0) {
+            return "You have to roll all dices"
+        } else if(chosenFigure) {
+            return "Save figure"
+        } else {
+            return "Choose figure to save"
+        }
+    }
+
     const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
 
-    const gameNameDiv = <h1 className="gameName">{gameName}</h1>
+    const gameNameDiv = <div className="gameName">{gameName}</div>
+
+    const numberOfRollText = <div className="numberOfRoll">Roll: {numberOfRoll}</div>
+
+    const numberOfTurnText = <div className="turn" >Turn: {numberOfTurn}</div>
+
+    const turnInfoDiv = <Badge pill bg="light" text="dark" className="turnInfoDiv">{numberOfRollText}<br/>{numberOfTurnText}</Badge>
 
     const winMessage = <WinMessage elems={players} />
 
@@ -164,46 +210,43 @@ export default props => {
             numberOfRoll={numberOfRoll}
             currentUser={currentUser}
             currentPlayer={currentPlayer}
+            isYourTurn={isYourTurn}
             chosenFigure={chosenFigure} 
             markFigureTochoose={markFigureTochoose.bind(this)}
     />
 
     const dices = mug.map(dice => <Dice 
-        key={dice.id} 
-        dice_props={dice} 
+        key={dice.id}
+        isYourTurn={isYourTurn}
+        dice_props={dice}
         numberOfRoll={numberOfRoll} 
         markDiceToRoll={markDiceToRoll.bind(this)}
     />)
 
     const rollTheDicesButton = <Button 
         onClick={rollTheDices.bind(this)} 
-        variant={(numberOfRoll === 0) || (dicesToChange.length !== 0) ?  "success" : "outline-secondary"}
+        variant={ isRollTheDicesBtnActive() ?  "success" : "outline-secondary"}
         className="rollTheDicesButton"
-        disabled={(numberOfRoll === 3) || ((dicesToChange.length === 0) && numberOfRoll !== 0)}>
-        {chosenFigure ? "You cannot roll dices if you choose a figure" : 
-        (numberOfRoll === 3 ? "You don't have next roll" : 
-        (numberOfRoll === 0 ? "Roll all dices" : 
-        (dicesToChange.length === 0 ? "Choose dices to roll" : 
-        (numberOfRoll === 1 ? "Roll dices secound time" : "Roll dices last time"))))}
+        disabled={!isRollTheDicesBtnActive()}>
+        {rollTheDicesButtonText()}
     </Button>
 
     const chooseFigureButton = <Button 
         onClick={chooseFigure.bind(this)} 
-        variant={chosenFigure ? "success" : "outline-secondary"}
+        variant={ isYourTurn && chosenFigure ? "success" : "outline-secondary"}
         className="chooseFigureButton" 
-        disabled={(numberOfRoll === 0) || !chosenFigure}>
-            {numberOfRoll === 0 ? "You have to roll all dices" : 
-            (chosenFigure ? "Save figure" : 
-            "Choose figure to save")}
+        disabled={(numberOfRoll === 0) || !chosenFigure || !isYourTurn}>
+        {chooseFigureButtonText()}
     </Button>
 
     const play = <div>
-        <Row>
+        <div>
             {gameNameDiv}
-            <Col><Badge pill bg="secondary" className="turn">Turn: {numberOfTurn}</Badge></Col>
-        </Row>
-        {rollTheDicesButton}{chooseFigureButton}
-        <Row className="dices">{numberOfRoll === 0 ? '' : dices}</Row>
+            {turnInfoDiv}
+        </div>
+        <div className="dices">{numberOfRoll === 0 ? '' : dices}</div>
+        <div className='buttonsDiv'>{rollTheDicesButton}{chooseFigureButton}</div>
+        
         
     </div>
 

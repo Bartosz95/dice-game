@@ -7,12 +7,16 @@ export default props => {
     const players = props.players
     const currentPlayer = props.currentPlayer
     const chosenFigure = props.chosenFigure
+    const numberOfRoll = props.numberOfRoll
+    const isYourTurn = props.isYourTurn
+    const markFigureTochoose = props.markFigureTochoose
     const head = []
     const body = []
     
 
     const canBeSelected = (player, figure) => {
-        return (props.numberOfRoll !== 0) && 
+        return (numberOfRoll !== 0) &&
+            (isYourTurn) && 
             (player.id === currentPlayer) && 
             (player.table[figure] === null) &&
             (figure !== 'bonus') && 
@@ -74,7 +78,7 @@ export default props => {
             for(const player of players) {
                 row.push(
                     <td key={`p${player.id}f${figure}`} 
-                    onClick={canBeSelected(player, figure) ? () => props.markFigureTochoose(figure) : ()=>{}}
+                    onClick={canBeSelected(player, figure) ? () => markFigureTochoose(figure) : ()=>{}}
                     className={`my-row-style ${getStyle(player, figure)} {}`}
                     >
                         <div className={cellClass(player, figure)}> {cellText(player, figure)}</div> 

@@ -1,22 +1,47 @@
 .mainContainer {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 50px;
+    margin: auto;
+    padding-top: 50px;
 }
+
+.name {
+    font-size: x-large;
+    float: left;
+}
+
+.turnInfo {
+    margin-top: 7px;
+    margin-left: 10px;
+    float: right;
+}
+
+.gameDate {
+    clear: both;
+    color: #6c757d;
+}
+
+.playersLabelText {
+    color: #6c757d;
+}
+
+.list-group-item {
+    padding: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
 .createInfo {
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    text-align: center;
     border: 1px solid #6c757d;
     border-radius: 0.25rem;
-    padding: 50px;
 }
 
 .createBtn {
-    margin-left: 15%;
-    margin-top: 25px;
-    width: 70%;
+    margin-top: 30px;
+    width: 150px;
 }
 
 .gameInfo {
