@@ -34,6 +34,9 @@
 .buttonsDiv {
     
 }
+.hide {
+    display: none;
+}
 
 .rollTheDicesButton {
     width: 200px;

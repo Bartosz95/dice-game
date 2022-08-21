@@ -6,8 +6,6 @@ import './games.css'
 
 export default props => {
 
-  console.log(props)
-
   const date = new Date(props.game.createdAt)
   const dateText = dateFormat(date, "d.mm.yyyy hh:MM")
 
@@ -35,13 +33,13 @@ export default props => {
 
   const gameDate = <div className='gameDate'>{dateText}</div>
 
-  const players = <div><div className="playersLabelText">Players:<br/></div><ListGroup variant="flush">{props.game.players.map(player => <ListGroup.Item key={props.game._id+player._id}>{player.username}</ListGroup.Item>)}</ListGroup></div>
+  const players = <div><div className="playersLabelText">Players:<br/></div><ListGroup variant="flush">{props.game.players.map(player => <ListGroup.Item key={props.game._id+player._id} className={`${props.game.isYourTurn ? 'isYourTurnSingleGameDiv' :''}`}>{player.username}</ListGroup.Item>)}</ListGroup></div>
 
   const playBtn = <Button variant="outline-success" className="playBtn" href={`/${props.game._id}`} disabled={props.game.isActive ? false : true}>Play</Button>
 
   const deleteBtn = <Button variant="outline-danger" className="deleteBtn" onClick={deleteGame}>Delete</Button>
 
-  return <div key={props.game._id} className="gameInfo">
+  return <div key={props.game._id} className={`gameInfo ${props.game.isYourTurn ? 'isYourTurnSingleGameDiv' :''}`}>
     {gameName}
     {turn}
     {gameDate}

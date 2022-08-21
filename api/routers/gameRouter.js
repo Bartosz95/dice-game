@@ -34,7 +34,6 @@ router.get('/game', async (req, res) => {
     if(req.query.isActive) {
         Math.isActive = req.query.isActive === 'ture'
     }
-    console.log(match)
 
     try {
         const docs = await gameModel.find(match);

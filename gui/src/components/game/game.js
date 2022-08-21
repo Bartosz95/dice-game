@@ -28,7 +28,7 @@ export default props => {
     const getGame = async (force) => {
         try {
             if(props.keycloak.authenticated && (force || currentPlayer === '' || !isYourTurn)) {
-                
+
                 const userInfo = await props.keycloak.loadUserInfo()
                 setCurrentUser(userInfo)
 
@@ -159,7 +159,7 @@ export default props => {
 
     const rollTheDicesButtonText = () => {
         if(!isYourTurn) {
-            return `This turn is for player ${currentPlayerUsername}`
+            return ''
         } else if(chosenFigure) {
             return "You cannot roll dices if you choose a figure"
         } else if(numberOfRoll === 3) {
@@ -188,7 +188,9 @@ export default props => {
     }
 
     const chooseFigureButtonText = () => {
-        if(numberOfRoll === 0) {
+        if(!isYourTurn) {
+            return ""
+        }else if(numberOfRoll === 0) {
             return "You have to roll all dices"
         } else if(chosenFigure) {
             return "Save figure"
@@ -230,7 +232,7 @@ export default props => {
     const rollTheDicesButton = <Button 
         onClick={rollTheDices.bind(this)} 
         variant={ isRollTheDicesBtnActive() ?  "success" : "outline-secondary"}
-        className="rollTheDicesButton"
+        className={`rollTheDicesButton ${isYourTurn ? '' : 'hide'}`}
         disabled={!isRollTheDicesBtnActive()}>
         {rollTheDicesButtonText()}
     </Button>
@@ -238,7 +240,7 @@ export default props => {
     const chooseFigureButton = <Button 
         onClick={chooseFigure.bind(this)} 
         variant={ isYourTurn && chosenFigure ? "success" : "outline-secondary"}
-        className="chooseFigureButton" 
+        className={`chooseFigureButton ${isYourTurn ? '' : 'hide'}`}
         disabled={(numberOfRoll === 0) || !chosenFigure || !isYourTurn}>
         {chooseFigureButtonText()}
     </Button>
@@ -248,7 +250,7 @@ export default props => {
             {gameNameDiv}
             {turnInfoDiv}
         </div>
-        <div className="dices">{numberOfRoll === 0 ? '' : dices}</div>
+        <div className="dices">{numberOfTurn === 0 && numberOfRoll === 0 ? '' : dices}</div>
         <div className='buttonsDiv'>{rollTheDicesButton}{chooseFigureButton}</div>
         
         

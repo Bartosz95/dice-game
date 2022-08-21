@@ -42,7 +42,6 @@ export default props => {
     const cellText = (player, figure) => {
         if(canBeSelected(player, figure)){
             if(isFigureSelected(player, figure)){
-                console.log(figure)
                 return figure
             }
             return <div className="can-be-select-text">{figure}</div> 
