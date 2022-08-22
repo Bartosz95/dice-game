@@ -1,4 +1,4 @@
-import { Game, makeMove } from '../../libs/Game'
+import { Game, makeMove } from '../../services/Game'
 
 describe('Game', function () {
 
@@ -8,8 +8,7 @@ describe('Game', function () {
   let numbersToChange = undefined
 
   beforeEach(function () {
-    game = new Game(
-            [{ id:"abc", username: "anna" }, { id:"def", username: "jon" }], "Game 3")
+    game = new Game({ id:"abc", username: "anna" }, [{ id:"def", username: "jon" }], "Game 3")
     game.numberOfRoll = 1
     deepCopieGame = JSON.parse(JSON.stringify(game))
     currentPlayer = deepCopieGame.currentPlayer;

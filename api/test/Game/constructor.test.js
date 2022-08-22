@@ -1,5 +1,5 @@
 import { assert } from 'assert'
-import { Game, rollTheDices } from '../../libs/Game'
+import { Game, rollTheDices } from '../../services/Game'
 
 describe('Game', function () {
 
@@ -8,8 +8,7 @@ describe('Game', function () {
     let deepCopieGame
 
     beforeEach(function () {
-        game = new Game(
-            [{ id:"abc", username: "anna" }, { id:"def", username: "jon" }], "Game 3")
+        game = new Game({ id:"abc", username: "anna" },[ { id:"def", username: "jon" }], "Game 3")
         currentPlayer = game.currentPlayer;
         deepCopieGame = JSON.parse(JSON.stringify(game))
     })
@@ -42,9 +41,9 @@ describe('Game', function () {
         })
 
         test('check if constructor create 5 of players ', function () {
-            game = new Game([
+            game = new Game(
                 { id:"abc", username: "anna" }, 
-                { id:"def", username: "jon" }, 
+                [{ id:"def", username: "jon" }, 
                 { id:"ghi", username: "mike" },
                 { id:"jkl", username: "rod" }],
                  "Game 3")
