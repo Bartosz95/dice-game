@@ -18,7 +18,7 @@
     background-color: #d1e7dd;
 }
 .isChecked {
-    background-color: #fff3cd;
+    border: 2px solid #198754 !important;
 }
 
 .gameDate {

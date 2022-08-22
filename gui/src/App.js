@@ -48,7 +48,7 @@ class App extends Component {
 
   render() {
     return <div>
-      <Navbar keycloak={this.state.keycloak} />
+      <Navbar keycloak={this.state.keycloak} config={this.state.config} />
 
       <BrowserRouter>
         <Routes>

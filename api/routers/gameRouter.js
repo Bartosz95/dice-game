@@ -27,12 +27,35 @@ router.param('gameID', function (req, res, next, gameID) {
     next()
 })
 
+router.get('/game/isnew', async (req, res) => {
+
+    const userID = req.user.sub;
+
+    try {
+        const match = {'game.playerIDs': [userID] }
+        const docs = await gameModel.find(match)
+
+        const numberOfNewGames = docs.filter(doc => !doc.game.players[userID].checked).length
+        res.send({ numberOfNewGames: numberOfNewGames})
+    } catch (err) {
+        logger.debug(err.message)
+        return res.send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'method': 'GET',
+                'path': '/game/isnew'
+            }
+        });
+    }
+});
+
 router.get('/game', async (req, res) => {
     const userID = req.user.sub;
 
     const match = {'game.playerIDs': [userID] }
     if(req.query.isActive) {
-        Math.isActive = req.query.isActive === 'ture'
+        match.isActive = req.query.isActive === 'ture'
     }
 
     try {
