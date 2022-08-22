@@ -75,6 +75,7 @@ export default props => {
                 setNumberOfRoll(game.numberOfRoll)
                 setNumberOfTurn(game.numberOfTurn)
                 setPlayers(players)
+
                 setMug(mug)
                 setDicesToChange([])
                 setChosenFigure(null)
