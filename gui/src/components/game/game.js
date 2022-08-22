@@ -160,10 +160,10 @@ export default props => {
     const rollTheDicesButtonText = () => {
         if(!isYourTurn) {
             return ''
-        } else if(chosenFigure) {
-            return "You cannot roll dices if you choose a figure"
         } else if(numberOfRoll === 3) {
             return "You don't have next roll" 
+        } else if(chosenFigure) {
+            return "You cannot roll dices if you choose a figure"
         } else if(numberOfRoll === 0) {
             return "Roll all dices" 
         } else if (dicesToChange.length === 0 ) {

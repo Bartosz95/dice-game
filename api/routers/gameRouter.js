@@ -27,7 +27,7 @@ router.param('gameID', function (req, res, next, gameID) {
     next()
 })
 
-router.get('/game/isnew', async (req, res) => {
+router.get('/game/ping', async (req, res) => {
 
     const userID = req.user.sub;
 
@@ -35,8 +35,10 @@ router.get('/game/isnew', async (req, res) => {
         const match = {'game.playerIDs': [userID] }
         const docs = await gameModel.find(match)
 
-        const numberOfNewGames = docs.filter(doc => !doc.game.players[userID].checked).length
-        res.send({ numberOfNewGames: numberOfNewGames})
+        const numberOfNew = docs.filter(doc => !doc.game.players[userID].checked).length
+        const numberOfYourTurn = docs.filter(doc => doc.game.currentPlayer === userID).length
+        console.log(docs[0])
+        res.send({ numberOfNew: numberOfNew, numberOfYourTurn: numberOfYourTurn})
     } catch (err) {
         logger.debug(err.message)
         return res.send({
@@ -44,7 +46,7 @@ router.get('/game/isnew', async (req, res) => {
             'message': err.message,
             'example': {
                 'method': 'GET',
-                'path': '/game/isnew'
+                'path': '/game/ping'
             }
         });
     }

@@ -31,7 +31,6 @@ export default props => {
         if((body.level === 'warning') || (body.level === 'error')) {
           return setAlertMessage(body)
         }
-        
         setUsers(body.filter(user => user.id !== userInfo.sub))  
       }
     } catch(err) {
@@ -43,7 +42,7 @@ export default props => {
   useEffect(() => { getUsers() })
 
   const selectUser = selectedUser => {
-    const a = users.map(user => {
+    setUsers(users.map(user => {
       if(user.id === selectedUser.id) {
         if(!user.selected) {
           user.selected = true
@@ -53,8 +52,7 @@ export default props => {
          
       } 
       return user
-    })
-    setUsers(a)
+    }))
   }
 
   const createGame = async () => {
