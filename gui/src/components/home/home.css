@@ -10,3 +10,62 @@
 
 .carItem {
 }
+
+.rulesTitle {
+    font-size: xx-large;
+    margin-left: 5px;
+}
+
+.rulesText {
+    margin-bottom: 50px;
+}
+
+.abstract {
+    margin: 50px;
+    font-size: large;
+}
+
+.tutorial{
+    margin-bottom: 50px;
+}
+
+.figureDescription {
+    margin-top: 50px;
+}
+
+.figureDescriptionIntroTitle {
+    font-size: xx-large;
+    margin-left: 5px;
+}
+
+.figureDescriptionIntroText {
+    margin-bottom: 20px;
+    font-size: large;
+}
+
+
+.figure {
+    margin-bottom: 20px;
+}
+
+.figureTitle {
+    font-size: larger;
+    margin: 5px;
+}
+
+.figureText {
+}
+
+.summary {
+    margin-bottom: 50px;
+}
+
+.summaryTitle {
+    margin-left: 5px;
+    font-size: xx-large;
+}
+
+.summarytext {
+    margin: 50px;
+    font-size: large;
+}

@@ -31,17 +31,7 @@ export default props => {
         if((body.level === 'warning') || (body.level === 'error')) {
           return setAlertMessage(body)
         }
-        let u = body.filter(user => user.id !== userInfo.sub)
-        let li = ["Anna", "James", "Mary", "Robert", "Patricia", "John", "Barbara", "Richard", "Susan", "Jessica", "Joseph"]
-        li.forEach((name) => {
-          u.push({id: Math.random(),
-            username: name.toLowerCase()
-            })
-        })
-        
-        console.log(u)
-        setUsers(u)
-        // setUsers(body.filter(user => user.id !== userInfo.sub))  
+        setUsers(body.filter(user => user.id !== userInfo.sub))  
       }
     } catch(err) {
       console.log(err)

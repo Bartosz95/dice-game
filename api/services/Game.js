@@ -19,7 +19,10 @@ export class Game {
             this.players[player.id] = {
                 username: player.username,
                 checked: false,
-                table : { "1": null, "2": null, "3": null, "4": null, "5": null, "6": null,             "to bonus": null,"bonus": null, "3x": null, "4x": null, "full": null,             "small strit": null, "big strit": null, "general": null, "chance": null,              "total": null
+                table : { "1": null, "2": null, "3": null, "4": null, "5": null, "6": null, 
+                "to bonus": null,"bonus": null, "3x": null, "4x": null, "full": null,
+                "small strit": null, "big strit": null, "general": null, "chance": null,
+                "total": null
                 },
                 
             }
