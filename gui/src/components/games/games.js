@@ -32,16 +32,33 @@ export default props => {
     } catch (err) {
       console.log(err)
       setAlertMessage(err)
-    }
-    
+    } 
   }
 
-  
+  const deleteGame = async id => {
+    try {
+      if(props.keycloak.authenticated) {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${props.keycloak.token}`
+            }
+        };
+        const response = await fetch(`${props.config.DICE_GAME_API}/game/${id}`, requestOptions)
+        const body = await response.json();
+        window.location.reload(false);
+      }
+    } catch (err) {
+        console.log(err)
+    }
+  }
+
   useEffect(() => { getGames() })
 
   const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''  
 
-  const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} keycloak={props.keycloak} />)
+  const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} deleteGame={deleteGame.bind(this)}/>)
 
   const content = games.length > 0 ? gamesDiv : <CreateDiv/>
 

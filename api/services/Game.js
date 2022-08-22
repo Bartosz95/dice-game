@@ -1,13 +1,15 @@
 import logger from "../libs/logger";
 
 export class Game {
-    constructor(players, name) {
+    constructor(currentUser, players, name) {
+
+        players = players.some(player => player.id === currentUser.id) ? players : players.concat(currentUser);
         this.name = name
         this.isActive = true
         this.numberOfRoll = 0
         this.numberOfTurn = 0
         this.playerIDs = players.map(player => player.id)
-        this.currentPlayer = this.playerIDs[Math.floor(Math.random() * this.playerIDs.length)]
+        this.currentPlayer = currentUser.id
         this.indexOfFirstPlayer = this.playerIDs.indexOf(this.currentPlayer)
 
         this.mug = { "0": null, "1": null, "2": null, "3": null, "4": null }

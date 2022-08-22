@@ -31,7 +31,17 @@ export default props => {
         if((body.level === 'warning') || (body.level === 'error')) {
           return setAlertMessage(body)
         }
-        setUsers(body.filter(user => user.id !== userInfo.sub))  
+        let u = body.filter(user => user.id !== userInfo.sub)
+        let li = ["Anna", "James", "Mary", "Robert", "Patricia", "John", "Barbara", "Richard", "Susan", "Jessica", "Joseph"]
+        li.forEach((name) => {
+          u.push({id: Math.random(),
+            username: name.toLowerCase()
+            })
+        })
+        
+        console.log(u)
+        setUsers(u)
+        // setUsers(body.filter(user => user.id !== userInfo.sub))  
       }
     } catch(err) {
       console.log(err)
@@ -100,17 +110,17 @@ export default props => {
   const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
 
   const gameNameForm = <Form className="gameNameForm">
-    <Form.Label>Game name</Form.Label>
+    <Form.Label>Write game name</Form.Label>
     <Form.Control type="name" placeholder="name" onChange={handleChange.bind(this)} />
   </Form>
 
-  const userList = <><div className='selectPlayersText'>Select players:</div><div>{users.map(user => <User
+  const userList = <><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
     key={user.id}
     user_props={user}
     selectUser={selectUser.bind(this)}
   />)}</div></>
 
-  const createButton = <div><Button
+  const createButton = <div className="createGameDiv">And play the game!<br/><Button
     onClick={ createGame }
     className="createGameBtn"
     variant="success">

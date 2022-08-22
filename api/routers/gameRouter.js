@@ -28,17 +28,15 @@ router.param('gameID', function (req, res, next, gameID) {
 })
 
 router.get('/game/ping', async (req, res) => {
-
     const userID = req.user.sub;
 
     try {
         const match = {'game.playerIDs': [userID] }
         const docs = await gameModel.find(match)
-
         const numberOfNew = docs.filter(doc => !doc.game.players[userID].checked).length
         const numberOfYourTurn = docs.filter(doc => doc.game.currentPlayer === userID).length
-        console.log(docs[0])
         res.send({ numberOfNew: numberOfNew, numberOfYourTurn: numberOfYourTurn})
+
     } catch (err) {
         logger.debug(err.message)
         return res.send({
@@ -113,11 +111,10 @@ router.post('/game', async (req, res) => {
             if(typeof user.id !== 'string') 
                 throw new Error('Every username in users array should be a string')
         })
-        users = users.some(user => user.id === currentUser.id) ? users : users.concat(currentUser);
         
-        const game = new Game(users, name)
+        const game = new Game(currentUser, users, name)
         const doc = await gameModel.create({game})
-        logger.info(`Player ${currentUser.username} created game: ${doc._id}`)
+        logger.info(`Player ${currentUser.id} created game: ${doc._id}`)
 
         res.status(201).send({
             _id: doc._id,

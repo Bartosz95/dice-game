@@ -10,25 +10,7 @@ export default props => {
 
   const date = new Date(props.game.createdAt)
   const dateText = dateFormat(date, "d.mm.yyyy hh:MM")
-
-  const deleteGame = async () => {
-    try {
-      if(props.keycloak.authenticated) {
-        const requestOptions = {
-            method: 'DELETE',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.keycloak.token}`
-            }
-        };
-        const response = await fetch(`${props.config.DICE_GAME_API}/game/${props.game._id}`, requestOptions)
-        const body = await response.json();
-      }
-    } catch (err) {
-        console.log(err)
-    }
-  }
-
+  
   const gameName = <div className='name'>{props.game.name}</div>
 
   const turn = <Badge pill bg="secondary" className='turnInfo'>{props.game.numberOfTurn}</Badge>
@@ -39,7 +21,7 @@ export default props => {
 
   const playBtn = <Button variant="outline-success" className="playBtn" href={`/${props.game._id}`} disabled={props.game.isActive ? false : true}>Play</Button>
 
-  const deleteBtn = <Button variant="outline-danger" className="deleteBtn" onClick={deleteGame}>Delete</Button>
+  const deleteBtn = <Button variant="outline-danger" className="deleteBtn" onClick={() => props.deleteGame(props.game._id)}>Delete</Button>
 
   return <div key={props.game._id} className={`gameInfo ${props.game.isYourTurn ? 'isYourTurnSingleGameDiv' :''} ${isChecked ? '' : 'isChecked'}`}>
     {gameName}

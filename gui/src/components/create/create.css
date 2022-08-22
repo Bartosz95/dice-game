@@ -22,7 +22,10 @@
     
 }
 
+.createGameDiv {
+    margin-top: 40px;
+}
 .createGameBtn {
-    margin-top: 50px;
+    margin-top: 10px;
     width: 200px;
 }
