@@ -261,7 +261,7 @@ export default props => {
         <Col>{table}</Col>
     </Row>
 
-    return <Container fluid className="dice-game-container">
+    return <Container fluid className="mainContainer dice-game-container">
         {alert}
         {renderGame ? game : '' }
         

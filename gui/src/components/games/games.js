@@ -23,8 +23,7 @@ export default props => {
         };
         const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
         const body = await response.json()
-        if((body.level === 'warning') || (body.level === 'error')) {
-          
+        if((body.level === 'warning') || (body.level === 'error') || (body.level === "info")) {
           return setAlertMessage(body)
         }
         setGames(body)

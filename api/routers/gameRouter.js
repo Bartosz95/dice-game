@@ -44,6 +44,7 @@ router.get('/game', async (req, res) => {
             updatedAt: doc.updatedAt,
             name: doc.game.name,
             isActive: doc.game.isActive,
+            checked: doc.game.players[userID].checked,
             players: doc.game.playerIDs.map(_id => { return {
                 _id: _id,
                 username: doc.game.players[_id].username

@@ -106,14 +106,11 @@ export default props => {
     <Form.Control type="name" placeholder="name" onChange={handleChange.bind(this)} />
   </Form>
 
-  const userList = () => {
-
-    return <div>{users.map(user => <User
+  const userList = <><div className='selectPlayersText'>Select players:</div><div>{users.map(user => <User
     key={user.id}
     user_props={user}
     selectUser={selectUser.bind(this)}
-  />)}</div>
-  }
+  />)}</div></>
 
   const createButton = <div><Button
     onClick={ createGame }
@@ -125,8 +122,8 @@ export default props => {
   return <Container className="mainContainer">
     {alert}
     {gameNameForm}
-    Select users: 
-    {userList()}
+     
+    {userList}
     {createButton}
     </Container>
 

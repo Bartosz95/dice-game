@@ -22,8 +22,6 @@ class App extends Component {
       
       if(keycloak.authenticated) {
         this.setState({ keycloak: keycloak })
-      } else {
-        console.log("not auth")
       }
     } catch (err) {
       console.log(err)
@@ -32,14 +30,12 @@ class App extends Component {
 
   async initConfigData() {
     try {
-      console.log('initConfigData',)
       const data = await fetch('/config.json', {
         headers: {
           'Content-Type': 'application/json',
         }})
         const config = await data.json()
         this.setState({ config: config })
-        console.log(config)
       } catch (err) {
         console.log(err)
       }
@@ -48,7 +44,6 @@ class App extends Component {
   componentDidMount() {
     this.initKeycloak()
     this.initConfigData()
-    console.log(this.state.config)
   }
 
   render() {
