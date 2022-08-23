@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ckey-admin
+  labels:
+    app: ckey-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ckey-admin
+  template:
+    metadata:
+      labels:
+        app: ckey-admin
+    spec:
+      containers:
+      - name: ckey-admin
+        image: bartosz95/ckey
+        args: ["start --import-realm --optimized"]
+        ports:
+        - name: http
+          containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /realms/master
+            port: 8080
+        envFrom:
+        - secretRef:
+            name: ckey-secret-env
+        - configMapRef:
+            name: ckey-admin-env
+        env:
+        - name: KC_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_USER
+              optional: false
+        - name: KC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_PASSWORD
+              optional: false
