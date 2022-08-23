@@ -37,14 +37,10 @@ switch (NODE_ENV) {
         DB_URL = `mongodb+srv://${USER}:${PASSWORD}@${HOST}`
 }
 
-async function connectToMongo() {
-    try {
-        await mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true});
-        mongoose.connection.once('open', () => logger.info("Database connection established successfully"));
-        mongoose.connection.on('error', error => logger.error(error));
-    } catch (error) {
-        logger.error(error);
-    }
+const connect = async () => {
+    mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connection.once('open', () => logger.info("Database connection established successfully"));
+    mongoose.connection.on('error', error => logger.error(error));    
 }
 
-connectToMongo()
+connect()
