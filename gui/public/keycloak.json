@@ -1,5 +1,5 @@
 {
-  "realm": "bolo",
+  "realm": "dice-game",
   "auth-server-url": "https://dice-game/auth/",
   "ssl-required": "external",
   "resource": "dice-game",

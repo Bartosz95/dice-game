@@ -1,7 +1,8 @@
 apiVersion: v1
 data:
-  bolo-realm.json: "{\r\n  \"id\" : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n  \"realm\"
-    : \"bolo\",\r\n  \"notBefore\" : 0,\r\n  \"defaultSignatureAlgorithm\" : \"RS256\",\r\n
+  dice-game-realm-export.json: "{\r\n  \"id\" : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n
+    \ \"realm\" : \"dice-game\",\r\n  \"displayName\" : \"Dice Game\",\r\n  \"displayNameHtml\"
+    : \"\",\r\n  \"notBefore\" : 0,\r\n  \"defaultSignatureAlgorithm\" : \"RS256\",\r\n
     \ \"revokeRefreshToken\" : false,\r\n  \"refreshTokenMaxReuse\" : 0,\r\n  \"accessTokenLifespan\"
     : 300,\r\n  \"accessTokenLifespanForImplicitFlow\" : 900,\r\n  \"ssoSessionIdleTimeout\"
     : 1800,\r\n  \"ssoSessionMaxLifespan\" : 36000,\r\n  \"ssoSessionIdleTimeoutRememberMe\"
@@ -13,20 +14,20 @@ data:
     300,\r\n  \"accessCodeLifespanLogin\" : 1800,\r\n  \"actionTokenGeneratedByAdminLifespan\"
     : 43200,\r\n  \"actionTokenGeneratedByUserLifespan\" : 300,\r\n  \"oauth2DeviceCodeLifespan\"
     : 600,\r\n  \"oauth2DevicePollingInterval\" : 5,\r\n  \"enabled\" : true,\r\n
-    \ \"sslRequired\" : \"external\",\r\n  \"registrationAllowed\" : false,\r\n  \"registrationEmailAsUsername\"
-    : false,\r\n  \"rememberMe\" : false,\r\n  \"verifyEmail\" : false,\r\n  \"loginWithEmailAllowed\"
+    \ \"sslRequired\" : \"external\",\r\n  \"registrationAllowed\" : true,\r\n  \"registrationEmailAsUsername\"
+    : false,\r\n  \"rememberMe\" : true,\r\n  \"verifyEmail\" : false,\r\n  \"loginWithEmailAllowed\"
     : true,\r\n  \"duplicateEmailsAllowed\" : false,\r\n  \"resetPasswordAllowed\"
-    : false,\r\n  \"editUsernameAllowed\" : false,\r\n  \"bruteForceProtected\" :
-    false,\r\n  \"permanentLockout\" : false,\r\n  \"maxFailureWaitSeconds\" : 900,\r\n
-    \ \"minimumQuickLoginWaitSeconds\" : 60,\r\n  \"waitIncrementSeconds\" : 60,\r\n
-    \ \"quickLoginCheckMilliSeconds\" : 1000,\r\n  \"maxDeltaTimeSeconds\" : 43200,\r\n
-    \ \"failureFactor\" : 30,\r\n  \"roles\" : {\r\n    \"realm\" : [ {\r\n      \"id\"
-    : \"48901e34-106d-4dd9-b481-2ae9ba231696\",\r\n      \"name\" : \"uma_authorization\",\r\n
-    \     \"description\" : \"${role_uma_authorization}\",\r\n      \"composite\"
-    : false,\r\n      \"clientRole\" : false,\r\n      \"containerId\" : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n
-    \     \"attributes\" : { }\r\n    }, {\r\n      \"id\" : \"8d49e4ad-16e1-4cf0-b234-f14abba5e48b\",\r\n
-    \     \"name\" : \"admin\",\r\n      \"description\" : \"\",\r\n      \"composite\"
-    : false,\r\n      \"clientRole\" : false,\r\n      \"containerId\" : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n
+    : true,\r\n  \"editUsernameAllowed\" : false,\r\n  \"bruteForceProtected\" : false,\r\n
+    \ \"permanentLockout\" : false,\r\n  \"maxFailureWaitSeconds\" : 900,\r\n  \"minimumQuickLoginWaitSeconds\"
+    : 60,\r\n  \"waitIncrementSeconds\" : 60,\r\n  \"quickLoginCheckMilliSeconds\"
+    : 1000,\r\n  \"maxDeltaTimeSeconds\" : 43200,\r\n  \"failureFactor\" : 30,\r\n
+    \ \"roles\" : {\r\n    \"realm\" : [ {\r\n      \"id\" : \"48901e34-106d-4dd9-b481-2ae9ba231696\",\r\n
+    \     \"name\" : \"uma_authorization\",\r\n      \"description\" : \"${role_uma_authorization}\",\r\n
+    \     \"composite\" : false,\r\n      \"clientRole\" : false,\r\n      \"containerId\"
+    : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n      \"attributes\" : { }\r\n
+    \   }, {\r\n      \"id\" : \"8d49e4ad-16e1-4cf0-b234-f14abba5e48b\",\r\n      \"name\"
+    : \"admin\",\r\n      \"description\" : \"\",\r\n      \"composite\" : false,\r\n
+    \     \"clientRole\" : false,\r\n      \"containerId\" : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n
     \     \"attributes\" : { }\r\n    }, {\r\n      \"id\" : \"911f8f88-109e-40a3-a331-976c4f49980b\",\r\n
     \     \"name\" : \"user\",\r\n      \"description\" : \"\",\r\n      \"composite\"
     : false,\r\n      \"clientRole\" : false,\r\n      \"containerId\" : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\",\r\n
@@ -171,16 +172,17 @@ data:
     : [ ]\r\n  } ],\r\n  \"defaultRole\" : {\r\n    \"id\" : \"880bb88b-81f7-4260-9302-fe6ec5a9f9ec\",\r\n
     \   \"name\" : \"default-roles-bolo\",\r\n    \"description\" : \"${role_default-roles}\",\r\n
     \   \"composite\" : true,\r\n    \"clientRole\" : false,\r\n    \"containerId\"
-    : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\"\r\n  },\r\n  \"requiredCredentials\"
-    : [ \"password\" ],\r\n  \"otpPolicyType\" : \"totp\",\r\n  \"otpPolicyAlgorithm\"
-    : \"HmacSHA1\",\r\n  \"otpPolicyInitialCounter\" : 0,\r\n  \"otpPolicyDigits\"
-    : 6,\r\n  \"otpPolicyLookAheadWindow\" : 1,\r\n  \"otpPolicyPeriod\" : 30,\r\n
-    \ \"otpSupportedApplications\" : [ \"FreeOTP\", \"Google Authenticator\" ],\r\n
-    \ \"webAuthnPolicyRpEntityName\" : \"keycloak\",\r\n  \"webAuthnPolicySignatureAlgorithms\"
-    : [ \"ES256\" ],\r\n  \"webAuthnPolicyRpId\" : \"\",\r\n  \"webAuthnPolicyAttestationConveyancePreference\"
-    : \"not specified\",\r\n  \"webAuthnPolicyAuthenticatorAttachment\" : \"not specified\",\r\n
-    \ \"webAuthnPolicyRequireResidentKey\" : \"not specified\",\r\n  \"webAuthnPolicyUserVerificationRequirement\"
-    : \"not specified\",\r\n  \"webAuthnPolicyCreateTimeout\" : 0,\r\n  \"webAuthnPolicyAvoidSameAuthenticatorRegister\"
+    : \"1f1becd6-1d04-44ca-b4b9-5be07559fede\"\r\n  },\r\n  \"defaultGroups\" : [
+    \"/users\" ],\r\n  \"requiredCredentials\" : [ \"password\" ],\r\n  \"otpPolicyType\"
+    : \"totp\",\r\n  \"otpPolicyAlgorithm\" : \"HmacSHA1\",\r\n  \"otpPolicyInitialCounter\"
+    : 0,\r\n  \"otpPolicyDigits\" : 6,\r\n  \"otpPolicyLookAheadWindow\" : 1,\r\n
+    \ \"otpPolicyPeriod\" : 30,\r\n  \"otpSupportedApplications\" : [ \"FreeOTP\",
+    \"Google Authenticator\" ],\r\n  \"webAuthnPolicyRpEntityName\" : \"keycloak\",\r\n
+    \ \"webAuthnPolicySignatureAlgorithms\" : [ \"ES256\" ],\r\n  \"webAuthnPolicyRpId\"
+    : \"\",\r\n  \"webAuthnPolicyAttestationConveyancePreference\" : \"not specified\",\r\n
+    \ \"webAuthnPolicyAuthenticatorAttachment\" : \"not specified\",\r\n  \"webAuthnPolicyRequireResidentKey\"
+    : \"not specified\",\r\n  \"webAuthnPolicyUserVerificationRequirement\" : \"not
+    specified\",\r\n  \"webAuthnPolicyCreateTimeout\" : 0,\r\n  \"webAuthnPolicyAvoidSameAuthenticatorRegister\"
     : false,\r\n  \"webAuthnPolicyAcceptableAaguids\" : [ ],\r\n  \"webAuthnPolicyPasswordlessRpEntityName\"
     : \"keycloak\",\r\n  \"webAuthnPolicyPasswordlessSignatureAlgorithms\" : [ \"ES256\"
     ],\r\n  \"webAuthnPolicyPasswordlessRpId\" : \"\",\r\n  \"webAuthnPolicyPasswordlessAttestationConveyancePreference\"
@@ -188,47 +190,16 @@ data:
     : \"not specified\",\r\n  \"webAuthnPolicyPasswordlessRequireResidentKey\" : \"not
     specified\",\r\n  \"webAuthnPolicyPasswordlessUserVerificationRequirement\" :
     \"not specified\",\r\n  \"webAuthnPolicyPasswordlessCreateTimeout\" : 0,\r\n  \"webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister\"
-    : false,\r\n  \"webAuthnPolicyPasswordlessAcceptableAaguids\" : [ ],\r\n  \"users\"
-    : [ {\r\n    \"id\" : \"6e74e11a-1c9f-43e4-ba4b-a342bcf1eac1\",\r\n    \"createdTimestamp\"
-    : 1660327619342,\r\n    \"username\" : \"jerry\",\r\n    \"enabled\" : true,\r\n
-    \   \"totp\" : false,\r\n    \"emailVerified\" : true,\r\n    \"firstName\" :
-    \"\",\r\n    \"lastName\" : \"\",\r\n    \"credentials\" : [ {\r\n      \"id\"
-    : \"bdb7f46f-9b31-4c40-8149-3bf82fbd00d9\",\r\n      \"type\" : \"password\",\r\n
-    \     \"userLabel\" : \"My password\",\r\n      \"createdDate\" : 1660327631626,\r\n
-    \     \"secretData\" : \"{\\\"value\\\":\\\"rJdb/lCnOb1qES2vppOV3QQ1AjzXKW7kBrZ0MGsWDwjm9qACs6t38f7pf343LNV08asBIBVc/V2AQsaVcFuCLQ==\\\",\\\"salt\\\":\\\"I0hraqIWAyjhl+FDbYhWTg==\\\",\\\"additionalParameters\\\":{}}\",\r\n
-    \     \"credentialData\" : \"{\\\"hashIterations\\\":27500,\\\"algorithm\\\":\\\"pbkdf2-sha256\\\",\\\"additionalParameters\\\":{}}\"\r\n
-    \   } ],\r\n    \"disableableCredentialTypes\" : [ ],\r\n    \"requiredActions\"
-    : [ ],\r\n    \"realmRoles\" : [ \"default-roles-bolo\" ],\r\n    \"notBefore\"
-    : 0,\r\n    \"groups\" : [ \"/users\" ]\r\n  }, {\r\n    \"id\" : \"4a70a223-2c82-4770-aaf0-95c83358fa38\",\r\n
-    \   \"createdTimestamp\" : 1660327581076,\r\n    \"username\" : \"mike\",\r\n
-    \   \"enabled\" : true,\r\n    \"totp\" : false,\r\n    \"emailVerified\" : true,\r\n
-    \   \"firstName\" : \"\",\r\n    \"lastName\" : \"\",\r\n    \"credentials\" :
-    [ {\r\n      \"id\" : \"17b5bd0b-1a32-43e9-b23b-83a74a197f5b\",\r\n      \"type\"
-    : \"password\",\r\n      \"userLabel\" : \"My password\",\r\n      \"createdDate\"
-    : 1660327600948,\r\n      \"secretData\" : \"{\\\"value\\\":\\\"liZLVyCVu+rsGy/LsjULugOyWZ4Upsr7u99eVgKSh71dKYHGVE32HaT9Dfd827/Ve9MPIQimpoc5+1fekdS7Gw==\\\",\\\"salt\\\":\\\"d80yKueFOCLxDaQ4lTBV2g==\\\",\\\"additionalParameters\\\":{}}\",\r\n
-    \     \"credentialData\" : \"{\\\"hashIterations\\\":27500,\\\"algorithm\\\":\\\"pbkdf2-sha256\\\",\\\"additionalParameters\\\":{}}\"\r\n
-    \   } ],\r\n    \"disableableCredentialTypes\" : [ ],\r\n    \"requiredActions\"
-    : [ ],\r\n    \"realmRoles\" : [ \"default-roles-bolo\" ],\r\n    \"notBefore\"
-    : 0,\r\n    \"groups\" : [ \"/users\" ]\r\n  }, {\r\n    \"id\" : \"d358dd7b-81b9-4e02-a8c8-b5c37bf2bbd6\",\r\n
-    \   \"createdTimestamp\" : 1660326621204,\r\n    \"username\" : \"tom\",\r\n    \"enabled\"
-    : true,\r\n    \"totp\" : false,\r\n    \"emailVerified\" : true,\r\n    \"firstName\"
-    : \"\",\r\n    \"lastName\" : \"\",\r\n    \"credentials\" : [ {\r\n      \"id\"
-    : \"9c0382a1-fe1d-44cf-acba-cbd65bd3e564\",\r\n      \"type\" : \"password\",\r\n
-    \     \"userLabel\" : \"My password\",\r\n      \"createdDate\" : 1660326636728,\r\n
-    \     \"secretData\" : \"{\\\"value\\\":\\\"6F0tliQ5AYZJvpVlnBwKxa+aa4TNTN9gfUVZvGAW2YhBzJUjUMHRz3UH8EqiNNb8MEFEJ1IsGHQvpQ8Y00bm4g==\\\",\\\"salt\\\":\\\"chADd9nxCv5MaIfjj2wZGw==\\\",\\\"additionalParameters\\\":{}}\",\r\n
-    \     \"credentialData\" : \"{\\\"hashIterations\\\":27500,\\\"algorithm\\\":\\\"pbkdf2-sha256\\\",\\\"additionalParameters\\\":{}}\"\r\n
-    \   } ],\r\n    \"disableableCredentialTypes\" : [ ],\r\n    \"requiredActions\"
-    : [ ],\r\n    \"realmRoles\" : [ \"default-roles-bolo\" ],\r\n    \"notBefore\"
-    : 0,\r\n    \"groups\" : [ \"/users\" ]\r\n  } ],\r\n  \"scopeMappings\" : [ {\r\n
-    \   \"clientScope\" : \"offline_access\",\r\n    \"roles\" : [ \"offline_access\"
+    : false,\r\n  \"webAuthnPolicyPasswordlessAcceptableAaguids\" : [ ],\r\n  \"scopeMappings\"
+    : [ {\r\n    \"clientScope\" : \"offline_access\",\r\n    \"roles\" : [ \"offline_access\"
     ]\r\n  } ],\r\n  \"clientScopeMappings\" : {\r\n    \"account\" : [ {\r\n      \"client\"
     : \"account-console\",\r\n      \"roles\" : [ \"manage-account\" ]\r\n    } ]\r\n
     \ },\r\n  \"clients\" : [ {\r\n    \"id\" : \"71a9075a-9397-4b1f-9472-e7776ce10db3\",\r\n
     \   \"clientId\" : \"account\",\r\n    \"name\" : \"${client_account}\",\r\n    \"rootUrl\"
-    : \"${authBaseUrl}\",\r\n    \"baseUrl\" : \"/realms/bolo/account/\",\r\n    \"surrogateAuthRequired\"
-    : false,\r\n    \"enabled\" : true,\r\n    \"alwaysDisplayInConsole\" : false,\r\n
-    \   \"clientAuthenticatorType\" : \"client-secret\",\r\n    \"redirectUris\" :
-    [ \"/realms/bolo/account/*\" ],\r\n    \"webOrigins\" : [ ],\r\n    \"notBefore\"
+    : \"${authBaseUrl}\",\r\n    \"baseUrl\" : \"/realms/dice-game/account/\",\r\n
+    \   \"surrogateAuthRequired\" : false,\r\n    \"enabled\" : true,\r\n    \"alwaysDisplayInConsole\"
+    : false,\r\n    \"clientAuthenticatorType\" : \"client-secret\",\r\n    \"redirectUris\"
+    : [ \"/realms/dice-game/account/*\" ],\r\n    \"webOrigins\" : [ ],\r\n    \"notBefore\"
     : 0,\r\n    \"bearerOnly\" : false,\r\n    \"consentRequired\" : false,\r\n    \"standardFlowEnabled\"
     : true,\r\n    \"implicitFlowEnabled\" : false,\r\n    \"directAccessGrantsEnabled\"
     : false,\r\n    \"serviceAccountsEnabled\" : false,\r\n    \"publicClient\" :
@@ -317,10 +288,10 @@ data:
     \"roles\", \"email\" ],\r\n    \"optionalClientScopes\" : [ \"address\", \"phone\",
     \"offline_access\", \"microprofile-jwt\" ]\r\n  }, {\r\n    \"id\" : \"b5c579e2-4610-4a54-ad21-b836f3176258\",\r\n
     \   \"clientId\" : \"security-admin-console\",\r\n    \"name\" : \"${client_security-admin-console}\",\r\n
-    \   \"rootUrl\" : \"${authAdminUrl}\",\r\n    \"baseUrl\" : \"/admin/bolo/console/\",\r\n
+    \   \"rootUrl\" : \"${authAdminUrl}\",\r\n    \"baseUrl\" : \"/admin/dice-game/console/\",\r\n
     \   \"surrogateAuthRequired\" : false,\r\n    \"enabled\" : true,\r\n    \"alwaysDisplayInConsole\"
     : false,\r\n    \"clientAuthenticatorType\" : \"client-secret\",\r\n    \"redirectUris\"
-    : [ \"/admin/bolo/console/*\" ],\r\n    \"webOrigins\" : [ \"+\" ],\r\n    \"notBefore\"
+    : [ \"/admin/dice-game/console/*\" ],\r\n    \"webOrigins\" : [ \"+\" ],\r\n    \"notBefore\"
     : 0,\r\n    \"bearerOnly\" : false,\r\n    \"consentRequired\" : false,\r\n    \"standardFlowEnabled\"
     : true,\r\n    \"implicitFlowEnabled\" : false,\r\n    \"directAccessGrantsEnabled\"
     : false,\r\n    \"serviceAccountsEnabled\" : false,\r\n    \"publicClient\" :
@@ -571,10 +542,10 @@ data:
     \   }, {\r\n      \"id\" : \"753303b2-4003-479e-a980-1868f4ecb01d\",\r\n      \"name\"
     : \"Allowed Protocol Mapper Types\",\r\n      \"providerId\" : \"allowed-protocol-mappers\",\r\n
     \     \"subType\" : \"anonymous\",\r\n      \"subComponents\" : { },\r\n      \"config\"
-    : {\r\n        \"allowed-protocol-mapper-types\" : [ \"oidc-usermodel-attribute-mapper\",
-    \"saml-role-list-mapper\", \"oidc-address-mapper\", \"oidc-full-name-mapper\",
-    \"oidc-usermodel-property-mapper\", \"oidc-sha256-pairwise-sub-mapper\", \"saml-user-property-mapper\",
-    \"saml-user-attribute-mapper\" ]\r\n      }\r\n    }, {\r\n      \"id\" : \"cd1dca61-9861-4010-9ee8-739adb043426\",\r\n
+    : {\r\n        \"allowed-protocol-mapper-types\" : [ \"saml-role-list-mapper\",
+    \"saml-user-attribute-mapper\", \"oidc-sha256-pairwise-sub-mapper\", \"oidc-usermodel-property-mapper\",
+    \"oidc-usermodel-attribute-mapper\", \"oidc-address-mapper\", \"oidc-full-name-mapper\",
+    \"saml-user-property-mapper\" ]\r\n      }\r\n    }, {\r\n      \"id\" : \"cd1dca61-9861-4010-9ee8-739adb043426\",\r\n
     \     \"name\" : \"Allowed Client Scopes\",\r\n      \"providerId\" : \"allowed-client-templates\",\r\n
     \     \"subType\" : \"anonymous\",\r\n      \"subComponents\" : { },\r\n      \"config\"
     : {\r\n        \"allow-default-scopes\" : [ \"true\" ]\r\n      }\r\n    }, {\r\n
@@ -588,9 +559,9 @@ data:
     : \"304141d0-e8a0-4a40-a2ef-d1d9c22206b6\",\r\n      \"name\" : \"Allowed Protocol
     Mapper Types\",\r\n      \"providerId\" : \"allowed-protocol-mappers\",\r\n      \"subType\"
     : \"authenticated\",\r\n      \"subComponents\" : { },\r\n      \"config\" : {\r\n
-    \       \"allowed-protocol-mapper-types\" : [ \"saml-role-list-mapper\", \"oidc-sha256-pairwise-sub-mapper\",
-    \"saml-user-property-mapper\", \"saml-user-attribute-mapper\", \"oidc-usermodel-attribute-mapper\",
-    \"oidc-usermodel-property-mapper\", \"oidc-address-mapper\", \"oidc-full-name-mapper\"
+    \       \"allowed-protocol-mapper-types\" : [ \"saml-user-property-mapper\", \"oidc-usermodel-attribute-mapper\",
+    \"saml-user-attribute-mapper\", \"oidc-full-name-mapper\", \"oidc-usermodel-property-mapper\",
+    \"saml-role-list-mapper\", \"oidc-sha256-pairwise-sub-mapper\", \"oidc-address-mapper\"
     ]\r\n      }\r\n    } ],\r\n    \"org.keycloak.keys.KeyProvider\" : [ {\r\n      \"id\"
     : \"3c21a617-fc72-4b62-9330-b450b8d103b7\",\r\n      \"name\" : \"rsa-generated\",\r\n
     \     \"providerId\" : \"rsa-generated\",\r\n      \"subComponents\" : { },\r\n
@@ -614,7 +585,7 @@ data:
     ],\r\n        \"priority\" : [ \"100\" ],\r\n        \"algorithm\" : [ \"RSA-OAEP\"
     ]\r\n      }\r\n    } ]\r\n  },\r\n  \"internationalizationEnabled\" : false,\r\n
     \ \"supportedLocales\" : [ ],\r\n  \"authenticationFlows\" : [ {\r\n    \"id\"
-    : \"f6c98af2-518b-46bb-aa0c-8623d8ceb561\",\r\n    \"alias\" : \"Account verification
+    : \"6e06ad04-c28a-46e9-b904-792496188f69\",\r\n    \"alias\" : \"Account verification
     options\",\r\n    \"description\" : \"Method with which to verity the existing
     account\",\r\n    \"providerId\" : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n
     \   \"builtIn\" : true,\r\n    \"authenticationExecutions\" : [ {\r\n      \"authenticator\"
@@ -624,7 +595,7 @@ data:
     : true,\r\n      \"requirement\" : \"ALTERNATIVE\",\r\n      \"priority\" : 20,\r\n
     \     \"autheticatorFlow\" : true,\r\n      \"flowAlias\" : \"Verify Existing
     Account by Re-authentication\",\r\n      \"userSetupAllowed\" : false\r\n    }
-    ]\r\n  }, {\r\n    \"id\" : \"34aa079c-0be6-4515-8e9e-35768067207a\",\r\n    \"alias\"
+    ]\r\n  }, {\r\n    \"id\" : \"f46678bf-6f8a-4b64-9407-2d35623cdef9\",\r\n    \"alias\"
     : \"Authentication Options\",\r\n    \"description\" : \"Authentication options.\",\r\n
     \   \"providerId\" : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n    \"builtIn\"
     : true,\r\n    \"authenticationExecutions\" : [ {\r\n      \"authenticator\" :
@@ -636,7 +607,7 @@ data:
     : false\r\n    }, {\r\n      \"authenticator\" : \"auth-spnego\",\r\n      \"authenticatorFlow\"
     : false,\r\n      \"requirement\" : \"DISABLED\",\r\n      \"priority\" : 30,\r\n
     \     \"autheticatorFlow\" : false,\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"7fca7eb6-d14d-42ba-b3ce-1e44ce0c04e2\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"fe85bb54-7e8d-4fa8-8f6d-d206f18ac94d\",\r\n
     \   \"alias\" : \"Browser - Conditional OTP\",\r\n    \"description\" : \"Flow
     to determine if the OTP is required for the authentication\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n    \"builtIn\" : true,\r\n
@@ -646,7 +617,7 @@ data:
     : false\r\n    }, {\r\n      \"authenticator\" : \"auth-otp-form\",\r\n      \"authenticatorFlow\"
     : false,\r\n      \"requirement\" : \"REQUIRED\",\r\n      \"priority\" : 20,\r\n
     \     \"autheticatorFlow\" : false,\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"e4348dd4-b4e3-4a80-968d-10290ce38f81\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"693d82e5-77ad-48c4-896f-237697bc826a\",\r\n
     \   \"alias\" : \"Direct Grant - Conditional OTP\",\r\n    \"description\" : \"Flow
     to determine if the OTP is required for the authentication\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n    \"builtIn\" : true,\r\n
@@ -656,7 +627,7 @@ data:
     : false\r\n    }, {\r\n      \"authenticator\" : \"direct-grant-validate-otp\",\r\n
     \     \"authenticatorFlow\" : false,\r\n      \"requirement\" : \"REQUIRED\",\r\n
     \     \"priority\" : 20,\r\n      \"autheticatorFlow\" : false,\r\n      \"userSetupAllowed\"
-    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"7246948f-d60d-4ebf-8987-bec0543aa2f8\",\r\n
+    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"ee21c3f5-ca6b-466e-bf5a-c0d35dae75ed\",\r\n
     \   \"alias\" : \"First broker login - Conditional OTP\",\r\n    \"description\"
     : \"Flow to determine if the OTP is required for the authentication\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n    \"builtIn\" : true,\r\n
@@ -666,7 +637,7 @@ data:
     : false\r\n    }, {\r\n      \"authenticator\" : \"auth-otp-form\",\r\n      \"authenticatorFlow\"
     : false,\r\n      \"requirement\" : \"REQUIRED\",\r\n      \"priority\" : 20,\r\n
     \     \"autheticatorFlow\" : false,\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"4ddc413a-6e49-43b9-98d1-f4b78fba8185\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"b6203d64-bc99-44fe-9829-6f45a3a37d4a\",\r\n
     \   \"alias\" : \"Handle Existing Account\",\r\n    \"description\" : \"Handle
     what to do if there is existing account with same email/username like authenticated
     identity provider\",\r\n    \"providerId\" : \"basic-flow\",\r\n    \"topLevel\"
@@ -677,7 +648,7 @@ data:
     \   }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\" : \"REQUIRED\",\r\n
     \     \"priority\" : 20,\r\n      \"autheticatorFlow\" : true,\r\n      \"flowAlias\"
     : \"Account verification options\",\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"48aa9515-4a25-47a1-b62b-40fa72defb1b\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"4c9f708d-6439-4972-a71e-f75b38b3ad43\",\r\n
     \   \"alias\" : \"Reset - Conditional OTP\",\r\n    \"description\" : \"Flow to
     determine if the OTP should be reset or not. Set to REQUIRED to force.\",\r\n
     \   \"providerId\" : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n    \"builtIn\"
@@ -687,7 +658,7 @@ data:
     \     \"userSetupAllowed\" : false\r\n    }, {\r\n      \"authenticator\" : \"reset-otp\",\r\n
     \     \"authenticatorFlow\" : false,\r\n      \"requirement\" : \"REQUIRED\",\r\n
     \     \"priority\" : 20,\r\n      \"autheticatorFlow\" : false,\r\n      \"userSetupAllowed\"
-    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"27c99c9d-b3f2-41c1-9003-001dec9e45ff\",\r\n
+    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"12f2f781-268b-4f2f-835e-f63f1833ac6a\",\r\n
     \   \"alias\" : \"User creation or linking\",\r\n    \"description\" : \"Flow
     for the existing/non-existing user alternatives\",\r\n    \"providerId\" : \"basic-flow\",\r\n
     \   \"topLevel\" : false,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\"
@@ -698,7 +669,7 @@ data:
     : true,\r\n      \"requirement\" : \"ALTERNATIVE\",\r\n      \"priority\" : 20,\r\n
     \     \"autheticatorFlow\" : true,\r\n      \"flowAlias\" : \"Handle Existing
     Account\",\r\n      \"userSetupAllowed\" : false\r\n    } ]\r\n  }, {\r\n    \"id\"
-    : \"0f3b33cb-c0c0-490f-8314-a9c63ed766c6\",\r\n    \"alias\" : \"Verify Existing
+    : \"3a3b0c25-d73a-40bb-b911-84122fb14429\",\r\n    \"alias\" : \"Verify Existing
     Account by Re-authentication\",\r\n    \"description\" : \"Reauthentication of
     existing account\",\r\n    \"providerId\" : \"basic-flow\",\r\n    \"topLevel\"
     : false,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\" : [ {\r\n
@@ -708,7 +679,7 @@ data:
     \   }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\" : \"CONDITIONAL\",\r\n
     \     \"priority\" : 20,\r\n      \"autheticatorFlow\" : true,\r\n      \"flowAlias\"
     : \"First broker login - Conditional OTP\",\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"50531ea9-6604-4159-9ed9-0487d8bf7251\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"6f6f213a-d739-450f-b2c8-a6dfe502e69d\",\r\n
     \   \"alias\" : \"browser\",\r\n    \"description\" : \"browser based authentication\",\r\n
     \   \"providerId\" : \"basic-flow\",\r\n    \"topLevel\" : true,\r\n    \"builtIn\"
     : true,\r\n    \"authenticationExecutions\" : [ {\r\n      \"authenticator\" :
@@ -723,7 +694,7 @@ data:
     : false\r\n    }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\"
     : \"ALTERNATIVE\",\r\n      \"priority\" : 30,\r\n      \"autheticatorFlow\" :
     true,\r\n      \"flowAlias\" : \"forms\",\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"46af02b1-2eb1-4edf-8c40-ee0e242a9b05\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"b9bd5988-0d76-4add-b82d-33f5fea2812d\",\r\n
     \   \"alias\" : \"clients\",\r\n    \"description\" : \"Base authentication for
     clients\",\r\n    \"providerId\" : \"client-flow\",\r\n    \"topLevel\" : true,\r\n
     \   \"builtIn\" : true,\r\n    \"authenticationExecutions\" : [ {\r\n      \"authenticator\"
@@ -739,7 +710,7 @@ data:
     : \"client-x509\",\r\n      \"authenticatorFlow\" : false,\r\n      \"requirement\"
     : \"ALTERNATIVE\",\r\n      \"priority\" : 40,\r\n      \"autheticatorFlow\" :
     false,\r\n      \"userSetupAllowed\" : false\r\n    } ]\r\n  }, {\r\n    \"id\"
-    : \"c51c86c1-99ed-46a5-8f3c-37e1a742d978\",\r\n    \"alias\" : \"direct grant\",\r\n
+    : \"4da3a81d-c4ae-42b3-b9aa-10e39466f273\",\r\n    \"alias\" : \"direct grant\",\r\n
     \   \"description\" : \"OpenID Connect Resource Owner Grant\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : true,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\"
     : [ {\r\n      \"authenticator\" : \"direct-grant-validate-username\",\r\n      \"authenticatorFlow\"
@@ -751,14 +722,14 @@ data:
     : false\r\n    }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\"
     : \"CONDITIONAL\",\r\n      \"priority\" : 30,\r\n      \"autheticatorFlow\" :
     true,\r\n      \"flowAlias\" : \"Direct Grant - Conditional OTP\",\r\n      \"userSetupAllowed\"
-    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"dcc2449c-045b-46ca-8240-4bd1cd093ef8\",\r\n
+    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"1b2d89ef-5bd1-43d2-9c42-33d3b42f4cd4\",\r\n
     \   \"alias\" : \"docker auth\",\r\n    \"description\" : \"Used by Docker clients
     to authenticate against the IDP\",\r\n    \"providerId\" : \"basic-flow\",\r\n
     \   \"topLevel\" : true,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\"
     : [ {\r\n      \"authenticator\" : \"docker-http-basic-authenticator\",\r\n      \"authenticatorFlow\"
     : false,\r\n      \"requirement\" : \"REQUIRED\",\r\n      \"priority\" : 10,\r\n
     \     \"autheticatorFlow\" : false,\r\n      \"userSetupAllowed\" : false\r\n
-    \   } ]\r\n  }, {\r\n    \"id\" : \"550c444d-1380-4d62-89c9-049656502323\",\r\n
+    \   } ]\r\n  }, {\r\n    \"id\" : \"9d66cd28-f668-4440-a7e9-f3331f020cac\",\r\n
     \   \"alias\" : \"first broker login\",\r\n    \"description\" : \"Actions taken
     after first broker login with identity provider account, which is not yet linked
     to any Keycloak account\",\r\n    \"providerId\" : \"basic-flow\",\r\n    \"topLevel\"
@@ -770,7 +741,7 @@ data:
     : true,\r\n      \"requirement\" : \"REQUIRED\",\r\n      \"priority\" : 20,\r\n
     \     \"autheticatorFlow\" : true,\r\n      \"flowAlias\" : \"User creation or
     linking\",\r\n      \"userSetupAllowed\" : false\r\n    } ]\r\n  }, {\r\n    \"id\"
-    : \"031e6225-f4a6-4e54-a88d-e0ed4f4913fa\",\r\n    \"alias\" : \"forms\",\r\n
+    : \"bc2f97fc-85bd-43f7-bd62-4b39a2e87e7d\",\r\n    \"alias\" : \"forms\",\r\n
     \   \"description\" : \"Username, password, otp and other auth forms.\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : false,\r\n    \"builtIn\" : true,\r\n
     \   \"authenticationExecutions\" : [ {\r\n      \"authenticator\" : \"auth-username-password-form\",\r\n
@@ -779,7 +750,7 @@ data:
     : false\r\n    }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\"
     : \"CONDITIONAL\",\r\n      \"priority\" : 20,\r\n      \"autheticatorFlow\" :
     true,\r\n      \"flowAlias\" : \"Browser - Conditional OTP\",\r\n      \"userSetupAllowed\"
-    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"f78e3dee-819f-4fdd-a91d-3c06d050a2b3\",\r\n
+    : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"ed694c43-f862-4d3e-9043-3fb11b81217a\",\r\n
     \   \"alias\" : \"http challenge\",\r\n    \"description\" : \"An authentication
     flow based on challenge-response HTTP Authentication Schemes\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : true,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\"
@@ -789,13 +760,13 @@ data:
     \   }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\" : \"REQUIRED\",\r\n
     \     \"priority\" : 20,\r\n      \"autheticatorFlow\" : true,\r\n      \"flowAlias\"
     : \"Authentication Options\",\r\n      \"userSetupAllowed\" : false\r\n    } ]\r\n
-    \ }, {\r\n    \"id\" : \"2f8d41f9-19a6-4419-b3d6-5809919330c8\",\r\n    \"alias\"
+    \ }, {\r\n    \"id\" : \"aeac687b-8edd-4e56-b720-ff83a3484e67\",\r\n    \"alias\"
     : \"registration\",\r\n    \"description\" : \"registration flow\",\r\n    \"providerId\"
     : \"basic-flow\",\r\n    \"topLevel\" : true,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\"
     : [ {\r\n      \"authenticator\" : \"registration-page-form\",\r\n      \"authenticatorFlow\"
     : true,\r\n      \"requirement\" : \"REQUIRED\",\r\n      \"priority\" : 10,\r\n
     \     \"autheticatorFlow\" : true,\r\n      \"flowAlias\" : \"registration form\",\r\n
-    \     \"userSetupAllowed\" : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"aeeb881d-8f7a-44d7-9f9a-5821f05c5dca\",\r\n
+    \     \"userSetupAllowed\" : false\r\n    } ]\r\n  }, {\r\n    \"id\" : \"bc32a0ed-9550-421b-b0c3-eece250f6020\",\r\n
     \   \"alias\" : \"registration form\",\r\n    \"description\" : \"registration
     form\",\r\n    \"providerId\" : \"form-flow\",\r\n    \"topLevel\" : false,\r\n
     \   \"builtIn\" : true,\r\n    \"authenticationExecutions\" : [ {\r\n      \"authenticator\"
@@ -811,7 +782,7 @@ data:
     : \"registration-recaptcha-action\",\r\n      \"authenticatorFlow\" : false,\r\n
     \     \"requirement\" : \"DISABLED\",\r\n      \"priority\" : 60,\r\n      \"autheticatorFlow\"
     : false,\r\n      \"userSetupAllowed\" : false\r\n    } ]\r\n  }, {\r\n    \"id\"
-    : \"46519150-9ece-4aa5-b850-eba081c9e7e1\",\r\n    \"alias\" : \"reset credentials\",\r\n
+    : \"ae19e4b9-a3d6-4d5c-a404-dfe6752854c9\",\r\n    \"alias\" : \"reset credentials\",\r\n
     \   \"description\" : \"Reset credentials for a user if they forgot their password
     or something\",\r\n    \"providerId\" : \"basic-flow\",\r\n    \"topLevel\" :
     true,\r\n    \"builtIn\" : true,\r\n    \"authenticationExecutions\" : [ {\r\n
@@ -827,16 +798,16 @@ data:
     \   }, {\r\n      \"authenticatorFlow\" : true,\r\n      \"requirement\" : \"CONDITIONAL\",\r\n
     \     \"priority\" : 40,\r\n      \"autheticatorFlow\" : true,\r\n      \"flowAlias\"
     : \"Reset - Conditional OTP\",\r\n      \"userSetupAllowed\" : false\r\n    }
-    ]\r\n  }, {\r\n    \"id\" : \"166b19d4-e501-4235-90ff-6fce4e8bae78\",\r\n    \"alias\"
+    ]\r\n  }, {\r\n    \"id\" : \"fc3c4041-ff4f-4da1-95ca-d8ee1585b9f9\",\r\n    \"alias\"
     : \"saml ecp\",\r\n    \"description\" : \"SAML ECP Profile Authentication Flow\",\r\n
     \   \"providerId\" : \"basic-flow\",\r\n    \"topLevel\" : true,\r\n    \"builtIn\"
     : true,\r\n    \"authenticationExecutions\" : [ {\r\n      \"authenticator\" :
     \"http-basic-authenticator\",\r\n      \"authenticatorFlow\" : false,\r\n      \"requirement\"
     : \"REQUIRED\",\r\n      \"priority\" : 10,\r\n      \"autheticatorFlow\" : false,\r\n
     \     \"userSetupAllowed\" : false\r\n    } ]\r\n  } ],\r\n  \"authenticatorConfig\"
-    : [ {\r\n    \"id\" : \"612d1707-2a44-4d33-8832-dee6b765b582\",\r\n    \"alias\"
+    : [ {\r\n    \"id\" : \"1fdbea46-4853-45af-87f9-1d554419bbde\",\r\n    \"alias\"
     : \"create unique user config\",\r\n    \"config\" : {\r\n      \"require.password.update.after.registration\"
-    : \"false\"\r\n    }\r\n  }, {\r\n    \"id\" : \"e89fd7ec-54fb-4c13-8c29-aa60a2dcc420\",\r\n
+    : \"false\"\r\n    }\r\n  }, {\r\n    \"id\" : \"10f6de5d-a23c-4cde-aa48-f3e027c0940c\",\r\n
     \   \"alias\" : \"review profile config\",\r\n    \"config\" : {\r\n      \"update.profile.on.first.login\"
     : \"missing\"\r\n    }\r\n  } ],\r\n  \"requiredActions\" : [ {\r\n    \"alias\"
     : \"CONFIGURE_TOTP\",\r\n    \"name\" : \"Configure OTP\",\r\n    \"providerId\"
@@ -869,15 +840,16 @@ data:
     \ \"registrationFlow\" : \"registration\",\r\n  \"directGrantFlow\" : \"direct
     grant\",\r\n  \"resetCredentialsFlow\" : \"reset credentials\",\r\n  \"clientAuthenticationFlow\"
     : \"clients\",\r\n  \"dockerAuthenticationFlow\" : \"docker auth\",\r\n  \"attributes\"
-    : {\r\n    \"cibaBackchannelTokenDeliveryMode\" : \"poll\",\r\n    \"cibaExpiresIn\"
-    : \"120\",\r\n    \"cibaAuthRequestedUserHint\" : \"login_hint\",\r\n    \"oauth2DeviceCodeLifespan\"
-    : \"600\",\r\n    \"clientOfflineSessionMaxLifespan\" : \"0\",\r\n    \"oauth2DevicePollingInterval\"
-    : \"5\",\r\n    \"clientSessionIdleTimeout\" : \"0\",\r\n    \"parRequestUriLifespan\"
-    : \"60\",\r\n    \"clientSessionMaxLifespan\" : \"0\",\r\n    \"clientOfflineSessionIdleTimeout\"
-    : \"0\",\r\n    \"cibaInterval\" : \"5\"\r\n  },\r\n  \"keycloakVersion\" : \"19.0.1\",\r\n
+    : {\r\n    \"cibaBackchannelTokenDeliveryMode\" : \"poll\",\r\n    \"cibaAuthRequestedUserHint\"
+    : \"login_hint\",\r\n    \"clientOfflineSessionMaxLifespan\" : \"0\",\r\n    \"oauth2DevicePollingInterval\"
+    : \"5\",\r\n    \"clientSessionIdleTimeout\" : \"0\",\r\n    \"clientOfflineSessionIdleTimeout\"
+    : \"0\",\r\n    \"cibaInterval\" : \"5\",\r\n    \"cibaExpiresIn\" : \"120\",\r\n
+    \   \"oauth2DeviceCodeLifespan\" : \"600\",\r\n    \"parRequestUriLifespan\" :
+    \"60\",\r\n    \"clientSessionMaxLifespan\" : \"0\",\r\n    \"frontendUrl\" :
+    \"\",\r\n    \"acr.loa.map\" : \"[]\"\r\n  },\r\n  \"keycloakVersion\" : \"19.0.1\",\r\n
     \ \"userManagedAccessAllowed\" : false,\r\n  \"clientProfiles\" : {\r\n    \"profiles\"
     : [ ]\r\n  },\r\n  \"clientPolicies\" : {\r\n    \"policies\" : [ ]\r\n  }\r\n}"
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: ckey-bolo-realm-json
+  name: ckey-dice-game-realm-json
