@@ -5,6 +5,16 @@ export default () => <Carousel variant="dark" className="carMain">
       <Carousel.Item>
         <img
           className="d-block w-100 carItem"
+          src="/img/login.png"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>Login</h3>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carItem"
           src="/img/create1.png"
           alt="First slide"
         />

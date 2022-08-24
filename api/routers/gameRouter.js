@@ -31,31 +31,22 @@ router.param('gameID', (req, res, next, gameID) => {
 router.get('/game/ping', async (req, res) => {
     try {
         const userID = req.user.sub;
-        try {
-            const match = {'game.playerIDs': [userID] }
-            const docs = await gameModel.find(match)
-            const numberOfNew = docs.filter(doc => !doc.game.players[userID].checked).length
-            const numberOfYourTurn = docs.filter(doc => doc.game.currentPlayer === userID).length
-            res.send({ numberOfNew: numberOfNew, numberOfYourTurn: numberOfYourTurn})
-        } catch (err) {
-            logger.debug(err.message)
-            return res.send({
-                'level': 'warning',
-                'message': err.message,
-                'example': {
-                    'method': 'GET',
-                    'path': '/game/ping'
-                }
-            });
-        }
+        const match = {'game.playerIDs': [userID] }
+        const docs = await gameModel.find(match)
+        const numberOfNew = docs.filter(doc => !doc.game.players[userID].checked).length
+        const numberOfYourTurn = docs.filter(doc => doc.game.currentPlayer === userID).length
+        res.send({ numberOfNew: numberOfNew, numberOfYourTurn: numberOfYourTurn})
     } catch (err) {
-            logger.error(err)
-            return res.status(504).send({
-                'level': 'error',
-                'message': errorMessage,
-            })
+        logger.debug(err.message)
+        return res.status(504).send({
+            'level': 'warning',
+            'message': errorMessage,
+            'example': {
+                'method': 'GET',
+                'path': '/game/ping'
+            }
+        });
     }
-
 });
 
 router.get('/game', async (req, res) => {
@@ -87,7 +78,7 @@ router.get('/game', async (req, res) => {
         res.send(games)
         
     } catch (err) {
-        logger.error(err)
+        logger.error(err.message)
         return res.status(504).send({
             'level': 'error',
             'message': errorMessage,
@@ -132,8 +123,8 @@ router.post('/game', async (req, res) => {
             })
 
         } catch (err) {
-            logger.debug(err.message)
-            res.send({
+            logger.debug(`User ${currentUser.id} has warning ${err.message} when try to create game`)
+            res.status(400).send({
                 'level': 'warning',
                 'message': err.message,
                 'example': {
@@ -154,7 +145,7 @@ router.post('/game', async (req, res) => {
             })
         }
     } catch (err) {
-        logger.error(err)
+        logger.error(err.message)
         return res.status(504).send({
             'level': 'error',
             'message': errorMessage,
@@ -167,12 +158,11 @@ router.delete('/game', async (req, res) => {
     try {
         const userID = req.user.sub;
         const { deleteMany } = await gameModel.deleteMany({'game.playerIDs': [userID]})
-        logger.info(`User ${userID} delete all ${deleteMany} games.`)
+        logger.info(`User ${userID} delete his all ${deleteMany} games.`)
         res.send({ level: 'info', message: `Delated all games for user ${userID}`
         })
-
     } catch (err) {
-        logger.error(err)
+        logger.error(err.message)
         return res.status(504).send({
             'level': 'error',
             'message': errorMessage,
@@ -203,14 +193,14 @@ router.get('/game/:gameID', async (req, res) => {
             logger.debug(`User ${userID} get game ${gameID}`)
             res.send(doc)
         } catch (err) {
-            logger.error(err)
+            logger.debug(`User ${userID} in game ${gameID} has error ${err.message} when try to get this game`)
             return res.status(400).send({
                 'level': 'warning',
                 'message': err.message,
             })  
         }
     } catch (err) {
-        logger.debug(err.message)
+        logger.error(err.message)
         return res.status(504).send({
             'level': 'error',
             'message': errorMessage,
@@ -243,7 +233,7 @@ router.post('/game/:gameID', async (req, res) => {
             try {
                 doc = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]}).exec()
             } catch (err) {
-                logger.error(err)
+                logger.error(`User ${userID} in ${gameID} has error: ${err.message}`)
                 return res.status(504).send({
                     'level': 'error',
                     'message': errorMessage,
@@ -254,19 +244,18 @@ router.post('/game/:gameID', async (req, res) => {
             try {
                 await gameModel.findByIdAndUpdate(gameID, {game: game}, {new: true})
             } catch (err) {
-                logger.error(err)
+                logger.error(`User ${userID} in ${gameID} has error: ${err.message}`)
                 return res.status(504).send({
                     'level': 'error',
                     'message': errorMessage,
                })  
             }
-            
-            logger.debug(`Player ${userID} make a move in game ${doc._id}`)
+            logger.debug(`User ${userID} in game ${gameID} send dices: [${numbersToChange}] and figure: ${chosenFigure}`)
             res.send(game)
 
         } catch (err) {
-            logger.error(err.message)
-            res.send({
+            logger.debug(`User ${userID} in game ${gameID} has error ${err.message} when make a move`);
+            res.status(400).send({
                 'level': 'warning',
                 'message': err.message,
                 'example': {
@@ -292,13 +281,14 @@ router.delete('/game/:gameID', async (req, res) => {
         const { gameID } = req.params;
         const userID = req.user.sub;
         await gameModel.deleteOne({ _id: gameID, 'game.playerIDs': [userID]})
-        logger.debug(`Player ${gameID} deleted game ${gameID}`);
+        logger.debug(`User ${gameID} deleted game ${gameID}`);
         res.status(202).send({
             'level': 'info',
             'message': `You delete game ${gameID}`
         });
     } catch (err) {
-        logger.error(err.message)
+        logger.debug(`User ${userID} in game ${gameID} has error ${err.message} when delete it `);
+        logger.debug()
         res.status(504).send({
             'level': 'error',
             'message': errorMessage,

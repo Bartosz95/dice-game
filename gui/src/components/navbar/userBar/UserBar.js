@@ -9,7 +9,7 @@ const UserBar = props => {
 
   const dropdown = <NavDropdown title={username} variant='outline-secondary' className="userBarBtn" >
     <Dropdown.Item onClick={ () => props.keycloak.logout() } className="navItem">Logout</Dropdown.Item>
-    <Dropdown.Item onClick={ () => props.keycloak.accountManagement() }className="navItem">Account</Dropdown.Item>
+    {/* <Dropdown.Item onClick={ () => props.keycloak.accountManagement() }className="navItem">Account</Dropdown.Item> */} 
   </NavDropdown > 
 
   const load = async () => {

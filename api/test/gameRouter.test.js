@@ -189,7 +189,7 @@ describe('E2E', () => {
                     const db_game4 = await gameModel.create({ game: game4 })
                     const gameID4 =  db_game4._id.toString()
                     const res = await request(app).post(`/game/${gameID4}`).set('Authorization', `Bearer ${token}`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
-                    expect(res.status).toEqual(200)
+                    expect(res.status).toEqual(400)
                     expect(res.body).toHaveProperty("level", 'warning')
                     expect(res.body).toHaveProperty("message", `This is turn of user: ghi`)
                 })

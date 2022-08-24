@@ -94,16 +94,14 @@ export default props => {
       },[props, currentPlayer, isYourTurn]);
 
     const markDiceToRoll = diceID => {
-        if((numberOfRoll === 0) || (numberOfRoll === 3)) return;
+        if((numberOfRoll === 0) || (numberOfRoll === 3)) 
+            return;
+        
+        const newDicesToChange = dicesToChange.includes(diceID) ? dicesToChange.filter(dice => dice !== diceID) : dicesToChange.concat(diceID)
+        setDicesToChange(newDicesToChange) 
+
         const dice = mug.find(dice => dice.id === diceID)
         dice.roll = !dice.roll
-        let dicesToChange = []
-        if(dice.roll) {
-            dicesToChange.push(diceID)
-        } else {
-            dicesToChange = dicesToChange.filter( id => id !== diceID )
-        }
-        setDicesToChange(dicesToChange) 
         setMug(mug)
     }
 
