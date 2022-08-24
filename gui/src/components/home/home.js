@@ -314,7 +314,7 @@ const summaryCreateBtn = <Button
 const summaryLoginBtn = <Button 
     variant="secondary"
     className="summaryCreateBtn"
-    href='/create' >
+    onClick={ () => props.keycloak.login() } >
     Please login before play the game.
 </Button>
 

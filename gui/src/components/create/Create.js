@@ -12,6 +12,7 @@ export default props => {
   const [currentUser, setCurrentUser] = useState({})
   const [gameName, setGameName] = useState('')
   const [users, setUsers] = useState([])
+  const [renderContent, setRenderContent] = useState(false)
   
   
 
@@ -31,7 +32,8 @@ export default props => {
         if((body.level === 'warning') || (body.level === 'error')) {
           return setAlertMessage(body)
         }
-        setUsers(body.filter(user => user.id !== userInfo.sub))  
+        setUsers(body.filter(user => user.id !== userInfo.sub))
+        setRenderContent(true)
       }
     } catch(err) {
       console.log(err)
@@ -86,7 +88,7 @@ export default props => {
         } 
         window.location.href = `/${body._id}`
   
-      }
+      } 
     } catch (err) {
       console.log(err)
       setAlertMessage(err)
@@ -117,12 +119,16 @@ export default props => {
       Create
   </Button></div>
 
-  return <Container className="mainContainer">
-    {alert}
+  const content = <>
     {gameNameForm}
-     
     {userList}
     {createButton}
+  </>
+
+  return <Container className="mainContainer">
+    {alert}
+    {renderContent ? content : '' }
+    
     </Container>
 
 }

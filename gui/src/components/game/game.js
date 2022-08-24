@@ -23,7 +23,7 @@ export default props => {
     const [ dicesToChange, setDicesToChange] = useState([])
     const [ chosenFigure, setChosenFigure] = useState(null)
     const [ alertMessage, setAlertMessage] = useState(null)
-    const [ renderGame, setRenderGame] = useState(false)
+    const [ renderContent, setRenderContent] = useState(false)
 
     const getGame = async (force) => {
         try {
@@ -42,12 +42,12 @@ export default props => {
                 const response = await fetch(`${props.config.DICE_GAME_API}/game/${gameID}`, requestOptions)
                 let body = await response.json();
                 if((body.level === 'warning') || (body.level === 'error')) {
-                    setRenderGame(false)
+                    setRenderContent(false)
                     return setAlertMessage(body)
                 } else if(!body._id) {
                     throw new Error('Somting went wrong, try later.')
                 } else {
-                    setRenderGame(true)
+                    setRenderContent(true)
                 }
                 
                 const game = body.game
@@ -79,10 +79,11 @@ export default props => {
                 setMug(mug)
                 setDicesToChange([])
                 setChosenFigure(null)
+                setAlertMessage(null)
             }
         } catch (err) {
             console.log(err)
-            setRenderGame(false)
+            setRenderContent(false)
             return setAlertMessage(err)
         }
     }
@@ -262,7 +263,7 @@ export default props => {
 
     return <Container fluid className="mainContainer dice-game-container">
         {alert}
-        {renderGame ? game : '' }
+        {renderContent ? game : '' }
         
     </Container>
 }

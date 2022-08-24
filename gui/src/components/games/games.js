@@ -27,6 +27,7 @@ export default props => {
           return setAlertMessage(body)
         }
         setGames(body)
+        setAlertMessage(null)
         setRenderContent(true)
       }
     } catch (err) {
