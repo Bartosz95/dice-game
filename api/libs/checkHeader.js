@@ -6,7 +6,6 @@ export default (req, res, next) => {
             throw new Error("Request has to containt authorization header");
         }  
         const authHeader = req.headers.authorization.toString().split(" ")
-        console.log(typeof authHeader[1] === 'string')
         if(!Array.isArray(authHeader) || authHeader.length !== 2 || authHeader[0].toLowerCase() !== "bearer" || typeof authHeader[1] !== 'string') {
             throw new Error("Authorization header has to be Bearer Token type")
         }

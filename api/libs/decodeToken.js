@@ -4,14 +4,15 @@ import logger from "./logger";
   
 export default (req, res, next) => {
     try {
-        if(!req.kauth.grant.access_token.token) {
-            throw new Error("Cannot decode token");
+        if(!req.headers.authorization) {
+            throw new Error("You did not provide a authorization header");
         }  
-        req.user = jwt_decode(req.kauth.grant.access_token.token)
 
+        req.user = jwt_decode(req.headers.authorization)
         const {sub, preferred_username} = req.user
+
         if(!sub)
-            throw new Error('sid in token is undefined');
+            throw new Error('sub in token not exist');
         if(!preferred_username) 
             throw new Error('preferred_username in token is undefined')
 
@@ -24,7 +25,7 @@ export default (req, res, next) => {
             'message': err.message || "Authorization header is not correct",
             'example': {
               'method': 'GET',
-              'path': '/user/1/game',
+              'path': '/game',
               'header': {
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5...'
               },

@@ -17,57 +17,19 @@ describe('E2E', () => {
     let currentUser
 
     beforeAll(async () => {
-        
-        const requestBody = new URLSearchParams({
-            'grant_type':'password',
-            'client_id':'dice-game',
-            'username':'tom',
-            'password':'password'
-        })
-
-        const requestOptions = {
-            hostname: 'dice-game',
-            port: 443,
-            path: '/auth/realms/bolo/protocol/openid-connect/token',
-            method: 'POST',
-            rejectUnauthorized: false,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Length': requestBody.toString().length
-            }
-        };
-        
-        const request = https.request(requestOptions, response => {
-            let responseBody = '';
-            
-            response.on('data', chunk => {
-                responseBody += chunk
-            });
-
-            response.on('end', () => {
-                token = JSON.parse(responseBody).access_token
-                const decodedToken = jwt_decode(token)
-                currentUser = { id: decodedToken.sub, username: decodedToken.preferred_username }
-            })
-        });
-        
-        request.on('error', (e) => {
-            console.error(e);
-        });
-
-        request.write(requestBody.toString());
-        request.end();
+        token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJKRzg0VXRqTmVnc0txSzQycTVyT1FMc2NOVFl3ck43aDUxNHRIT2YydFAwIn0.eyJleHAiOjE2NjEzMzU0NDksImlhdCI6MTY2MTMzNTE0OSwianRpIjoiZWM5ZDNlZmYtMjlhNi00NmRkLWFlMTQtMmJiYTIyMTVlNWNmIiwiaXNzIjoiaHR0cHM6Ly9kaWNlLWdhbWUvYXV0aC9yZWFsbXMvZGljZS1nYW1lIiwiYXVkIjpbInJlYWxtLW1hbmFnZW1lbnQiLCJhY2NvdW50Il0sInN1YiI6ImFmODNmZWM5LTVmN2QtNDA2Zi04ZTFmLTBhZWIxOTAxNzE4OSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImRpY2UtZ2FtZSIsInNlc3Npb25fc3RhdGUiOiI4MTMzODIzZS1jN2Y1LTQ2ZmQtODNkMC1iNTJkMjE0ZjNiMDYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIioiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJ1c2VyIiwiZGVmYXVsdC1yb2xlcy1ib2xvIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsicmVhbG0tbWFuYWdlbWVudCI6eyJyb2xlcyI6WyJ2aWV3LXVzZXJzIiwicXVlcnktZ3JvdXBzIiwicXVlcnktdXNlcnMiXX0sImRpY2UtZ2FtZSI6eyJyb2xlcyI6WyJ1c2VyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI4MTMzODIzZS1jN2Y1LTQ2ZmQtODNkMC1iNTJkMjE0ZjNiMDYiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRvbSIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiJ9.X-sgJgb5uxIDV5QpFZCbunwcSYyATT5-VcujRr4W2c498plyoF_s9I49PSWKEWA_jJbS4LSGV7KDCByBguQig8g4x3z2kQ3clsCxzu3pxSN6DiccbWcQyn5CA3M-LnccKBV3-a0AEIDUkdynE95g1nJiTdbRPHqNcgFGoKVy1l6Y_FKg_I2ZPCxSX9bNlV1yitu_uft2fpQuCb9ds6E6Qt4zcSKG_MRDC4eK2BdhUcVZAdUZnffM59huJ8gRrHhAVbHN1QfxXcU7d6L9geSD2crwh5tHKYbeCDb9eUWMd7ptCiVvDl74NqHH6fRllqAWMOAMk-D9yuXed48NuetnPg"
+        const decodedToken = jwt_decode(token)
+        currentUser = { id: decodedToken.sub, username: decodedToken.preferred_username }
     })
 
     beforeEach(async function () {
-        console.log(token)
-        console.log(currentUser)
+        await gameModel.deleteMany({})
         await gameModel.deleteMany({'game.playerIDs': [currentUser.id]})
         await gameModel.deleteMany({'game.playerIDs': ["def"]})
         game = new Game(currentUser, [{ id:"def", username: "jon" }], "Game 1")
         deepCopieGame = JSON.parse(JSON.stringify(game))
         currentPlayer = currentUser.id
-        db_game = await gameModel.create(game)
+        db_game = await gameModel.create({game})
         gameID = db_game._id.toString()
     })
        
@@ -75,14 +37,22 @@ describe('E2E', () => {
     describe("endpoint: /game", () => {
         describe("get: get all games for user", () => {
             test('games are return correctly', async () => {
-                await gameModel.create(new Game(currentUser,[{ id: "ghi", username: "mike"}], "Game 2"))
-                console.log(token)
+                const game2 = new Game(currentUser, [{ id: "ghi", username: "mike"}], "Game 2")
+                const game3 = new Game({ id: "ghi", username: "mike"}, [], "Game 3")
+                await gameModel.create({ game: game2 })
+                await gameModel.create({ game: game3 })
                 const res = await request(app).get(`/game`).set('Authorization', `Bearer ${token}`)
                 expect(res.status).toEqual(200)
                 expect(res.body).toHaveLength(2)
                 res.body.forEach(game => {
-                    expect(game).toHaveProperty('playerIDs')
-                    expect(game.playerIDs).toEqual(expect.arrayContaining([currentPlayer]));
+                    expect(game).toHaveProperty('players')
+                    expect(game.players).toEqual(
+                        expect.arrayContaining([
+                            expect.objectContaining({
+                                _id: currentPlayer
+                            })
+                        ])
+                    );
                 })
             })
 
