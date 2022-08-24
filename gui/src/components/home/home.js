@@ -158,6 +158,35 @@ export default props => {
     </div>
 
     <div className="steps">
+      <div className="stepsTitle">Login</div>
+      <div className="stepsText">
+      In the first place you need to be login when you want to play this game.
+      Press login button on the top right corner of the page to see a login page.
+      If you have account you can login yourself now.
+      If you don't have any please create one. 
+      You can also login with avaiable providers as Google, Facebook ect.
+      You can also create account manually.
+      To do that please press the Register button on the bottom of the form.
+      </div>
+      <div className='stepsImageDiv'>
+          <img src="/img/login.png" className='stepsImage'/> 
+      </div>
+    </div>
+
+
+    <div className="steps">
+      <div className="stepsTitle">Register</div>
+      <div className="stepsText">
+      Register form is quite conventional. 
+      You need to give your name and email address. 
+      Choose your username carefully because it will be displayed for other users in game.
+      </div>
+      <div className='stepsImageDiv'>
+          <img src="/img/login.png" className='stepsImage'/> 
+      </div>
+    </div>
+
+    <div className="steps">
       <div className="stepsTitle">Create Game</div>
       <div className="stepsText">
       First go to New Game tab. 
