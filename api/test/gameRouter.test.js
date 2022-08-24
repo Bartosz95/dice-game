@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import gameModel from "../models/gameModel"
 import { Game , makeMove} from '../services/Game'
 import app from '../app'
+import { response } from "express";
 
 describe('E2E', () => {
 
@@ -26,6 +27,8 @@ describe('E2E', () => {
         await gameModel.deleteMany({})
         await gameModel.deleteMany({'game.playerIDs': [currentUser.id]})
         await gameModel.deleteMany({'game.playerIDs': ["def"]})
+        await gameModel.deleteMany({'game.playerIDs': ["ghi"]})
+        await gameModel.deleteMany({'game.playerIDs': ["xyz"]})
         game = new Game(currentUser, [{ id:"def", username: "jon" }], "Game 1")
         deepCopieGame = JSON.parse(JSON.stringify(game))
         currentPlayer = currentUser.id
@@ -56,63 +59,80 @@ describe('E2E', () => {
                 })
             })
 
-            test('user has not any game', async () => {
+            test('User has not any game', async () => {
                 await gameModel.deleteMany({'game.playerIDs': [currentPlayer]})
-                const res = await request(app).get(`/game`)
+                const res = await request(app).get(`/game`).set('Authorization', `Bearer ${token}`)
                 expect(res.status).toEqual(200)
-                expect(res.body).toHaveProperty('message', "User does not have any games")
-            })
-
-            test('User not exist', async () => {
-                const userID = 'notExist'
-                const res = await request(app).get(`/${userID}/game`)
-                expect(res.status).toEqual(200)
-                expect(res.body).toHaveProperty('message', "User does not have any games")
+                expect(res.body).toHaveLength(0)
+                expect(res).not.toHaveProperty('level')
+                
             })
         })
 
         describe("post: create game", () => {
             test('Game is created correctly', async () => {
-                const res = await request(app).post(`/game`).send({ "userIDs": [currentPlayer, "xyz"]}).set('Accept', 'application/json')
+                const payload = { users: [{ id: 'xyz', username: 'tom' }], name: "Game 4" }
+                const res = await request(app).post(`/game`).set('Authorization', `Bearer ${token}`).send(payload).set('Accept', 'application/json')
                 expect(res.status).toEqual(201)
                 expect(res.body).toHaveProperty('_id')
                 expect(res.body).toHaveProperty('currentPlayer')
                 expect(res.body).toHaveProperty('playerIDs')
                 expect(res.body.playerIDs).toEqual(expect.arrayContaining([currentPlayer, "xyz"]));
+                
             })
 
             test('Add request owner to game', async () => {
-                const res = await request(app).post(`/game`).send({ "userIDs": [ "xyz"]}).set('Accept', 'application/json')
+                const payload = { users: [ currentUser, { id: 'xyz', username: 'tom' }], name: "Game 4" }
+                const res = await request(app).post(`/game`).send(payload).set('Authorization', `Bearer ${token}`).send(payload).set('Accept', 'application/json')
                 expect(res.status).toEqual(201)
                 expect(res.body).toHaveProperty('_id')
                 expect(res.body).toHaveProperty('currentPlayer')
                 expect(res.body).toHaveProperty('playerIDs')
                 expect(res.body.playerIDs).toEqual(expect.arrayContaining([currentPlayer, "xyz"]));
+                expect(res.body.playerIDs).toHaveLength(2)
             })
 
-            test('return error if userIDs is not a Array', async () => {
-                const res = await request(app).post(`/game`).send({ "userIDs": "xyz"}).set('Accept', 'application/json')
-                expect(res.body).toHaveProperty('message', 'userIDs should be a Array')
+            test('return error if users is not a Array', async () => {
+                const payload = { users: { id: 'xyz', username: 'tom' }, name: "Game 4" }
+                const res = await request(app).post(`/game`).send(payload).set('Authorization', `Bearer ${token}`).set('Accept', 'application/json')
+                expect(res.body).toHaveProperty('message', 'users should be a Array')
             })
 
-            test('return error if any of userID in userIDs is not a string', async () => {
-                const res = await request(app).post(`/game`).send({ "userIDs": [ "xyz", 1] }).set('Accept', 'application/json')
-                expect(res.body).toHaveProperty('message', 'Every user in userIDs should be a string')
+            test('Every user should contain id and username', async () => {
+                const payload = { users: [ { id: 'xyz', username: 'tom' }, 1], name: "Game 4" }
+                const res = await request(app).post(`/game`).set('Authorization', `Bearer ${token}`).send(payload).set('Accept', 'application/json')
+                expect(res.body).toHaveProperty('message', 'Every user should contain id and username')
+            })
+
+            test('Every user id should be a string', async () => {
+                const payload = { users: [{ id: 1, username: 'tom' }], name: "Game 4" }
+                const res = await request(app).post(`/game`).set('Authorization', `Bearer ${token}`).send(payload).set('Accept', 'application/json')
+                expect(res.body).toHaveProperty('message', 'Every user id should be a string')
+            })
+
+            test('Every user username should be a string', async () => {
+                const payload = { users: [ { id: 'xyz', username: 1 }], name: "Game 4" }
+                const res = await request(app).post(`/game`).set('Authorization', `Bearer ${token}`).send(payload).set('Accept', 'application/json')
+                expect(res.body).toHaveProperty('message', 'Every user username should be a string')
             })
         })
 
-        describe("delete: delete all game for user", () => {
+        describe('delete: delete all game for user', () => {
             beforeEach(async function () {
-                await gameModel.deleteMany({'game.playerIDs': ["ghi"]})
-                await gameModel.create(new Game({id:"abc", username: "anna"}, [{ id:"ghi", username: "mike" }], "Game 2"))
-                await gameModel.create(new Game({id:"ghi", username: "mike" }, [{ id:"def", username: "jon" }], "Game 3"))
-            })
+                await gameModel.deleteMany({})
+                const game4 = new Game(currentUser, [{id:"abc", username: "anna"}, { id:"ghi", username: "mike" }], "Game 4")
+                const game5 = new Game({id:"ghi", username: "mike" }, [currentUser, { id:"def", username: "jon" }], "Game 5")
+                const game6 = new Game({id:"ghi", username: "mike" }, [{ id:"def", username: "jon" }], "Game 5")
+                await gameModel.create({ game: game4 })
+                await gameModel.create({ game: game5 })
+                await gameModel.create({ game: game6 })
+            }) 
 
-            test('game are deleted correctly', async () => {
+            test('games are deleted correctly', async () => {
                     await expect(gameModel.find({'game.playerIDs': [currentPlayer]})).resolves.toHaveLength(2)
 
-                    const res = await request(app).delete(`/game`)
-                    
+                    const res = await request(app).delete(`/game`).set('Authorization', `Bearer ${token}`)
+    
                     expect(res.status).toEqual(200)
                     await expect(gameModel.find({'game.playerIDs': [currentPlayer]})).resolves.toHaveLength(0)
                     await expect(gameModel.find({'game.playerIDs': ['ghi']})).resolves.toHaveLength(1)
@@ -121,24 +141,27 @@ describe('E2E', () => {
     })
 
     describe('endpoint: /game/:gameID', () => {
-        describe('get: get particular game for user', () => {
+        describe('get: particular game for user', () => {
 
             test('game are returned correctly', async () => {
-                const res = await request(app).get(`/game/${gameID}`)
+                const res = await request(app).get(`/game/${gameID}`).set('Authorization', `Bearer ${token}`)
                 expect(res.status).toEqual(200)
                 expect(res.body).toHaveProperty('_id')
-                expect(res.body).toHaveProperty('game', game)
+                const gameChecked = JSON.parse(JSON.stringify(game))
+                gameChecked.players[currentPlayer].checked = true
+                gameChecked.isYourTurn = true
+                expect(res.body).toHaveProperty('game', gameChecked)
             })
 
             test('get error becouse of wrong gameID', async () => {
-                const res = await request(app).get(`/game/622cd907f6026dbf7cad27ef`)
-                expect(res.status).toEqual(200)
-                expect(res.body).toHaveLength(0)
+                const res = await request(app).get(`/game/622cd907f6026dbf7cad27ef`).set('Authorization', `Bearer ${token}`)
+                expect(res.status).toEqual(400)
+                expect(res.body).toHaveProperty("message", 'Wrong gameID')
             })
 
-            test('get error becouse of wrong gameID', async () => {
-                const res = await request(app).get(`/game/123`)
-                expect(res.status).toEqual(200)
+            test('gameID cannot be valid', async () => {
+                const res = await request(app).get(`/game/123`).set('Authorization', `Bearer ${token}`)
+                expect(res.status).toEqual(400)
                 expect(res.body).toHaveProperty("message", 'gameID cannot be valid')
             })
         })
@@ -146,7 +169,7 @@ describe('E2E', () => {
         describe('post: play the game', () => {
             describe('roll dicess', () => {
                 test('first time', async () => {
-                    const res = await request(app).post(`/game/${gameID}`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
+                    const res = await request(app).post(`/game/${gameID}`).send({ "numbersToChange": ["0", "1"]}).set('Authorization', `Bearer ${token}`).set('Accept', 'application/json')
                     const db_game = await gameModel.findOne({ 'game.playerIDs': [currentPlayer], _id: gameID})
 
                     expect(res.status).toEqual(200)
@@ -162,19 +185,18 @@ describe('E2E', () => {
                 })
 
                 test('by wrong player', async () => {
-                    const wrongCurrentPlayer = currentPlayer === "abc" ? "def" : "abc"
-
-                    const res = await request(app).post(`/${wrongCurrentPlayer}/game/${gameID}`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
-
+                    const game4 = new Game({ id:"ghi", username: "mike" }, [currentUser], "Game 4")
+                    const db_game4 = await gameModel.create({ game: game4 })
+                    const gameID4 =  db_game4._id.toString()
+                    const res = await request(app).post(`/game/${gameID4}`).set('Authorization', `Bearer ${token}`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
                     expect(res.status).toEqual(200)
                     expect(res.body).toHaveProperty("level", 'warning')
-                    expect(res.body).toHaveProperty("message", `This is turn of user: ${currentPlayer}`)
-                    await expect(gameModel.findOne({ 'game.playerIDs': [currentPlayer],_id: gameID})).resolves.toHaveProperty('game', db_game.game)
+                    expect(res.body).toHaveProperty("message", `This is turn of user: ghi`)
                 })
 
                 test('get error if game does not exist', async () => {
-                    const res = await request(app).post(`/game/622cd907f6026dbf7cad27ef`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
-                    expect(res.status).toEqual(200)
+                    const res = await request(app).post(`/game/622cd907f6026dbf7cad27ef`).set('Authorization', `Bearer ${token}`).send({ "numbersToChange": ["0", "1"]}).set('Accept', 'application/json')
+                    expect(res.status).toEqual(504)
                     // expect(res.body).toHaveProperty("message", '') // get errorif game doesn't exist
                 })
             })
@@ -189,7 +211,7 @@ describe('E2E', () => {
                 test('correctly', async () => {
                     const chosenFigure = 'full'
                     
-                    const res = await request(app).post(`/game/${gameID}`).send({ "chosenFigure": chosenFigure}).set('Accept', 'application/json')
+                    const res = await request(app).post(`/game/${gameID}`).set('Authorization', `Bearer ${token}`).send({ "chosenFigure": chosenFigure}).set('Accept', 'application/json')
                     
                     const db_game = await gameModel.findOne({ 'game.playerIDs': [currentPlayer], _id: gameID})
                     expect(res.status).toEqual(200)
@@ -201,7 +223,7 @@ describe('E2E', () => {
                 test('get error if chosenFigure has wrong value', async () => {
                     const chosenFigure = 1
 
-                    const res = await request(app).post(`/game/${gameID}`).send({ "chosenFigure": chosenFigure}).set('Accept', 'application/json')
+                    const res = await request(app).post(`/game/${gameID}`).set('Authorization', `Bearer ${token}`).send({ "chosenFigure": chosenFigure}).set('Accept', 'application/json')
                     expect(res.body).toHaveProperty("message", "chosenFigure should be a string")
                 })
 
@@ -210,7 +232,7 @@ describe('E2E', () => {
                     game.players[currentPlayer].table[chosenFigure] = 0
                     await gameModel.findByIdAndUpdate(gameID, {game: game}, {new: true})
 
-                    const res = await request(app).post(`/game/${gameID}`).send({ "chosenFigure": chosenFigure}).set('Accept', 'application/json')
+                    const res = await request(app).post(`/game/${gameID}`).set('Authorization', `Bearer ${token}`).send({ "chosenFigure": chosenFigure}).set('Accept', 'application/json')
                     
                     expect(res.body).toHaveProperty("message", "Figure already chosen")
                 })
@@ -218,29 +240,38 @@ describe('E2E', () => {
 
             test('get error if numbersToChange and chosenFigure is undefined', async () => {
 
-                const res = await request(app).post(`/game/${gameID}`).send({}).set('Accept', 'application/json')
+                const res = await request(app).post(`/game/${gameID}`).set('Authorization', `Bearer ${token}`).send({}).set('Accept', 'application/json')
                 
                 expect(res.body).toHaveProperty("message", "Either numbersToChange or chosenFigure should be defined")
             })
         })
 
         describe('delete: particular game', () => {
+
             beforeEach(async function () {
                 await gameModel.deleteMany({'game.playerIDs': ["ghi"]})
-                await gameModel.create(new Game(currentUser, [{ id:"ghi", username: "mike" }], "Game 2"))
-                await gameModel.create(new Game({ id:"ghi", username: "mike" }, [{ id:"def", username: "jon" }], "Game 3"))
+                const game2 = new Game(currentUser, [{ id:"ghi", username: "mike" }], "Game 2")
+                const game3 = new Game({ id:"ghi", username: "mike" }, [{ id:"def", username: "jon" }], "Game 3")
+                await gameModel.create({ game: game2})
+                await gameModel.create({ game: game3})
             })
 
-            test('game are deleted correctly', async () => {
+            test('particular game are deleted correctly', async () => {
 
                 await expect(gameModel.find({'game.playerIDs': [currentPlayer]})).resolves.toHaveLength(2)
                 await expect(gameModel.findOne({ 'game.playerIDs': [currentPlayer], _id: gameID})).resolves.toBeTruthy()
 
-                const res = await request(app).delete(`/game/${gameID}`)
+                const res = await request(app).delete(`/game/${gameID}`).set('Authorization', `Bearer ${token}`)
                 
-                expect(res.status).toEqual(200)
-                await expect(gameModel.findOne({ 'game.playerIDs': [currentPlayer], _id: gameID})).resolves.toBeNull()
+                expect(res.status).toEqual(202)
                 await expect(gameModel.find({'game.playerIDs': [currentPlayer]})).resolves.toHaveLength(1)
+                await expect(gameModel.find({'game.playerIDs': [currentPlayer]})).resolves.toEqual(
+                    expect.arrayContaining([
+                        expect.not.objectContaining({
+                            _id: gameID
+                        })
+                    ])
+                );
                 await expect(gameModel.find({'game.playerIDs': ["ghi"]})).resolves.toHaveLength(2)
             })
         })

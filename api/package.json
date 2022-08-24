@@ -7,7 +7,7 @@
   "scripts": {
     "start-prod": "npx babel-node index.js",
     "start": "nodemon --exec babel-node index.js",
-    "test": "LOG_LEVEL=emerg jest --setupFiles dotenv/config --coverage -i test/gameRouter.test -t 'games are return correctly'"
+    "test": "LOG_LEVEL=error jest --setupFiles dotenv/config --coverage -i test/"
   },
   "dependencies": {
     "@babel/node": "^7.x.x",

@@ -10,27 +10,19 @@ const router = Router();
 
 const errorMessage = "Something went wrong. Please try again later"
 
-router.param('gameID', function (req, res, next, gameID) {
+router.param('gameID', (req, res, next, gameID) => {
     try {
-        try {
-            if(!mongoose.isValidObjectId(gameID)) {
-                throw new Error('gameID cannot be valid');
-            }
-        } catch (err) {
-            logger.debug(err)
-            return res.send({
-                'level': 'warning',
-                'message': err.message,
-                'example': {
-                    'path': '/game/622cd907f6026dbf7cad27ef',
-                }
-            })
-        } 
+        if(!mongoose.isValidObjectId(gameID)) {
+            throw new Error('gameID cannot be valid');
+        }
     } catch (err) {
-        logger.error(err)
-        return res.status(504).send({
-            'level': 'error',
-            'message': errorMessage,
+        logger.debug(err.message)
+        return res.status(400).send({
+            'level': 'warning',
+            'message': err.message,
+            'example': {
+                'path': '/game/622cd907f6026dbf7cad27ef',
+            }
         })
     }
     next()
@@ -120,10 +112,13 @@ router.post('/game', async (req, res) => {
             if(!Array.isArray(users))
                 throw new Error('users should be a Array');
             users.forEach(user => {
+                if(!user.id || !user.username){
+                    throw new Error('Every user should contain id and username')
+                }
                 if(typeof user.id !== 'string') 
-                    throw new Error('Every id in users array should be a string')
-                if(typeof user.id !== 'string') 
-                    throw new Error('Every username in users array should be a string')
+                    throw new Error('Every user id should be a string')
+                if(typeof user.username !== 'string') 
+                    throw new Error('Every user username should be a string')
             })
             
             const game = new Game(currentUser, users, name)
@@ -144,8 +139,17 @@ router.post('/game', async (req, res) => {
                 'example': {
                     'header': 'Content-Type: application/json',
                     'method': 'POST',
-                    'path': '/game/622cd907f6026dbf7cad27ef',
-                    'body': { 'userIDs': ["1","2"] }
+                    'path': '/game',
+                    'body': { 
+                        users: [{
+                            id: '1234',
+                            username: 'tom'
+                        },{
+                            id: '4321',
+                            username: 'ana'
+                        }],
+                        name: "Game 1"
+                    }
                 }
             })
         }
@@ -181,38 +185,36 @@ router.get('/game/:gameID', async (req, res) => {
         const { gameID } = req.params;
         const userID = req.user.sub;
         try {
-            let doc = null
-            try {
-                doc = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]}).exec()
-            } catch (err) {
-                logger.error(err)
-                return res.status(504).send({
-                    'level': 'error',
-                    'message': errorMessage,
-               })  
-            }
-
+            let doc
+                try {
+                    doc = await gameModel.findOne({ _id: gameID, 'game.playerIDs': [userID]})
+                } catch (err) {
+                    logger.debug(`User ${userID} send wrong gameID: ${gameID}`)
+                    throw Error('Wrong gameID')
+                }
             
+            if(doc === null){
+                throw new Error('Game not exist')
+            }
+            if(!doc.game.playerIDs.includes(userID)){
+                throw new Error('You do not play in this game')
+            }
             doc.game.isYourTurn = doc.game.currentPlayer === userID
             logger.debug(`User ${userID} get game ${gameID}`)
             res.send(doc)
         } catch (err) {
-            logger.debug(err.message)
-            return res.send({
+            logger.error(err)
+            return res.status(400).send({
                 'level': 'warning',
                 'message': err.message,
-                'example': {
-                    'method': 'GET',
-                    'path': '/game/622cd907f6026dbf7cad27ef'
-                }
-            });
+            })  
         }
     } catch (err) {
-        logger.error(err)
+        logger.debug(err.message)
         return res.status(504).send({
             'level': 'error',
             'message': errorMessage,
-       })  
+        });
     }
 });
  
@@ -247,7 +249,6 @@ router.post('/game/:gameID', async (req, res) => {
                     'message': errorMessage,
                })  
             }
-            
             const game = await makeMove(doc.game, userID, numbersToChange, chosenFigure)
 
             try {
@@ -298,7 +299,7 @@ router.delete('/game/:gameID', async (req, res) => {
         });
     } catch (err) {
         logger.error(err.message)
-        res.send({
+        res.status(504).send({
             'level': 'error',
             'message': errorMessage,
         });
