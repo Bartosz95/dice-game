@@ -2,6 +2,7 @@
   "name": "dice-game-gui",
   "version": "0.1.0",
   "private": true,
+  "author": "Bartosz Lenartowicz",
   "dependencies": {
     "@react-keycloak/web": "^3.4.0",
     "@testing-library/jest-dom": "^5.16.3",

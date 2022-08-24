@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: mongo-express
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /mongo/$2
+    nginx.ingress.kubernetes.io/rewrite-target: /db/$2
 spec:
   tls:
     - hosts:
@@ -12,7 +12,7 @@ spec:
   - host: dice-game
     http:
       paths:
-      - path: /mongo(/|$)(.*)
+      - path: /db(/|$)(.*)
         pathType: Prefix
         backend:
           service:

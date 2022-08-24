@@ -143,7 +143,7 @@ export default props => {
       For the first time you roll all the five dices.
       Next you check whether you have any figure to match.
       If you decide to choose figure mark it on the table, if not you can choose dices and roll them again.
-      For the secound and thirt time you can choose how many dices you want to roll.
+      For the second and thirt time you can choose how many dices you want to roll.
       If you roll the last time you have to choose a figure.
       If you choose a figure you need to wait for others.
       In short it is all. 
@@ -164,7 +164,7 @@ export default props => {
       Press login button on the top right corner of the page to see a login page.
       If you have account you can login yourself now.
       If you don't have any please create one. 
-      You can also login with avaiable providers as Google, Facebook ect.
+      You can also login with avaiable authentication providers as Google, Facebook ect.
       You can also create account manually.
       To do that please press the Register button on the bottom of the form.
       </div>
@@ -214,7 +214,7 @@ export default props => {
     </div>
 
     <div className="steps">
-      <div className="stepsTitle">Secound roll</div>
+      <div className="stepsTitle">Second roll</div>
       <div className="stepsText">
         Now you can see what dices numbers you have. 
         Yon have to decide whether you want to choose figure or continue playing.
