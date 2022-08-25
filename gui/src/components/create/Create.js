@@ -119,8 +119,7 @@ export default props => {
     {alert}
     {gameNameForm}
     {userList}
-    {createButton}}
-    
+    {createButton}
     </Container>
 
 }
