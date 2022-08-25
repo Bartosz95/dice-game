@@ -23,27 +23,16 @@ Next you need to enable a ingress.
 ```
 minikube addons enable ingress
 ```
-### Get files
-Next pull the project or [download it as a zip](https://github.com/Bartosz95/dice-game/archive/refs/heads/master.zip)
-
-```
-git clone https://github.com/Bartosz95/dice-game.git
-```
 ### Install base project
 Then enter to project directory and run the command below.
 It will create a two databases, authenticator provider, API and GUI
 ```
-kubect create -f k8s/postgress
-kubect create -f k8s/mongo
-kubect create -f k8s/ckey
-kubect create -f k8s/api
-kubect create -f k8s/gui
+kubect create -f https://raw.githubusercontent.com/Bartosz95/dice-game/master/k8s/dice-game.yaml
 ```
 ### Install admin menager
-4. You can also install ckey admin console and mongo-express to menage game.
+You can also install Keycloak admin console and Mongo Express to menage game.
 ```
-kubect create -f k8s/ckey-admin
-kubect create -f k8s/mongo-express
+kubect create -f https://raw.githubusercontent.com/Bartosz95/dice-game/master/k8s/dice-game-admin.yaml
 ```
 ### Set the DNS in hosts
 You also need to set your path to application in /etc/hosts on linux.
