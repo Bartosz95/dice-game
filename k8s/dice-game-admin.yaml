@@ -1,0 +1,207 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ckey-admin
+  labels:
+    app: ckey-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ckey-admin
+  template:
+    metadata:
+      labels:
+        app: ckey-admin
+    spec:
+      containers:
+      - name: ckey-admin
+        image: bartosz95/ckey
+        args: ["start --import-realm --optimized"]
+        ports:
+        - name: container-port
+          containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /realms/master
+            port: 8080
+        envFrom:
+        - secretRef:
+            name: ckey-secret-env
+        - configMapRef:
+            name: ckey-admin-env
+        env:
+        - name: KC_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_USER
+              optional: false
+        - name: KC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret-env
+              key: POSTGRES_PASSWORD
+              optional: false
+---
+
+apiVersion: v1
+data:
+  KC_PROXY: "edge"
+  DB_VENDOR: postgres
+  KC_DB: postgres
+  DB_ADDR: postgres
+  KC_DB_URL_PORT: "5432"
+  KC_DB_URL: jdbc:postgresql://postgres/keycloak
+  DB_SCHEMA: public
+  KC_HOSTNAME: dice-game-admin
+  KC_HOSTNAME_PATH: /
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: ckey-admin-env
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ckey
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  tls:
+    - hosts:
+      - dice-game-admin
+  rules:
+  - host: dice-game-admin
+    http:
+      paths:
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ckey-admin
+            port:
+              number: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ckey-admin
+  labels:
+    app: ckey-admin
+spec:
+  ports:
+  - name: service-port
+    port: 80
+    protocol: TCP
+    targetPort: container-port
+  selector:
+    app: ckey-admin
+  type: LoadBalancer
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mongo-express
+  name: mongo-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-express
+  template:
+    metadata:
+      labels:
+        app: mongo-express
+    spec:
+      containers:
+      - image: mongo-express
+        name: mongo-express
+        ports:
+        - name: container-port
+          containerPort: 8081
+        envFrom:
+        - configMapRef:
+            name: mongo-express-env
+        env:
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret-env
+              key: MONGO_INITDB_ROOT_USERNAME
+              optional: false
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret-env
+              key: MONGO_INITDB_ROOT_PASSWORD
+              optional: false
+        - name: ME_CONFIG_MONGODB_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-env
+              key: HOST
+              optional: false
+        - name: ME_CONFIG_MONGODB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-env
+              key: PORT
+              optional: false
+---
+
+apiVersion: v1
+data:
+  ME_CONFIG_SITE_BASEURL: /db/
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: mongo-express-env
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-express
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /db/$2
+spec:
+  tls:
+    - hosts:
+      - dice-game
+  rules:
+  - host: dice-game
+    http:
+      paths:
+      - path: /db(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mongo-express
+            port:
+              number: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express
+  labels:
+    app: mongo-express
+spec:
+  type: LoadBalancer
+  ports:
+  - name: service-port
+    port: 80
+    protocol: TCP
+    targetPort: container-port
+  selector:
+    app: mongo-express
+---
+
