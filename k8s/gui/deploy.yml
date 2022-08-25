@@ -24,6 +24,24 @@ spec:
         envFrom:
         - configMapRef:
             name: gui-env
+        readinessProbe:
+          initialDelaySeconds: 1
+          timeoutSeconds: 1
+          periodSeconds: 2
+          successThreshold: 1
+          failureThreshold: 2
+          httpGet:
+            path: /
+            port: container-port
+        livenessProbe:
+          initialDelaySeconds: 10
+          timeoutSeconds: 3
+          periodSeconds: 30
+          successThreshold: 1
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: container-port
         volumeMounts:
         - name: keycloak-json
           mountPath: /usr/share/nginx/html/keycloak.json

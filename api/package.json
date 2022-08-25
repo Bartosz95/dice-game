@@ -11,8 +11,10 @@
     "test": "LOG_LEVEL=error jest --setupFiles dotenv/config --coverage -i test/"
   },
   "dependencies": {
+    "@babel/core": "^7.x.x",
     "@babel/node": "^7.x.x",
     "@babel/plugin-transform-runtime": "^7.x.x",
+    "@babel/preset-env": "^7.x.x",
     "cors": "^2.x.x",
     "dotenv": "^14.x.x",
     "express": "^4.x.x",
@@ -24,8 +26,6 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.18.13",
-    "@babel/preset-env": "^7.18.10",
     "@shelf/jest-mongodb": "^2.x.x",
     "assert": "^2.x.x",
     "jest": "^27.x.x",
