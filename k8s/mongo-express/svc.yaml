@@ -7,9 +7,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - name: http
+  - name: service-port
     port: 80
     protocol: TCP
-    targetPort: 8081
+    targetPort: container-port
   selector:
     app: mongo-express

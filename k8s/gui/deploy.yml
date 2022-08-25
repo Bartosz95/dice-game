@@ -19,7 +19,8 @@ spec:
       - image:  bartosz95/dice-game-gui
         name:  gui
         ports:
-        - containerPort: 80
+        - name: container-port
+          containerPort: 80
         envFrom:
         - configMapRef:
             name: gui-env

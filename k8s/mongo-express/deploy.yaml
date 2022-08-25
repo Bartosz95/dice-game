@@ -18,7 +18,8 @@ spec:
       - image: mongo-express
         name: mongo-express
         ports:
-        - containerPort: 8081
+        - name: container-port
+          containerPort: 8081
         envFrom:
         - configMapRef:
             name: mongo-express-env

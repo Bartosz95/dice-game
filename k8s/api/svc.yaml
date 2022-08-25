@@ -19,10 +19,10 @@ metadata:
     app: api
 spec:
   ports:
-  - name: http
+  - name: service-port
     port: 80
     protocol: TCP
-    targetPort: 3000
+    targetPort: container-port
   selector:
     app: api
   type: LoadBalancer

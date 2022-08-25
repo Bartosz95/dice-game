@@ -19,12 +19,12 @@ spec:
         image: bartosz95/ckey
         args: ["start --import-realm --optimized"]
         ports:
-        - name: http
+        - name: container-port
           containerPort: 8080
         readinessProbe:
           httpGet:
             path: /realms/master
-            port: 8080
+            port: container-port
         envFrom:
         - secretRef:
             name: ckey-secret-env

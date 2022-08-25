@@ -19,7 +19,7 @@ spec:
         image: bartosz95/ckey
         args: ["start --import-realm --optimized"]
         ports:
-        - name: http
+        - name: container-port
           containerPort: 8080
         readinessProbe:
           httpGet:

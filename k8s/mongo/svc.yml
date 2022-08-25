@@ -7,7 +7,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-   - port: 27017
-     targetPort: 27017
+   - name: service-port
+     port: 27017
+     targetPort: container-port
   selector:
     app: mongo

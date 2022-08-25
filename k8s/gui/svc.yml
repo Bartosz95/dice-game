@@ -6,10 +6,10 @@ metadata:
     app: gui
 spec:
   ports:
-  - name: http
+  - name: service-port
     port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: container-port
   selector:
     app: gui
   type: LoadBalancer

@@ -57,7 +57,8 @@ spec:
           subPath: keycloak.json
           readOnly: true
         ports:
-        - containerPort: 3000
+        - name: container-port
+          containerPort: 3000
       volumes:
       - name: keycloak-json
         configMap:
