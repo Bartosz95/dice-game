@@ -21,4 +21,6 @@ if (process.env.NODE_ENV !== 'production') {
   logger.add(new transports.File({ filename: '/var/log/dice-game-api/error.log', level: 'error'}))
 }
 
+logger.info(`Logger run in ${LOG_LEVEL} mode`)
+
 export default logger
