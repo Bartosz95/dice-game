@@ -24,15 +24,15 @@ Next you need to enable a ingress.
 minikube addons enable ingress
 ```
 ### Install base project
-Then enter to project directory and run the command below.
-It will create a two databases, authenticator provider, API and GUI
+If you properly configure minikube you can install Dice Game. To do that just execute kubectl command below
+It will create a two databases Mongo and Postgress, Keycloak authenticator provider and Dice Game API and Dice Game GUI deployment
 ```
-kubect create -f https://raw.githubusercontent.com/Bartosz95/dice-game/master/k8s/dice-game.yaml
+kubectl create -f https://raw.githubusercontent.com/Bartosz95/dice-game/master/k8s/dice-game.yaml
 ```
 ### Install admin menager
 You can also install Keycloak admin console and Mongo Express to menage game.
 ```
-kubect create -f https://raw.githubusercontent.com/Bartosz95/dice-game/master/k8s/dice-game-admin.yaml
+kubectl create -f https://raw.githubusercontent.com/Bartosz95/dice-game/master/k8s/dice-game-admin.yaml
 ```
 ### Set the DNS in hosts
 You also need to set your path to application in /etc/hosts on linux.
