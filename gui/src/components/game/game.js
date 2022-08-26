@@ -11,7 +11,6 @@ export default props => {
 
     const [ currentUser, setCurrentUser] = useState({})
     const [ currentPlayer, setCurrentPlayer] = useState('')
-    const [ currentPlayerUsername, setCurrentPlayerUsername] = useState('')
     const [ isYourTurn, setIsYourTurn ] = useState(false)
     const [ isActive, setIsActive] = useState(true)
     const [ mug, setMug] = useState([])
@@ -69,7 +68,6 @@ export default props => {
                 }
                 setGameName(game.name)
                 setCurrentPlayer(game.currentPlayer)
-                setCurrentPlayerUsername(game.players[game.currentPlayer].username)
                 setIsYourTurn(game.currentPlayer === userInfo.sub)
                 setIsActive(game.isActive)
                 setNumberOfRoll(game.numberOfRoll)
@@ -163,15 +161,15 @@ export default props => {
         } else if(numberOfRoll === 3) {
             return "You don't have next roll" 
         } else if(chosenFigure) {
-            return "You cannot roll dices if you choose a figure"
+            return "You cannot roll dice if you choose a figure"
         } else if(numberOfRoll === 0) {
-            return "Roll all dices" 
+            return "Roll all dice" 
         } else if (dicesToChange.length === 0 ) {
-            return "Choose dices to roll"
+            return "Choose dice to roll"
         } else if (numberOfRoll === 1) {
-            return "Roll dices secound time"
+            return "Roll dice secound time"
         } else if (numberOfRoll === 2){
-            return "Roll dices last time"
+            return "Roll dice last time"
         } else {
             return ""
         }
@@ -191,7 +189,7 @@ export default props => {
         if(!isYourTurn) {
             return ""
         }else if(numberOfRoll === 0) {
-            return "You have to roll all dices"
+            return "You have to roll all dice"
         } else if(chosenFigure) {
             return "Save figure"
         } else {
