@@ -1,4 +1,6 @@
 # DICE GAME
+
+## Abstract
 Dice game is a simple game when you play with other users. 
 The aim of the game is to score the highest number of points. 
 Check the tutorial below to learn how to play. 
@@ -7,8 +9,34 @@ You need to know that the game is only available for login users.
 ## Technologies
 - Kubernetes
 - NodeJS
+- ExpressJS
+- MongoDB
+- Mongo-Express
 - React
 - Bootstrap
+- Nginx
+- Keycloak
+- Postgres
+
+## Description
+You find a few sections in this document. 
+Below the current section Description you will find Requirements and below them the Installation where you can see how to install Dice Game. Next to you will find a Tutorial section where it is explained how to work with this application. There you can find how to play the game by GUI and how to use API. Now I will explain a little more how the Dice game works because it is quite a complex system. 
+
+Users have access to Graphical User Interface (GUI) and Application Programming Interface (API).
+Graphical interface is build in *React* and for style this application it uses *Bootstrap*. Run this app I use *nginx* service.
+
+API is built in NodeJS. It uses the Express framework. For Connection the database it uses *mongoose* module. It is also strongly covered by *units test* which are very important for further development.
+
+Every user which want to play the game need to be login so 
+there is also authentication service delivered by *Keycloak*.
+Every user has access to get other users by keycloak so there is no need to have user management service. User can create his account manually or he can login by some authentication provider like Google, Facebook, Github. It is configurable by admin.
+
+Administrator has access to *Keycloak Admin Console* and to *Mongo-Express* in order to manage an application.
+The important thing is that it isn't necessary to install administrator tools to play the game.
+
+System use *Kubernetes* to run. Every component of the system run as separate kubernete deployment so every of them is deployed as a kubernetes pod. It allows it to scale itself when trafic growns and overall gives it all kubernetes features. On the graph below you can see the communication matrix between pods. 
+
+![](doc/graph.png)
 
 ## Requirements
 - Minikube
@@ -142,3 +170,107 @@ You can modify your login and registration settings. You also can add authentica
 ### Mongo express
 You can view and delete some games directly in the console.
 ![](gui/public/img/mongo.png)
+
+## Use REST API to play 
+Second way to play Dice Game is to use the API. Below I described which commands are available for players.
+I use *curl*,*grep and *jq* in *bash* in my examples.
+I also strongly recommend you to install *jq* application to work easily with json response, it helps a lot.
+
+### Login
+For all requests you have to have an access token that's why you get it by login in the first place.
+Command below save token in *TOKEN* variable.
+```
+ export TOKEN=$(curl -X POST -k 'https://dice-game/auth/realms/dice-game/protocol/openid-connect/token' \
+ --header 'Content-Type: application/x-www-form-urlencoded' \
+ --data-urlencode 'grant_type=password' \
+ --data-urlencode 'client_id=dice-game' \
+ --data-urlencode 'username=bartek' \
+ --data-urlencode 'password=password' | jq .access_token -r)
+```
+Next you have access to the application.
+If you want to see all available commands you can send GET requests like below. In response you will get examples of all available requests.
+```
+curl https://dice-game/api/v1/ | jq
+```
+First you should create a new game. 
+To do that you need to know what users are available for playing.
+Display all user by request 
+```
+curl -k https://dice-game/auth/admin/realms/dice-game/users \ 
+-H 'Content-type: application/json;charset=UTF-8' \
+-H "Authorization: Bearer $TOKEN" \
+| jq | grep 'id\|username'
+```
+In response you will get a list of id and username.
+```
+
+```
+For every user ID of players should be displayed first and below should be his username. 
+Choose your players to game and dle name of game and execute command below. 
+```
+    curl -X POST http://dice-game/api/v1/game \
+    -H 'Content-type: application/json; charset=UTF-8' \
+    -H "Authorization: Bearer $TOKEN" \
+    -d '{ \
+        "users": [ { \
+            "id": "3281cc50-a5fe-44cb-b629-f94d3a45d42a", \
+            "username": "tom" \
+        }, { \
+            "id": "3281cc50-a5fe-44cb-b629-f94d3a45d42d", \
+            "username": "ana" \
+        } ], \
+        "name": "Game 1" \
+    }' | jq
+
+```
+Response should 
+```
+    {
+        _id: '622cd907f6026dbf7cad27ef'
+        playerIDs: [
+            '3281cc50-a5fe-44cb-b629-f94d3a45d42d', 
+            '3281cc50-a5fe-44cb-b629-f94d3a45d42a', 
+            '3281cc50-a5fe-44cb-b629-f94d3a45d42c'
+        ],
+        currentPlayer: '3281cc50-a5fe-44cb-b629-f94d3a45d42c
+    }
+```
+
+Next You can get your game and play it.
+
+```
+curl http://dice-game/api/v1/game/622cd907f6026dbf7cad27ef | jq
+```
+. Roll the dice by sending POST requests
+```
+    curl -X POST http://dice-game/api/v1/game \
+    -H 'Content-type: application/json;charset=UTF-8' \
+    -H "Authorization: Bearer $TOKEN" \
+    -d '{ "numbersToChange": ["0", "1", "4"] }' | jq
+```
+You can also choose your figure by sending a request with the figure.
+Remember if you choose figure and dice dice will be omitted but figure saved.
+```
+    curl -X POST http://dice-game/api/v1/game/622cd907f6026dbf7cad27ef \
+    -H 'Content-type: application/json;charset=UTF-8' \
+    -H "Authorization: Bearer $TOKEN" \
+    -d '{ "chosenFigure": "small strit" }' | jq
+```
+You can also pull all your games. To do that send the request below.
+```
+    curl http://dice-game/api/v1/game/622cd907f6026dbf7cad27ef \
+    -H 'Content-type: application/json;charset=UTF-8' \
+    -H "Authorization: Bearer $TOKEN" | jq
+```
+Delete your game by request.
+```
+    curl -X DELETE http://dice-game/api/v1/game/622cd907f6026dbf7cad27ef \
+    -H 'Content-type: application/json;charset=UTF-8' \
+    -H "Authorization: Bearer $TOKEN" | jq
+```
+Also you can delete all your games.
+```
+    curl -X DELETE http://dice-game/api/v1/game \
+    -H 'Content-type: application/json;charset=UTF-8' \
+    -H "Authorization: Bearer $TOKEN" | jq
+```

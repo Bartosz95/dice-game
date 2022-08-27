@@ -6,9 +6,11 @@ import { Game, makeMove } from '../services/Game'
 import '../libs/dbConnection'
 import gameModel from '../models/gameModel'
 
-const router = Router();
-
+const PREFIX = `process.env.PREFIX` || ''
 const errorMessage = "Something went wrong. Please try again later"
+
+
+const router = Router();
 
 router.param('gameID', (req, res, next, gameID) => {
     try {
@@ -21,7 +23,7 @@ router.param('gameID', (req, res, next, gameID) => {
             'level': 'warning',
             'message': err.message,
             'example': {
-                'path': '/game/622cd907f6026dbf7cad27ef',
+                'path': `${PREFIX}/game/622cd907f6026dbf7cad27ef`,
             }
         })
     }
@@ -43,7 +45,7 @@ router.get('/game/ping', async (req, res) => {
             'message': errorMessage,
             'example': {
                 'method': 'GET',
-                'path': '/game/ping'
+                'path': `${PREFIX}/game/ping`
             }
         });
     }
@@ -125,18 +127,18 @@ router.post('/game', async (req, res) => {
         } catch (err) {
             logger.debug(`User ${currentUser.id} has warning ${err.message} when try to create game`)
             res.status(400).send({
-                'level': 'warning',
-                'message': err.message,
-                'example': {
-                    'header': 'Content-Type: application/json',
-                    'method': 'POST',
-                    'path': '/game',
-                    'body': { 
+                level: 'warning',
+                message: err.message,
+                example: {
+                    header: 'Content-Type: application/json',
+                    method: 'POST',
+                    path: `${PREFIX}/game`,
+                    body: { 
                         users: [{
-                            id: '1234',
+                            id: '3281cc50-a5fe-44cb-b629-f94d3a45d42c',
                             username: 'tom'
                         },{
-                            id: '4321',
+                            id: '3281cc50-a5fe-44cb-b629-f94d3a45d42d',
                             username: 'ana'
                         }],
                         name: "Game 1"
@@ -256,13 +258,13 @@ router.post('/game/:gameID', async (req, res) => {
         } catch (err) {
             logger.debug(`User ${userID} in game ${gameID} has error ${err.message} when make a move`);
             res.status(400).send({
-                'level': 'warning',
-                'message': err.message,
-                'example': {
-                    'header': 'Content-Type: application/json',
-                    'method': 'POST',
-                    'path': '/game/622cd907f6026dbf7cad27ef',
-                    'body': { "numbersToChange": ["0", "1", "4"] },
+                level: 'warning',
+                message: err.message,
+                example: {
+                    header: 'Content-Type: application/json',
+                    method: 'POST',
+                    path: `${PREFIX}/game/622cd907f6026dbf7cad27ef`,
+                    body: { "numbersToChange": ["0", "1", "4"] },
                     'body alternative': { "chosenFigure": "small strit" }
                 }
             })
@@ -270,8 +272,8 @@ router.post('/game/:gameID', async (req, res) => {
     } catch (err) {
         logger.error(err)
         return res.status(504).send({
-            'level': 'error',
-            'message': errorMessage,
+            level: 'error',
+            message: errorMessage,
        })  
     }
 })
@@ -290,8 +292,8 @@ router.delete('/game/:gameID', async (req, res) => {
         logger.debug(`User ${userID} in game ${gameID} has error ${err.message} when delete it `);
         logger.debug()
         res.status(504).send({
-            'level': 'error',
-            'message': errorMessage,
+            level: 'error',
+            message: errorMessage,
         });
     }
 });
