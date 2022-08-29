@@ -31,7 +31,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.use(checkHeader)
-
 if(NODE_ENV !== 'test'){
   app.use(keycloak.middleware());
   app.use(decodeToken)

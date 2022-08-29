@@ -23,11 +23,46 @@ router.param('gameID', (req, res, next, gameID) => {
             'level': 'warning',
             'message': err.message,
             'example': {
-                'path': `${PREFIX}/game/622cd907f6026dbf7cad27ef`,
+                path: `${PREFIX}/game/622cd907f6026dbf7cad27ef`,
             }
         })
     }
     next()
+})
+
+router.get('/', (req, res) => {
+    res.send({
+        level: 'info',
+        message: 'Check avaiable endpoinds',
+        endpoints: [
+            { path: '/game/ping',
+              methods:  [ 'GET' ]
+            },{
+                path: '/game',
+                methods: ['GET', { 'POST': {
+                    body: { 
+                        users: [{
+                            id: '3281cc50-a5fe-44cb-b629-f94d3a45d42c',
+                            username: 'tom'
+                        },{
+                            id: '3281cc50-a5fe-44cb-b629-f94d3a45d42d',
+                            username: 'ana'
+                        }],
+                        name: "Game 1"
+                    }
+                }}, 'DELETE']
+                
+            },{
+                path: '/game/:gameID',
+                method: ['GET', { 'POST': {
+                    body: { "numbersToChange": ["0", "1", "4"] },
+                    'body alternative': { "chosenFigure": "small strit" }
+                }}, 'DELETE']
+                
+                
+            }
+        ]
+    })
 })
 
 router.get('/game/ping', async (req, res) => {
@@ -44,8 +79,8 @@ router.get('/game/ping', async (req, res) => {
             'level': 'warning',
             'message': errorMessage,
             'example': {
-                'method': 'GET',
-                'path': `${PREFIX}/game/ping`
+                method: 'GET',
+                path: `${PREFIX}/game/ping`,
             }
         });
     }
