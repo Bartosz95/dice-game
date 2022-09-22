@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { Container, Button, Row, Col, Badge } from 'react-bootstrap';
 
 import './game.css'
@@ -243,16 +243,14 @@ export default props => {
         {chooseFigureButtonText()}
     </Button>
 
-    const play = <div>
-        <div>
+    const play = <Fragment>
+        <Fragment>
             {gameNameDiv}
             {turnInfoDiv}
-        </div>
+        </Fragment>
         <div className="dices">{numberOfTurn === 0 && numberOfRoll === 0 ? '' : dices}</div>
         <div className='buttonsDiv'>{rollTheDicesButton}{chooseFigureButton}</div>
-        
-        
-    </div>
+    </Fragment>
 
     const game = <Row>
         <Col>{isActive ? play : winMessage}</Col>

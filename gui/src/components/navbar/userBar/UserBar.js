@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, Fragment } from 'react';
 import { NavDropdown, Dropdown, Nav } from 'react-bootstrap';
 
 const UserBar = props => {
@@ -25,6 +25,6 @@ const UserBar = props => {
 
   useEffect(() => { load() })
 
-  return <div >{props.keycloak.authenticated ? dropdown : login}</div>
+  return <Fragment>{props.keycloak.authenticated ? dropdown : login}</Fragment>
 }
 export default UserBar;

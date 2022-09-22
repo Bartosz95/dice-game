@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { Container, Button, Form } from 'react-bootstrap';
 
 import './create.css'
@@ -102,11 +102,11 @@ export default props => {
     <Form.Control type="name" placeholder="name" onChange={handleChange.bind(this)} />
   </Form>
 
-  const userList = <><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
+  const userList = <Fragment><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
     key={user.id}
     user_props={user}
     selectUser={selectUser.bind(this)}
-  />)}</div></>
+  />)}</div></Fragment>
 
   const createButton = <div className="createGameDiv">And play the game!<br/><Button
     onClick={ createGame }

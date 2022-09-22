@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 import keycloak from './libs/keycloak';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>
+    return <Fragment>
       <Navbar keycloak={this.state.keycloak} config={this.state.config} />
 
       <BrowserRouter>
@@ -58,7 +58,7 @@ class App extends Component {
           <Route path="/:id" element={ <Game keycloak={this.state.keycloak} config={this.state.config} /> } />
         </Routes>
       </BrowserRouter>
-    </div>
+    </Fragment>
   }
 
 }

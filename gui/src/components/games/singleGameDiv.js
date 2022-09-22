@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { ListGroup, Button, Form, Badge } from 'react-bootstrap';
 import dateFormat, { masks } from "dateformat";
 
@@ -17,7 +17,10 @@ export default props => {
 
   const gameDate = <div className='gameDate'>{dateText}</div>
 
-  const players = <div><div className="playersLabelText">Players:<br/></div><ListGroup variant="flush">{props.game.players.map(player => <ListGroup.Item key={props.game._id+player._id} className={`${props.game.isYourTurn ? 'isYourTurnSingleGameDiv' :''}`}>{player.username}</ListGroup.Item>)}</ListGroup></div>
+  const players = <Fragment>
+                    <div className="playersLabelText">Players:<br/></div>
+                    <ListGroup variant="flush">{props.game.players.map(player => <ListGroup.Item key={props.game._id+player._id} className={`${props.game.isYourTurn ? 'isYourTurnSingleGameDiv' :''}`}>{player.username}</ListGroup.Item>)}</ListGroup>
+                  </Fragment>
 
   const playBtn = <Button variant="outline-success" className="playBtn" href={`/${props.game._id}`} disabled={props.game.isActive ? false : true}>Play</Button>
 

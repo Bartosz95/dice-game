@@ -1,6 +1,4 @@
-import React from "react"
 import { Alert } from 'react-bootstrap';
-
 
 export default props => {
     const message = props.elems.message || "Something is wrong. Try later."
