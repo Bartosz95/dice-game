@@ -299,7 +299,7 @@ data:
     : [ {\r\n    \"id\" : \"3281cc50-a5fe-44cb-b629-f94d3a45d42c\",\r\n    \"createdTimestamp\"
     : 1661303085651,\r\n    \"username\" : \"bartek\",\r\n    \"enabled\" : true,\r\n
     \   \"totp\" : false,\r\n    \"emailVerified\" : false,\r\n    \"firstName\" :
-    \"Bartosz\",\r\n    \"lastName\" : \"Lenartowicz\",\r\n    \"email\" : \"bartek.lenart95@gmail.com\",\r\n
+    \"Bartosz\",\r\n    \"lastName\" : \"Lenartowicz\",\r\n    \"email\" : \"bartek@mail.com\",\r\n
     \   \"credentials\" : [ {\r\n      \"id\" : \"c081a045-1172-4f15-a894-d59a32b3ec54\",\r\n
     \     \"type\" : \"password\",\r\n      \"createdDate\" : 1661303085747,\r\n      \"secretData\"
     : \"{\\\"value\\\":\\\"PI65QErHsK4+vOdDGCHKH1ETFBCVmuOwmNNlRcNnrEBmvJcqN93GHzj+h+j9ltxRKmYWq+mr7xbv3+AwAPgjUw==\\\",\\\"salt\\\":\\\"tTSZjXjRVS3QyDRyAtm/Ew==\\\",\\\"additionalParameters\\\":{}}\",\r\n
@@ -1251,6 +1251,13 @@ spec:
           failureThreshold: 3
           tcpSocket:
             port: container-port
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         envFrom:
         - configMapRef:
             name: api-env
@@ -1455,6 +1462,13 @@ spec:
           httpGet:
             path: /
             port: container-port
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         volumeMounts:
         - name: keycloak-json
           mountPath: /usr/share/nginx/html/keycloak.json
