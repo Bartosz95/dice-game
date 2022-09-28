@@ -99,13 +99,13 @@ export default props => {
 
   const gameNameForm = <Form className="gameNameForm">
     <Form.Label>Write game name</Form.Label>
-    <Form.Control type="name" placeholder="name" onChange={handleChange.bind(this)} />
+    <Form.Control type="name" placeholder="name" onChange={handleChange} />
   </Form>
 
   const userList = <Fragment><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
     key={user.id}
     user_props={user}
-    selectUser={selectUser.bind(this)}
+    selectUser={selectUser}
   />)}</div></Fragment>
 
   const createButton = <div className="createGameDiv">And play the game!<br/><Button

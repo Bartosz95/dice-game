@@ -128,7 +128,7 @@ export default props => {
         }
     }
 
-    const markFigureTochoose = async (figureID) => {
+    const markFigureTochoose = (figureID) => {
         setChosenFigure(chosenFigure === figureID ? null : figureID)
     }
 
@@ -216,7 +216,7 @@ export default props => {
             currentPlayer={currentPlayer}
             isYourTurn={isYourTurn}
             chosenFigure={chosenFigure} 
-            markFigureTochoose={markFigureTochoose.bind(this)}
+            markFigureTochoose={markFigureTochoose}
     />
 
     const dices = mug.map(dice => <Dice 
@@ -224,11 +224,11 @@ export default props => {
         isYourTurn={isYourTurn}
         dice_props={dice}
         numberOfRoll={numberOfRoll} 
-        markDiceToRoll={markDiceToRoll.bind(this)}
+        markDiceToRoll={markDiceToRoll}
     />)
 
     const rollTheDicesButton = <Button 
-        onClick={rollTheDices.bind(this)} 
+        onClick={rollTheDices} 
         variant={ isRollTheDicesBtnActive() ?  "success" : "outline-secondary"}
         className={`rollTheDicesButton ${isYourTurn ? '' : 'hide'}`}
         disabled={!isRollTheDicesBtnActive()}>
@@ -236,7 +236,7 @@ export default props => {
     </Button>
 
     const chooseFigureButton = <Button 
-        onClick={chooseFigure.bind(this)} 
+        onClick={chooseFigure} 
         variant={ isYourTurn && chosenFigure ? "success" : "outline-secondary"}
         className={`chooseFigureButton ${isYourTurn ? '' : 'hide'}`}
         disabled={(numberOfRoll === 0) || !chosenFigure || !isYourTurn}>

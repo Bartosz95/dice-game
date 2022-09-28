@@ -59,7 +59,7 @@ export default props => {
 
   const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''  
 
-  const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} deleteGame={deleteGame.bind(this)}/>)
+  const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} deleteGame={deleteGame}/>)
 
   const content = games.length > 0 ? gamesDiv : <CreateDiv/>
 
