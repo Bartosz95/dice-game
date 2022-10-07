@@ -19,17 +19,17 @@ You need to know that the game is only available for login users.
 - Postgres
 
 ## Description
-You find a few sections in this document. 
-Below the current section Description you will find Requirements and below them the Installation where you can see how to install Dice Game. Next to you will find a Tutorial section where it is explained how to work with this application. There you can find how to play the game by GUI and how to use API. Now I will explain a little more how the Dice game works because it is quite a complex system. 
+In this document you will find a few sections. 
+Current section presents you quick overview about project. Next you will find section called Requirements where you find what tools are necessary for installation. Section Installation leads you through the installation process of the game. Next to you can find a Tutorial which explains you how you can use the app. It shows you how to play the game through User Interface and what endpoints are exposed by Dice Game API. Next paragraph explains to you more how the Dice Game is built because it is a pretty complex system. 
 
 Users have access to Graphical User Interface (GUI) and Application Programming Interface (API).
-Graphical interface is build in *React* and for style this application it uses *Bootstrap*. Run this app I use *nginx* service.
+Graphical interface is built in *React* and for style this application it uses *Bootstrap*. Run this app I use *nginx* service.
 
 API is built in NodeJS. It uses the Express framework. For Connection the database it uses *mongoose* module. It is also strongly covered by *units test* which are very important for further development.
 
-Every user which want to play the game need to be login so 
-there is also authentication service delivered by *Keycloak*.
-Every user has access to get other users by keycloak so there is no need to have user management service. User can create his account manually or he can login by some authentication provider like Google, Facebook, Github. It is configurable by admin.
+Every user which want to play the game need to be login.
+Authentication service is delivered by *Keycloak*.
+Users have perrmision to have access to other users information like user name or email in order to create a new game with them. This solution allows to  no need to have user management service. User can create his account manually or he can login by some authentication provider like Google, Facebook, Github. It is configurable by admin.
 
 Administrator has access to *Keycloak Admin Console* and to *Mongo-Express* in order to manage an application.
 The important thing is that it isn't necessary to install administrator tools to play the game.
