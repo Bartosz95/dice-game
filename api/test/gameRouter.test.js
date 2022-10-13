@@ -215,9 +215,9 @@ describe('E2E', () => {
                     
                     const db_game = await gameModel.findOne({ 'game.playerIDs': [currentPlayer], _id: gameID})
                     expect(res.status).toEqual(200)
-                    expect(res.body.numberOfRoll).toEqual(0)
-                    expect(res.body).toEqual(db_game.game)
-                    expect(res.body.players[currentPlayer].table[chosenFigure]).not.toBeNull()
+                    expect(res.body.game.numberOfRoll).toEqual(0)
+                    expect(res.body.game).toEqual(db_game.game)
+                    expect(res.body.game.players[currentPlayer].table[chosenFigure]).not.toBeNull()
                 })
 
                 test('get error if chosenFigure has wrong value', async () => {

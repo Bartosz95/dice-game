@@ -4,15 +4,8 @@ import './GameTable.css'
 
 export default props => {
 
-    const players = props.players
-    const currentPlayer = props.currentPlayer
-    const chosenFigure = props.chosenFigure
-    const numberOfRoll = props.numberOfRoll
-    const isYourTurn = props.isYourTurn
-    const markFigureTochoose = props.markFigureTochoose
-    const head = []
-    const body = []
-    
+    const { markFigureTochoose, chosenFigure } = props
+    const { players, currentPlayer, numberOfRoll, isYourTurn } = props.game
 
     const canBeSelected = (player, figure) => {
         return (numberOfRoll !== 0) &&
@@ -60,28 +53,34 @@ export default props => {
         return ''
     }
 
-
+    const head = []
+    const body = []
     head.push(<th key='#'></th>)
 
     if (players[0]) {
+
         for(const player of players) {
+
             head.push(
                 <th key={player.id} className={`my-row-style ${player.id === currentPlayer ? 'table-success' : ''}`}>
                     {player.username}
-                    </th>
-                )
+                </th>
+            )
         }
+        
         for (const figure of Object.keys(players[0].table)){
+            
             const row = []
             row.push(<td key={`f${figure}`} className="figureNameRow">{figure}</td>)
+            
             for(const player of players) {
+            
                 row.push(
                     <td key={`p${player.id}f${figure}`} 
-                    onClick={canBeSelected(player, figure) ? () => markFigureTochoose(figure) : ()=>{}}
-                    className={`my-row-style ${getStyle(player, figure)} {}`}
-                    >
-                        <div className={cellClass(player, figure)}> {cellText(player, figure)}</div> 
-                        {player.table[figure]}
+                        onClick={canBeSelected(player, figure) ? () => markFigureTochoose(figure) : ()=>{}}
+                        className={`my-row-style ${getStyle(player, figure)} {}`}>
+                            <div className={cellClass(player, figure)}> {cellText(player, figure)}</div> 
+                            {player.table[figure]}
                     </td>
                 )
             }
@@ -89,7 +88,7 @@ export default props => {
         }
     }
 
-    return <Table bordered >
+    return <Table bordered>
         <thead><tr>{head}</tr></thead>
         <tbody>{body}</tbody>
     </Table>

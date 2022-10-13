@@ -4,7 +4,6 @@
     padding: 5%;
     margin: auto;
     background-color: white
-    
 }
 
 .gameName {
@@ -31,24 +30,8 @@
     margin-top: 5px;
 }
 
-.buttonsDiv {
-    
-}
 .hide {
     display: none;
-}
-
-.rollTheDicesButton {
-    width: 200px;
-    height: 60px;
-    margin-top: 50px;
-    margin-right: 70px;
-}
-
-.chooseFigureButton {
-    width: 200px;
-    height: 60px;
-    margin-top: 50px;
 }
 
 .dices{

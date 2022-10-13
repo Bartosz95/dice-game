@@ -3,7 +3,7 @@ import { Container, Button, Form } from 'react-bootstrap';
 
 import './create.css'
 
-import User from './user/user'
+import User from './User'
 import AlertMessage from '../alerts/AlertMessage'
 
 export default props => {

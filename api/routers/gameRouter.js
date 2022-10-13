@@ -55,7 +55,7 @@ router.get('/', (req, res) => {
             },{
                 path: '/game/:gameID',
                 method: ['GET', { 'POST': {
-                    body: { "numbersToChange": ["0", "1", "4"] },
+                    body: { "dicesToChange": ["0", "1", "4"] },
                     'body alternative': { "chosenFigure": "small strit" }
                 }}, 'DELETE']
                 
@@ -249,20 +249,20 @@ router.post('/game/:gameID', async (req, res) => {
     try {
         const { gameID } = req.params;
         const userID = req.user.sub;
-        const { numbersToChange, chosenFigure } = req.body;
+        const { dicesToChange, chosenFigure } = req.body;
 
         try {
-            if(numbersToChange === undefined && chosenFigure === undefined)
-                throw new Error('Either numbersToChange or chosenFigure should be defined');
+            if(dicesToChange === undefined && chosenFigure === undefined)
+                throw new Error('Either dicesToChange or chosenFigure should be defined');
             if(chosenFigure && (typeof chosenFigure !== 'string')) {
                 throw new Error('chosenFigure should be a string')
             }
-            if(numbersToChange) {
-                if(!Array.isArray(numbersToChange))
-                    throw new Error('numbersToChange should be a Array');
-                numbersToChange.forEach(numberToChange => {
+            if(dicesToChange) {
+                if(!Array.isArray(dicesToChange))
+                    throw new Error('dicesToChange should be a Array');
+                dicesToChange.forEach(numberToChange => {
                     if(typeof numberToChange !== 'string')
-                        throw new Error('All ID in numbersToChange should be a string')
+                        throw new Error('All ID in dicesToChange should be a string')
                 })
             }
 
@@ -276,7 +276,7 @@ router.post('/game/:gameID', async (req, res) => {
                     'message': errorMessage,
                })  
             }
-            const game = await makeMove(doc.game, userID, numbersToChange, chosenFigure)
+            const game = await makeMove(doc.game, userID, dicesToChange, chosenFigure)
 
             try {
                 await gameModel.findByIdAndUpdate(gameID, {game: game}, {new: true})
@@ -287,8 +287,9 @@ router.post('/game/:gameID', async (req, res) => {
                     'message': errorMessage,
                })  
             }
-            logger.debug(`User ${userID} in game ${gameID} send dices: [${numbersToChange}] and figure: ${chosenFigure}`)
-            res.send(game)
+            logger.debug(`User ${userID} in game ${gameID} send dices: [${dicesToChange}] and figure: ${chosenFigure}`)
+            game.isYourTurn = game.currentPlayer === userID            
+            res.send({ game })
 
         } catch (err) {
             logger.debug(`User ${userID} in game ${gameID} has error ${err.message} when make a move`);
@@ -299,7 +300,7 @@ router.post('/game/:gameID', async (req, res) => {
                     header: 'Content-Type: application/json',
                     method: 'POST',
                     path: `${PREFIX}/game/622cd907f6026dbf7cad27ef`,
-                    body: { "numbersToChange": ["0", "1", "4"] },
+                    body: { "dicesToChange": ["0", "1", "4"] },
                     'body alternative': { "chosenFigure": "small strit" }
                 }
             })

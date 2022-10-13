@@ -1,6 +1,4 @@
-import React from "react"
 import { Modal } from 'react-bootstrap';
-import './WinMessage.css'
 
 export default props => {
     const players = props.elems
