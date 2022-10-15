@@ -5,41 +5,32 @@ import './create.css'
 
 import User from './User'
 import AlertMessage from '../alerts/AlertMessage'
+import useHttpRequest from '../../hooks/useHttpRequest'
 
 export default props => {
 
-  const [alertMessage, setAlertMessage] = useState(null)
-  const [currentUser, setCurrentUser] = useState({})
-  const [gameName, setGameName] = useState('')
-  const [users, setUsers] = useState([])
+  const [ user, setUser ] = useState(null)
+  const [ users, setUsers ] = useState([])
+  const [ gameName, setGameName ] = useState('')
+  const { alertMessage, renderContent, fetchData } = useHttpRequest()
   
-  const getUsers = async () => {
-    try {
-      if(props.keycloak.authenticated && users.length === 0) {
-        const userInfo = await props.keycloak.loadUserInfo()
-        setCurrentUser(userInfo)
-        const requestOptions = {
-          method: 'GET',
-          headers: {
-              'Authorization': `Bearer ${props.keycloak.token}`
-          }
-        };
-        const response = await fetch(`${props.keycloak.authServerUrl}/admin/realms/${props.keycloak.realm}/users`, requestOptions)
-        const body = await response.json()
-        if((body.level === 'warning') || (body.level === 'error')) {
-          return setAlertMessage(body)
-        }
-        setUsers(body.filter(user => user.id !== userInfo.sub))
-      }
-    } catch(err) {
-      console.log(err)
-      setAlertMessage(err)
+  const setUserInfo = async () => {
+    if(props.keycloak.authenticated) {
+      const user = await props.keycloak.loadUserInfo()
+      setUser(user)
+      const requestOptions = {
+        url: `${props.keycloak.authServerUrl}/admin/realms/${props.keycloak.realm}/users`
+      };
+      fetchData(requestOptions, props.keycloak, body => setUsers(body.filter(u => u.id !== user.sub)))
     }
   }
 
-  useEffect(() => { getUsers() })
+  useEffect(() => {
+      setUserInfo()
+  },[props.keycloak.authenticated])
 
   const selectUser = selectedUser => {
+    
     setUsers(users.map(user => {
       if(user.id === selectedUser.id) {
         if(!user.selected) {
@@ -48,47 +39,27 @@ export default props => {
           user.selected = false
         }
          
-      } 
+      }
       return user
     }))
+    console.log(users)
   }
 
   const createGame = async () => {
-    try {
-      if(gameName === '') return setAlertMessage({
-        message: 'Game name should be not empty',
-        level: 'warning'}
-      )
-      if(props.keycloak.authenticated) {
-        let selectedUsers = users.filter(user => user.selected === true).map(user => ({ 'id': user.id, username: user.username}))
-        
-        selectedUsers.push({ id: currentUser.sub, username: currentUser.preferred_username})
-        
-        const payload = { 
-          name: gameName,
-          users: selectedUsers 
-        }
-        const requestOptions = {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${props.keycloak.token}`
-          },
-          body: JSON.stringify(payload)
-        }
-        const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
-        
-        const body = await response.json();
-        if((body.level === 'warning') || (body.level === 'error')) {
-          return setAlertMessage(body)
-        } 
-        window.location.href = `/${body._id}`
-  
-      } 
-    } catch (err) {
-      console.log(err)
-      setAlertMessage(err)
+    
+    let selectedUsers = users.filter(user => user.selected === true).map(user => ({ 'id': user.id, username: user.username}))
+    
+    selectedUsers.push({ id: user.sub, username: user.preferred_username})
+    
+    const requestOptions = {
+      url: `${props.config.DICE_GAME_API}/game`,
+      method: 'POST',
+      body:  {
+        name: gameName,
+        users: selectedUsers 
+      }
     }
+    fetchData(requestOptions, props.keycloak, body => window.location.href = `/${body._id}`)
   }
 
   const handleChange = async e => {
@@ -102,7 +73,7 @@ export default props => {
     <Form.Control type="name" placeholder="name" onChange={handleChange} />
   </Form>
 
-  const userList = <Fragment><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
+  const userList = users.length === 0 ? <Fragment>You cannot choose users because you are the only one</Fragment> : <Fragment><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
     key={user.id}
     user_props={user}
     selectUser={selectUser}

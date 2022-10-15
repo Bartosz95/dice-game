@@ -88,7 +88,7 @@ export default props => {
 
     }
 
-    const markFigureTochoose = (figureID) => {
+    const markFigureTochoose = figureID => {
         setChosenFigure(chosenFigure === figureID ? null : figureID)
     }
 
