@@ -25,9 +25,7 @@ export default props => {
     }
   }
 
-  useEffect(() => {
-      setUserInfo()
-  },[props.keycloak.authenticated])
+  useEffect(() => { setUserInfo() },[props.keycloak.authenticated])
 
   const selectUser = selectedUser => {
     
@@ -42,7 +40,6 @@ export default props => {
       }
       return user
     }))
-    console.log(users)
   }
 
   const createGame = async () => {
@@ -62,8 +59,8 @@ export default props => {
     fetchData(requestOptions, props.keycloak, body => window.location.href = `/${body._id}`)
   }
 
-  const handleChange = async e => {
-    setGameName(e.target.value)
+  const handleChange = async event => {
+    setGameName(event.target.value)
   }
 
   const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
@@ -73,16 +70,23 @@ export default props => {
     <Form.Control type="name" placeholder="name" onChange={handleChange} />
   </Form>
 
-  const userList = users.length === 0 ? <Fragment>You cannot choose users because you are the only one</Fragment> : <Fragment><div className='selectPlayersText'>Choose players</div><div>{users.map(user => <User
-    key={user.id}
-    user_props={user}
-    selectUser={selectUser}
-  />)}</div></Fragment>
+  const userList = users.length === 0 ? 
+    <Fragment>You cannot choose users because you are the only one</Fragment> : 
+    <Fragment>
+      <div className='selectPlayersText'>Choose players</div>
+      <div>{ users.map(user => 
+        <User
+        key={user.id}
+        user_props={user}
+        selectUser={selectUser}/>
+      )}
+      </div>
+    </Fragment>
 
   const createButton = <div className="createGameDiv">And play the game!<br/><Button
-    onClick={ createGame }
     className="createGameBtn"
-    variant="success">
+    variant="success"
+    onClick={createGame}>
       Create
   </Button></div>
 

@@ -2,58 +2,39 @@ import { useState, useEffect }  from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import './navbar.css'
 
-import UserBar from './userBar/UserBar';
+import UserBar from './UserBar';
+import useHttpRequest from '../../hooks/useHttpRequest';
 
 export default props => {
 
-    const [numberOfNew, setNumberOfNew] = useState(0)
     const [numberOfYourTurn, setNumberOfYourTurn] = useState(0)
-
-    const checkNewGames = async () => {
-        try {
-            if(props.keycloak.authenticated) {
-              const requestOptions = {
-                headers: {
-                    'Authorization': `Bearer ${props.keycloak.token}`
-                }
-              };
-              const response = await fetch(`${props.config.DICE_GAME_API}/game/ping`, requestOptions)
-              const body = await response.json()
-              if((body.level === 'warning') || (body.level === 'error') || (body.level === "info")) {
-                return console.log(body)
-              }
-              setNumberOfNew(body.numberOfNew)
-              setNumberOfYourTurn(body.numberOfYourTurn)
-            }
-          } catch (err) {
-            console.log(err)
-          }
-    }
+    const { fetchData } = useHttpRequest()
 
     useEffect(() => {
         const interval = setInterval(() => {
-            checkNewGames()
+          fetchData( 
+            { url: `${props.config.DICE_GAME_API}/game/ping`}, 
+            props.keycloak, 
+            body => { setNumberOfYourTurn(body.numberOfYourTurn)}
+          )
         }, 5000);
         return () => clearInterval(interval);
-    },[props]);
+    }, [ props.keycloak.authenticated ] );
 
     return <Navbar className="nav bg-light">
-    <Nav className="navbar-collapse">     
+      <Nav className="navbar-collapse">     
 
-        <Nav.Link href="/" className="logo"><img src="img/logo.png"/></Nav.Link>
-        
-        <Nav.Link href="/" className="link-secondary navLink">Home</Nav.Link>
-        
-        {props.keycloak.authenticated ?  <Nav.Link href="/games" className={`link-secondary navLink ${ numberOfYourTurn !== 0 ? 'yourGameNewText' : ''}`} >Your Games</Nav.Link> : ''}
-        
-        {props.keycloak.authenticated ? <Nav.Link href="/create" className="link-secondary navLink">New Game</Nav.Link>: ''}
-    
-    </Nav>
-    <Nav className="justify-content-end userBar">
-
-        <UserBar className="" keycloak={props.keycloak}/>
-    
-    </Nav>
-    
+          <Nav.Link href="/" className="logo"><img src="img/logo.png"/></Nav.Link>
+          
+          <Nav.Link href="/" className="link-secondary navLink">Home</Nav.Link>
+          
+          {props.keycloak.authenticated ?  <Nav.Link href="/games" className={`link-secondary navLink ${ numberOfYourTurn !== 0 ? 'yourGameNewText' : ''}`} >Your Games</Nav.Link> : ''}
+          
+          {props.keycloak.authenticated ? <Nav.Link href="/create" className="link-secondary navLink">New Game</Nav.Link>: ''}
+      
+      </Nav>
+      <Nav className="justify-content-end userBar">
+          <UserBar keycloak={props.keycloak}/>
+      </Nav>
     </Navbar>
 }

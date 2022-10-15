@@ -6,56 +6,29 @@ import './games.css'
 import SingleGameDiv from './singleGameDiv'
 import CreateDiv from './createDiv'
 import AlertMessage from '../alerts/AlertMessage'
+import useHttpRequest from '../../hooks/useHttpRequest';
 
 export default props => {
 
   const [games, setGames] = useState([])
-  const [alertMessage, setAlertMessage] = useState(null)
-  const [renderContent, setRenderContent] = useState(false)
+  const { alertMessage, renderContent, fetchData } = useHttpRequest()
 
   const getGames = async () => {
-    try {
-      if(props.keycloak.authenticated && games.length === 0) {
-        const requestOptions = {
-          headers: {
-              'Authorization': `Bearer ${props.keycloak.token}`
-          }
-        };
-        const response = await fetch(`${props.config.DICE_GAME_API}/game`, requestOptions)
-        const body = await response.json()
-        if((body.level === 'warning') || (body.level === 'error') || (body.level === "info")) {
-          return setAlertMessage(body)
-        }
-        setGames(body)
-        setAlertMessage(null)
-        setRenderContent(true)
-      }
-    } catch (err) {
-      console.log(err)
-      setAlertMessage(err)
-    } 
+    const requestOptions = {
+      url: `${props.config.DICE_GAME_API}/game`,
+    };
+    fetchData(requestOptions, props.keycloak, body => setGames(body))
   }
 
   const deleteGame = async id => {
-    try {
-      if(props.keycloak.authenticated) {
-        const requestOptions = {
-            method: 'DELETE',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.keycloak.token}`
-            }
-        };
-        const response = await fetch(`${props.config.DICE_GAME_API}/game/${id}`, requestOptions)
-        const body = await response.json();
-        window.location.reload(false);
-      }
-    } catch (err) {
-        console.log(err)
-    }
+    const requestOptions = {
+      url: `${props.config.DICE_GAME_API}/game/${id}`,
+      method: 'DELETE'
+    };
+    fetchData(requestOptions, props.keycloak, body => window.location.reload(false))
   }
 
-  useEffect(() => { getGames() })
+  useEffect(() => { getGames() }, [props.keycloak.authenticated])
 
   const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''  
 
