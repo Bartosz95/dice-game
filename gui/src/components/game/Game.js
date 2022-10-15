@@ -58,16 +58,12 @@ export default props => {
     }
 
     const getGameData = async () => {
-        const gameID = window.location.pathname.split('/').at(-1)
-        const requestOptions = {
-            url: `${props.config.DICE_GAME_API}/game/${gameID}`,
-            
-        };
-        fetchData(requestOptions, props.keycloak, setupGameCallback)
+        
     }
 
     useEffect(() => {
-        getGameData()
+        const gameID = window.location.pathname.split('/').at(-1)
+        fetchData({ url: `${props.config.DICE_GAME_API}/game/${gameID}` }, props.keycloak, setupGameCallback)
     }, [props]);
 
     const markDiceToRoll = diceID => {

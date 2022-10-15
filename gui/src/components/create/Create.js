@@ -25,7 +25,9 @@ export default props => {
     }
   }
 
-  useEffect(() => { setUserInfo() },[props.keycloak.authenticated])
+  useEffect(() => { 
+    setUserInfo() 
+  },[props.keycloak.authenticated])
 
   const selectUser = selectedUser => {
     
