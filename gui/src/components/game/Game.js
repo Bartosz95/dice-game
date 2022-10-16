@@ -124,7 +124,7 @@ export default props => {
             />
             <ChooseFigureButton 
                 game={game}
-                chosenFigure={chosenFigure}
+                isFigureSelected={!!chosenFigure}
                 chooseFigure={chooseFigure}
             />
         </div>
