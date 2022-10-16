@@ -1,46 +1,90 @@
+import { useEffect, useReducer } from 'react';
 import { Button } from 'react-bootstrap';
 import './sendButtons.css'
 
-const isActive = (game, dicesToChange) => {
-    if(!game.isYourTurn) {
-        return false
-    } else if(game.numberOfRoll === 3) {
-        return false
-    } else if ((dicesToChange.length === 0) && game.numberOfRoll !== 0) {
-        return false
-    } else return true
-}
 
-const getVariant = (game, dicesToChange) => isActive(game, dicesToChange) ?  "success" : "outline-secondary"
+const reducer = (previousState, action) => {
 
-const getClassName = (game) => `rollTheDicesButton ${game.isYourTurn ? '' : 'hide'}`
-
-const isDisabled = (game, dicesToChange) => !isActive(game, dicesToChange)
-
-const getText = (game, dicesToChange, chosenFigure) => {
-    if(!game.isYourTurn) {
-        return ''
-    } else if(game.numberOfRoll === 3) {
-        return "You don't have next roll" 
-    } else if(chosenFigure) {
-        return "You cannot roll dice if you choose a figure"
-    } else if(game.numberOfRoll === 0) {
-        return "Roll all dice" 
-    } else if (dicesToChange.length === 0 ) {
-        return "Choose dice to roll"
-    } else if (game.numberOfRoll === 1) {
-        return "Roll dice secound time"
-    } else if (game.numberOfRoll === 2){
-        return "Roll dice last time"
+    const { isYourTurn, numberOfRoll, isAnyDiceSelected, isFigureSelected } = action
+    if(!isYourTurn) {
+        return {
+            variant: "outline-secondary",
+            className: "rollTheDicesButton hide",
+            disabled: true,
+            value: "",
+        }
+    } else if(numberOfRoll === 3) {
+        return {
+            variant: "outline-secondary",
+            className: "rollTheDicesButton",
+            disabled: true,
+            value: "You don't have next roll"
+        } 
+    } else if(isFigureSelected) {
+        return {
+            variant: "outline-secondary",
+            className: "rollTheDicesButton",
+            disabled: true,
+            value: "You cannot roll dice if you choose a figure"
+        }
+    } else if (numberOfRoll !== 0 && !isAnyDiceSelected) {
+        return {
+            variant: "outline-secondary",
+            className: "rollTheDicesButton",
+            disabled: true,
+            value: "Choose dice to roll"
+        }
+    } else if(numberOfRoll === 0) {
+        return {
+            variant: "success",
+            className: "rollTheDicesButton",
+            disabled: false,
+            value: "Roll all dice" 
+        } 
+    } else if (numberOfRoll === 1) {
+        return {
+            variant: "success",
+            className: "rollTheDicesButton",
+            disabled: false,
+            value: "Roll dice secound time"
+        } 
+    } else if (numberOfRoll === 2){
+        return {
+            variant: "success",
+            className: "rollTheDicesButton",
+            disabled: false,
+            value: "Roll dice last time"
+        }  
     } else {
-        return ""
+        return {
+            variant: "outline-secondary",
+            className: "rollTheDicesButton hide",
+            disabled: true,
+            value: "",
+        }
     }
 }
 
-export default props => <Button 
-    onClick={props.rollTheDices} 
-    variant={getVariant(props.game, props.dicesToChange)}
-    className={getClassName(props.game, props.dicesToChange)}
-    disabled={isDisabled(props.game, props.dicesToChange)}>
-        {getText(props.game, props.dicesToChange, props.chosenFigure)}
-</Button>
+const initialState = {
+    variant: "outline-secondary",
+    className: "rollTheDicesButton hide",
+    disabled: true,
+    value: "",
+}
+
+export default props => {
+    
+    const [state, dispatch ] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+        dispatch(props)
+    }, [ props ])
+
+    return <Button 
+        variant={state.variant}
+        className={state.className}
+        disabled={state.disabled}
+        onClick={props.rollTheDices}>
+            {state.value}
+    </Button>
+} 

@@ -4,35 +4,13 @@ import './sendButtons.css'
 
 const reducer = (previousState, action) => {
 
-    if (action.isFigureSelected) {
-        return { 
-            variant: "success",
-            className: "chooseFigureButton",
-            disabled: false,
-            isFigureSelected: true,
-            value: "Save figure"
-        }
-    } else {
-        return { 
-            variant: "outline-secondary",
-            className: "chooseFigureButton",
-            disabled: true,
-            isFigureSelected: false,
-            value: "Choose figure to save"
-        }  
-    }
-}
-
-const getInitialState = (props) => {
-
-    const { isYourTurn, numberOfRoll } = props.game
+    const { isYourTurn, numberOfRoll, isFigureSelected } = action
 
     if(!isYourTurn) {
         return {
             variant: "outline-secondary",
             className: "chooseFigureButton hide",
             disabled: true,
-            isFigureSelected: false,
             value: "",
         }
     } else if (numberOfRoll === 0) {
@@ -40,29 +18,40 @@ const getInitialState = (props) => {
             variant: "outline-secondary",
             className: "chooseFigureButton",
             disabled: true,
-            isFigureSelected: false,
             value: "You have to roll all dice" 
         }
-    } else {
+    } else if (!isFigureSelected) {
         return { 
             variant: "outline-secondary",
             className: "chooseFigureButton",
             disabled: true,
-            isFigureSelected: false,
             value: "Choose figure to save",
         }  
+    } else {
+        return { 
+            variant: "success",
+            className: "chooseFigureButton",
+            disabled: false,
+            value: "Save figure"
+        }
     }
+}
+
+const initialState = {
+    variant: "outline-secondary",
+    className: "chooseFigureButton hide",
+    disabled: true,
+    value: "",
+
 }
 
 export default props => {
 
-    const [state, dispatch ] = useReducer(reducer, getInitialState(props))
+    const [state, dispatch ] = useReducer(reducer, initialState)
 
     useEffect(() => {
-        if(props.game.numberOfRoll !== 0) {
-            dispatch({type: "SELECT_FIGURE", isFigureSelected: props.isFigureSelected})
-        }
-    }, [ props.game.numberOfRoll, props.isFigureSelected ])
+        dispatch(props)
+    }, [ props ])
 
     return <Button 
         variant={state.variant}

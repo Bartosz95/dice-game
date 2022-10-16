@@ -13,8 +13,13 @@ export default props => {
   const [games, setGames] = useState([])
   const { alertMessage, renderContent, fetchData } = useHttpRequest()
 
-  useEffect(() => { 
-    fetchData({ url: `${props.config.DICE_GAME_API}/game` }, props.keycloak, body => setGames(body))
+  const a = (body) => {
+    console.log(body)
+    setGames(body)
+  }
+  useEffect(() => {
+    console.log(props.keycloak.authenticated)
+    fetchData({ url: `${props.config.DICE_GAME_API}/game` }, props.keycloak, a)
   }, [props.keycloak.authenticated] )
 
   const deleteGame = async id => {

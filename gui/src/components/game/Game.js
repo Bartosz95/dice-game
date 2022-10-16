@@ -117,13 +117,15 @@ export default props => {
         <div className="dices">{dicesDiv}</div>
         <div className='buttonsDiv'>
             <RollTheDicesButton
-                game={game}
-                dicesToChange={dicesToChange}
-                chosenFigure={chosenFigure}
+                isYourTurn={game.isYourTurn}
+                numberOfRoll={game.numberOfRoll}
+                isAnyDiceSelected={dicesToChange.length !== 0}
+                isFigureSelected={!!chosenFigure}
                 rollTheDices={rollTheDices}
             />
             <ChooseFigureButton 
-                game={game}
+                isYourTurn={game.isYourTurn}
+                numberOfRoll={game.numberOfRoll}
                 isFigureSelected={!!chosenFigure}
                 chooseFigure={chooseFigure}
             />
