@@ -24,5 +24,5 @@ export default props => <Button
     variant={getVariant(props.game, props.chosenFigure)}
     className={getClassName(props.game) }
     disabled={isDisabled(props.game, props.chosenFigure)}>
-        {getText(props.game, props.chooseFigure)}
+        {getText(props.game, props.chosenFigure)}
 </Button>

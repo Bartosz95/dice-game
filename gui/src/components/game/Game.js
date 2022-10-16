@@ -57,10 +57,6 @@ export default props => {
         setChosenFigure(null)
     }
 
-    const getGameData = async () => {
-        
-    }
-
     useEffect(() => {
         const gameID = window.location.pathname.split('/').at(-1)
         fetchData({ url: `${props.config.DICE_GAME_API}/game/${gameID}` }, props.keycloak, setupGameCallback)
@@ -108,7 +104,6 @@ export default props => {
     const dicesDiv = game.numberOfTurn === 0 && game.numberOfRoll === 0 ? '' :  game.mug.map(dice => <Dice 
         key={dice.id}
         dice_props={dice}
-        dicesToChange={dicesToChange}
         isYourTurn={game.isYourTurn}
         numberOfRoll={game.numberOfRoll}
         markDiceToRoll={markDiceToRoll}
