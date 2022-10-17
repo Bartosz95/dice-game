@@ -93,7 +93,7 @@ export default props => {
         fetchData(requestOptions, props.keycloak, setupGameCallback)
     }
 
-    const alertDiv = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
+    const alertDiv = alertMessage && <AlertMessage elems={alertMessage} />
 
     const tablDiv = <GameTable 
         chosenFigure={chosenFigure} 
@@ -101,7 +101,7 @@ export default props => {
         markFigureTochoose={markFigureTochoose}
     />
 
-    const dicesDiv = game.numberOfTurn === 0 && game.numberOfRoll === 0 ? '' :  game.mug.map(dice => <Dice 
+    const dicesDiv = !(game.numberOfTurn === 0 && game.numberOfRoll === 0) && game.mug.map(dice => <Dice 
         key={dice.id}
         dice_props={dice}
         isYourTurn={game.isYourTurn}
@@ -141,6 +141,6 @@ export default props => {
 
     return <Container fluid className="mainContainer dice-game-container">
         {alertDiv}
-        {renderContent ? gameDiv : '' }
+        {renderContent && gameDiv}
     </Container>
 }

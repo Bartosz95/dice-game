@@ -79,7 +79,7 @@ export default props => {
 
   return <Container className="mainContainer">
     
-    {alertMessage ? <AlertMessage elems={alertMessage} /> : ''}
+    {alertMessage && <AlertMessage elems={alertMessage} />}
 
     <Form className="gameNameForm">
       <Form.Label>Write game name</Form.Label>

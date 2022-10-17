@@ -9,7 +9,7 @@ const reducer = (previousState, action) => {
                 
                 ...previousState,
                 isSelected: !previousState.isSelected,
-                className: `dice ${ !previousState.isSelected ? 'diceToRoll' : ''}`,
+                className: `dice ${ !previousState.isSelected && 'diceToRoll'}`,
             }
         case 'SET_STATE':
             return action.state

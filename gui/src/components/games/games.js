@@ -32,8 +32,8 @@ export default props => {
   const content = games.length > 0 ? gamesDiv : <CreateDiv/>
 
   return <Container className="mainContainer">
-    {alertMessage ? <AlertMessage elems={alertMessage} /> : ''}
-    {deleteMessage ? <AlertMessage elems={deleteMessage} /> : ''}
-    {renderContent ? content : '' }
+    {alertMessage && <AlertMessage elems={alertMessage} />}
+    {deleteMessage && <AlertMessage elems={deleteMessage} />}
+    {renderContent && content}
   </Container>
 }
