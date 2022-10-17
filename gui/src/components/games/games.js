@@ -10,24 +10,21 @@ import useHttpRequest from '../../hooks/useHttpRequest';
 
 export default props => {
 
-  const [games, setGames] = useState([])
-  const { alertMessage, renderContent, fetchData } = useHttpRequest()
+  const [ games, setGames ] = useState([])
+  const [ deleteMessage, setDeleteMessage ] = useState(null)
+  const { alertMessage, renderContent, fetchData, setAlertMessage } = useHttpRequest()
 
-  const a = (body) => {
-    console.log(body)
-    setGames(body)
-  }
   useEffect(() => {
-    console.log(props.keycloak.authenticated)
-    fetchData({ url: `${props.config.DICE_GAME_API}/game` }, props.keycloak, a)
-  }, [props.keycloak.authenticated] )
+    setTimeout(() => setDeleteMessage(null), 7000)
+    fetchData({ url: `${props.config.DICE_GAME_API}/game` }, props.keycloak, body => setGames(body))
+  }, [props.keycloak.authenticated, deleteMessage] )
 
   const deleteGame = async id => {
     const requestOptions = {
       url: `${props.config.DICE_GAME_API}/game/${id}`,
       method: 'DELETE'
     };
-    fetchData(requestOptions, props.keycloak, body => window.location.reload(false))
+    fetchData(requestOptions, props.keycloak, body => setDeleteMessage(body))
   }
 
   const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} deleteGame={deleteGame}/>)
@@ -38,6 +35,7 @@ export default props => {
 
   return <Container className="mainContainer">
     {alert}
+    {deleteMessage ? <AlertMessage elems={deleteMessage} /> : ''}
     {renderContent ? content : '' }
   </Container>
 }
