@@ -30,7 +30,6 @@ export default props => {
   },[props.keycloak.authenticated])
 
   const selectUser = selectedUser => {
-    
     setUsers(users.map(user => {
       if(user.id === selectedUser.id) {
         if(!user.selected) {
@@ -44,7 +43,20 @@ export default props => {
     }))
   }
 
-  const createGame = async () => {
+  const userList = users.length === 0 ? 
+    <Fragment>You cannot choose users because you are the only one</Fragment> : 
+    <Fragment>
+      <div className='selectPlayersText'>Choose players</div>
+      <div>{ users.map(user => 
+        <User
+        key={user.id}
+        user_props={user}
+        selectUser={selectUser}/>
+      )}
+      </div>
+    </Fragment>
+
+  const createGame = () => {
     
     let selectedUsers = users.filter(user => user.selected === true).map(user => ({ 'id': user.id, username: user.username}))
     
@@ -65,38 +77,21 @@ export default props => {
     setGameName(event.target.value)
   }
 
-  const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
-
-  const gameNameForm = <Form className="gameNameForm">
-    <Form.Label>Write game name</Form.Label>
-    <Form.Control type="name" placeholder="name" onChange={handleChange} />
-  </Form>
-
-  const userList = users.length === 0 ? 
-    <Fragment>You cannot choose users because you are the only one</Fragment> : 
-    <Fragment>
-      <div className='selectPlayersText'>Choose players</div>
-      <div>{ users.map(user => 
-        <User
-        key={user.id}
-        user_props={user}
-        selectUser={selectUser}/>
-      )}
-      </div>
-    </Fragment>
-
-  const createButton = <div className="createGameDiv">And play the game!<br/><Button
-    className="createGameBtn"
-    variant="success"
-    onClick={createGame}>
-      Create
-  </Button></div>
-
   return <Container className="mainContainer">
-    {alert}
-    {gameNameForm}
+    
+    {alertMessage ? <AlertMessage elems={alertMessage} /> : ''}
+
+    <Form className="gameNameForm">
+      <Form.Label>Write game name</Form.Label>
+      <Form.Control type="name" placeholder="name" onChange={handleChange} />
+    </Form>
+
     {userList}
-    {createButton}
+
+    <div className="createGameDiv">And play the game!<br/>
+    <Button className="createGameBtn" variant="success" onClick={createGame}>Create</Button>
+    </div>
+    
     </Container>
 
 }

@@ -29,12 +29,10 @@ export default props => {
 
   const gamesDiv = games.map(game => <SingleGameDiv key={game._id} game={game} deleteGame={deleteGame}/>)
 
-  const alert = alertMessage ? <AlertMessage elems={alertMessage} /> : ''
-
   const content = games.length > 0 ? gamesDiv : <CreateDiv/>
 
   return <Container className="mainContainer">
-    {alert}
+    {alertMessage ? <AlertMessage elems={alertMessage} /> : ''}
     {deleteMessage ? <AlertMessage elems={deleteMessage} /> : ''}
     {renderContent ? content : '' }
   </Container>
