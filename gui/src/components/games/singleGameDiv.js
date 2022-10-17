@@ -11,8 +11,8 @@ export default props => {
   const game = { 
     ...props.game,
     dateText: dateFormat(new Date(createdAt), "d.mm.yyyy hh:MM"),
-    playerClassName: isYourTurn && 'isYourTurnSingleGameDiv',
-    className: `gameInfo ${isYourTurn && 'isYourTurnSingleGameDiv'} ${checked && 'isChecked'}`,
+    playerClassName: isYourTurn ? 'isYourTurnSingleGameDiv' : '',
+    className: `gameInfo ${isYourTurn ? 'isYourTurnSingleGameDiv' : ''} ${checked ? 'isChecked' : ''}`,
     disabled: !isActive
   }
   

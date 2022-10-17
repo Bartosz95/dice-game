@@ -28,7 +28,7 @@ export default props => {
           
           <Nav.Link href="/" className="link-secondary navLink">Home</Nav.Link>
           
-          {props.keycloak.authenticated && <Nav.Link href="/games" className={`link-secondary navLink ${ numberOfYourTurn !== 0 && 'yourGameNewText'}`} >Your Games</Nav.Link>}
+          {props.keycloak.authenticated && <Nav.Link href="/games" className={`link-secondary navLink ${ numberOfYourTurn !== 0 ? 'yourGameNewText' : ''}`} >Your Games</Nav.Link>}
           
           {props.keycloak.authenticated && <Nav.Link href="/create" className="link-secondary navLink">New Game</Nav.Link>}
       

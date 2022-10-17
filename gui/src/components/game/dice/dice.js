@@ -3,13 +3,13 @@ import { Button } from 'react-bootstrap';
 import './dice.css'
 
 const reducer = (previousState, action) => {
+
     switch(action.type) {
         case 'SELECT_DICE':
             return {
-                
                 ...previousState,
                 isSelected: !previousState.isSelected,
-                className: `dice ${ !previousState.isSelected && 'diceToRoll'}`,
+                className: `dice ${ !previousState.isSelected ? 'diceToRoll' : ''}`,
             }
         case 'SET_STATE':
             return action.state
@@ -44,9 +44,10 @@ export default props => {
 
     const [ state, dispatch ] = useReducer(reducer, getInitialState(props))
 
-    const clickAction = () => {
+    const clickAction = e => {
         dispatch({ type: 'SELECT_DICE' })
         props.markDiceToRoll(state.id)
+        e.target.blur()
     }
 
     useEffect(() => dispatch({ type: 'SET_STATE', state: getInitialState(props) }), [ props.numberOfRoll ] )
