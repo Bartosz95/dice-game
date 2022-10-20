@@ -1,6 +1,6 @@
-import { Component, Fragment } from 'react';
+import {  useState, useEffect, Fragment } from 'react';
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import keycloak from './libs/keycloak';
+import Keycloak from 'keycloak-js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Navbar from './components/navbar/Navbar'
@@ -9,57 +9,49 @@ import Games from './components/games/games';
 import Create from './components/create/Create';
 import Game from './components/game/Game';
 
-class App extends Component {
+const ckey = new Keycloak()
 
-  state = { 
-    keycloak: keycloak,
-    config: {}
-  };
+export default () => {
+  
+  const [ keycloak, setKeycloak ] = useState(ckey)
+  const [ config, setConfig ] = useState({})
 
-  async initKeycloak() {
+  const initKeycloak = async () => {
     try {
-      await keycloak.init({ onLoad: 'check-sso' })
-      
-      if(keycloak.authenticated) {
-        this.setState({ keycloak: keycloak })
-      }
-    } catch (err) {
+      await ckey.init({ onLoad: 'check-sso' })
+      setKeycloak(ckey)
+      } catch (err) {
       console.log(err)
     }
   }
 
-  async initConfigData() {
+  const initConfigData = async () => {
     try {
       const data = await fetch('/config.json', {
         headers: {
           'Content-Type': 'application/json',
         }})
-        const config = await data.json()
-        this.setState({ config: config })
+        const conf = await data.json()
+        setConfig(conf)
       } catch (err) {
         console.log(err)
       }
   }
 
-  componentDidMount() {
-    this.initKeycloak()
-    this.initConfigData()
-  }
+  useEffect(() => {
+    initKeycloak()
+    initConfigData()
+  }, [])
 
-  render() {
-    return <Fragment>
-      <Navbar keycloak={this.state.keycloak} config={this.state.config} />
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={ <Home keycloak={this.state.keycloak} config={this.state.config} /> } />
-          <Route path="/games" element={ <Games keycloak={this.state.keycloak} config={this.state.config} /> } />
-          <Route path="/create" element={ <Create keycloak={this.state.keycloak} config={this.state.config} /> } />
-          <Route path="/:id" element={ <Game keycloak={this.state.keycloak} config={this.state.config} /> } />
-        </Routes>
-      </BrowserRouter>
-    </Fragment>
-  }
-
+  return <div>
+    <Navbar keycloak={keycloak} config={config} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <Home keycloak={keycloak} config={config} /> } />
+        <Route path="/games" element={ <Games keycloak={keycloak} config={config} /> } />
+        <Route path="/create" element={ <Create keycloak={keycloak} config={config} /> } />
+        <Route path="/:id" element={ <Game keycloak={keycloak} config={config} /> } />
+      </Routes>
+    </BrowserRouter>
+  </div>
 }
-export default App;
