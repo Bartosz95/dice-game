@@ -1,6 +1,6 @@
-import {  useState, useEffect, Fragment } from 'react';
-import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, Fragment } from 'react';
+import { Routes, Route  } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { authActions } from './store/auth-slice';
 import { initConfig } from './store/config-action';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -47,13 +47,11 @@ export default () => {
 
   return <Fragment>
     <Navbar/>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={ <Home/> } />
-        <Route path="/games" element={ <Games/> } />
-        <Route path="/create" element={ <Create/> } />
-        <Route path="/:id" element={ <Game/> } />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={ <Home/> } />
+      <Route path="/games" element={ <Games/> } />
+      <Route path="/create" element={ <Create/> } />
+      <Route path="/:id" element={ <Game/> } />
+    </Routes>
   </Fragment>
 }

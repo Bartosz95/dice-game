@@ -1,7 +1,9 @@
 import { useState, useEffect }  from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap'
 import { useSelector } from 'react-redux';
 import { useKeycloak } from '@react-keycloak/web'
+
 import './navbar.css'
 
 import useHttpRequest from '../../hooks/useHttpRequest'
@@ -24,13 +26,22 @@ export default () => {
     return <Navbar className="nav bg-light">
       <Nav className="navbar-collapse">     
 
-          <Nav.Link href="/" className="logo"><img src="img/logo.png"/></Nav.Link>
+          <LinkContainer to="/" >
+            <Nav.Link className="logo"><img src="img/logo.png"/></Nav.Link>
+          </LinkContainer>
           
-          <Nav.Link href="/" className="link-secondary navLink">Home</Nav.Link>
+          <LinkContainer to="/" >
+            <Nav.Link className="link-secondary navLink">Home</Nav.Link>
+          </LinkContainer>
           
-          {keycloak.authenticated && <Nav.Link href="/games" className={`link-secondary navLink ${ numberOfYourTurn !== 0 ? 'yourGameNewText' : ''}`} >Your Games</Nav.Link>}
           
-          {keycloak.authenticated && <Nav.Link href="/create" className="link-secondary navLink">New Game</Nav.Link>}
+          {keycloak.authenticated && <LinkContainer to="/games">
+            <Nav.Link className={`link-secondary navLink ${ numberOfYourTurn !== 0 ? 'yourGameNewText' : ''}`} >Your Games</Nav.Link>
+          </LinkContainer>}
+          
+          {keycloak.authenticated && <LinkContainer to="/create">
+            <Nav.Link className="link-secondary navLink">New Game</Nav.Link>
+          </LinkContainer>}
       
       </Nav>
       <Nav className="justify-content-end userBar">

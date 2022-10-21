@@ -1,5 +1,6 @@
 import { Container, Button } from 'react-bootstrap';
 import { useKeycloak } from '@react-keycloak/web'
+import { LinkContainer } from 'react-router-bootstrap'
 
 import Carusel from './Carousel'
 
@@ -306,19 +307,20 @@ export default () => {
 
   </div>
 
-const summaryCreateBtn = <Button 
-    variant="success"
-    className="summaryCreateBtn"
-    href='/create' >
-    Create a new game!
-</Button>
+  const summaryCreateBtn = <LinkContainer to='/create'>
+    <Button 
+      variant="success"
+      className="summaryCreateBtn">
+      Create a new game!
+    </Button>
+  </LinkContainer>
 
-const summaryLoginBtn = <Button 
-    variant="secondary"
-    className="summaryCreateBtn"
-    onClick={keycloak.login} >
-    Please login before playing the game.
-</Button>
+  const summaryLoginBtn = <Button 
+      variant="secondary"
+      className="summaryCreateBtn"
+      onClick={keycloak.login} >
+      Please login before playing the game.
+  </Button>
 
   const summary = <div className='summary'>
     <div className="summaryTitle">Jump to the game!</div>
