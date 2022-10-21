@@ -1,48 +1,40 @@
-import { useEffect, useState, Fragment } from 'react';
+import { Fragment } from 'react';
 import { NavDropdown, Dropdown, Nav } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { useKeycloak } from '@react-keycloak/web'
 
-const UserBar = props => {
+export default () => {
+  
+  const { keycloak } = useKeycloak()
+  const { userInfo } = useSelector((state) => state.auth);
 
-  const [username, setUsername] = useState("")
-
-  const login = <Nav.Link
+  const loginDiv = <Nav.Link
     variant="outline-secondary" 
     className="userBarBtn"
-    onClick={props.keycloak.login} >
+    onClick={keycloak.login} >
       Login
   </Nav.Link >
 
-  const logout = <Dropdown.Item 
+  const logoutDiv = <Dropdown.Item 
     className="navItem"
     onClick={() => { 
-      props.keycloak.logout(); 
+      keycloak.logout()
       window.location.href = `/` }}>
       Logout
   </Dropdown.Item>
 
-  const accountManagement = <Dropdown.Item 
+  const accountManagementDiv = <Dropdown.Item 
     className="navItem"
-    onClick={props.keycloak.accountManagement}>
+    onClick={keycloak.accountManagement}>
       Account
   </Dropdown.Item>
 
   const dropdown = <NavDropdown 
-    title={username} 
+    title={userInfo.preferred_username} 
     variant='outline-secondary' 
     className="userBarBtn">
-    {logout}
+    {logoutDiv}
   </NavDropdown > 
 
-  const load = async () => {
-    if(props.keycloak.authenticated) {
-      const userInfo = await props.keycloak.loadUserInfo()
-      setUsername(userInfo.preferred_username)
-    }
-   
-  }
-
-  useEffect(() => { load() }, [ props.keycloak.authenticated ])
-
-  return <Fragment>{props.keycloak.authenticated ? dropdown : login}</Fragment>
+  return <Fragment>{keycloak.authenticated ? dropdown : loginDiv}</Fragment>
 }
-export default UserBar;

@@ -11,7 +11,7 @@ describe('Game', function () {
     beforeEach(function () {
       game = new Game({ id:"abc", username: "anna" }, [{ id:"def", username: "jon" }], "Game 3")
       game.numberOfRoll = 1
-      deepCopieGame = JSON.parse(JSON.stringify(game))
+      deepCopieGame = { ...game }
       currentPlayer = deepCopieGame.currentPlayer;
     })
   

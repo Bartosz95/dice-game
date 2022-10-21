@@ -1,5 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
-import { Container, Button, Form } from 'react-bootstrap';
+import { Container, Button, Form, Spinner } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { useKeycloak } from '@react-keycloak/web'
 
 import './create.css'
 
@@ -7,40 +9,30 @@ import User from './User'
 import AlertMessage from '../alerts/AlertMessage'
 import useHttpRequest from '../../hooks/useHttpRequest'
 
-export default props => {
 
-  const [ user, setUser ] = useState(null)
+export default () => {
+
   const [ users, setUsers ] = useState([])
   const [ gameName, setGameName ] = useState('')
   const { alertMessage, renderContent, fetchData } = useHttpRequest()
-  
-  const setUserInfo = async () => {
-    if(props.keycloak.authenticated) {
-      const user = await props.keycloak.loadUserInfo()
-      setUser(user)
-      const requestOptions = {
-        url: `${props.keycloak.authServerUrl}/admin/realms/${props.keycloak.realm}/users`
-      };
-      fetchData(requestOptions, props.keycloak, body => setUsers(body.filter(u => u.id !== user.sub)))
-    }
-  }
 
-  useEffect(() => { 
-    setUserInfo() 
-  },[props.keycloak.authenticated])
+  const { keycloak } = useKeycloak()
+  const { DICE_GAME_API }  = useSelector(state => state.config);
+  const { userInfo }  = useSelector(state => state.auth);
+    
+
+  useEffect(() => {
+    if(keycloak.authenticated && userInfo.sub) {
+      fetchData({ url: `${keycloak.authServerUrl}/admin/realms/${keycloak.realm}/users`}, body => setUsers(body.filter(user => user.id !== userInfo.sub)))
+    }
+  },[fetchData, keycloak.authenticated, userInfo])
 
   const selectUser = selectedUser => {
-    setUsers(users.map(user => {
-      if(user.id === selectedUser.id) {
-        if(!user.selected) {
-          user.selected = true
-        } else {
-          user.selected = false
-        }
-         
-      }
+    const toggleUser = user => {
+      user.selected = !user.selected; 
       return user
-    }))
+    }
+    setUsers(users => users.map(user => user.id === selectedUser.id ? toggleUser(user) : user))
   }
 
   const userList = users.length === 0 ? 
@@ -60,27 +52,24 @@ export default props => {
     
     let selectedUsers = users.filter(user => user.selected === true).map(user => ({ 'id': user.id, username: user.username}))
     
-    selectedUsers.push({ id: user.sub, username: user.preferred_username})
+    selectedUsers.push({ id: userInfo.sub, username: userInfo.preferred_username})
     
     const requestOptions = {
-      url: `${props.config.DICE_GAME_API}/game`,
+      url: `${DICE_GAME_API}/game`,
       method: 'POST',
       body:  {
         name: gameName,
         users: selectedUsers 
       }
     }
-    fetchData(requestOptions, props.keycloak, body => window.location.href = `/${body._id}`)
+    fetchData(requestOptions, body => window.location.href = `/${body._id}`)
   }
 
   const handleChange = async event => {
     setGameName(event.target.value)
   }
 
-  return <Container className="mainContainer">
-    
-    {alertMessage && <AlertMessage elems={alertMessage} />}
-
+  const content = <Fragment>
     <Form className="gameNameForm">
       <Form.Label>Write game name</Form.Label>
       <Form.Control type="name" placeholder="name" onChange={handleChange} />
@@ -91,7 +80,13 @@ export default props => {
     <div className="createGameDiv">And play the game!<br/>
     <Button className="createGameBtn" variant="success" onClick={createGame}>Create</Button>
     </div>
-    
-    </Container>
+  </Fragment>
 
+  return <Container className="mainContainer">
+    
+    {alertMessage && <AlertMessage elems={alertMessage} />}
+
+    {renderContent ? content : <div className="spinner"><Spinner animation="border" variant="secondary" /></div>  } 
+
+  </Container>
 }

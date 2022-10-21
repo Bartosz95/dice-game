@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import { Container,  Row, Col } from 'react-bootstrap';
 import useHttpRequest from '../../hooks/useHttpRequest'
+import { useSelector } from 'react-redux';
 
 import './game.css'
 import Dice from './dice/dice'
@@ -12,6 +13,8 @@ import ChooseFigureButton from './ChooseFigureButton';
 import TurnInfo from './TurnInfo';
 
 export default props => {
+
+    const { DICE_GAME_API }  = useSelector(state => state.config);
 
     const defaultGameParam = {
         currentPlayer: '',
@@ -59,8 +62,8 @@ export default props => {
 
     useEffect(() => {
         const gameID = window.location.pathname.split('/').at(-1)
-        fetchData({ url: `${props.config.DICE_GAME_API}/game/${gameID}` }, props.keycloak, setupGameCallback)
-    }, [props]);
+        fetchData({ url: `${DICE_GAME_API}/game/${gameID}` }, setupGameCallback)
+    }, [DICE_GAME_API, fetchData]);
 
     const markDiceToRoll = diceID => {
         if((game.numberOfRoll === 0) || (game.numberOfRoll === 3)) 
@@ -72,11 +75,11 @@ export default props => {
 
     const rollTheDices = () => {
         const requestOptions = {
-            url: `${props.config.DICE_GAME_API}/game/${game.gameID}`,
+            url: `${DICE_GAME_API}/game/${game.gameID}`,
             method: 'POST',
             body: { dicesToChange: dicesToChange }
         };
-        fetchData(requestOptions, props.keycloak, setupGameCallback)
+        fetchData(requestOptions, setupGameCallback)
 
     }
 
@@ -86,11 +89,11 @@ export default props => {
 
     const chooseFigure = async () =>  {
         const requestOptions = {
-            url: `${props.config.DICE_GAME_API}/game/${game.gameID}`,
+            url: `${DICE_GAME_API}/game/${game.gameID}`,
             method: 'POST',
             body: { chosenFigure: chosenFigure }
         };
-        fetchData(requestOptions, props.keycloak, setupGameCallback)
+        fetchData(requestOptions, setupGameCallback)
     }
 
     const alertDiv = alertMessage && <AlertMessage elems={alertMessage} />

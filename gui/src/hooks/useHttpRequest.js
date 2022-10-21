@@ -1,20 +1,24 @@
 import { useState, useCallback } from 'react';
+import { useKeycloak } from '@react-keycloak/web'
 
 export default () => {
     const [ alertMessage, setAlertMessage] = useState(null)
     const [ renderContent, setRenderContent] = useState(false)
-
-    const fetchData = useCallback(async (requestOptions, auth, dataCallback) => {
-        setRenderContent(true)
+    const { keycloak } = useKeycloak()
+    
+    const fetchData = useCallback(async (requestOptions, dataCallback) => {
+        
+        setRenderContent(false)
         setAlertMessage(null)
+        
         try {
-            if(auth.authenticated) {
+            if(keycloak.authenticated) {
                 const response = await fetch(
                     requestOptions.url, {
                     method: requestOptions.method || 'GET',
                     headers: {
                         ...requestOptions.headers || null,
-                        'Authorization': `Bearer ${auth.token}`,
+                        'Authorization': `Bearer ${keycloak.token}`,
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(requestOptions.body) || null
@@ -31,13 +35,14 @@ export default () => {
                     setAlertMessage(body)
                 } else {
                     dataCallback(body)
+                    setRenderContent(true)
                 }
             }
         } catch (err) {
             setRenderContent(false)
             setAlertMessage(err)
         }
-    }, [])
+    }, [keycloak])
     
     return { alertMessage, renderContent, fetchData }
 

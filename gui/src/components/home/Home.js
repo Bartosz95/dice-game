@@ -1,8 +1,11 @@
 import { Container, Button } from 'react-bootstrap';
+import { useKeycloak } from '@react-keycloak/web'
 
-import Carusel from './carousel'
+import Carusel from './Carousel'
 
-export default props => {
+export default () => {
+
+  const { keycloak } = useKeycloak()
 
   const welcomeDiv = <div className='welcome'>Welcome to dice game!</div>
   
@@ -313,7 +316,7 @@ const summaryCreateBtn = <Button
 const summaryLoginBtn = <Button 
     variant="secondary"
     className="summaryCreateBtn"
-    onClick={ () => props.keycloak.login() } >
+    onClick={keycloak.login} >
     Please login before playing the game.
 </Button>
 
@@ -329,7 +332,7 @@ const summaryLoginBtn = <Button
     You will also see Your Games text in green if you have some games where others are waiting for you.
     </div>
     
-    {props.keycloak.authenticated ? summaryCreateBtn : summaryLoginBtn}
+    {keycloak.authenticated ? summaryCreateBtn : summaryLoginBtn}
   </div>
 
 

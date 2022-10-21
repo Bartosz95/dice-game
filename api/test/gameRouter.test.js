@@ -30,7 +30,7 @@ describe('E2E', () => {
         await gameModel.deleteMany({'game.playerIDs': ["ghi"]})
         await gameModel.deleteMany({'game.playerIDs': ["xyz"]})
         game = new Game(currentUser, [{ id:"def", username: "jon" }], "Game 1")
-        deepCopieGame = JSON.parse(JSON.stringify(game))
+        deepCopieGame = { ...game }
         currentPlayer = currentUser.id
         db_game = await gameModel.create({game})
         gameID = db_game._id.toString()
@@ -147,7 +147,7 @@ describe('E2E', () => {
                 const res = await request(app).get(`/game/${gameID}`).set('Authorization', `Bearer ${token}`)
                 expect(res.status).toEqual(200)
                 expect(res.body).toHaveProperty('_id')
-                const gameChecked = JSON.parse(JSON.stringify(game))
+                const gameChecked = { ...game }
                 gameChecked.players[currentPlayer].checked = true
                 gameChecked.isYourTurn = true
                 expect(res.body).toHaveProperty('game', gameChecked)

@@ -73,3 +73,8 @@
     margin: 10px;
     width: 80px;
 }
+
+.spinner {
+    text-align: center;
+    margin-top: 25%;
+}
