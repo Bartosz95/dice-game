@@ -38,6 +38,7 @@ export default () => {
     const [ chosenFigure, setChosenFigure ] = useState(null)
     const [ notReload, setNotReload ] = useState(false)
     const { alertMessage, renderContent, fetchData } = useHttpRequest()
+    
 
     const setupGameCallback = body => {
 

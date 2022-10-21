@@ -1,5 +1,5 @@
 import { useEffect, Fragment } from 'react';
-import { Routes, Route, Navigate  } from 'react-router-dom';
+import { Routes, Route, Navigate , useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authActions } from './store/auth-slice';
 import { initConfig } from './store/config-action';
@@ -21,8 +21,14 @@ export default () => {
     dispatch(initConfig())
   }, [dispatch])
 
+  const location = useLocation()
+  const { keycloak, initialized } = useKeycloak()
 
-  const { keycloak } = useKeycloak()
+  useEffect(() => {
+    if(!initialized && location.pathname !== '/home') {
+      window.location.replace('/home')
+    }
+  }, [initialized, location])
 
   useEffect(() => {
     const loadUserInfo = async () => {
