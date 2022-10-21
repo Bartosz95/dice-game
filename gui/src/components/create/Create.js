@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Container, Button, Form, Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useKeycloak } from '@react-keycloak/web'
@@ -17,6 +18,7 @@ export default () => {
   const { alertMessage, renderContent, fetchData } = useHttpRequest()
 
   const { keycloak } = useKeycloak()
+  const navigate = useNavigate();
   const { DICE_GAME_API }  = useSelector(state => state.config);
   const { userInfo }  = useSelector(state => state.auth);
     
@@ -62,7 +64,8 @@ export default () => {
         users: selectedUsers 
       }
     }
-    fetchData(requestOptions, body => window.location.href = `/games/${body._id}`)
+    fetchData(requestOptions, body => navigate(`/games/${body._id}`))
+    
   }
 
   const handleChange = async event => {
@@ -86,7 +89,7 @@ export default () => {
     
     {alertMessage && <AlertMessage elems={alertMessage} />}
 
-    {renderContent ? content : <div className="spinner"><Spinner animation="border" variant="secondary" /></div>  } 
+    {renderContent && keycloak.authenticated ? content : <div className="spinner"><Spinner animation="border" variant="secondary" /></div>  } 
 
   </Container>
 }

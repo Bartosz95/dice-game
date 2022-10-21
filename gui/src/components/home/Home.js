@@ -1,12 +1,13 @@
 import { Container, Button } from 'react-bootstrap';
 import { useKeycloak } from '@react-keycloak/web'
-import { LinkContainer } from 'react-router-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 import Carusel from './Carousel'
 
 export default () => {
 
   const { keycloak } = useKeycloak()
+  const navigate = useNavigate();
 
   const welcomeDiv = <div className='welcome'>Welcome to dice game!</div>
   
@@ -307,13 +308,12 @@ export default () => {
 
   </div>
 
-  const summaryCreateBtn = <LinkContainer to='/create'>
-    <Button 
+  const summaryCreateBtn = <Button
       variant="success"
+      onClick={() => navigate('/create')}
       className="summaryCreateBtn">
       Create a new game!
-    </Button>
-  </LinkContainer>
+  </Button>
 
   const summaryLoginBtn = <Button 
       variant="secondary"
