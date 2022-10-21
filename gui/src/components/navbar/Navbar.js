@@ -26,11 +26,11 @@ export default () => {
     return <Navbar className="nav bg-light">
       <Nav className="navbar-collapse">     
 
-          <LinkContainer to="/" >
+          <LinkContainer to="/home" >
             <Nav.Link className="logo"><img src="img/logo.png"/></Nav.Link>
           </LinkContainer>
           
-          <LinkContainer to="/" >
+          <LinkContainer to="/home" >
             <Nav.Link className="link-secondary navLink">Home</Nav.Link>
           </LinkContainer>
 

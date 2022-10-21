@@ -1,5 +1,5 @@
 import { useEffect, Fragment } from 'react';
-import { Routes, Route  } from 'react-router-dom';
+import { Routes, Route, Navigate  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authActions } from './store/auth-slice';
 import { initConfig } from './store/config-action';
@@ -44,14 +44,15 @@ export default () => {
     loadUserInfo()
   }, [keycloak.authenticated])
 
-
   return <Fragment>
     <Navbar/>
     <Routes>
-      <Route path="/" element={ <Home/> } />
-      <Route path="/create" element={ <Create/> } />
-      <Route path="/games" exact element={ <Games/> } />
-      <Route path="/games/:gameID" element={ <Game/> } />
+      <Route path='/' exact element={<Navigate to='home'/>} />        
+      <Route path="/home" element={<Home/>} />
+      <Route path="/create" element={<Create/>} />
+      <Route path="/games" exact element={<Games/>} />
+      <Route path="/games/:gameID" element={<Game/>} />
+      <Route path='*' element={<Navigate to='/home'/>} />
     </Routes>
   </Fragment>
 }
