@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { ListGroup, Button, Badge } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap'
 import dateFormat from "dateformat";
 
 import './games.css'
@@ -32,7 +33,9 @@ export default props => {
       <Badge pill bg="secondary" className='turnInfo'>{game.numberOfTurn}</Badge>
       <div className='gameDate'>{game.dateText}</div>
       {playersDiv}
-      <Button variant="outline-success" className="playBtn" href={`/${game._id}`} disabled={game.disabled}>Play</Button>
+      <LinkContainer to={`/game/${game._id}`}>
+        <Button variant="outline-success" className="playBtn" disabled={game.disabled}>Play</Button>
+      </LinkContainer>
       <Button variant="outline-danger" className="deleteBtn" onClick={() => props.deleteGame(_id)}>Delete</Button>
   </div>
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from 'react';
-import { Container,  Row, Col } from 'react-bootstrap';
+import { Container,  Row, Col, Spinner } from 'react-bootstrap';
+import { useParams } from 'react-router-dom'
 import useHttpRequest from '../../hooks/useHttpRequest'
 import { useSelector } from 'react-redux';
 
@@ -12,8 +13,10 @@ import RollTheDicesButton from "./RollTheDicesButton"
 import ChooseFigureButton from './ChooseFigureButton';
 import TurnInfo from './TurnInfo';
 
-export default props => {
+export default () => {
 
+    const { gameID } = useParams()
+    
     const { DICE_GAME_API }  = useSelector(state => state.config);
 
     const defaultGameParam = {
@@ -33,6 +36,7 @@ export default props => {
     const [ game, setGame ] = useState(defaultGameParam)
     const [ dicesToChange, setDicesToChange ] = useState([])
     const [ chosenFigure, setChosenFigure ] = useState(null)
+    const [ notReload, setNotReload ] = useState(false)
     const { alertMessage, renderContent, fetchData } = useHttpRequest()
 
     const setupGameCallback = body => {
@@ -61,7 +65,6 @@ export default props => {
     }
 
     useEffect(() => {
-        const gameID = window.location.pathname.split('/').at(-1)
         fetchData({ url: `${DICE_GAME_API}/game/${gameID}` }, setupGameCallback)
     }, [DICE_GAME_API, fetchData]);
 
@@ -73,13 +76,31 @@ export default props => {
         setDicesToChange(newDicesToChange) 
     }
 
+    const setupNewMug = body => {
+
+        const mug = []
+        for (const [id, value] of Object.entries(body.game.mug)) {
+            mug.push({
+                id,
+                value: value,
+                roll: false
+            })
+        }
+        setGame(game => { return {...game, mug, numberOfRoll: body.game.numberOfRoll } })
+        setDicesToChange([])
+        setChosenFigure(null)
+        setNotReload(false)
+    }
+
     const rollTheDices = () => {
         const requestOptions = {
             url: `${DICE_GAME_API}/game/${game.gameID}`,
             method: 'POST',
             body: { dicesToChange: dicesToChange }
         };
-        fetchData(requestOptions, setupGameCallback)
+        setNotReload(true)
+        fetchData(requestOptions, setupNewMug)
+        
 
     }
 
@@ -137,13 +158,13 @@ export default props => {
 
     const winMessageDiv = <WinMessage elems={game.players} />
 
-    const gameDiv = <Row>
+    const content = <Row>
         <Col>{game.isActive ? playDiv : winMessageDiv}</Col>
         <Col>{tablDiv}</Col>
     </Row>
 
     return <Container fluid className="mainContainer dice-game-container">
         {alertDiv}
-        {renderContent && gameDiv}
+        {renderContent || notReload ? content : <div className="spinner"><Spinner animation="border" variant="secondary" /></div> }
     </Container>
 }

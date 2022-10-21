@@ -51,7 +51,7 @@ export default () => {
       <Route path="/" element={ <Home/> } />
       <Route path="/games" element={ <Games/> } />
       <Route path="/create" element={ <Create/> } />
-      <Route path="/:id" element={ <Game/> } />
+      <Route path="/game/:gameID" element={ <Game/> } />
     </Routes>
   </Fragment>
 }

@@ -11,6 +11,7 @@ export default () => {
         setRenderContent(false)
         setAlertMessage(null)
         console.log("fetch")
+        console.log(keycloak.authenticated)
         
         try {
             if(keycloak.authenticated) {
