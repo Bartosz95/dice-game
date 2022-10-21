@@ -62,7 +62,7 @@ export default () => {
         users: selectedUsers 
       }
     }
-    fetchData(requestOptions, body => window.location.href = `/game/${body._id}`)
+    fetchData(requestOptions, body => window.location.href = `/games/${body._id}`)
   }
 
   const handleChange = async event => {

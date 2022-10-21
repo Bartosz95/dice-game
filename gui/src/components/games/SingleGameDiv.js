@@ -33,7 +33,7 @@ export default props => {
       <Badge pill bg="secondary" className='turnInfo'>{game.numberOfTurn}</Badge>
       <div className='gameDate'>{game.dateText}</div>
       {playersDiv}
-      <LinkContainer to={`/game/${game._id}`}>
+      <LinkContainer to={`/games/${game._id}`}>
         <Button variant="outline-success" className="playBtn" disabled={game.disabled}>Play</Button>
       </LinkContainer>
       <Button variant="outline-danger" className="deleteBtn" onClick={() => props.deleteGame(_id)}>Delete</Button>

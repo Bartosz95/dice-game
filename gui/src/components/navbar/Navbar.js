@@ -33,16 +33,15 @@ export default () => {
           <LinkContainer to="/" >
             <Nav.Link className="link-secondary navLink">Home</Nav.Link>
           </LinkContainer>
-          
+
+          {keycloak.authenticated && <LinkContainer to="/create">
+            <Nav.Link className="link-secondary navLink">New Game</Nav.Link>
+          </LinkContainer>}
           
           {keycloak.authenticated && <LinkContainer to="/games">
             <Nav.Link className={`link-secondary navLink ${ numberOfYourTurn !== 0 ? 'yourGameNewText' : ''}`} >Your Games</Nav.Link>
           </LinkContainer>}
-          
-          {keycloak.authenticated && <LinkContainer to="/create">
-            <Nav.Link className="link-secondary navLink">New Game</Nav.Link>
-          </LinkContainer>}
-      
+
       </Nav>
       <Nav className="justify-content-end userBar">
           <UserBar/>

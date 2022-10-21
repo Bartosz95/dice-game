@@ -49,9 +49,9 @@ export default () => {
     <Navbar/>
     <Routes>
       <Route path="/" element={ <Home/> } />
-      <Route path="/games" element={ <Games/> } />
       <Route path="/create" element={ <Create/> } />
-      <Route path="/game/:gameID" element={ <Game/> } />
+      <Route path="/games" exact element={ <Games/> } />
+      <Route path="/games/:gameID" element={ <Game/> } />
     </Routes>
   </Fragment>
 }
