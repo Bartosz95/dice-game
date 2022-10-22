@@ -310,7 +310,7 @@ export default () => {
 
   const summaryCreateBtn = <Button
       variant="success"
-      onClick={() => navigate('/create')}
+      onClick={() => navigate('/create', { replace: false })}
       className="summaryCreateBtn">
       Create a new game!
   </Button>

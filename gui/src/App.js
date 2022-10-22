@@ -1,5 +1,6 @@
-import { useEffect, Fragment } from 'react';
+import React, { Suspense, useEffect, Fragment } from 'react';
 import { Routes, Route, Navigate , useLocation } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { authActions } from './store/auth-slice';
 import { initConfig } from './store/config-action';
@@ -8,10 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useKeycloak } from '@react-keycloak/web'
 
 import Navbar from './components/navbar/Navbar'
-import Home from './components/home/Home';
-import Games from './components/games/Games';
-import Create from './components/create/Create';
-import Game from './components/game/Game';
+const Home = React.lazy(() => import('./components/home/Home'));
+const Games = React.lazy(() => import('./components/games/Games'));
+const Create = React.lazy(() => import('./components/create/Create'));
+const Game = React.lazy(() => import('./components/game/Game'));
 
 export default () => {
 
@@ -50,15 +51,15 @@ export default () => {
     loadUserInfo()
   }, [keycloak.authenticated])
 
-  return <Fragment>
+  return <Suspense fallback={<div><Spinner /></div>}>
     <Navbar/>
     <Routes>
-      <Route path='/' exact element={<Navigate to='home'/>} />        
+      <Route path='/' element={<Navigate replace to='home'/>} />        
       <Route path="/home" element={<Home/>} />
       <Route path="/create" element={<Create/>} />
-      <Route path="/games" exact element={<Games/>} />
+      <Route path="/games" element={<Games/>} />
       <Route path="/games/:gameID" element={<Game/>} />
-      <Route path='*' element={<Navigate to='/home'/>} />
+      <Route path='*' element={<Navigate replace to='/home'/>} />
     </Routes>
-  </Fragment>
+  </Suspense>
 }

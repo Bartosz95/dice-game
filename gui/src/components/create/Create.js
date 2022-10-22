@@ -64,7 +64,7 @@ export default () => {
         users: selectedUsers 
       }
     }
-    fetchData(requestOptions, body => navigate(`/games/${body._id}`))
+    fetchData(requestOptions, body => navigate(`/games/${body._id}`, { replace: false}))
     
   }
 
