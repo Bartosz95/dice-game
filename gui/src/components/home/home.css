@@ -1,134 +1,131 @@
 .welcome {
-    text-align: center;
-    font-size: xx-large;
-    margin-bottom: 50px;
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 50px;
 }
-.carMain{
-    width: 70%;
-    margin: auto
+.carMain {
+  width: 70%;
+  margin: auto;
 }
 
 .carItem {
 }
-.loginCarousel{
-    color: white;
+.loginCarousel {
+  color: white;
 }
 
 .rulesTitle {
-    font-size: xx-large;
-    margin-left: 5px;
+  font-size: xx-large;
+  margin-left: 5px;
 }
 
 .rulesText {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .abstract {
-    margin: 50px;
-    font-size: large;
+  margin: 50px;
+  font-size: large;
 }
 
 .figureDescription {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .figureDescriptionIntroTitle {
-    font-size: xx-large;
-    margin-left: 5px;
+  font-size: xx-large;
+  margin-left: 5px;
 }
 
 .figureDescriptionIntroText {
-    margin-bottom: 20px;
-    font-size: large;
+  margin-bottom: 20px;
+  font-size: large;
 }
 
-
 .figure {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .figureTitle {
-    font-size: larger;
-    margin: 5px;
-    
+  font-size: larger;
+  margin: 5px;
 }
 
 .figureText {
-    float: left;
-    width: 50%;
-    margin-top: 5px;
+  float: left;
+  width: 50%;
+  margin-top: 5px;
 }
 
 .figureImage {
-    float: left;
+  float: left;
 }
 .bonus {
-    width:100%
+  width: 100%;
 }
 
 .tutorial {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .tutorialTitle {
-    font-size: xx-large;
-    margin-left: 5px;
+  font-size: xx-large;
+  margin-left: 5px;
 }
 
 .tutorialText {
-    
 }
 
 .steps {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .stepsTitle {
-    font-size: x-large;
-    margin-left: 5px;
+  font-size: x-large;
+  margin-left: 5px;
 }
 .stepsText {
-    font-size: large;
+  font-size: large;
 }
 
 .stepsImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    width: 80%;
-    border: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 80%;
+  border: 10px;
 }
 
 .summary {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .summaryTitle {
-    margin-left: 5px;
-    font-size: xx-large;
+  margin-left: 5px;
+  font-size: xx-large;
 }
 
 .summaryText {
-    margin-top: 10px;
-    font-size: large;
+  margin-top: 10px;
+  font-size: large;
 }
 
 .summaryCreateBtn {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 200px;
 }
 
 .summaryLoginBtn {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 300px;
 }

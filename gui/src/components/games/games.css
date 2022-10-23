@@ -1,80 +1,80 @@
 .mainContainer {
-    margin: auto;
-    padding-top: 50px;
+  margin: auto;
+  padding-top: 50px;
 }
 
 .name {
-    font-size: x-large;
-    float: left;
+  font-size: x-large;
+  float: left;
 }
 
 .turnInfo {
-    margin-top: 7px;
-    margin-left: 10px;
-    float: right;
+  margin-top: 7px;
+  margin-left: 10px;
+  float: right;
 }
 
 .isYourTurnSingleGameDiv {
-    background-color: #d1e7dd;
+  background-color: #d1e7dd;
 }
 .isChecked {
-    border: 2px solid #198754 !important;
+  border: 2px solid #198754 !important;
 }
 
 .gameDate {
-    clear: both;
-    color: #6c757d;
+  clear: both;
+  color: #6c757d;
 }
 
 .playersLabelText {
-    color: #6c757d;
+  color: #6c757d;
 }
 
 .list-group-item {
-    padding: 0px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+  padding: 0px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .createInfo {
-    width: 400px;
-    margin: auto;
-    margin-top: 50px;
-    padding: 50px;
-    text-align: center;
-    border: 1px solid #6c757d;
-    border-radius: 0.25rem;
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 50px;
+  text-align: center;
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
 }
 
 .createBtn {
-    margin-top: 30px;
-    width: 150px;
+  margin-top: 30px;
+  width: 150px;
 }
 
 .gameInfo {
-    width: 250px;
-    border: 1px solid #6c757d;
-    border-radius: 0.25rem;
-    margin: 20px;
-    padding: 20px;
-    float:left;
+  width: 250px;
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
+  margin: 20px;
+  padding: 20px;
+  float: left;
 }
 
 .list-group {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .playBtn {
-    margin: 10px;
-    width: 80px;
+  margin: 10px;
+  width: 80px;
 }
 
 .deleteBtn {
-    margin: 10px;
-    width: 80px;
+  margin: 10px;
+  width: 80px;
 }
 
 .spinner {
-    text-align: center;
-    margin-top: 25%;
+  text-align: center;
+  margin-top: 25%;
 }

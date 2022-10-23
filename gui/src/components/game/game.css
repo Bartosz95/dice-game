@@ -1,40 +1,39 @@
 .dice-game-container {
-
-    /* margin-top: 50px; */
-    padding: 5%;
-    margin: auto;
-    background-color: white
+  /* margin-top: 50px; */
+  padding: 5%;
+  margin: auto;
+  background-color: white;
 }
 
 .gameName {
-    font-size: xx-large;
-    margin-bottom: 50px;
-    float: left;
-    width: auto;
+  font-size: xx-large;
+  margin-bottom: 50px;
+  float: left;
+  width: auto;
 }
 
 .turnInfoDiv {
-    font-size: medium;
-    padding: 25px;
-    margin-right: 50px;
-    float: right;
-    border: 10px;
+  font-size: medium;
+  padding: 25px;
+  margin-right: 50px;
+  float: right;
+  border: 10px;
 }
 
 .turn {
-    color: #6c757d;;
+  color: #6c757d;
 }
 
-.numberOfRoll{
-    color: #6c757d;;
-    margin-top: 5px;
+.numberOfRoll {
+  color: #6c757d;
+  margin-top: 5px;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
-.dices{
-    margin-top: 50px;
-    clear: both
+.dices {
+  margin-top: 50px;
+  clear: both;
 }

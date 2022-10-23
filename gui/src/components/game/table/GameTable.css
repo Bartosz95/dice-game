@@ -1,25 +1,24 @@
 .my-row-style {
-    text-align: center;
+  text-align: center;
 }
 
 .selected-cell {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .can-be-select-cell:hover {
-    opacity: 0.5;
-    
+  opacity: 0.5;
 }
 
-.can-be-select-cell-text{
-    color: #6c757d;
+.can-be-select-cell-text {
+  color: #6c757d;
 }
 
-.select-cell-text{
-    color: black !important;
+.select-cell-text {
+  color: black !important;
 }
 
 .figureNameRow {
-    width: 120px;
-    text-align: center;
+  width: 120px;
+  text-align: center;
 }

@@ -1,33 +1,33 @@
 .logo {
-    height: 60px;
+  height: 60px;
 }
 
 img {
-    height: 100%;
-    width: auto;
-    margin-left: 50px;
+  height: 100%;
+  width: auto;
+  margin-left: 50px;
 }
 
 .nav {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .navLink {
-    text-align: center;
-    font-size: x-large;
+  text-align: center;
+  font-size: x-large;
 }
 
 .userBar {
-    width: 150px;
-    height: 60px;
-    padding-right: 50px;
+  width: 150px;
+  height: 60px;
+  padding-right: 50px;
 }
 
 .userBarBtn {
-    font-size: large;
-    margin-top: 8px;
+  font-size: large;
+  margin-top: 8px;
 }
 
 .yourGameNewText {
-    color: #198754 !important;
+  color: #198754 !important;
 }

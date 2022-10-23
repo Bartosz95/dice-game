@@ -1,10 +1,13 @@
-import React from "react"
-import { Button } from 'react-bootstrap';
+import React from "react";
+import { Button } from "react-bootstrap";
 
-export default props => <Button
-    onClick={() => props.selectUser(props.user_props)} 
-    variant={ props.user_props.selected ? "secondary" : "outline-secondary"}
+export default (props) => (
+  <Button
+    onClick={() => props.selectUser(props.user_props)}
+    variant={props.user_props.selected ? "secondary" : "outline-secondary"}
     id={props.user_props.id}
-    className={"user"}>
+    className={"user"}
+  >
     {props.user_props.username}
-</Button>
+  </Button>
+);
