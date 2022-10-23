@@ -22,14 +22,7 @@ export default () => {
     dispatch(initConfig())
   }, [dispatch])
 
-  const location = useLocation()
   const { keycloak, initialized } = useKeycloak()
-
-  useEffect(() => {
-    if(!initialized && location.pathname !== '/home') {
-      window.location.replace('/home')
-    }
-  }, [initialized, location])
 
   useEffect(() => {
     const loadUserInfo = async () => {
@@ -56,9 +49,11 @@ export default () => {
     <Routes>
       <Route path='/' element={<Navigate replace to='home'/>} />        
       <Route path="/home" element={<Home/>} />
-      <Route path="/create" element={<Create/>} />
-      <Route path="/games" element={<Games/>} />
-      <Route path="/games/:gameID" element={<Game/>} />
+      { keycloak.authenticated && <Fragment>
+        <Route path="/create" element={<Create/>} /> 
+        <Route path="/games" element={<Games/>} />
+        <Route path="/games/:gameID" element={<Game/>} /></Fragment> 
+      }
       <Route path='*' element={<Navigate replace to='/home'/>} />
     </Routes>
   </Suspense>
