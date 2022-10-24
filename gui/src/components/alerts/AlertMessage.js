@@ -5,10 +5,10 @@ export default (props) => {
 
   let level = props.elems.level;
 
-  if (level !== "info" && level !== "warning" && level !== "error") {
-    level = "error";
-  }
-  if (level === "error") {
+  if (
+    (level !== "info" && level !== "warning" && level !== "error") ||
+    level === "error"
+  ) {
     level = "danger";
   }
 

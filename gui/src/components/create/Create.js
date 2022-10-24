@@ -4,7 +4,7 @@ import { Container, Button, Form, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useKeycloak } from "@react-keycloak/web";
 
-import "./create.css";
+import classes from "./create.module.css";
 
 import User from "./User";
 import AlertMessage from "../alerts/AlertMessage";
@@ -48,7 +48,7 @@ export default () => {
       <Fragment>You cannot choose users because you are the only one</Fragment>
     ) : (
       <Fragment>
-        <div className="selectPlayersText">Choose players</div>
+        <div className={classes.selectPlayersText}>Choose players</div>
         <div>
           {users.map((user) => (
             <User key={user.id} user_props={user} selectUser={selectUser} />
@@ -86,18 +86,18 @@ export default () => {
 
   const content = (
     <Fragment>
-      <Form className="gameNameForm">
+      <Form className={classes.gameNameForm}>
         <Form.Label>Write game name</Form.Label>
         <Form.Control type="name" placeholder="name" onChange={handleChange} />
       </Form>
 
       {userList}
 
-      <div className="createGameDiv">
+      <div className={classes.createGameDiv}>
         And play the game!
         <br />
         <Button
-          className="createGameBtn"
+          className={classes.createGameBtn}
           variant="success"
           onClick={createGame}
         >
@@ -108,13 +108,13 @@ export default () => {
   );
 
   return (
-    <Container className="mainContainer">
+    <Container className={classes.mainContainer}>
       {alertMessage && <AlertMessage elems={alertMessage} />}
 
       {renderContent && keycloak.authenticated ? (
         content
       ) : (
-        <div className="spinner">
+        <div className={classes.spinner}>
           <Spinner animation="border" variant="secondary" />
         </div>
       )}

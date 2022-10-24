@@ -4,12 +4,12 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useSelector } from "react-redux";
 import { useKeycloak } from "@react-keycloak/web";
 
-import "./navbar.css";
+import classes from "./navbar.module.css";
 
 import useHttpRequest from "../../hooks/useHttpRequest";
 import UserBar from "./UserBar";
 
-export default () => {
+const NavBar = () => {
   const [numberOfYourTurn, setNumberOfYourTurn] = useState(0);
   const { fetchData } = useHttpRequest();
   const { keycloak } = useKeycloak();
@@ -25,29 +25,33 @@ export default () => {
   }, [DICE_GAME_API, fetchData]);
 
   return (
-    <Navbar className="nav bg-light">
+    <Navbar className={`nav bg-light ${classes.nav} `}>
       <Nav className="navbar-collapse">
         <LinkContainer to="/home">
-          <Nav.Link className="logo">
+          <Nav.Link className={classes.logo}>
             <img src="img/logo.png" />
           </Nav.Link>
         </LinkContainer>
 
         <LinkContainer to="/home">
-          <Nav.Link className="link-secondary navLink">Home</Nav.Link>
+          <Nav.Link className={`link-secondary navLink ${classes.navLink}`}>
+            Home
+          </Nav.Link>
         </LinkContainer>
 
         {keycloak.authenticated && (
           <LinkContainer to="/create">
-            <Nav.Link className="link-secondary navLink">New Game</Nav.Link>
+            <Nav.Link className={`link-secondary navLink ${classes.navLink}`}>
+              New Game
+            </Nav.Link>
           </LinkContainer>
         )}
 
         {keycloak.authenticated && (
           <LinkContainer to="/games">
             <Nav.Link
-              className={`link-secondary navLink ${
-                numberOfYourTurn !== 0 ? "yourGameNewText" : ""
+              className={`link-secondary navLink ${classes.navLink} ${
+                numberOfYourTurn !== 0 ? classes.yourGameNewText : ""
               }`}
             >
               Your Games
@@ -55,9 +59,11 @@ export default () => {
           </LinkContainer>
         )}
       </Nav>
-      <Nav className="justify-content-end userBar">
+      <Nav className={`justify-content-end ${classes.userBar}`}>
         <UserBar />
       </Nav>
     </Navbar>
   );
 };
+
+export default NavBar;

@@ -1,8 +1,8 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import "./GameTable.css";
+import classes from "./GameTable.module.css";
 
-export default (props) => {
+const GameTable = (props) => {
   const { markFigureTochoose, chosenFigure } = props;
   const { players, currentPlayer, numberOfRoll, isYourTurn } = props.game;
 
@@ -23,13 +23,15 @@ export default (props) => {
   };
 
   const getStyle = (player, figure) => {
-    const cellStyle = " table-success";
+    const cellStyle = ["table-success"];
     if (isFigureSelected(player, figure)) {
-      return cellStyle + " selected-cell";
+      cellStyle.push(classes["selected-cell"]);
     } else if (canBeSelected(player, figure)) {
-      return cellStyle + " can-be-select-cell";
+      cellStyle.push(classes["can-be-select-cell"]);
+    } else {
+      return "";
     }
-    return "";
+    return cellStyle.join(" ");
   };
 
   const cellText = (player, figure) => {
@@ -37,7 +39,7 @@ export default (props) => {
       if (isFigureSelected(player, figure)) {
         return figure;
       }
-      return <div className="can-be-select-text">{figure}</div>;
+      return <div className={classes["can-be-select-text"]}>{figure}</div>;
     }
     return "";
   };
@@ -45,9 +47,9 @@ export default (props) => {
   const cellClass = (player, figure) => {
     if (canBeSelected(player, figure)) {
       if (isFigureSelected(player, figure)) {
-        return "select-cell-text";
+        return classes["select-cell-text"];
       }
-      return "can-be-select-cell-text";
+      return classes["can-be-select-cell-text"];
     }
     return "";
   };
@@ -58,13 +60,12 @@ export default (props) => {
 
   if (players[0]) {
     for (const player of players) {
+      const style = [
+        classes["my-row-style"],
+        player.id === currentPlayer && classes["table-success"],
+      ];
       head.push(
-        <th
-          key={player.id}
-          className={`my-row-style ${
-            player.id === currentPlayer ? "table-success" : ""
-          }`}
-        >
+        <th key={player.id} className={`table-success ${style.join(" ")}`}>
           {player.username}
         </th>
       );
@@ -73,12 +74,13 @@ export default (props) => {
     for (const figure of Object.keys(players[0].table)) {
       const row = [];
       row.push(
-        <td key={`f${figure}`} className="figureNameRow">
+        <td key={`f${figure}`} className={classes.figureNameRow}>
           {figure}
         </td>
       );
 
       for (const player of players) {
+        const style = [classes["my-row-style"], getStyle(player, figure)];
         row.push(
           <td
             key={`p${player.id}f${figure}`}
@@ -87,7 +89,7 @@ export default (props) => {
                 ? () => markFigureTochoose(figure)
                 : () => {}
             }
-            className={`my-row-style ${getStyle(player, figure)} {}`}
+            className={`${style.join(" ")}`}
           >
             <div className={cellClass(player, figure)}>
               {" "}
@@ -110,3 +112,5 @@ export default (props) => {
     </Table>
   );
 };
+
+export default GameTable;

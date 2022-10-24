@@ -1,3 +1,8 @@
+.mainContainer {
+  margin: auto;
+  padding-top: 50px;
+}
+
 .dice-game-container {
   /* margin-top: 50px; */
   padding: 5%;
@@ -10,23 +15,6 @@
   margin-bottom: 50px;
   float: left;
   width: auto;
-}
-
-.turnInfoDiv {
-  font-size: medium;
-  padding: 25px;
-  margin-right: 50px;
-  float: right;
-  border: 10px;
-}
-
-.turn {
-  color: #6c757d;
-}
-
-.numberOfRoll {
-  color: #6c757d;
-  margin-top: 5px;
 }
 
 .hide {

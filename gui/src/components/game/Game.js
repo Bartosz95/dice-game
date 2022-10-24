@@ -4,8 +4,9 @@ import { useParams } from "react-router-dom";
 import useHttpRequest from "../../hooks/useHttpRequest";
 import { useSelector } from "react-redux";
 
-import "./game.css";
-import Dice from "./dice/dice";
+import classes from "./game.module.css";
+
+import Dice from "./dice/Dice";
 import GameTable from "./table/GameTable";
 import AlertMessage from "../alerts/AlertMessage";
 import WinMessage from "./WinMessage";
@@ -140,14 +141,14 @@ export default () => {
   const playDiv = (
     <Fragment>
       <Fragment>
-        <div className="gameName">{game.gameName}</div>
+        <div className={classes.gameName}>{game.gameName}</div>
         <TurnInfo
           numberOfRoll={game.numberOfRoll}
           numberOfTurn={game.numberOfTurn}
         />
       </Fragment>
-      <div className="dices">{dicesDiv}</div>
-      <div className="buttonsDiv">
+      <div className={classes.dices}>{dicesDiv}</div>
+      <div className={classes.buttonsDiv}>
         <RollTheDicesButton
           isYourTurn={game.isYourTurn}
           numberOfRoll={game.numberOfRoll}
@@ -175,12 +176,15 @@ export default () => {
   );
 
   return (
-    <Container fluid className="mainContainer dice-game-container">
+    <Container
+      fluid
+      className={`${classes.mainContainer} ${classes["dice-game-container"]}`}
+    >
       {alertDiv}
       {renderContent || notReload ? (
         content
       ) : (
-        <div className="spinner">
+        <div className={classes.spinner}>
           <Spinner animation="border" variant="secondary" />
         </div>
       )}

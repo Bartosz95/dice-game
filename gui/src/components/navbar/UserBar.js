@@ -3,14 +3,16 @@ import { NavDropdown, Dropdown, Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useKeycloak } from "@react-keycloak/web";
 
-export default () => {
+import classes from "./navbar.module.css";
+
+const UserBar = () => {
   const { keycloak } = useKeycloak();
   const { userInfo } = useSelector((state) => state.auth);
 
   const loginDiv = (
     <Nav.Link
       variant="outline-secondary"
-      className="userBarBtn"
+      className={classes.userBarBtn}
       onClick={keycloak.login}
     >
       Login
@@ -19,7 +21,7 @@ export default () => {
 
   const logoutDiv = (
     <Dropdown.Item
-      className="navItem"
+      className={classes.navItem}
       onClick={() => {
         keycloak.logout();
         window.location.href = `/`;
@@ -30,7 +32,10 @@ export default () => {
   );
 
   const accountManagementDiv = (
-    <Dropdown.Item className="navItem" onClick={keycloak.accountManagement}>
+    <Dropdown.Item
+      className={classes.navItem}
+      onClick={keycloak.accountManagement}
+    >
       Account
     </Dropdown.Item>
   );
@@ -39,7 +44,7 @@ export default () => {
     <NavDropdown
       title={userInfo.preferred_username}
       variant="outline-secondary"
-      className="userBarBtn"
+      className={classes.userBarBtn}
     >
       {logoutDiv}
     </NavDropdown>
@@ -47,3 +52,5 @@ export default () => {
 
   return <Fragment>{keycloak.authenticated ? dropdown : loginDiv}</Fragment>;
 };
+
+export default UserBar;

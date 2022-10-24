@@ -3,7 +3,7 @@ import { Container, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useKeycloak } from "@react-keycloak/web";
 
-import "./games.css";
+import classes from "./games.module.css";
 
 import SingleGameDiv from "./SingleGameDiv";
 import CreateDiv from "./CreateDiv";
@@ -38,13 +38,13 @@ export default () => {
   const content = games.length > 0 ? gamesDiv : <CreateDiv />;
 
   return (
-    <Container className="mainContainer">
+    <Container className={classes.mainContainer}>
       {alertMessage && <AlertMessage elems={alertMessage} />}
       {deleteMessage && <AlertMessage elems={deleteMessage} />}
       {renderContent ? (
         content
       ) : (
-        <div className="spinner">
+        <div className={classes.spinner}>
           <Spinner animation="border" variant="secondary" />
         </div>
       )}

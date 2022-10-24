@@ -1,9 +1,12 @@
 import { Badge } from "react-bootstrap";
+import classes from "./turnInfo.module.css";
 
-export default (props) => (
-  <Badge pill bg="light" text="dark" className="turnInfoDiv">
-    <div className="numberOfRoll">Roll: {props.numberOfRoll}</div>
+const TurnInfo = (props) => (
+  <Badge pill bg="light" text="dark" className={classes.turnInfoDiv}>
+    <div className={classes.numberOfRoll}>Roll: {props.numberOfRoll}</div>
     <br />
-    <div className="turn">Turn: {props.numberOfTurn}</div>
+    <div className={classes.turn}>Turn: {props.numberOfTurn}</div>
   </Badge>
 );
+
+export default TurnInfo;

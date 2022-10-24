@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { useKeycloak } from "@react-keycloak/web";
 
-export default () => {
+const useHttpRequest = () => {
   const [alertMessage, setAlertMessage] = useState(null);
   const [renderContent, setRenderContent] = useState(false);
   const { keycloak } = useKeycloak();
@@ -47,3 +47,5 @@ export default () => {
 
   return { alertMessage, renderContent, fetchData };
 };
+
+export default useHttpRequest

@@ -1,14 +1,16 @@
 import { useEffect, useReducer } from "react";
 import { Button } from "react-bootstrap";
-import "./dice.css";
+
+import classes from "./dice.module.css";
 
 const reducer = (previousState, action) => {
+  const style = [classes.dice, !previousState.isSelected && classes.diceToRoll];
   switch (action.type) {
     case "SELECT_DICE":
       return {
         ...previousState,
         isSelected: !previousState.isSelected,
-        className: `dice ${!previousState.isSelected ? "diceToRoll" : ""}`,
+        className: style.join(" "),
       };
     case "SET_STATE":
       return action.state;
@@ -28,7 +30,7 @@ const getInitialState = (props) => {
       value: props.dice_props.value,
       isSelected: false,
       variant: "outline-secondary",
-      className: "dice",
+      className: classes.dice,
       disabled: true,
     };
   } else {
@@ -37,13 +39,13 @@ const getInitialState = (props) => {
       value: props.dice_props.value,
       isSelected: false,
       variant: "success",
-      className: "dice",
+      className: classes.dice,
       disabled: false,
     };
   }
 };
 
-export default (props) => {
+const Dice = (props) => {
   const [state, dispatch] = useReducer(reducer, getInitialState(props));
 
   const clickAction = (e) => {
@@ -69,3 +71,5 @@ export default (props) => {
     </Button>
   );
 };
+
+export default Dice;

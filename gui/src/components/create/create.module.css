@@ -1,6 +1,8 @@
 .mainContainer {
-  margin-top: 50px;
+  margin: auto;
+  padding-top: 50px;
 }
+
 .gameNameForm {
   width: 300px;
   margin-top: 50px;

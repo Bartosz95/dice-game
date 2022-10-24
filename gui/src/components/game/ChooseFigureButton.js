@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { Button } from "react-bootstrap";
-import "./sendButtons.css";
+import classes from "./sendButtons.module.css";
 
 const reducer = (previousState, action) => {
   const { isYourTurn, numberOfRoll, isFigureSelected } = action;
@@ -8,28 +8,28 @@ const reducer = (previousState, action) => {
   if (!isYourTurn) {
     return {
       variant: "outline-secondary",
-      className: "chooseFigureButton hide",
+      className: `${classes.chooseFigureButton} ${classes.hide}`,
       disabled: true,
       value: "",
     };
   } else if (numberOfRoll === 0) {
     return {
       variant: "outline-secondary",
-      className: "chooseFigureButton",
+      className: classes.chooseFigureButton,
       disabled: true,
       value: "You have to roll all dice",
     };
   } else if (!isFigureSelected) {
     return {
       variant: "outline-secondary",
-      className: "chooseFigureButton",
+      className: classes.chooseFigureButton,
       disabled: true,
       value: "Choose figure to save",
     };
   } else {
     return {
       variant: "success",
-      className: "chooseFigureButton",
+      className: classes.chooseFigureButton,
       disabled: false,
       value: "Save figure",
     };
@@ -38,12 +38,12 @@ const reducer = (previousState, action) => {
 
 const initialState = {
   variant: "outline-secondary",
-  className: "chooseFigureButton hide",
+  className: `${classes.chooseFigureButton} ${classes.hide}`,
   disabled: true,
   value: "",
 };
 
-export default (props) => {
+const ChooseFigureButton = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -61,3 +61,5 @@ export default (props) => {
     </Button>
   );
 };
+
+export default ChooseFigureButton;

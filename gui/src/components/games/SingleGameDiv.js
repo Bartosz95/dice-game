@@ -2,33 +2,39 @@ import { ListGroup, Button, Badge } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import dateFormat from "dateformat";
 
-import "./games.css";
+import classes from "./games.module.css";
 
-export default (props) => {
+const SingleGameDiv = (props) => {
   const { checked, _id, isYourTurn, isActive, createdAt } = props.game;
   const navigate = useNavigate();
+
+  const style = [
+    classes.gameInfo,
+    isYourTurn && classes.isYourTurnSingleGameDiv,
+    checked && classes.isChecked,
+  ];
+
+  console.log(style.join(" "));
 
   const game = {
     ...props.game,
     dateText: dateFormat(new Date(createdAt), "d.mm.yyyy hh:MM"),
-    playerClassName: isYourTurn ? "isYourTurnSingleGameDiv" : "",
-    className: `gameInfo ${isYourTurn ? "isYourTurnSingleGameDiv" : ""} ${
-      checked ? "isChecked" : ""
-    }`,
+    playerClassName: isYourTurn && classes.isYourTurnSingleGameDiv,
+    className: style.join(" "),
     disabled: !isActive,
   };
 
   return (
     <div key={game._id} className={game.className}>
-      <div className="name">{game.name}</div>
+      <div className={classes.name}>{game.name}</div>
 
-      <Badge pill bg="secondary" className="turnInfo">
+      <Badge pill bg="secondary" className={classes.turnInfo}>
         {game.numberOfTurn}
       </Badge>
 
-      <div className="gameDate">{game.dateText}</div>
+      <div className={classes.gameDate}>{game.dateText}</div>
 
-      <div className="playersLabelText">
+      <div className={classes.playersLabelText}>
         Players:
         <br />
       </div>
@@ -46,7 +52,7 @@ export default (props) => {
 
       <Button
         variant="outline-success"
-        className="playBtn"
+        className={classes.playBtn}
         onClick={() => navigate(`/games/${game._id}`)}
         disabled={game.disabled}
       >
@@ -55,7 +61,7 @@ export default (props) => {
 
       <Button
         variant="outline-danger"
-        className="deleteBtn"
+        className={classes.deleteBtn}
         onClick={() => props.deleteGame(_id)}
       >
         Delete
@@ -63,3 +69,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default SingleGameDiv;
