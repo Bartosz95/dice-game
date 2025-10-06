@@ -1,8 +1,8 @@
-# DICE GAME
+# YATZY
 
 ## Abstract
-Dice game is a simple game when you play with other users. 
-The aim of the game is to score the highest number of points. 
+YATZY is a simple dice game that you play with other users. 
+The game aims to score the highest number of points. 
 Check the tutorial below to learn how to play. 
 You need to know that the game is only available for login users.
 
@@ -19,8 +19,8 @@ You need to know that the game is only available for login users.
 - Postgres
 
 ## Description
-In this document you will find a few sections. 
-Current section presents you quick overview about project. Next you will find section called Requirements where you find what tools are necessary for installation. Section Installation leads you through the installation process of the game. Next to you can find a Tutorial which explains you how you can use the app. It shows you how to play the game through User Interface and what endpoints are exposed by Dice Game API. Next paragraph explains to you more how the Dice Game is built because it is a pretty complex system. 
+In this document, you will find a few sections. 
+Current section presents you quick overview about the project. Next you will find section called Requirements where you find what tools are necessary for installation. Section Installation leads you through the installation process of the game. Next to you can find a Tutorial which explains you how you can use the app. It shows you how to play the game through User Interface and what endpoints are exposed by Dice Game API. Next paragraph explains to you more how the Dice Game is built because it is a pretty complex system. 
 
 Users have access to Graphical User Interface (GUI) and Application Programming Interface (API).
 Graphical interface is built in *React* and for style this application it uses *Bootstrap*. Run this app I use *nginx* service.
